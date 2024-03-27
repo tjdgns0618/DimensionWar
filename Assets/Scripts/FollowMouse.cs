@@ -32,7 +32,7 @@ public class FollowMouse : MonoBehaviour
             {
                 transform.position = hit.transform.position + new Vector3(0, 1f, 0);
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && hit.transform.childCount == 0)
                 {
                     Build = true;
 
@@ -40,10 +40,22 @@ public class FollowMouse : MonoBehaviour
                     GameObject instance = Instantiate(Towerprefab, hit.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                     instance.transform.SetParent(hit.transform);
                     Destroy(this.gameObject);
+                    Debug.Log(this.gameObject.name + "설치 완료");
+                }
+                else if(Input.GetMouseButtonDown(0) && hit.transform.childCount == 1)
+                {
+                    Destroy(this.gameObject);
+                    Debug.Log("이미 타워가 설치되었습니다.");
                 }
             }
             else
             {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Destroy(this.gameObject);
+                    Debug.Log("설치 불가능한 블록입니다.");
+                }
+
                 // 카메라가 비추는 지면에 대한 위치를 얻습니다.
                 Vector3 targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
 
@@ -51,13 +63,5 @@ public class FollowMouse : MonoBehaviour
                 transform.position = targetPosition;
             }
         }
-        //else
-        //{
-        //    // 카메라가 비추는 지면에 대한 위치를 얻습니다.
-        //    Vector3 targetPosition = new Vector3(Input.mousePosition.x, surfaceHeight, Input.mousePosition.z);
-
-        //    // 오브젝트를 해당 위치로 이동시킵니다.
-        //    transform.position = targetPosition;
-        //}
     }
 }
