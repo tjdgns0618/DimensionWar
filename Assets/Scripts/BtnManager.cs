@@ -9,8 +9,9 @@ public class BT : MonoBehaviour
 
     public void SpawnTower()
     {
-        Instantiate(Tower[0], Input.mousePosition, Quaternion.identity);
+        Instantiate(Tower[0], Input.mousePosition, Quaternion.Euler(15,0,0));
         Debug.Log(Tower[0].name + "»ý¼º");
     }
+
 
 }

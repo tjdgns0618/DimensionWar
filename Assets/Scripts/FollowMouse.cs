@@ -28,16 +28,18 @@ public class FollowMouse : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit) && !Build)
         {
+            // 원거리 설치가능 || 근거리블록 설치 불가
             if (hit.transform.gameObject.CompareTag("Buildable"))
             {
                 transform.position = hit.transform.position + new Vector3(0, 1f, 0);
+                transform.rotation = Quaternion.Euler(15, 0, 0);
 
                 if (Input.GetMouseButtonDown(0) && hit.transform.childCount == 0)
                 {
                     Build = true;
 
                     // 타워 제작 후 오브젝트 제거
-                    GameObject instance = Instantiate(Towerprefab, hit.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                    GameObject instance = Instantiate(Towerprefab, hit.transform.position + new Vector3(0, 0, 0), Quaternion.Euler(15,0,0));
                     instance.transform.SetParent(hit.transform);
                     Destroy(this.gameObject);
                     Debug.Log(this.gameObject.name + "설치 완료");
@@ -61,6 +63,7 @@ public class FollowMouse : MonoBehaviour
 
                 // 오브젝트를 해당 위치로 이동시킵니다.
                 transform.position = targetPosition;
+
             }
         }
     }
