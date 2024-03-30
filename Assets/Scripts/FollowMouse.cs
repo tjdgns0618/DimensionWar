@@ -31,17 +31,20 @@ public class FollowMouse : MonoBehaviour
             // 원거리 설치가능 || 근거리블록 설치 불가
             if (hit.transform.gameObject.CompareTag("Buildable"))
             {
-                transform.position = hit.transform.position + new Vector3(0, 1f, 0);
-                transform.rotation = Quaternion.Euler(15, 0, 0);
+                transform.position = hit.transform.position + new Vector3(0, 1f, -0.5f);
+                transform.rotation = Quaternion.Euler(30, 0, 0);
 
                 if (Input.GetMouseButtonDown(0) && hit.transform.childCount == 0)
                 {
                     Build = true;
 
                     // 타워 제작 후 오브젝트 제거
-                    GameObject instance = Instantiate(Towerprefab, hit.transform.position + new Vector3(0, 0, 0), Quaternion.Euler(15,0,0));
+                    GameObject instance = Instantiate(Towerprefab);
                     instance.transform.SetParent(hit.transform);
+                    instance.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
+                    instance.transform.rotation = Quaternion.Euler(30, 0, 0);
                     Destroy(this.gameObject);
+                    hit.transform.gameObject.layer = 2;
                     Debug.Log(this.gameObject.name + "설치 완료");
                 }
                 else if(Input.GetMouseButtonDown(0) && hit.transform.childCount == 1)
@@ -58,8 +61,14 @@ public class FollowMouse : MonoBehaviour
                     Debug.Log("설치 불가능한 블록입니다.");
                 }
 
+                Vector3 targetPosition;
                 // 카메라가 비추는 지면에 대한 위치를 얻습니다.
-                Vector3 targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
+                if (transform.position.z > 4)
+                    targetPosition = new Vector3(hit.point.x, surfaceHeight, 4);
+                else
+                    targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
+
+                transform.rotation = Quaternion.Euler(30, 0, 0);
 
                 // 오브젝트를 해당 위치로 이동시킵니다.
                 transform.position = targetPosition;

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 12
+  - eventID: 13
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -279,7 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b051113787aac6740afc7a8242502951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
+  nextTower: {fileID: 1000011539305864, guid: 73f3cb7cea9b53c4c9302846225c01ab, type: 3}
 --- !u!65 &4653201794354984057
 BoxCollider:
   m_ObjectHideFlags: 0

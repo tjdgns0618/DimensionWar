@@ -18,8 +18,13 @@ public class TowerMerge : MonoBehaviour
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
         GameManager.Instance.towers.Add(this.gameObject);
     }
-
+    
     private void Update()
+    {
+        Merge();
+    }
+
+    public void Merge()
     {
         Vector3 mousePosition = Input.mousePosition;
 
@@ -29,7 +34,7 @@ public class TowerMerge : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             // 타워가 있는 블록을 클릭했을경우 타워가 있다면 클릭이 되는 코드
-            if (Input.GetMouseButtonDown(0) && hit.transform.CompareTag("Buildable") 
+            if (Input.GetMouseButtonDown(0) && hit.transform.CompareTag("Buildable")
                 && hit.transform.childCount == 1 && canClick)
             {
                 hit.transform.GetChild(0).gameObject.GetComponent<TowerMerge>().doMerge = true;
@@ -38,16 +43,16 @@ public class TowerMerge : MonoBehaviour
                 Debug.Log(canClick);
                 Click = 1; // 클릭됐을때 공격안하는 state로 변경
             }
-            else if (Input.GetMouseButtonDown(0) && doMerge && 
+            else if (Input.GetMouseButtonDown(0) && doMerge &&
                 hit.transform.GetChild(0).gameObject.GetComponent<TowerMerge>().id == this.id
                 && hit.transform.GetChild(0).gameObject.layer != 2)
-            { 
+            {
                 Debug.Log(hit.transform.GetChild(0).gameObject.GetComponent<TowerMerge>().id);
                 Debug.Log(canClick);
                 if (doMerge)
                     Destroy(this.gameObject);
-                Destroy(hit.transform.GetChild(0).gameObject);                
-                GameObject instance = Instantiate(nextTower, hit.transform.position + new Vector3(0,surfaceHeight,0), Quaternion.Euler(15, 0, 0));
+                Destroy(hit.transform.GetChild(0).gameObject);
+                GameObject instance = Instantiate(nextTower, hit.transform.position + new Vector3(0, surfaceHeight, 0), Quaternion.Euler(15, 0, 0));
                 instance.transform.SetParent(hit.transform);
 
                 for (int i = 0; i < GameManager.Instance.towers.Count; i++)
