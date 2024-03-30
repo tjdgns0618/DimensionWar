@@ -59,12 +59,12 @@ public class TowerMerge : MonoBehaviour
         // 클릭된 타워 마우스 따라오는 코드 / 설치 불가구역 클릭시 돌아가는 코드필요함
         if (doMerge)
         {
-            Vector3 targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
-
             //오브젝트를 해당 위치로 이동시킵니다.
-            transform.position = targetPosition;
             if (Physics.Raycast(ray, out hit))
             {
+                Vector3 targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
+                transform.position = targetPosition;
+
                 if (Input.GetMouseButtonDown(0) && !hit.transform.CompareTag("Buildable"))
                 {
                     hit.transform.GetChild(0).gameObject.GetComponent<TowerMerge>().doMerge = false;
