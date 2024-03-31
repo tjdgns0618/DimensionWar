@@ -2294,7 +2294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 529766833}
-  - component: {fileID: 529766832}
+  - component: {fileID: 529766834}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2302,19 +2302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &529766832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529766831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d63f6bd42e7e5474a8d658be417cf3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towers: []
 --- !u!4 &529766833
 Transform:
   m_ObjectHideFlags: 0
@@ -2330,6 +2317,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529766834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529766831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379ddca2f5e668548bef54783750ceb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towers: []
+  isLive: 0
+  gameTime: 0
+  level: 0
+  Health: 0
+  maxHealth: 100
+  tower: {fileID: 0}
+  EnemyCleaner: {fileID: 0}
 --- !u!1 &560276985
 GameObject:
   m_ObjectHideFlags: 0
