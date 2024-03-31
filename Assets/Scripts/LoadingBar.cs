@@ -51,6 +51,7 @@ public class LoadingBar : MonoBehaviour
         Set_FillAmount(0);
         isEnded = false;
     }
+
     private void Set_FillAmount(float _value)
     {
         slider.value = _value;

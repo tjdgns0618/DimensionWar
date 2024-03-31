@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BgmSlider.value = PlayerPrefs.GetFloat("BgmValue");
+        if(BgmSlider)
+            BgmSlider.value = PlayerPrefs.GetFloat("BgmValue");
     }
 
     public void LoadScene(string name)
