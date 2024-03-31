@@ -4,100 +4,117 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public enum Tower_State
-    {
-        Idle,
-        Attack,
-        Die
-    }
-    Tower_State tower_State;
-    public GameObject attack_Core;
+    public int Tower_id;
+    public enum Tower_State { Idle,Tagget,Attack,Skill}
+    public enum Tower_Type { Meele,Range}
 
+    public Tower_State tower_state;
+    public Tower_Type tower_type;
     public bool isMelea;        //근접타워인지 판별하기위한변수
     public bool isWall;         //근접타워가 현재 적을 막을수 있는 상태인지 확인하는 변수
-    [SerializeField]
-    private float AttackRange = 5f;
-    [SerializeField]
+    
+    public float AttackRange = 5f;
+    
     public float AttackDel = 3f;
-    [SerializeField]
+    
     private float SkillCost = 0;
-    [SerializeField]
-    private int Damage = 10;
+    private float SkillCount = 0;
 
-    private GameObject shortOb;
+    public float Damage = 10;
 
-    Vector3 CurPosiotion;
+    public LayerMask targetLayer;
+    public RaycastHit[] targets;
+    public Transform nearestTarget;
+    float  attTime;
 
-    public SphereCollider sphere;
-
-    public List<GameObject> enemys = new List<GameObject>();
-    // Start is called before the first frame update
-    void Start()
+    public GameObject bullet;
+    public Vector3 dir;
+    void Awake()
     {
-        tower_State = Tower_State.Idle;
-
-        
+        tower_state = Tower_State.Idle;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0, targetLayer);
+
+        nearestTarget = Scan();
         
+        if (nearestTarget!=null)
+        {
+            Attack();
+        }
+        else 
+        {
+            tower_state = Tower_State.Idle;
+        }
     }
-    public void ChangeState(Tower_State _Tstate)
+    void Init()
     {
-        
+
     }
-    IEnumerator SearchEnemy()
+    void OnDrawGizmos()
     {
-        
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, AttackRange);
+    }
+    Transform Scan()
+    {
         //가장 가까운적 추척
-        foreach (GameObject enemy in enemys)
+        Transform result = null;
+        float diff = Mathf.Infinity;
+
+        foreach (RaycastHit target in targets)
         {
-
+            Vector3 myPos = transform.position;
+            Vector3 targetPos = target.transform.position;
+            float curDiff = Vector3.Distance(myPos, targetPos);
+            if (curDiff < diff)
+            {
+                diff = curDiff;
+                result = target.transform;
+                
+            }
         }
-       
-        yield return null;
-    }
-    IEnumerator Attack(GameObject g)
-    {
-        //Instantiate(attack_Core, transform.position, transform.rotation);
-        g.gameObject.GetComponent<TestEnemy>().Dameged(Damage);
+        tower_state = Tower_State.Attack;
 
-        Debug.Log("!");
-        
-        yield return new WaitForSeconds(AttackDel);
-
+        return result;
     }
-    void attackwait()
+    void Attack()
     {
-        StartCoroutine(SearchEnemy());
-        StartCoroutine(Attack(shortOb));
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        //리스트에 저장
-        if (other.CompareTag("Enemy"))
+        if(tower_state==Tower_State.Attack)
         {
-            enemys.Add(other.gameObject);
-            tower_State = Tower_State.Attack;
-            shortOb = other.gameObject;
-        }
-        else if(other.CompareTag("Ui"))
-        {
+            attTime += Time.deltaTime;
+            if (attTime >= AttackDel)
+            {
+                attTime = 0;
+                SkillCount++;
+                Debug.Log("attack"+gameObject.name);
+               if(tower_type==Tower_Type.Range)
+                {
+                    dir = (nearestTarget.position- transform.position).normalized;
+                    GameObject g =  Instantiate(bullet, transform.position, transform.rotation);
+                    g.GetComponent<Bullet>().Init(Damage, 5,dir);
 
-        }
-      
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        
 
-        
+                }
+               else if(tower_type==Tower_Type.Meele)
+                {
+                    nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
+                }
+            }
+            if(SkillCount >=SkillCost)
+            {
+                gameObject.GetComponent<Tower_Skill>().skill(Tower_id);
+                SkillCount = 0;
+
+            }
+        }
+
+
+
+
     }
-    private void OnTriggerExit(Collider other)
-    {
-        //리스트에서 제거
-        enemys.Remove(other.gameObject);
-    }
+    
+
 }
