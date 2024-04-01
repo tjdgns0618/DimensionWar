@@ -160,10 +160,10 @@ GameObject:
   - component: {fileID: 4000010240275622}
   - component: {fileID: 95000010581205308}
   - component: {fileID: 210992376426743328}
-  - component: {fileID: -3083962677648237480}
+  - component: {fileID: 4966465628793111771}
   m_Layer: 0
-  m_Name: boss_devil_man
-  m_TagString: Untagged
+  m_Name: boss_devil_man 1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +218,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_SortAtRoot: 0
---- !u!114 &-3083962677648237480
+--- !u!114 &4966465628793111771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,12 +227,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010262668220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
+  m_Script: {fileID: 11500000, guid: b9a4d3b936ba7d8449eab9789c8da376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   surfaceHeight: 0.7
-  Towerprefab: {fileID: 1000010262668220, guid: 6f8eeda3683771d46b75ee3353e76769,
-    type: 3}
+  id: 1
+  canClick: 1
+  nextTower: {fileID: 1000011539305864, guid: ddb8dec8e9dcf304fa398c7cc1bcd40a, type: 3}
 --- !u!1 &1000010415203692
 GameObject:
   m_ObjectHideFlags: 0

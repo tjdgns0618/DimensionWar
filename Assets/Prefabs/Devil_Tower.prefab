@@ -160,10 +160,13 @@ GameObject:
   - component: {fileID: 4000010240275622}
   - component: {fileID: 95000010581205308}
   - component: {fileID: 210992376426743328}
-  - component: {fileID: -3083962677648237480}
+  - component: {fileID: 4966465628793111771}
+  - component: {fileID: -8399012539603697414}
+  - component: {fileID: 4110412953726619773}
+  - component: {fileID: 4653201794354984057}
   m_Layer: 0
-  m_Name: boss_devil_man
-  m_TagString: Untagged
+  m_Name: Devil_Tower
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +221,24 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_SortAtRoot: 0
---- !u!114 &-3083962677648237480
+--- !u!114 &4966465628793111771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010262668220}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a4d3b936ba7d8449eab9789c8da376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceHeight: 0.7
+  doMerge: 0
+  id: 1
+  canClick: 1
+  nextTower: {fileID: 1000011539305864, guid: ddb8dec8e9dcf304fa398c7cc1bcd40a, type: 3}
+--- !u!114 &-8399012539603697414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,12 +247,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010262668220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaceHeight: 0.7
-  Towerprefab: {fileID: 1000010262668220, guid: 6f8eeda3683771d46b75ee3353e76769,
-    type: 3}
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4110412953726619773}
+          m_TargetAssemblyTypeName: TestScript, Assembly-CSharp
+          m_MethodName: SavePos
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4110412953726619773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010262668220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b051113787aac6740afc7a8242502951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {x: 0, y: 0, z: 0}
+  nextTower: {fileID: 1000011539305864, guid: 73f3cb7cea9b53c4c9302846225c01ab, type: 3}
+--- !u!65 &4653201794354984057
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010262668220}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 400, y: 400, z: 1}
+  m_Center: {x: 0, y: 250, z: 0}
 --- !u!1 &1000010415203692
 GameObject:
   m_ObjectHideFlags: 0
