@@ -47,6 +47,7 @@ public class TestScript : MonoBehaviour
 
     void OnEndDrag(PointerEventData data)
     {
+        this.gameObject.layer = 2;
         Vector3 mousePosition = Input.mousePosition;
 
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -54,18 +55,20 @@ public class TestScript : MonoBehaviour
         {
             if (hit.transform.childCount > 0 && this.transform.parent != hit.transform)
             {
-                gameObject.transform.parent.gameObject.layer = 1;
+                gameObject.layer = 0;
+                gameObject.transform.parent.gameObject.layer = 0;
                 Destroy(gameObject);
                 Destroy(hit.transform.gameObject);
                 GameObject instance = Instantiate(nextTower);
                 instance.transform.SetParent(hit.transform.parent);
-                instance.transform.localPosition = new Vector3(0,0.7f,-0.25f);
-                instance.transform.rotation = Quaternion.Euler(30,0,0);
+                instance.transform.localPosition = new Vector3(0,0.5f,0);
+                // instance.transform.rotation = Quaternion.Euler(0,90,0);
                 Debug.Log("합체성공");
             }
             else
             {
-                this.gameObject.transform.localPosition = temp;
+                gameObject.layer = 0;
+                this.gameObject.transform.localPosition = new Vector3(0, 0.5f, 0);
                 Debug.Log("합체불가, 설치불가지역");
             }
         }

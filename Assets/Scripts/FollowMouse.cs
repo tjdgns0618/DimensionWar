@@ -7,7 +7,7 @@ public class FollowMouse : MonoBehaviour
     // 카메라
     Camera mainCamera;
     // 카메라가 바라보는 지면의 높이를 결정합니다.
-    public float surfaceHeight = 0.7f;
+    public float surfaceHeight = 0f;
     public GameObject Towerprefab;
 
     RaycastHit hit;
@@ -31,9 +31,16 @@ public class FollowMouse : MonoBehaviour
             // 원거리 설치가능 || 근거리블록 설치 불가
             if (hit.transform.gameObject.CompareTag("Buildable"))
             {
-                transform.position = hit.transform.position + new Vector3(0, 1f, -0.5f);
-                transform.rotation = Quaternion.Euler(30, 0, 0);
+                if (gameObject.CompareTag("2D_Tower"))
+                {
+                    transform.position = hit.transform.position + new Vector3(0, 0.5f, -0.5f);
+                    transform.rotation = Quaternion.Euler(30, 0, 0);
+                }
+                else if (gameObject.CompareTag("3D_Tower"))
+                {
+                    transform.position = hit.transform.position + new Vector3(0, surfaceHeight, 0);
 
+                }
                 if (Input.GetMouseButtonDown(0) && hit.transform.childCount == 0)
                 {
                     Build = true;
@@ -41,8 +48,16 @@ public class FollowMouse : MonoBehaviour
                     // 타워 제작 후 오브젝트 제거
                     GameObject instance = Instantiate(Towerprefab);
                     instance.transform.SetParent(hit.transform);
-                    instance.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
-                    instance.transform.rotation = Quaternion.Euler(30, 0, 0);
+                    if (gameObject.CompareTag("2D_Tower"))
+                    {
+                        instance.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
+                        instance.transform.rotation = Quaternion.Euler(30, 0, 0);
+                    }
+                    else if(gameObject.CompareTag("3D_Tower"))
+                    {
+                        instance.transform.localPosition = new Vector3(0, 0.5f, 0);
+                        instance.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    }
                     Destroy(this.gameObject);
                     hit.transform.gameObject.layer = 2;
                     Debug.Log(this.gameObject.name + "설치 완료");
@@ -68,7 +83,10 @@ public class FollowMouse : MonoBehaviour
                 else
                     targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
 
-                transform.rotation = Quaternion.Euler(30, 0, 0);
+                if(gameObject.CompareTag("2D_Tower"))
+                    transform.rotation = Quaternion.Euler(30, 0, 0);
+                else if(gameObject.CompareTag("3D_Tower"))
+                    transform.rotation = Quaternion.Euler(0, 90, 0);
 
                 // 오브젝트를 해당 위치로 이동시킵니다.
                 transform.position = targetPosition;

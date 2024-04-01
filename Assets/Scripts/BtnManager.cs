@@ -7,10 +7,10 @@ public class BT : MonoBehaviour
     [Header("鸥况")]
     public GameObject[] Tower;
 
-    public void SpawnTower()
+    public void SpawnTower(int i)
     {
-        Instantiate(Tower[0], Input.mousePosition, Quaternion.Euler(45,0,0));
-        Debug.Log(Tower[0].name + "积己");
+        Instantiate(Tower[i], Input.mousePosition, Quaternion.Euler(45,0,0));
+        Debug.Log(Tower[i].name + "积己");
     }
 
 
