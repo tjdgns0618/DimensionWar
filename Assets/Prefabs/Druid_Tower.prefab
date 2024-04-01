@@ -237,11 +237,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 3
+  currentEnemyCount: 0
+  health: 500
   Tower_id: 1
   tower_state: 0
-  tower_type: 1
+  tower_type: 0
   tower_class: 1
-  isMelea: 0
+  isMelea: 1
   isWall: 0
   AttackRange: 5
   AttackDel: 3

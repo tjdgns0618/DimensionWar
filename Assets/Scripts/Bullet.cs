@@ -26,11 +26,16 @@ public class Bullet : MonoBehaviour
         rigid.velocity=dir*Speed;
         
     }
+
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("작동1");
         if(other.CompareTag("Enemy"))
         {
-            other.GetComponent<TestEnemy>().Dameged(damage);
+            Debug.Log("작동2");
+
+            // other.GetComponent<TestEnemy>().Dameged(damage);
+            other.GetComponent<EnemyController>().health -= 50;
             Destroy(gameObject);
         }
     }

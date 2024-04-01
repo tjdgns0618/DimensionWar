@@ -1,9 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public int maxEnemiesPerTower = 3; 
+    public int currentEnemyCount = 0; 
+    public float health = 100f; 
+
+
     public int Tower_id;
     public enum Tower_State { Idle, Tagget, Attack, Skill }
     public enum Tower_Type { Meele, Range }
@@ -16,8 +21,8 @@ public class Tower : MonoBehaviour
 
     
 
-    public bool isMelea;        //±ÙÁ¢Å¸¿öÀÎÁö ÆÇº°ÇÏ±âÀ§ÇÑº¯¼ö
-    public bool isWall;         //±ÙÁ¢Å¸¿ö°¡ ÇöÀç ÀûÀ» ¸·À»¼ö ÀÖ´Â »óÅÂÀÎÁö È®ÀÎÇÏ´Â º¯¼ö
+    public bool isMelea;        //ê·¼ì ‘íƒ€ì›Œì¸ì§€ íŒë³„í•˜ê¸°ìœ„í•œë³€ìˆ˜
+    public bool isWall;         //ê·¼ì ‘íƒ€ì›Œê°€ í˜„ì¬ ì ì„ ë§‰ì„ìˆ˜ ìˆëŠ” ìƒíƒœì¸ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜
 
     public float AttackRange = 5f;
 
@@ -75,7 +80,7 @@ public class Tower : MonoBehaviour
     }
     Transform Scan()
     {
-        //°¡Àå °¡±î¿îÀû ÃßÃ´
+        //ê°€ì¥ ê°€ê¹Œìš´ì  ì¶”ì²™
         Transform result = null;
         float diff = Mathf.Infinity;
 
@@ -119,7 +124,8 @@ public class Tower : MonoBehaviour
                 }
                 else if (tower_type == Tower_Type.Meele)
                 {
-                    nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
+                    //nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
+                    nearestTarget.GetComponent<EnemyController>().health -= 50;
                 }
                 SkillCount++;
             } 
@@ -133,6 +139,26 @@ public class Tower : MonoBehaviour
             gameObject.GetComponent<Tower_Skill>().skill(Tower_id);
             SkillCount = 0;
             tower_state = Tower_State.Attack;
+        }
+    }
+
+    public void AddEnemy()
+    {
+        currentEnemyCount++;
+    }
+
+    // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+    public void RemoveEnemy()
+    {
+        currentEnemyCount--;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Destroy(gameObject); // Å¸ï¿½ï¿½ ï¿½Ä±ï¿½
         }
     }
 }

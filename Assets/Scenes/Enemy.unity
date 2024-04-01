@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 107664547}
   - component: {fileID: 107664546}
   - component: {fileID: 107664545}
-  - component: {fileID: 107664543}
   - component: {fileID: 107664548}
+  - component: {fileID: 107664549}
+  - component: {fileID: 107664550}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -143,21 +144,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &107664543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107664542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f07787d09b2de429a613e237e7bf98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
-  currentEnemyCount: 0
-  health: 100
 --- !u!23 &107664545
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -244,6 +230,58 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 2, z: 1.5}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &107664549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107664542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 3
+  currentEnemyCount: 0
+  health: 5000
+  Tower_id: 1
+  tower_state: 0
+  tower_type: 1
+  tower_class: 2
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+--- !u!114 &107664550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107664542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs:
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +639,7 @@ Transform:
   m_GameObject: {fileID: 729931363}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -684,7 +722,7 @@ GameObject:
   - component: {fileID: 835608059}
   - component: {fileID: 835608063}
   - component: {fileID: 835608064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -771,7 +809,7 @@ Transform:
   m_GameObject: {fileID: 835608058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -15}
+  m_LocalPosition: {x: 0, y: 0.5, z: -34.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -793,10 +831,6 @@ MonoBehaviour:
   attackCooldown: 1
   movementSpeed: 5
   health: 100
-  currentTower: {fileID: 0}
-  player: {fileID: 0}
-  isAttackingTower: 0
-  attackTimer: 0
 --- !u!54 &835608064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -838,7 +872,7 @@ GameObject:
   - component: {fileID: 1548545151}
   - component: {fileID: 1548545150}
   - component: {fileID: 1548545149}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy (3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -888,10 +922,6 @@ MonoBehaviour:
   attackCooldown: 1
   movementSpeed: 5
   health: 100
-  currentTower: {fileID: 0}
-  player: {fileID: 0}
-  isAttackingTower: 0
-  attackTimer: 0
 --- !u!65 &1548545151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -972,7 +1002,7 @@ Transform:
   m_GameObject: {fileID: 1548545148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -18.96}
+  m_LocalPosition: {x: 0, y: 0.5, z: -38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -992,7 +1022,7 @@ GameObject:
   - component: {fileID: 1594843459}
   - component: {fileID: 1594843458}
   - component: {fileID: 1594843457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1042,10 +1072,6 @@ MonoBehaviour:
   attackCooldown: 1
   movementSpeed: 5
   health: 100
-  currentTower: {fileID: 0}
-  player: {fileID: 0}
-  isAttackingTower: 0
-  attackTimer: 0
 --- !u!65 &1594843459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1126,7 +1152,7 @@ Transform:
   m_GameObject: {fileID: 1594843456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -17.36}
+  m_LocalPosition: {x: 0, y: 0.5, z: -36.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1252,7 +1278,7 @@ GameObject:
   - component: {fileID: 2043137573}
   - component: {fileID: 2043137572}
   - component: {fileID: 2043137571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1302,10 +1328,6 @@ MonoBehaviour:
   attackCooldown: 1
   movementSpeed: 5
   health: 100
-  currentTower: {fileID: 0}
-  player: {fileID: 0}
-  isAttackingTower: 0
-  attackTimer: 0
 --- !u!65 &2043137573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1386,7 +1408,7 @@ Transform:
   m_GameObject: {fileID: 2043137570}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -16.2}
+  m_LocalPosition: {x: 0, y: 0.5, z: -35.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

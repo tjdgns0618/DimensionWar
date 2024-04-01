@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 targetPos = player.transform.position;
             targetPos.y = transform.position.y;
-            transform.Translate((targetPos - transform.position).normalized * movementSpeed * Time.deltaTime);
+            transform.Translate((targetPos - transform.position).normalized * movementSpeed * Time.deltaTime, Space.World);
         }
         else // 타워를 공격 중인 경우
         {
@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // 충돌한 오브젝트가 타워이고 현재 타워를 공격 중이지 않은 경우
-        if (other.CompareTag("Tower") && currentTower == null)
+        if (other.CompareTag("3D_Tower") && currentTower == null)
         {
             currentTower = other.GetComponent<Tower>(); // 충돌한 타워 설정
             // 현재 타워의 적 수가 최대 적 수보다 적을 때
