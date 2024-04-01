@@ -19,7 +19,6 @@ public class Tower : MonoBehaviour
     public Tower_Type tower_type;
     public Tower_Class tower_class;
 
-    
 
     public bool isMelea;        //근접타워인지 판별하기위한변수
     public bool isWall;         //근접타워가 현재 적을 막을수 있는 상태인지 확인하는 변수
@@ -40,25 +39,28 @@ public class Tower : MonoBehaviour
     GameObject tower;
     public GameObject bullet;
     public Vector3 dir;
-
+    Vector3 scale;
     public Animator anim;
+
     void Awake()
     {
         tower_state = Tower_State.Idle;
+        scale = gameObject.transform.localScale;
     }
 
     void Update()
     {
         targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0, targetLayer);
-        if(tower_state==Tower_State.Idle)   
+      
+        nearestTarget = Scan();
+        if(nearestTarget != null)
         {
-
-            nearestTarget = Scan();
-
+            dir = (nearestTarget.position - transform.position).normalized;
         }
         if (nearestTarget != null&&tower_state != Tower_State.Skill)
         {
             Attack();
+            Look();
         }
         else if (tower_state == Tower_State.Skill||tower_state != Tower_State.Attack)
         {
@@ -96,9 +98,29 @@ public class Tower : MonoBehaviour
             }
         }
         
-        
+
 
         return result;
+    }
+    void Look()
+    {
+        if(tower_class==Tower_Class.Pixel)
+        {
+                if (dir.x >= 0)
+                {
+                transform.localScale = new Vector3(scale.x, scale.y, scale.z);
+                    Debug.Log("오른쪽");
+                }
+                else if(dir.x < 0)
+                {
+                transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+                    Debug.Log("왼쪽");
+                }
+        }
+        else
+        {
+            transform.LookAt(nearestTarget);
+        }
     }
     void Attack()
     {
@@ -116,16 +138,15 @@ public class Tower : MonoBehaviour
                 }
                 if (tower_type == Tower_Type.Range)
                 {
-                    dir = (nearestTarget.position - transform.position).normalized;
+                    
                     GameObject g = Instantiate(bullet, transform.position, transform.rotation);
                     g.GetComponent<Bullet>().Init(Damage, 5, dir);
                     anim.SetTrigger("hit_1");
-
                 }
                 else if (tower_type == Tower_Type.Meele)
                 {
-                    //nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
-                    nearestTarget.GetComponent<EnemyController>().health -= 50;
+                    nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
+                    //nearestTarget.GetComponent<EnemyController>().health -= 50;
                 }
                 SkillCount++;
             } 
