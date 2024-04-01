@@ -43,27 +43,32 @@ public class Tower_Skill : MonoBehaviour
                 StartCoroutine(skill_2());
                 break;
             case 2:
-                skill_3();
+                StartCoroutine(skill_3());
                 break;
             case 3:
-                skill_4();
+                StartCoroutine(skill_4());
                 break;
             case 4:
-                skill_5();
+                StartCoroutine(skill_5());
                 break;
         }
     }
 
     IEnumerator skill_1() // 해골소환 범위스킬
     {
+
+        yield return new WaitForSeconds(0.5f);
+
         g = Instantiate(SkillPrefabs[id], EnemyTrans.position,EnemyTrans.rotation);
-        g.GetComponent<Skill>().init(SkillDmg*2.5f,id);
-       // g.GetComponent<>();
+        g.GetComponent<Collider>().enabled = false;
+
         yield return new WaitForSeconds(1.5f);
-        Destroy(g);
+        g.GetComponent<Collider>().enabled = true;
+        g.GetComponent<Skill>().init(SkillDmg * 2.5f, id);
         
+
     }
-    IEnumerator skill_2() // 공격력증가
+   IEnumerator skill_2() // 공격력증가
     {
         float temp;
         float dmg;
@@ -72,26 +77,29 @@ public class Tower_Skill : MonoBehaviour
         gameObject.GetComponent<Tower>().Damage = dmg * 1.5f;
 
         Debug.Log("Skill2");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3);
         gameObject.GetComponent<Tower>().Damage = temp;
-
-        Debug.Log("Skill2End");
     }
-    private void skill_3()//근거리 해골소환
+    IEnumerator skill_3()//원거리 단일스킬
     {
         g = Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
-        
-    }  
-    private void skill_4()//범위공격 얼음소환
+        yield return new WaitForSeconds(3);
+    }
+    IEnumerator skill_4()//범위공격 얼음소환
     {
         g = Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
-    } 
+        g.GetComponent<Skill>().init(SkillDmg * 0f, id);
+        Debug.Log("얼음스킬");
+        EnemyTrans.gameObject.GetComponent<TestEnemy>().speed = 10;
+        yield return new WaitForSeconds(2f);
+        EnemyTrans.gameObject.GetComponent<TestEnemy>().speed = 20;
+    }
     IEnumerator skill_5()//범위공격 
     {
-
         g = Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
         yield return null;
-
     }
+
+    
 
 }

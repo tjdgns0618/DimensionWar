@@ -5,6 +5,7 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public float Damage;
+    public float Speed;
     public int id;
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,10 @@ public class Skill : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<TestEnemy>().Dameged(Damage);
-           // Destroy(gameObject);
+            Debug.Log("skill");
+            Destroy(gameObject);
         }
+
     }
     
 }

@@ -5,30 +5,35 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public int Tower_id;
-    public enum Tower_State { Idle,Tagget,Attack,Skill}
-    public enum Tower_Type { Meele,Range}
+    public enum Tower_State { Idle, Tagget, Attack, Skill }
+    public enum Tower_Type { Meele, Range }
 
+    public enum Tower_Class {Pixel,RowPoly,_3D};
     public Tower_State tower_state;
     public Tower_Type tower_type;
+    public Tower_Class tower_class;
+
     public bool isMelea;        //근접타워인지 판별하기위한변수
     public bool isWall;         //근접타워가 현재 적을 막을수 있는 상태인지 확인하는 변수
-    
+
     public float AttackRange = 5f;
-    
+
     public float AttackDel = 3f;
-    
-    private float SkillCost = 0;
-    private float SkillCount = 0;
+
+    public float SkillCost = 0;
+    public float SkillCount = 0;
 
     public float Damage = 10;
 
     public LayerMask targetLayer;
     public RaycastHit[] targets;
     public Transform nearestTarget;
-    float  attTime;
-
+    float attTime;
+    GameObject tower;
     public GameObject bullet;
     public Vector3 dir;
+
+    public Animator anim;
     void Awake()
     {
         tower_state = Tower_State.Idle;
@@ -37,14 +42,21 @@ public class Tower : MonoBehaviour
     void Update()
     {
         targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0, targetLayer);
+        if(tower_state==Tower_State.Idle)   
+        {
 
-        nearestTarget = Scan();
-        
-        if (nearestTarget!=null)
+            nearestTarget = Scan();
+
+        }
+        if (nearestTarget != null&&tower_state != Tower_State.Skill)
         {
             Attack();
         }
-        else 
+        else if (tower_state == Tower_State.Skill||tower_state != Tower_State.Attack)
+        {
+            Skill();
+        }
+        else
         {
             tower_state = Tower_State.Idle;
         }
@@ -56,7 +68,7 @@ public class Tower : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, AttackRange);
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
     }
     Transform Scan()
     {
@@ -73,48 +85,52 @@ public class Tower : MonoBehaviour
             {
                 diff = curDiff;
                 result = target.transform;
-                
+
             }
         }
-        tower_state = Tower_State.Attack;
+        
+        
 
         return result;
     }
     void Attack()
     {
-        if(tower_state==Tower_State.Attack)
+        tower_state = Tower_State.Attack;
+        if (tower_state == Tower_State.Attack)
         {
             attTime += Time.deltaTime;
             if (attTime >= AttackDel)
             {
                 attTime = 0;
-                SkillCount++;
-                Debug.Log("attack"+gameObject.name);
-               if(tower_type==Tower_Type.Range)
+                if (SkillCount >= SkillCost)
                 {
-                    dir = (nearestTarget.position- transform.position).normalized;
-                    GameObject g =  Instantiate(bullet, transform.position, transform.rotation);
-                    g.GetComponent<Bullet>().Init(Damage, 5,dir);
-
+                    tower_state = Tower_State.Skill;
 
                 }
-               else if(tower_type==Tower_Type.Meele)
+                if (tower_type == Tower_Type.Range)
+                {
+                    dir = (nearestTarget.position - transform.position).normalized;
+                    GameObject g = Instantiate(bullet, transform.position, transform.rotation);
+                    g.GetComponent<Bullet>().Init(Damage, 5, dir);
+                    anim.SetTrigger("hit_1");
+
+                }
+                else if (tower_type == Tower_Type.Meele)
                 {
                     nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
                 }
-            }
-            if(SkillCount >=SkillCost)
-            {
-                gameObject.GetComponent<Tower_Skill>().skill(Tower_id);
-                SkillCount = 0;
-
-            }
+                SkillCount++;
+            } 
         }
-
-
-
-
     }
-    
 
+    void Skill()
+    {
+        if (tower_state == Tower_State.Skill)
+        {
+            gameObject.GetComponent<Tower_Skill>().skill(Tower_id);
+            SkillCount = 0;
+            tower_state = Tower_State.Attack;
+        }
+    }
 }
