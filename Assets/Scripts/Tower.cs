@@ -9,9 +9,12 @@ public class Tower : MonoBehaviour
     public enum Tower_Type { Meele, Range }
 
     public enum Tower_Class {Pixel,RowPoly,_3D};
+    
     public Tower_State tower_state;
     public Tower_Type tower_type;
     public Tower_Class tower_class;
+
+    
 
     public bool isMelea;        //근접타워인지 판별하기위한변수
     public bool isWall;         //근접타워가 현재 적을 막을수 있는 상태인지 확인하는 변수
