@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager intance;
+    public static GameManager _intance;
 
     [Header("# Game Control")]
     public bool isLive;
@@ -17,17 +17,51 @@ public class GameManager : MonoBehaviour
     public float maxHealth = 100;
 
     [Header("# GameObject")]
-    public Tower tower;
-    public GameObject EnemyCleaner;
-
+    public Tower[] towers;
+    
+    
+ 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        if (_intance == null)
+        {
+            _intance = this;
+
+        }
+        else if (_intance != this)
+        {
+            Destroy(gameObject);
+
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+    public static GameManager Instance
+    {
+        get
+        {
+            if (!_intance)
+            {
+                _intance = FindObjectOfType(typeof(GameManager)) as GameManager;
+
+                if (_intance == null)
+                {
+                    Debug.Log("GameManger is Null");
+                }
+            }
+
+            return _intance;
+        }
+
+        
+    }
+    public void add_tower(GameObject tower)
     {
         
     }
