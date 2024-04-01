@@ -140,8 +140,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2768634848665592107}
   - component: {fileID: 566639424893801522}
-  - component: {fileID: -7306927693584734816}
   - component: {fileID: 1740112213457003971}
+  - component: {fileID: 5897259829217116091}
   m_Layer: 0
   m_Name: Druid_Tower
   m_TagString: 3D_Tower
@@ -187,21 +187,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7306927693584734816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488750083593082832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b051113787aac6740afc7a8242502951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
-  nextTower: {fileID: 3818441487761094326, guid: b8c04dde9deaf1c42a3df9a618961f87,
-    type: 3}
 --- !u!65 &1740112213457003971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -223,6 +208,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.442846, z: 1.2296243}
   m_Center: {x: -1.1681876e-16, y: 0.72142315, z: 0.24177955}
+--- !u!114 &5897259829217116091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488750083593082832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {x: 0, y: 0, z: 0}
+  nextTower: {fileID: 3818441487761094326, guid: b8c04dde9deaf1c42a3df9a618961f87,
+    type: 3}
 --- !u!1 &1507686982363449822
 GameObject:
   m_ObjectHideFlags: 0

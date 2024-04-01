@@ -68,7 +68,10 @@ public class TestScript : MonoBehaviour
             else
             {
                 gameObject.layer = 0;
-                this.gameObject.transform.localPosition = new Vector3(0, 0.5f, 0);
+                if(this.gameObject.CompareTag("2D_Tower"))
+                    this.gameObject.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
+                else if(this.gameObject.CompareTag("3D_Tower"))
+                    this.gameObject.transform.localPosition = new Vector3(0, 0.5f, 0);
                 Debug.Log("합체불가, 설치불가지역");
             }
         }
