@@ -88,7 +88,6 @@ public class Tower : MonoBehaviour
             {
                 diff = curDiff;
                 result = target.transform;
-
             }
         }
         

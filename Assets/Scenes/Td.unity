@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -855,12 +855,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379ddca2f5e668548bef54783750ceb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towers: []
   isLive: 0
   gameTime: 0
   level: 0
   Health: 0
   maxHealth: 100
-  towers: []
+  tower: {fileID: 0}
+  EnemyCleaner: {fileID: 0}
 --- !u!4 &1097672671
 Transform:
   m_ObjectHideFlags: 0

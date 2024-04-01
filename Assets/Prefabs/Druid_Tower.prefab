@@ -142,6 +142,8 @@ GameObject:
   - component: {fileID: 566639424893801522}
   - component: {fileID: 1740112213457003971}
   - component: {fileID: 5897259829217116091}
+  - component: {fileID: 552432479783707417}
+  - component: {fileID: -79494857559609317}
   m_Layer: 0
   m_Name: Druid_Tower
   m_TagString: 3D_Tower
@@ -223,6 +225,55 @@ MonoBehaviour:
   temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 3818441487761094326, guid: b8c04dde9deaf1c42a3df9a618961f87,
     type: 3}
+--- !u!114 &552432479783707417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488750083593082832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tower_id: 1
+  tower_state: 0
+  tower_type: 1
+  tower_class: 1
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 566639424893801522}
+--- !u!114 &-79494857559609317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488750083593082832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs:
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
 --- !u!1 &1507686982363449822
 GameObject:
   m_ObjectHideFlags: 0
