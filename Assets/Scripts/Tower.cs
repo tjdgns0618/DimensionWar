@@ -41,7 +41,6 @@ public class Tower : MonoBehaviour
     public Vector3 dir;
     Vector3 scale;
     public Animator anim;
-
     void Awake()
     {
         tower_state = Tower_State.Idle;
@@ -55,7 +54,7 @@ public class Tower : MonoBehaviour
         nearestTarget = Scan();
         if(nearestTarget != null)
         {
-            dir = (nearestTarget.position - transform.position).normalized;
+            dir = (nearestTarget.position - transform.position);
         }
         if (nearestTarget != null&&tower_state != Tower_State.Skill)
         {
@@ -106,12 +105,12 @@ public class Tower : MonoBehaviour
     {
         if(tower_class==Tower_Class.Pixel)
         {
-                if (dir.x >= 0)
+                if (dir.normalized.x >= 0)
                 {
                 transform.localScale = new Vector3(scale.x, scale.y, scale.z);
                     Debug.Log("오른쪽");
                 }
-                else if(dir.x < 0)
+                else if(dir.normalized.x < 0)
                 {
                 transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
                     Debug.Log("왼쪽");
@@ -119,7 +118,13 @@ public class Tower : MonoBehaviour
         }
         else
         {
-            transform.LookAt(nearestTarget);
+
+           
+            Quaternion toRotation = Quaternion.LookRotation(dir);
+            
+            
+            Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime*1).eulerAngles;
+            transform.rotation = Quaternion.Euler(0, rotateAngle.y, 0);
         }
     }
     void Attack()
@@ -140,7 +145,7 @@ public class Tower : MonoBehaviour
                 {
                     
                     GameObject g = Instantiate(bullet, transform.position, transform.rotation);
-                    g.GetComponent<Bullet>().Init(Damage, 5, dir);
+                    g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
                     anim.SetTrigger("hit_1");
                 }
                 else if (tower_type == Tower_Type.Meele)
