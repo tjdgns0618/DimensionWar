@@ -237,7 +237,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack01
+  m_Name: Skill
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -251,7 +251,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 10fb3feb324bfc14699633782366a37c, type: 3}
+  m_Motion: {fileID: 7400000, guid: 590e32c2d6c688e499fd354818f906f9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -409,10 +409,10 @@ AnimatorStateMachine:
     m_Position: {x: 204, y: 72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110247996}
-    m_Position: {x: 204, y: 12, z: 0}
+    m_Position: {x: 310, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110297212}
-    m_Position: {x: 204, y: -48, z: 0}
+    m_Position: {x: 520, y: -140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110227863}
     m_Position: {x: 204, y: -108, z: 0}
@@ -427,7 +427,7 @@ AnimatorStateMachine:
     m_Position: {x: 204, y: -288, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102148083980801832}
-    m_Position: {x: 499, y: 0, z: 0}
+    m_Position: {x: 580, y: -30, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
