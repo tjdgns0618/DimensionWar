@@ -892,6 +892,7 @@ GameObject:
   - component: {fileID: 4560606877486694}
   - component: {fileID: 95228858151955370}
   - component: {fileID: -2133226661752020705}
+  - component: {fileID: -5727984840023318755}
   m_Layer: 0
   m_Name: Berserker_Preview
   m_TagString: Untagged
@@ -952,6 +953,39 @@ MonoBehaviour:
   surfaceHeight: 0.5
   Towerprefab: {fileID: 1824695601163454, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
     type: 3}
+--- !u!114 &-5727984840023318755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824695601163454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 9999
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 0
+  tower_class: 1
+  isMelea: 0
+  isWall: 0
+  AttackRange: 0
+  AttackDel: 0
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
 --- !u!1 &1838085286384644
 GameObject:
   m_ObjectHideFlags: 0

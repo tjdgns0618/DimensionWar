@@ -150,6 +150,7 @@ public class Tower : MonoBehaviour
                 {
                     //nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
                     nearestTarget.GetComponent<EnemyController>().health -= 50;
+                    anim.SetTrigger("hit_1");
                 }
                 SkillCount++;
             }
@@ -186,7 +187,8 @@ public class Tower : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            Destroy(gameObject); // Ÿ�� �ı�
+            transform.parent.gameObject.layer = 0;
+            Destroy(gameObject);
         }
     }
 }

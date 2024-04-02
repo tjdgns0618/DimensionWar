@@ -868,7 +868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC0DD\uC131"
+  m_Text: "\uADFC\uC811\uC0DD\uC131"
 --- !u!222 &245463416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4499,7 +4499,7 @@ GameObject:
   - component: {fileID: 918577957}
   - component: {fileID: 918577956}
   m_Layer: 5
-  m_Name: DotTowerSpawn
+  m_Name: RangerSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4571,8 +4571,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1696206249}
         m_TargetAssemblyTypeName: BT, Assembly-CSharp
-        m_MethodName: SpawnTower
-        m_Mode: 3
+        m_MethodName: RangerTowerSpawn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4794,7 +4794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC0DD\uC131"
+  m_Text: "\uC6D0\uAC70\uB9AC\uC0DD\uC131"
 --- !u!222 &935550615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5423,7 +5423,7 @@ GameObject:
   - component: {fileID: 1127398360}
   - component: {fileID: 1127398359}
   m_Layer: 5
-  m_Name: 3DTowerSpawn
+  m_Name: MeleeSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5495,8 +5495,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1696206249}
         m_TargetAssemblyTypeName: BT, Assembly-CSharp
-        m_MethodName: SpawnTower
-        m_Mode: 3
+        m_MethodName: MeleeTowerSpawn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6945,8 +6945,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tower:
-  - {fileID: 1854863924476294, guid: 2846fd4d8cbf197449b92e6a60ef3e0c, type: 3}
   - {fileID: 1824695601163454, guid: 4b110e1b3673a0345918290beb7fdbd4, type: 3}
+  - {fileID: 1854863924476294, guid: 2846fd4d8cbf197449b92e6a60ef3e0c, type: 3}
+  - {fileID: 1346802486636474, guid: c7a894cf1525f6c49a7230caf43bff95, type: 3}
 --- !u!4 &1696206250
 Transform:
   m_ObjectHideFlags: 0
