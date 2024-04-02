@@ -9,13 +9,14 @@ public class FollowMouse : MonoBehaviour
     // 카메라가 바라보는 지면의 높이를 결정합니다.
     public float surfaceHeight = 0f;
     public GameObject Towerprefab;
-
+    Tower tower;
     RaycastHit hit;
     bool Build = false;
 
     private void Start()
     {
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        tower = GetComponent<Tower>();
     }
 
     void Update()
@@ -31,12 +32,12 @@ public class FollowMouse : MonoBehaviour
             // 원거리 설치가능 || 근거리블록 설치 불가
             if (hit.transform.gameObject.CompareTag("Buildable"))
             {
-                if (gameObject.CompareTag("2D_Tower"))
+                if (tower.tower_class == Tower.Tower_Class.Pixel)
                 {
                     transform.position = hit.transform.position + new Vector3(0, 0.5f, -0.5f);
                     transform.rotation = Quaternion.Euler(30, 0, 0);
                 }
-                else if (gameObject.CompareTag("3D_Tower"))
+                else if (tower.tower_class == Tower.Tower_Class.RowPoly)
                 {
                     transform.position = hit.transform.position + new Vector3(0, surfaceHeight, 0);
 
@@ -48,12 +49,12 @@ public class FollowMouse : MonoBehaviour
                     // 타워 제작 후 오브젝트 제거
                     GameObject instance = Instantiate(Towerprefab);
                     instance.transform.SetParent(hit.transform);
-                    if (gameObject.CompareTag("2D_Tower"))
+                    if (tower.tower_class == Tower.Tower_Class.Pixel)
                     {
                         instance.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
                         instance.transform.rotation = Quaternion.Euler(30, 0, 0);
                     }
-                    else if(gameObject.CompareTag("3D_Tower"))
+                    else if(tower.tower_class == Tower.Tower_Class.RowPoly)
                     {
                         instance.transform.localPosition = new Vector3(0, 0.5f, 0);
                         instance.transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -83,9 +84,9 @@ public class FollowMouse : MonoBehaviour
                 else
                     targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
 
-                if(gameObject.CompareTag("2D_Tower"))
+                if(tower.tower_class == Tower.Tower_Class.Pixel)
                     transform.rotation = Quaternion.Euler(30, 0, 0);
-                else if(gameObject.CompareTag("3D_Tower"))
+                else if(tower.tower_class == Tower.Tower_Class.RowPoly)
                     transform.rotation = Quaternion.Euler(0, 90, 0);
 
                 // 오브젝트를 해당 위치로 이동시킵니다.
