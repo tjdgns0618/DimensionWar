@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public int maxEnemiesPerTower = 3; 
-    public int currentEnemyCount = 0; 
-    public float health = 100f; 
+    public int maxEnemiesPerTower = 3;
+    public int currentEnemyCount = 0;
+    public float health = 100f;
 
 
     public int Tower_id;
     public enum Tower_State { Idle, Tagget, Attack, Skill }
     public enum Tower_Type { Meele, Range }
 
-    public enum Tower_Class {Pixel,RowPoly,_3D};
-    
+    public enum Tower_Class { Pixel, RowPoly, _3D };
+
     public Tower_State tower_state;
     public Tower_Type tower_type;
     public Tower_Class tower_class;
@@ -50,18 +50,18 @@ public class Tower : MonoBehaviour
     void Update()
     {
         targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0, targetLayer);
-      
+
         nearestTarget = Scan();
-        if(nearestTarget != null)
+        if (nearestTarget != null)
         {
             dir = (nearestTarget.position - transform.position);
         }
-        if (nearestTarget != null&&tower_state != Tower_State.Skill)
+        if (nearestTarget != null && tower_state != Tower_State.Skill)
         {
             Attack();
             Look();
         }
-        else if (tower_state == Tower_State.Skill||tower_state != Tower_State.Attack)
+        else if (tower_state == Tower_State.Skill || tower_state != Tower_State.Attack)
         {
             Skill();
         }
@@ -96,34 +96,34 @@ public class Tower : MonoBehaviour
                 result = target.transform;
             }
         }
-        
+
 
 
         return result;
     }
     void Look()
     {
-        if(tower_class==Tower_Class.Pixel)
+        if (tower_class == Tower_Class.Pixel)
         {
-                if (dir.normalized.x >= 0)
-                {
+            if (dir.normalized.x >= 0)
+            {
                 transform.localScale = new Vector3(scale.x, scale.y, scale.z);
-                    Debug.Log("오른쪽");
-                }
-                else if(dir.normalized.x < 0)
-                {
+                Debug.Log("오른쪽");
+            }
+            else if (dir.normalized.x < 0)
+            {
                 transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
-                    Debug.Log("왼쪽");
-                }
+                Debug.Log("왼쪽");
+            }
         }
         else
         {
 
-           
+
             Quaternion toRotation = Quaternion.LookRotation(dir);
-            
-            
-            Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime*1).eulerAngles;
+
+
+            Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 1).eulerAngles;
             transform.rotation = Quaternion.Euler(0, rotateAngle.y, 0);
         }
     }
@@ -143,21 +143,24 @@ public class Tower : MonoBehaviour
                 }
                 if (tower_type == Tower_Type.Range)
                 {
-                    
-                    GameObject g = Instantiate(bullet, transform.position, transform.rotation);
-                    g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
+
                     anim.SetTrigger("hit_1");
                 }
                 else if (tower_type == Tower_Type.Meele)
                 {
-                    nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
-                    //nearestTarget.GetComponent<EnemyController>().health -= 50;
+                    //nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
+                    nearestTarget.GetComponent<EnemyController>().health -= 50;
+                    anim.SetTrigger("hit_1");
                 }
                 SkillCount++;
-            } 
+            }
         }
     }
-
+    void test()
+    {
+        GameObject g = Instantiate(bullet, transform.position, transform.rotation);
+        g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
+    }
     void Skill()
     {
         if (tower_state == Tower_State.Skill)
@@ -184,7 +187,8 @@ public class Tower : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            Destroy(gameObject); // Ÿ�� �ı�
+            transform.parent.gameObject.layer = 0;
+            Destroy(gameObject);
         }
     }
 }

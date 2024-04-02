@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject StagePanel;
     public GameObject SettingPanel;
     public Slider BgmSlider;
+    public Canvas skillCanvas;
 
     // Start is called before the first frame update
     void Start()

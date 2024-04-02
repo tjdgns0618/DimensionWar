@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // 충돌한 오브젝트가 타워이고 현재 타워를 공격 중이지 않은 경우
-        if (other.CompareTag("3D_Tower") && currentTower == null)
+        if (other.GetComponent<Tower>().isWall && currentTower == null)
         {
             currentTower = other.GetComponent<Tower>(); // 충돌한 타워 설정
             // 현재 타워의 적 수가 최대 적 수보다 적을 때

@@ -8,7 +8,7 @@ public class TestScript : MonoBehaviour
     public Vector3 temp;
     public GameObject nextTower;
     RaycastHit hit;
-
+    Tower tower;
     private void Start()
     {
         EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
@@ -22,6 +22,8 @@ public class TestScript : MonoBehaviour
         entry_EndDrag.eventID = EventTriggerType.EndDrag;
         entry_EndDrag.callback.AddListener((data) => { OnEndDrag((PointerEventData)data); });
         eventTrigger.triggers.Add(entry_EndDrag);
+
+        tower = GetComponent<Tower>();
     }
 
     private void Update()
@@ -33,7 +35,16 @@ public class TestScript : MonoBehaviour
     {
         temp = this.transform.localPosition;
     }
-        
+     
+    public void OnClick()
+    {
+        Debug.Log("온클릭");
+        GameManager.Instance.tower = this.tower;
+        GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 5f, -0.5f);
+        GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
+        GameManager.Instance.clicked = true;
+    }
+
     void OnDrag(PointerEventData data)
     {
         float distance = Camera.main.WorldToScreenPoint(transform.position).z;
@@ -63,14 +74,15 @@ public class TestScript : MonoBehaviour
                 instance.transform.SetParent(hit.transform.parent);
                 instance.transform.localPosition = new Vector3(0,0.5f,0);
                 // instance.transform.rotation = Quaternion.Euler(0,90,0);
+                GameManager.Instance.towers.Add(instance);
                 Debug.Log("합체성공");
             }
             else
             {
                 gameObject.layer = 0;
-                if(this.gameObject.CompareTag("2D_Tower"))
+                if(tower.tower_class == Tower.Tower_Class.Pixel)
                     this.gameObject.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
-                else if(this.gameObject.CompareTag("3D_Tower"))
+                else if(tower.tower_class == Tower.Tower_Class.RowPoly)
                     this.gameObject.transform.localPosition = new Vector3(0, 0.5f, 0);
                 Debug.Log("합체불가, 설치불가지역");
             }
