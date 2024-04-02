@@ -8,6 +8,7 @@ public class Tower_Skill : MonoBehaviour
     private int id;
     float SkillDmg;
     Transform EnemyTrans;
+    
     public GameObject[] SkillPrefabs;
     GameObject g;
     // Start is called before the first frame update
@@ -54,38 +55,37 @@ public class Tower_Skill : MonoBehaviour
         }
     }
 
-    IEnumerator skill_1() // 해골소환 범위스킬
+    IEnumerator skill_1() //공속증가
     {
 
-        yield return new WaitForSeconds(0.5f);
-
-        g = Instantiate(SkillPrefabs[id], EnemyTrans.position,EnemyTrans.rotation);
-        g.GetComponent<Collider>().enabled = false;
-
-        yield return new WaitForSeconds(1.5f);
-        g.GetComponent<Collider>().enabled = true;
-        g.GetComponent<Skill>().init(SkillDmg * 2.5f, id);
-        
-
-    }
-   IEnumerator skill_2() // 공격력증가
-    {
         float temp;
         float dmg;
-        temp = GetComponent<Tower>().Damage;
+        temp = GetComponent<Tower>().AttackDel;
         dmg = temp;
-        gameObject.GetComponent<Tower>().Damage = dmg * 1.5f;
-
-        Debug.Log("Skill2");
+        gameObject.GetComponent<Tower>().AttackDel = dmg / 2; 
+        Debug.Log("Skill1");
         yield return new WaitForSeconds(3);
-        gameObject.GetComponent<Tower>().Damage = temp;
+        gameObject.GetComponent<Tower>().AttackDel = temp;
+
+
     }
-    IEnumerator skill_3()//원거리 단일스킬
+   IEnumerator skill_2() //상대 공격력 감소
+    {
+        g = Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
+
+        EnemyTrans.gameObject.GetComponent<EnemyController>().attackDamage = 10;
+        Debug.Log("skill2");
+        yield return new WaitForSeconds(3);
+
+        EnemyTrans.gameObject.GetComponent<EnemyController>().attackDamage = 20;
+    }
+    IEnumerator skill_3()//초당 공격력의 10%의 데미지를 준다.
     {
         g = Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
         yield return new WaitForSeconds(3);
+        
     }
-    IEnumerator skill_4()//범위공격 얼음소환
+    IEnumerator skill_4()//공격력의 200% 범위 데미지를 주면서 주변 적 이속 30% 감속
     {
         g = Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
         g.GetComponent<Skill>().init(SkillDmg * 0f, id);
@@ -94,12 +94,36 @@ public class Tower_Skill : MonoBehaviour
         yield return new WaitForSeconds(2f);
         EnemyTrans.gameObject.GetComponent<TestEnemy>().speed = 20;
     }
-    IEnumerator skill_5()//범위공격 
+    IEnumerator skill_5()//공격력의 100%데미지를 주면서 적을묶어 둔다
     {
         g = Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
         yield return null;
     }
+    IEnumerator skill_6()//범위안의 들어있는 모든 타워의 스킬게이지를 20% 회복시킨다.
+    {
+        CreateSkill();
+        yield return new WaitForSeconds(1.5f);
+    }
+    IEnumerator skill_7()//일직선상에 모든 적들에게 공격력 300%에 데미지를 준다
+    {
+        CreateSkill();
+        yield return new WaitForSeconds(1.5f);
+    }
+    IEnumerator skill_8()//1.5초뒤 가만히 있다가 쏜다 공격력의 500%데미지를 준다 범위형스킬 
+    {
+        yield return new WaitForSeconds(1.5f);
+        CreateSkill();
 
-    
+    }
+    IEnumerator skill_9()//기를 모았다가 3초동안 레이저를 쏜다 공격력의 20%데미지를 초당데미지로 준다.
+    {
+        CreateSkill();
+        yield return new WaitForSeconds(1.5f);
+    }
+
+    void CreateSkill()
+    {
+        Instantiate(SkillPrefabs[id], EnemyTrans.position, EnemyTrans.rotation);
+    }
 
 }

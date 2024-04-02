@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 99668625}
   - component: {fileID: 99668624}
   - component: {fileID: 99668623}
-  - component: {fileID: 99668628}
+  - component: {fileID: 99668629}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -411,7 +411,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &99668628
+--- !u!114 &99668629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,11 +420,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 99668622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb55745f4d01af2419fb9fbfd1acac94, type: 3}
+  m_Script: {fileID: 11500000, guid: ef9c8360af468274fbe1c798daf01ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  speed: 20
+  attackDamage: 10
+  attackCooldown: 1
+  movementSpeed: 3
+  health: 100
 --- !u!1 &115477229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,9 +2476,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 529766831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500e4870b42bfbc42b267984314f3ff1, type: 3}
+  m_Script: {fileID: 11500000, guid: 379ddca2f5e668548bef54783750ceb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towers: []
 --- !u!1 &560276985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6677,6 +6680,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 956221301}
     m_Modifications:
+    - target: {fileID: -3428907967463759353, guid: 2e3a81d4877d7e846b774a0416c1ea85,
+        type: 3}
+      propertyPath: Tower_id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3428907967463759353, guid: 2e3a81d4877d7e846b774a0416c1ea85,
+        type: 3}
+      propertyPath: AttackDel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3428907967463759353, guid: 2e3a81d4877d7e846b774a0416c1ea85,
+        type: 3}
+      propertyPath: SkillCost
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1000010262668220, guid: 2e3a81d4877d7e846b774a0416c1ea85, type: 3}
       propertyPath: m_Name
       value: Devil_Tower
@@ -6785,6 +6803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 3
+  currentEnemyCount: 0
+  health: 100
   Tower_id: 1
   tower_state: 0
   tower_type: 1
@@ -6793,7 +6814,7 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 0
+  SkillCost: 3
   SkillCount: 0
   Damage: 10
   targetLayer:

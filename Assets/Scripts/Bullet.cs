@@ -29,10 +29,8 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("작동1");
         if(other.CompareTag("Enemy"))
         {
-            Debug.Log("작동2");
 
             // other.GetComponent<TestEnemy>().Dameged(damage);
             other.GetComponent<EnemyController>().health -= 50;

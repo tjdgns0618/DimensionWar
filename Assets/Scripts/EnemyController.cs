@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
-            Debug.LogError("Player not found!"); // 플레이어가 없을 경우 에러 메시지 출력 후 함수 종료
+         //   Debug.LogError("Player not found!"); // 플레이어가 없을 경우 에러 메시지 출력 후 함수 종료
             return;
         }
 
@@ -32,6 +32,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+            return;
         // 타워를 공격 중이지 않을 경우 플레이어 쪽으로 이동
         if (!isAttackingTower)
         {
@@ -86,5 +88,17 @@ public class EnemyController : MonoBehaviour
     void AttackTower(Tower tower)
     {
         tower.TakeDamage(attackDamage); // 타워에 데미지 주기
+    }
+    public void Dameged(float Dmg)
+    {
+        this.health -= Dmg;
+    }
+    public void SpeedCtrl(float speed)
+    {
+        this.movementSpeed += speed;
+    }
+    public void AttackDamageCtrl(float AttDmg)
+    {
+        this.attackDamage += AttDmg;
     }
 }

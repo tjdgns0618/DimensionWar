@@ -27,9 +27,9 @@ public class Skill : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<TestEnemy>().Dameged(Damage);
+            //other.GetComponent<EnemyController>().Dameged(Damage);
             Debug.Log("skill");
-            Destroy(gameObject);
+          //  Destroy(gameObject);
         }
 
     }
