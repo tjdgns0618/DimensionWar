@@ -59,6 +59,7 @@ public class FollowMouse : MonoBehaviour
                         instance.transform.localPosition = new Vector3(0, 0.5f, 0);
                         instance.transform.rotation = Quaternion.Euler(0, 90, 0);
                     }
+                    GameManager.Instance.towers.Add(instance);
                     Destroy(this.gameObject);
                     hit.transform.gameObject.layer = 2;
                     Debug.Log(this.gameObject.name + "설치 완료");

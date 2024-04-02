@@ -74,6 +74,7 @@ public class TestScript : MonoBehaviour
                 instance.transform.SetParent(hit.transform.parent);
                 instance.transform.localPosition = new Vector3(0,0.5f,0);
                 // instance.transform.rotation = Quaternion.Euler(0,90,0);
+                GameManager.Instance.towers.Add(instance);
                 Debug.Log("합체성공");
             }
             else

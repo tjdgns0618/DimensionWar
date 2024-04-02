@@ -891,6 +891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4560606877486694}
   - component: {fileID: 95228858151955370}
+  - component: {fileID: -2133226661752020705}
   m_Layer: 0
   m_Name: Berserker_Preview
   m_TagString: Untagged
@@ -936,6 +937,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2133226661752020705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824695601163454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceHeight: 0.5
+  Towerprefab: {fileID: 1824695601163454, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
+    type: 3}
 --- !u!1 &1838085286384644
 GameObject:
   m_ObjectHideFlags: 0

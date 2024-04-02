@@ -329,7 +329,7 @@ Transform:
   m_GameObject: {fileID: 1280122745413794}
   serializedVersion: 2
   m_LocalRotation: {x: -0.40146607, y: 0.58208674, z: -0.40146607, w: 0.58208674}
-  m_LocalPosition: {x: -0, y: 0.41278845, z: -0.028417611}
+  m_LocalPosition: {x: 0, y: 0.41278845, z: -0.028417611}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -791,6 +791,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4006153863436176}
   - component: {fileID: 95311496314131406}
+  - component: {fileID: 7678660328324720627}
+  - component: {fileID: -217430082137924967}
   m_Layer: 0
   m_Name: Archer_Preview
   m_TagString: Untagged
@@ -836,6 +838,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7678660328324720627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854863924476294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceHeight: 0.5
+  Towerprefab: {fileID: 1854863924476294, guid: 5ed5da6db8aa14445949f23ff6eb4cd8,
+    type: 3}
+--- !u!114 &-217430082137924967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854863924476294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 9999
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 1
+  tower_class: 1
+  isMelea: 0
+  isWall: 0
+  AttackRange: 0
+  AttackDel: 0
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
 --- !u!1 &1862274414074112
 GameObject:
   m_ObjectHideFlags: 0
