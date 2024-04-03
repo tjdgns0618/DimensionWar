@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/menu-button.uss?fileID=7433441132597879392&amp;guid=b5bbdc6e7780d014c872d4aca8078baf&amp;type=3#menu-button" />
+    <ui:VisualElement style="height: 100%; width: 100%; background-color: rgba(0, 0, 0, 0.78); flex-direction: column-reverse; align-items: flex-start; -unity-font-definition: url(&quot;project://database/Assets/Fonts/NotoSansKR-Regular%20SDF.asset?fileID=11400000&amp;guid=7988db9dba64ad64883105b258858a13&amp;type=2#NotoSansKR-Regular SDF&quot;); -unity-font-style: normal;">
+        <ui:VisualElement style="background-color: rgba(10, 255, 0, 0.22); width: 500px; height: 500px; flex-direction: column; right: -10%; top: -10%; align-self: auto; align-items: flex-start; justify-content: space-around; flex-shrink: 1;">
+            <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" class="menu-button" style="font-size: 24px;" />
+            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="menu-button" style="align-items: center; width: 80%; align-self: center;" />
+            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="menu-button" style="align-items: center; width: 80%; align-self: center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
