@@ -9,9 +9,15 @@ public class TestScript : MonoBehaviour
     public GameObject nextTower;
     RaycastHit hit;
     Tower tower;
+    bool isDraging = false;
     private void Start()
     {
         EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
+
+        EventTrigger.Entry entry_PointerClick = new EventTrigger.Entry();
+        entry_PointerClick.eventID = EventTriggerType.PointerClick;
+        entry_PointerClick.callback.AddListener((data) => { OnClick((PointerEventData)data); });
+        eventTrigger.triggers.Add(entry_PointerClick);
 
         EventTrigger.Entry entry_Drag = new EventTrigger.Entry();
         entry_Drag.eventID = EventTriggerType.Drag;
@@ -33,20 +39,27 @@ public class TestScript : MonoBehaviour
 
     public void SavePos()
     {
-        temp = this.transform.localPosition;
+        temp = transform.localPosition;
     }
-     
-    public void OnClick()
+
+    void OnClick(PointerEventData data)
     {
         Debug.Log("온클릭");
-        GameManager.Instance.tower = this.tower;
-        GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 5f, -0.5f);
-        GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
+        GameManager.Instance.tower = tower;        
         GameManager.Instance.clicked = true;
+        Time.timeScale = 0;
+        if (GameManager.Instance.clicked && !isDraging)
+        {
+            GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 3f, -0.5f);
+            GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
+        }
     }
 
     void OnDrag(PointerEventData data)
     {
+        isDraging = true;
+        GameManager.Instance.clicked = false;
+
         float distance = Camera.main.WorldToScreenPoint(transform.position).z;
 
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
@@ -58,15 +71,19 @@ public class TestScript : MonoBehaviour
 
     void OnEndDrag(PointerEventData data)
     {
-        this.gameObject.layer = 2;
+        isDraging = false;
+        GameManager.Instance.clicked = false;
+
+        gameObject.layer = 2;                                  // 현재 들고있는 오브젝트 ignore layer 레이파이어를 무시하는 레이어로 변경
         Vector3 mousePosition = Input.mousePosition;
 
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))                              // 현재 들고있는 오브젝트를 뒤에있는 오브젝트에 레이 발사
         {
-            if (hit.transform.childCount > 0 && this.transform.parent != hit.transform)
+            if (hit.transform.childCount > 0 && transform.parent != hit.transform &&
+                tower.tower_type == hit.transform.gameObject.GetComponent<Tower>().tower_type && !hit.transform)
             {
-                gameObject.layer = 0;
+                gameObject.layer = 0;                                  // 레이가 맞았다면 현재 들고있는 오브젝트 레이어를 default로 다시 변경
                 gameObject.transform.parent.gameObject.layer = 0;
                 Destroy(gameObject);
                 Destroy(hit.transform.gameObject);
@@ -81,9 +98,9 @@ public class TestScript : MonoBehaviour
             {
                 gameObject.layer = 0;
                 if(tower.tower_class == Tower.Tower_Class.Pixel)
-                    this.gameObject.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
+                    gameObject.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
                 else if(tower.tower_class == Tower.Tower_Class.RowPoly)
-                    this.gameObject.transform.localPosition = new Vector3(0, 0.5f, 0);
+                    gameObject.transform.localPosition = new Vector3(0, 0.5f, 0);
                 Debug.Log("합체불가, 설치불가지역");
             }
         }

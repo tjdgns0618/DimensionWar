@@ -23,5 +23,10 @@ public class BT : MonoBehaviour
         Debug.Log(Tower[i].name + "盔芭府鸥况积己");
     }
 
-
+    public void SkillLevelUp()
+    {
+        GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        GameManager.Instance.clicked = false;
+    }
 }
