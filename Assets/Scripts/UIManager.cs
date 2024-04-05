@@ -41,4 +41,15 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetFloat("BgmValue", slider.value);
         Debug.Log((PlayerPrefs.GetFloat("BgmValue")*100).ToString("#"));
     }
+    
+    public void StartGame()
+    {
+        StartCoroutine(_StartGame());
+    }
+
+    IEnumerator _StartGame()
+    {
+        yield return new WaitForSeconds(3f);
+        LoadScene("StageSelect");
+    }
 }

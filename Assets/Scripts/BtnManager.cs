@@ -28,5 +28,6 @@ public class BT : MonoBehaviour
         GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.clicked = false;
+        Camera.main.transform.rotation = Quaternion.Euler(20, 0, 0);
     }
 }

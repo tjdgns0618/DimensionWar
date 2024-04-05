@@ -353,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &117126806
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2428,12 +2428,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 529766831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f1df71688a1154e94971f77f5d7ab9, type: 3}
+  m_Script: {fileID: 11500000, guid: 379ddca2f5e668548bef54783750ceb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManager: {fileID: 1696206251}
   towers: []
-  camera: {fileID: 616512021}
+  uiManager: {fileID: 1696206251}
   clicked: 0
   isLive: 0
   gameTime: 0

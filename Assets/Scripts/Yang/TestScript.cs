@@ -46,10 +46,10 @@ public class TestScript : MonoBehaviour
     {
         Debug.Log("온클릭");
         GameManager.Instance.tower = tower;        
-        GameManager.Instance.clicked = true;
-        Time.timeScale = 0;
+        GameManager.Instance.clicked = true;        
         if (GameManager.Instance.clicked && !isDraging)
         {
+            Time.timeScale = 0;
             GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 3f, -0.5f);
             GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
         }
@@ -70,8 +70,7 @@ public class TestScript : MonoBehaviour
     }
 
     void OnEndDrag(PointerEventData data)
-    {
-        isDraging = false;
+    {        
         GameManager.Instance.clicked = false;
 
         gameObject.layer = 2;                                  // 현재 들고있는 오브젝트 ignore layer 레이파이어를 무시하는 레이어로 변경
@@ -81,7 +80,8 @@ public class TestScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit))                              // 현재 들고있는 오브젝트를 뒤에있는 오브젝트에 레이 발사
         {
             if (hit.transform.childCount > 0 && transform.parent != hit.transform &&
-                tower.tower_type == hit.transform.gameObject.GetComponent<Tower>().tower_type && !hit.transform)
+                tower.tower_type ==  hit.transform.gameObject.GetComponent<Tower>().tower_type
+                && hit.transform.gameObject.tag == gameObject.tag)
             {
                 gameObject.layer = 0;                                  // 레이가 맞았다면 현재 들고있는 오브젝트 레이어를 default로 다시 변경
                 gameObject.transform.parent.gameObject.layer = 0;
@@ -104,6 +104,7 @@ public class TestScript : MonoBehaviour
                 Debug.Log("합체불가, 설치불가지역");
             }
         }
+        isDraging = false;
     }
 
 }
