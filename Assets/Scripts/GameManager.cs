@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            // ÀÎ½ºÅÏ½º°¡ ¾ø´Â °æ¿ì¿¡ Á¢±ÙÇÏ·Á ÇÏ¸é ÀÎ½ºÅÏ½º¸¦ ÇÒ´çÇØÁØ´Ù.
+            // ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½Ï¸ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
             if (!_instance)
             {
                 _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
@@ -49,12 +49,12 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
-        // ÀÎ½ºÅÏ½º°¡ Á¸ÀçÇÏ´Â °æ¿ì »õ·Î»ý±â´Â ÀÎ½ºÅÏ½º¸¦ »èÁ¦ÇÑ´Ù.
+        // ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         else if (_instance != this)
         {
             Destroy(gameObject);
         }
-        // ¾Æ·¡ÀÇ ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© ¾ÀÀÌ ÀüÈ¯µÇ´õ¶óµµ ¼±¾ðµÇ¾ú´ø ÀÎ½ºÅÏ½º°¡ ÆÄ±«µÇÁö ¾Ê´Â´Ù.
+        // ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
         DontDestroyOnLoad(gameObject);
     }
 
@@ -75,11 +75,18 @@ public class GameManager : MonoBehaviour
 
     public void FollowCam()
     {
-        Vector3 direction = (tower.transform.position - cam.transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        Quaternion rotateValue = Quaternion.RotateTowards(cam.transform.rotation, rotation, 0.1f * Time.unscaledTime);
-
-        cam.transform.rotation = rotateValue;
+        if (clicked)
+        {
+            Vector3 direction = (tower.transform.position - cam.transform.position).normalized;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            Quaternion rotateValue = Quaternion.RotateTowards(cam.transform.rotation, rotation, 0.1f * Time.unscaledTime);
+            cam.transform.rotation = rotateValue;
+        }
+        else
+        {
+            Quaternion toRotation = Quaternion.Euler(20, 0, 0);
+            cam.transform.rotation = toRotation;
+        }
     }
 
     public void removeNullTower()
