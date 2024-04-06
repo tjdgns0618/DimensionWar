@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject SettingPanel;
     public Slider BgmSlider;
     public Canvas skillCanvas;
+    public Text RoundTime;
 
     // Start is called before the first frame update
     void Start()

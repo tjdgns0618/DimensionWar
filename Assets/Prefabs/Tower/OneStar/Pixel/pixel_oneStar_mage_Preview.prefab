@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3798699357544356566
+--- !u!1 &3545728980758236317
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1219716756858537093}
-  - component: {fileID: 1881403077742761630}
-  - component: {fileID: 7698801666256901024}
+  - component: {fileID: 1852453789667720184}
+  - component: {fileID: 4141009875994129117}
+  - component: {fileID: 9142735544448062998}
+  - component: {fileID: -8849474890963630064}
+  - component: {fileID: -7770456739993412516}
   m_Layer: 0
-  m_Name: Melee_OneStar
+  m_Name: pixel_oneStar_mage_Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1219716756858537093
+--- !u!4 &1852453789667720184
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798699357544356566}
+  m_GameObject: {fileID: 3545728980758236317}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.02, y: 2.35, z: -5.53}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1881403077742761630
+--- !u!212 &4141009875994129117
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798699357544356566}
+  m_GameObject: {fileID: 3545728980758236317}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,28 +76,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1580181845, guid: 0b13d14473b6e7c468a1bf30a44f7102, type: 3}
+  m_Sprite: {fileID: 546282714, guid: d2e4baf4751b1a9429df50f91689495d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.7, y: 3.55}
+  m_Size: {x: 0.28, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7698801666256901024
+--- !u!95 &9142735544448062998
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798699357544356566}
-  m_Enabled: 1
+  m_GameObject: {fileID: 3545728980758236317}
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 38b9efd1eefa8ec47a46992c97cebde4, type: 2}
+  m_Controller: {fileID: 9100000, guid: cddf8ffd84b27a748ae030d7c2ef30c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -106,3 +108,52 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8849474890963630064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545728980758236317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceHeight: 2.2
+  Towerprefab: {fileID: 3545728980758236317, guid: fae3e9a30bef10a40a7ec6065d359a9b,
+    type: 3}
+--- !u!114 &-7770456739993412516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545728980758236317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 100
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 1
+  tower_class: 0
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  enemiesInRange: []

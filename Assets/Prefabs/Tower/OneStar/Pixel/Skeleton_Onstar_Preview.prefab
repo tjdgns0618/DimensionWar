@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 9042792655626796320}
   - component: {fileID: 1852372533739278512}
   - component: {fileID: 6874992159104125505}
-  - component: {fileID: 3116569265992735869}
+  - component: {fileID: 7875022216162240727}
+  - component: {fileID: 3570308581930083716}
   m_Layer: 0
-  m_Name: Skeleton_Onstar
+  m_Name: Skeleton_Onstar_Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1872953040485969011}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.11, y: 3.707, z: -2.293}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -95,7 +96,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872953040485969011}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 47747aba2dd2d994dafbbb782dad92c4, type: 2}
   m_CullingMode: 0
@@ -108,7 +109,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3116569265992735869
+--- !u!114 &7875022216162240727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,10 +118,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 1872953040485969011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf6668d76de3804f9f1c64d05676917, type: 3}
+  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skillmotion: {fileID: 1034774159610094594}
+  surfaceHeight: 3.7
+  Towerprefab: {fileID: 1872953040485969011, guid: 9c187a5dcee6608419be4c641c56a1b9,
+    type: 3}
+--- !u!114 &3570308581930083716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872953040485969011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 100
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 1
+  tower_class: 0
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  enemiesInRange: []
 --- !u!1001 &8780812291558178269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FX_ElectronExplosion_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582811579835981165, guid: 88fff8e021007af4e8123255d8a1df5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8457861659428602566, guid: 88fff8e021007af4e8123255d8a1df5d,
         type: 3}
@@ -192,12 +234,6 @@ PrefabInstance:
 --- !u!4 &917584371120488219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8457861659428602566, guid: 88fff8e021007af4e8123255d8a1df5d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8780812291558178269}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1034774159610094594 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8613125337639115231, guid: 88fff8e021007af4e8123255d8a1df5d,
     type: 3}
   m_PrefabInstance: {fileID: 8780812291558178269}
   m_PrefabAsset: {fileID: 0}

@@ -1,80 +1,113 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float attackDamage = 10f; // 적의 공격력
-    public float attackCooldown = 1f; // 적의 공격 속도
-    public float movementSpeed = 3f; // 적의 이동 속도
-    public float health = 100f; // 적의 체력
-
-    private Tower currentTower; // 현재 충돌한 타워
+    // 이동에 사용되는 변수들
     private GameObject player; // 플레이어 오브젝트
-    private bool isAttackingTower = false; // 타워를 공격 중인지 여부
-    private float attackTimer = 0f; // 적의 공격 쿨다운 타이머
+    private NavMeshAgent navMeshAgent; // NavMesh 에이전트
+    private Transform[] pathPoints; // 경로를 이루는 지점들
+    private int currentPathIndex = 0; // 현재 경로 인덱스
+
+    // 타워에 대한 참조
+    private Tower currentTower; // 현재 충돌한 타워
+
+    // 공격에 사용되는 변수들
+    public float attackDamage = 10f; // 적의 공격력
+    public float attackCooldown = 1f; // 적의 공격 쿨다운 시간
+    private bool isAttacking = false; // 현재 타워를 공격 중인지 여부
+
+    public float health = 100f; // 적의 체력
 
     void Start()
     {
         // 플레이어 게임 오브젝트를 태그로 찾음
         player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null)
+        // NavMesh 에이전트를 가져옴
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        // 경로를 이루는 지점들을 가져옴
+        GameObject pathParent = GameObject.FindGameObjectWithTag("PathParent");
+        pathPoints = new Transform[pathParent.transform.childCount];
+        for (int i = 0; i < pathParent.transform.childCount; i++)
         {
-            Debug.LogError("Player not found!"); // 플레이어가 없을 경우 에러 메시지 출력 후 함수 종료
-            return;
+            pathPoints[i] = pathParent.transform.GetChild(i);
         }
 
-        // 플레이어 쪽을 향하도록 적의 방향 설정 (Y 값을 무시하여 수직으로 움직이지 않도록 함)
-        Vector3 playerPos = player.transform.position;
-        playerPos.y = transform.position.y;
-        transform.LookAt(playerPos);
+        // 초기 목적지 설정
+        SetDestinationToNextPathPoint();
     }
 
     void Update()
     {
-        // 타워를 공격 중이지 않을 경우 플레이어 쪽으로 이동
-        if (!isAttackingTower)
+        // 체력이 0 이하인 경우 파괴하고 리턴
+        if (health <= 0f)
         {
-            Vector3 targetPos = player.transform.position;
-            targetPos.y = transform.position.y;
-            transform.Translate((targetPos - transform.position).normalized * movementSpeed * Time.deltaTime, Space.World);
+            if (currentTower != null)
+            {
+                currentTower.RemoveEnemy(); // 타워의 적 수 감소
+            }
+            Destroy(gameObject); // 적 오브젝트 파괴
+            return;
         }
-        else // 타워를 공격 중인 경우
+
+        // 목적지에 도착했는지 확인
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
         {
-            // 타워가 존재하고 타워 게임 오브젝트도 존재하는 경우에만 공격 쿨다운 적용
-            if (currentTower != null && currentTower.gameObject != null)
-            {
-                attackTimer += Time.deltaTime;
-                if (attackTimer >= attackCooldown) // 공격 쿨다운이 지나면 타워를 공격
-                {
-                    AttackTower(currentTower);
-                    attackTimer = 0f; // 공격 쿨다운 타이머 초기화
-                }
-            }
-            else // 타워가 파괴되었거나 없는 경우 공격 상태 해제
-            {
-                isAttackingTower = false;
-            }
+            Debug.Log("목적지 도착. 다음 목적지 설정");
+            SetDestinationToNextPathPoint(); // 다음 목적지로 설정
         }
+
+        // 타워를 공격할 수 있는 상태이면 공격
+        if (isAttacking && currentTower != null && currentTower.gameObject != null)
+        {
+            Debug.Log("타워공격중");
+            AttackTower(currentTower);
+        }
+    }
+
+    // 타워 설정
+    public void SetTower(Tower tower)
+    {
+        currentTower = tower;
+    }
+
+    // 타워 제거
+    public void RemoveTower()
+    {
+        currentTower = null;
+    }
+
+    void TakeDamage(float damage)
+    {
+        health -= damage; // 적의 체력 감소
     }
 
     void OnTriggerEnter(Collider other)
     {
-        // 충돌한 오브젝트가 타워이고 현재 타워를 공격 중이지 않은 경우
-        if (other.GetComponent<Tower>().isWall && currentTower == null)
+        if (other.GetComponent<Tower>()) // 충돌한 오브젝트가 "3D_Tower" 태그를 가진 타워인 경우
         {
-            currentTower = other.GetComponent<Tower>(); // 충돌한 타워 설정
-            // 현재 타워의 적 수가 최대 적 수보다 적을 때
+            currentTower = other.GetComponent<Tower>(); // 충돌한 타워 가져오기
+
+            // 타워의 적 수가 최대치보다 작은 경우에만 적 추가 및 이동 멈춤
             if (currentTower.currentEnemyCount < currentTower.maxEnemiesPerTower)
             {
                 currentTower.AddEnemy(); // 타워의 적 수 증가
-                isAttackingTower = true; // 타워를 공격 중인 상태로 설정
+                currentTower.enemiesInRange.Add(this); // 적을 타워의 적 리스트에 추가
+                navMeshAgent.isStopped = true; // 이동을 멈춤
+                Debug.Log("isStopped = true");
+                isAttacking = true; // 공격 상태로 변경
+            }
+            else // 최대 적 수 초과시 현재 타워를 무시하고 다시 이동
+            {
+                currentTower = null; // 현재 타워 초기화
             }
         }
-        // 충돌한 오브젝트가 플레이어인 경우
-        else if (other.CompareTag("Player"))
+        else if (other.CompareTag("Player")) // 충돌한 오브젝트가 "Player" 태그를 가진 플레이어인 경우
         {
-            PlayerController player = other.GetComponent<PlayerController>(); // 충돌한 플레이어 컨트롤러
+            PlayerController player = other.GetComponent<PlayerController>(); // 플레이어 컴포넌트 가져오기
             if (player != null)
             {
                 player.TakeDamage(attackDamage); // 플레이어에게 데미지 주기
@@ -83,8 +116,51 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider other) // 타워를 통과할 때
+    {
+        Debug.Log("OnTriggerExit");
+        if (other.CompareTag("3D_Tower"))
+        {
+            if (currentTower != null)
+            {
+                currentTower.RemoveEnemy(); // 타워의 적 수 감소
+                currentTower = null; // 현재 타워 초기화
+                StartMoving(); // 이동 재개
+            }
+        }
+    }
+
+    // 적의 이동 시작
+    public void StartMoving()
+    {
+        Debug.Log("StartMoving");
+        SetDestinationToNextPathPoint(); // 웨이포인트로 이동
+        navMeshAgent.isStopped = false; // 이동 시작
+    }
+
     void AttackTower(Tower tower)
     {
-        tower.TakeDamage(attackDamage); // 타워에 데미지 주기
+        // 공격 쿨다운 시간이 지날 때마다 타워 공격
+        attackCooldown -= Time.deltaTime;
+        if (attackCooldown <= 0f)
+        {
+            tower.TakeDamage(attackDamage); // 타워에 데미지 주기
+            attackCooldown = 1f; // 쿨다운 초기화
+        }
+    }
+
+    void SetDestinationToNextPathPoint()
+    {
+        Debug.Log("SetDestinationToNextPathPoint");
+        if (currentPathIndex < pathPoints.Length - 1) // 다음 지점으로 이동
+        {
+            currentPathIndex++;
+            Vector3 destination = pathPoints[currentPathIndex].position;
+            navMeshAgent.SetDestination(destination);
+        }
+        else // 경로의 끝에 도달한 경우 플레이어 쪽으로 이동
+        {
+            navMeshAgent.SetDestination(player.transform.position);
+        }
     }
 }

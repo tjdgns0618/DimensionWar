@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 6020060559282430296}
   - component: {fileID: 6044130194649291119}
   - component: {fileID: 262782410026414776}
+  - component: {fileID: 7396541696225390962}
+  - component: {fileID: 9111200978583924725}
+  - component: {fileID: 2218610162653513723}
   m_Layer: 0
   m_Name: Kunoichi_Twostar
-  m_TagString: Untagged
+  m_TagString: Level2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,3 +109,71 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7396541696225390962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464721753591696661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 100
+  Tower_id: 1
+  tower_state: 0
+  tower_type: 1
+  tower_class: 0
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 262782410026414776}
+  enemiesInRange: []
+--- !u!114 &9111200978583924725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464721753591696661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs:
+  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+--- !u!114 &2218610162653513723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464721753591696661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {x: 0, y: 0, z: 0}
+  nextTower: {fileID: 6050877796436588062, guid: 044f06c678d8593439031bcd7eafe190,
+    type: 3}

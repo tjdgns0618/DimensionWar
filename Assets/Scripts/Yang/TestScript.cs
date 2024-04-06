@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TestScript : MonoBehaviour
+public class TestScript : MonoBehaviour, IBeginDragHandler
 {
     public Vector3 temp;
     public GameObject nextTower;
@@ -37,11 +37,6 @@ public class TestScript : MonoBehaviour
 
     }
 
-    public void SavePos()
-    {
-        temp = transform.localPosition;
-    }
-
     void OnClick(PointerEventData data)
     {
         Debug.Log("온클릭");
@@ -50,9 +45,15 @@ public class TestScript : MonoBehaviour
         if (GameManager.Instance.clicked && !isDraging)
         {
             Time.timeScale = 0;
-            GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 3f, -0.5f);
+            GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 3.5f, -0.5f);
+            GameManager.Instance.uiManager.skillCanvas.transform.LookAt(Camera.main.transform);
             GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
         }
+    }
+
+    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
+    {
+        temp = transform.position;
     }
 
     void OnDrag(PointerEventData data)
@@ -64,7 +65,7 @@ public class TestScript : MonoBehaviour
 
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
         Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
-        objPos.y = 0.7f;
+        objPos.y = temp.y;
 
         transform.position = objPos;
     }
@@ -89,7 +90,7 @@ public class TestScript : MonoBehaviour
                 Destroy(hit.transform.gameObject);
                 GameObject instance = Instantiate(nextTower);
                 instance.transform.SetParent(hit.transform.parent);
-                instance.transform.localPosition = new Vector3(0,0.5f,0);
+                instance.transform.localPosition = new Vector3(0,temp.y, 0);
                 // instance.transform.rotation = Quaternion.Euler(0,90,0);
                 GameManager.Instance.towers.Add(instance);
                 Debug.Log("합체성공");
@@ -98,9 +99,9 @@ public class TestScript : MonoBehaviour
             {
                 gameObject.layer = 0;
                 if(tower.tower_class == Tower.Tower_Class.Pixel)
-                    gameObject.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
+                    gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
                 else if(tower.tower_class == Tower.Tower_Class.RowPoly)
-                    gameObject.transform.localPosition = new Vector3(0, 0.5f, 0);
+                    gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
                 Debug.Log("합체불가, 설치불가지역");
             }
         }

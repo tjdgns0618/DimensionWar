@@ -41,6 +41,10 @@ public class Tower : MonoBehaviour
     public Vector3 dir;
     Vector3 scale;
     public Animator anim;
+
+    // 적 목록
+    public List<EnemyController> enemiesInRange = new List<EnemyController>();
+
     void Awake()
     {
         tower_state = Tower_State.Idle;
@@ -126,7 +130,9 @@ public class Tower : MonoBehaviour
             else
             {
                 Quaternion toRotation = Quaternion.LookRotation(dir);
-                Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 1).eulerAngles;               
+
+
+                Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 1).eulerAngles;
                 transform.rotation = Quaternion.Euler(0, rotateAngle.y, 0);
             }
         }
@@ -144,7 +150,6 @@ public class Tower : MonoBehaviour
                 if (SkillCount >= SkillCost)
                 {
                     tower_state = Tower_State.Skill;
-
                 }
                 if (tower_type == Tower_Type.Range)
                 {
@@ -193,8 +198,25 @@ public class Tower : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            transform.parent.gameObject.layer = 0;
+            // transform.parent.gameObject.layer = 0;
             Destroy(gameObject);
+        }
+    }
+    // 타워가 파괴될 때 호출되는 메서드
+    void OnDestroy()
+    {
+        // 타워에 할당된 적이 있는지 확인하고, 있다면 이동을 재개하도록 함
+        Debug.Log("OnDestroy");
+        if (enemiesInRange != null)
+        {
+            foreach (EnemyController enemy in enemiesInRange)
+            {
+                if (enemy != null)
+                {
+                    enemy.StartMoving();
+                    Debug.Log("enemy.StartMoving");
+                }
+            }
         }
     }
 }

@@ -34,8 +34,8 @@ public class FollowMouse : MonoBehaviour
             {
                 if (tower.tower_class == Tower.Tower_Class.Pixel)
                 {
-                    transform.position = hit.transform.position + new Vector3(0, 0.5f, -0.5f);
-                    transform.rotation = Quaternion.Euler(30, 0, 0);
+                    transform.position = hit.transform.position + new Vector3(0, surfaceHeight, 0);
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else if (tower.tower_class == Tower.Tower_Class.RowPoly)
                 {
@@ -51,8 +51,8 @@ public class FollowMouse : MonoBehaviour
                     instance.transform.SetParent(hit.transform);
                     if (tower.tower_class == Tower.Tower_Class.Pixel)
                     {
-                        instance.transform.localPosition = new Vector3(0, 0.5f, -0.5f);
-                        instance.transform.rotation = Quaternion.Euler(30, 0, 0);
+                        instance.transform.localPosition = new Vector3(0, surfaceHeight, 0);
+                        instance.transform.rotation = Quaternion.Euler(0, 0, 0);
                     }
                     else if(tower.tower_class == Tower.Tower_Class.RowPoly)
                     {
@@ -86,7 +86,7 @@ public class FollowMouse : MonoBehaviour
                     targetPosition = new Vector3(hit.point.x, surfaceHeight, hit.point.z);
 
                 if(tower.tower_class == Tower.Tower_Class.Pixel)
-                    transform.rotation = Quaternion.Euler(30, 0, 0);
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
                 else if(tower.tower_class == Tower.Tower_Class.RowPoly)
                     transform.rotation = Quaternion.Euler(0, 90, 0);
 

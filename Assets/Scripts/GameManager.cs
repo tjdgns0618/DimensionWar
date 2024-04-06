@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public List<GameObject> towers = new List<GameObject>();
+    public float RoundTime = 0;
+    public EnemySpawner enemySpawner;
 
     public static GameManager Instance
     {
@@ -70,7 +72,16 @@ public class GameManager : MonoBehaviour
     {
         if(tower != null && clicked)
             FollowCam();
+
         removeNullTower();
+
+        RoundTime += Time.deltaTime;
+        uiManager.RoundTime.text = $"라운드 시작까지 {Mathf.FloorToInt(15-RoundTime)}";
+        if(RoundTime >= 15)
+        {
+            enemySpawner.enabled = true;
+            uiManager.RoundTime.gameObject.SetActive(false);
+        }
     }
 
     public void FollowCam()

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8019698381814623590
+--- !u!1 &3545728980758236317
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 308628016586338680}
-  - component: {fileID: 8227050069134161804}
-  - component: {fileID: 4588028014005666519}
-  - component: {fileID: 4168089426574108242}
-  - component: {fileID: 863096113449524006}
-  - component: {fileID: 9116673062374046567}
+  - component: {fileID: 1852453789667720184}
+  - component: {fileID: 4141009875994129117}
+  - component: {fileID: 9142735544448062998}
+  - component: {fileID: 317215944953133601}
+  - component: {fileID: -8279907914774846242}
+  - component: {fileID: -6084072497118865262}
+  - component: {fileID: 662511126231983477}
+  - component: {fileID: 3718521004712617815}
   m_Layer: 0
-  m_Name: Samurai_Melee_TwoStar
-  m_TagString: Level2
+  m_Name: pixel_oneStar_Mage_Tower
+  m_TagString: Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &308628016586338680
+--- !u!4 &1852453789667720184
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019698381814623590}
+  m_GameObject: {fileID: 3545728980758236317}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.26, y: 3.72, z: -5.33}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8227050069134161804
+--- !u!212 &4141009875994129117
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019698381814623590}
+  m_GameObject: {fileID: 3545728980758236317}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,28 +79,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -19762839, guid: 71323dd84e970d34bb11cceacda5407e, type: 3}
+  m_Sprite: {fileID: 546282714, guid: d2e4baf4751b1a9429df50f91689495d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.4, y: 6.4}
+  m_Size: {x: 0.28, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4588028014005666519
+--- !u!95 &9142735544448062998
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019698381814623590}
+  m_GameObject: {fileID: 3545728980758236317}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2699e8f41dd294a43981ae7cfc6d2687, type: 2}
+  m_Controller: {fileID: 9100000, guid: cddf8ffd84b27a748ae030d7c2ef30c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -109,27 +111,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4168089426574108242
+--- !u!114 &317215944953133601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019698381814623590}
+  m_GameObject: {fileID: 3545728980758236317}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
   Tower_id: 1
   tower_state: 0
-  tower_type: 0
+  tower_type: 1
   tower_class: 0
-  isMelea: 1
-  isWall: 1
+  isMelea: 0
+  isWall: 0
   AttackRange: 2
   AttackDel: 3
   SkillCost: 0
@@ -139,17 +141,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
-  bullet: {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
+  bullet: {fileID: 2566443613767749222, guid: 3f79d248555f4dd4e96a71f9bcf4f003, type: 3}
   dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 4588028014005666519}
+  anim: {fileID: 9142735544448062998}
   enemiesInRange: []
---- !u!114 &863096113449524006
+--- !u!114 &-8279907914774846242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019698381814623590}
+  m_GameObject: {fileID: 3545728980758236317}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
@@ -157,23 +159,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   SkillPrefabs:
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
---- !u!114 &9116673062374046567
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+--- !u!114 &-6084072497118865262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019698381814623590}
+  m_GameObject: {fileID: 3545728980758236317}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   temp: {x: 0, y: 0, z: 0}
-  nextTower: {fileID: 2305421628991597455, guid: 456c5cd743068e5458ee1395a26804f7,
+  nextTower: {fileID: 1628426222377478364, guid: 2b151e259e603c24b87979200420f0cd,
     type: 3}
+--- !u!65 &662511126231983477
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545728980758236317}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3.3, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3718521004712617815
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545728980758236317}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
