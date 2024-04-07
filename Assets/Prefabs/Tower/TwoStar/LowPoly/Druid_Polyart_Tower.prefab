@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 1085660192173148146}
   - component: {fileID: 1057719460674633877}
   - component: {fileID: 5616973404640864609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Druid_Polyart_Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ MonoBehaviour:
   maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
-  Tower_id: 1
+  Tower_id: 5
   tower_state: 0
   tower_type: 1
   tower_class: 1
@@ -347,7 +347,7 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 0
+  SkillCost: 3
   SkillCount: 0
   Damage: 10
   targetLayer:
@@ -357,6 +357,7 @@ MonoBehaviour:
   bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95826298684406162}
+  bulletPos: {fileID: 1343374673748988}
 --- !u!114 &-322181905535213226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,12 +371,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs:
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  SkillPrefabs: {fileID: 1365538819899408, guid: 2f3c1a02272586740a36820d9946abf5,
+    type: 3}
+  colliders: []
+  skillPos: {fileID: 1343374673748988}
 --- !u!114 &1085660192173148146
 MonoBehaviour:
   m_ObjectHideFlags: 0

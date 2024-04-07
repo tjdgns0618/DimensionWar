@@ -231,7 +231,7 @@ MonoBehaviour:
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
-  Tower_id: 1
+  Tower_id: 3
   tower_state: 0
   tower_type: 0
   tower_class: 1
@@ -239,7 +239,7 @@ MonoBehaviour:
   isWall: 1
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 0
+  SkillCost: 2
   SkillCount: 0
   Damage: 10
   targetLayer:
@@ -249,6 +249,7 @@ MonoBehaviour:
   bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95689927657685620}
+  bulletPos: {fileID: 0}
 --- !u!114 &2870127141956999880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,12 +263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs:
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
-  - {fileID: 7765830648760196099, guid: c7da8af33321ac84cbd7ef5250379639, type: 3}
+  SkillPrefabs: {fileID: 3265690925621845008, guid: 63fb7dbe32e4e3345980e31b1ffb6491,
+    type: 3}
+  colliders: []
+  skillPos: {fileID: 0}
 --- !u!114 &7972061348660202874
 MonoBehaviour:
   m_ObjectHideFlags: 0

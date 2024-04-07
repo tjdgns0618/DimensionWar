@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Init(float damage, int Speed, Vector3 dir)
@@ -24,7 +24,8 @@ public class Bullet : MonoBehaviour
         this.damage = damage;
         this.Speed = Speed;
         rigid.velocity=dir*Speed;
-        
+
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -35,7 +36,7 @@ public class Bullet : MonoBehaviour
             Debug.Log("¿€µø2");
 
             // other.GetComponent<TestEnemy>().Dameged(damage);
-            other.GetComponent<EnemyController>().health -= 50;
+            other.GetComponent<EnemyController>().health -= damage;
             Destroy(gameObject);
         }
     }

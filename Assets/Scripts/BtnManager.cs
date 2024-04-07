@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BT : MonoBehaviour
+public class BTManager : MonoBehaviour
 {
     [Header("Å¸¿ö")]
     public GameObject[] Tower;

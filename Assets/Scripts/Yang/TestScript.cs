@@ -39,10 +39,10 @@ public class TestScript : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("온클릭");
-        GameManager.Instance.tower = this.tower;
-        GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 5f, -0.5f);
-        GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
-        GameManager.Instance.clicked = true;
+       //GameManager.Instance.tower = this.tower;
+       //GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 5f, -0.5f);
+       //GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
+       //GameManager.Instance.clicked = true;
     }
 
     void OnDrag(PointerEventData data)
