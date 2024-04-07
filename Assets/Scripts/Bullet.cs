@@ -24,16 +24,16 @@ public class Bullet : MonoBehaviour
         this.damage = damage;
         this.Speed = Speed;
         rigid.velocity=dir*Speed;
-        
+        if(dir.x < 0)
+        {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y,transform.localScale.z);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("작동1");
         if(other.CompareTag("Enemy"))
         {
-            Debug.Log("작동2");
-
             // other.GetComponent<TestEnemy>().Dameged(damage);
             other.GetComponent<EnemyController>().health -= 50;
             Destroy(gameObject);
