@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-7353879548234311757
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Kunoichi_Twostar_attack2
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6aa339c60ebbb3d4a9535a67ab0afe2c, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &-3008767096390439149
 AnimatorState:
   serializedVersion: 6
@@ -52,32 +26,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-2955768961808280862
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Kunoichi_Twostar_Eating
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c4e0bbef083285f4f876da596f056ca8, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &-2128317401046914596
 AnimatorState:
   serializedVersion: 6
@@ -85,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kunoichi_Twostar_Cast
+  m_Name: Kunoichi_Twostar_attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -141,7 +89,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -180,14 +128,14 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &8086701101531786953
+--- !u!1102 &2944705097129652934
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kunoichi_Twostar_attack
+  m_Name: Kunoichi_Twostar_Skill
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -200,7 +148,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 196b1e399c6bdcf4587e5b8fbb727c45, type: 2}
+  m_Motion: {fileID: 7400000, guid: c4e0bbef083285f4f876da596f056ca8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -219,17 +167,11 @@ AnimatorStateMachine:
     m_State: {fileID: -3008767096390439149}
     m_Position: {x: 220, y: 220, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8086701101531786953}
-    m_Position: {x: 435, y: 75, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -7353879548234311757}
-    m_Position: {x: 470, y: 140, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -2128317401046914596}
     m_Position: {x: 250, y: 120, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2955768961808280862}
-    m_Position: {x: 540, y: 270, z: 0}
+    m_State: {fileID: 2944705097129652934}
+    m_Position: {x: 526.06506, y: 206.40012, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 2041582620591784482}

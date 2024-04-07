@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tengu_Three_attack2
+  m_Name: Tengu_Three_Skill
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tengu_Three_attack3
+  m_Name: Tengu_Three_Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -63,19 +63,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8045160972276898285}
-    m_Position: {x: 200, y: 0, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 6226925442491057938}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_Position: {x: 170, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5146442424676141489}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 490, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3336651058000277293}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_Position: {x: 530, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5918252809118029160}
-    m_Position: {x: 340, y: 260, z: 0}
+    m_Position: {x: 560, y: 310, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -129,32 +126,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: c3e21c332713f3e478f7d9b8003fe19f, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &6226925442491057938
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Tengu_Three_attack
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e736e93c6e2a50f49831fe179c482305, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

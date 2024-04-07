@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &14935301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308628016586338680, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019698381814623590, guid: 3d13e6654578c7d459f6c0a47fb52f62,
+        type: 3}
+      propertyPath: m_Name
+      value: Samurai_Melee_TwoStar (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d13e6654578c7d459f6c0a47fb52f62, type: 3}
 --- !u!1 &47691476
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +549,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 10
   attackCooldown: 1
-  movementSpeed: 1
   health: 500
 --- !u!1 &142558340
 GameObject:
@@ -2115,6 +2182,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379ddca2f5e668548bef54783750ceb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towers: []
+  RoundTime: 0
+  enemySpawner: {fileID: 0}
+  uiManager: {fileID: 0}
+  clicked: 0
+  isLive: 0
+  gameTime: 0
+  level: 0
+  Health: 0
+  maxHealth: 100
+  tower: {fileID: 0}
+  EnemyCleaner: {fileID: 0}
 --- !u!1 &560276985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,6 +6325,8 @@ MonoBehaviour:
   StagePanel: {fileID: 0}
   SettingPanel: {fileID: 0}
   BgmSlider: {fileID: 0}
+  skillCanvas: {fileID: 0}
+  RoundTime: {fileID: 0}
 --- !u!1 &1752008082
 GameObject:
   m_ObjectHideFlags: 0
@@ -9754,3 +9835,4 @@ SceneRoots:
   - {fileID: 1667599825}
   - {fileID: 688583496}
   - {fileID: 478756959503330423}
+  - {fileID: 14935301}
