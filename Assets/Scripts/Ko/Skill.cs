@@ -166,8 +166,15 @@ public class Skill : MonoBehaviour
     }
     IEnumerator id_8()
     {
-        enemy.health -= Damage;
-        Debug.Log(enemy.health);
+
+        if (Deltime > 0.3)
+        {
+            Deltime = 0;
+            enemy.health -= Damage;
+
+            Debug.Log(enemy.health);
+        }
+
         yield return new WaitForSeconds(gameObject.GetComponent<ParticleSystem>().duration);
     }
 }
