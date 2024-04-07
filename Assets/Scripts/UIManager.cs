@@ -48,9 +48,20 @@ public class UIManager : MonoBehaviour
         StartCoroutine(_StartGame());
     }
 
+    public void QuitGame()
+    {
+        StartCoroutine(_QuitGame());
+    }
+
     IEnumerator _StartGame()
     {
         yield return new WaitForSeconds(3f);
         LoadScene("StageSelect");
+    }
+
+    IEnumerator _QuitGame()
+    {
+        yield return new WaitForSeconds(3f);
+        Application.Quit();
     }
 }

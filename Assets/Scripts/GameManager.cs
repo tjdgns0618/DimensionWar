@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            // �ν��Ͻ��� ���� ��쿡 �����Ϸ� �ϸ� �ν��Ͻ��� �Ҵ����ش�.
             if (!_instance)
             {
                 _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
@@ -51,18 +50,18 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
-        // �ν��Ͻ��� �����ϴ� ��� ���λ���� �ν��Ͻ��� �����Ѵ�.
         else if (_instance != this)
         {
             Destroy(gameObject);
         }
-        // �Ʒ��� �Լ��� ����Ͽ� ���� ��ȯ�Ǵ��� ����Ǿ��� �ν��Ͻ��� �ı����� �ʴ´�.
         DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         cam = Camera.main.GetComponent<Camera>();
     }
     

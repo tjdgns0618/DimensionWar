@@ -111,33 +111,25 @@ public class Tower : MonoBehaviour
         {
             if (dir.normalized.x >= 0)
             {
-                transform.localScale = new Vector3(scale.x, scale.y, scale.z);
+                transform.localScale = new Vector3(scale.x/2, scale.y, scale.z);
                 Debug.Log("오른쪽");
             }
             else if (dir.normalized.x < 0)
             {
-                if (dir.normalized.x >= 0)
-                {
-                    transform.localScale = new Vector3(scale.x, scale.y, scale.z);
-                    Debug.Log("오른쪽");
-                }
-                else if (dir.normalized.x < 0)
-                {
-                    transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
-                    Debug.Log("왼쪽");
-                }
-            }
-            else
-            {
-                Quaternion toRotation = Quaternion.LookRotation(dir);
-
-
-                Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 1).eulerAngles;
-                transform.rotation = Quaternion.Euler(0, rotateAngle.y, 0);
+                transform.localScale = new Vector3(-scale.x/2, scale.y, scale.z);
+                Debug.Log("왼쪽");
             }
         }
+        else
+        {
+            Quaternion toRotation = Quaternion.LookRotation(dir);
 
+
+            Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 1).eulerAngles;
+            transform.rotation = Quaternion.Euler(0, rotateAngle.y, 0);
+        }
     }
+
     void Attack()
     {
         tower_state = Tower_State.Attack;
@@ -153,8 +145,6 @@ public class Tower : MonoBehaviour
                 }
                 if (tower_type == Tower_Type.Range)
                 {
-                    GameObject g = Instantiate(bullet, transform.position, transform.rotation);
-                    g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
                     anim.SetTrigger("hit_1");
                 }
                 else if (tower_type == Tower_Type.Meele)
