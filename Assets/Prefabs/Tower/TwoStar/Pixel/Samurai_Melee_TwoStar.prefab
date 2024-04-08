@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4168089426574108242}
   - component: {fileID: 863096113449524006}
   - component: {fileID: 9116673062374046567}
+  - component: {fileID: 8208973596468512347}
+  - component: {fileID: 3327895816402186875}
   m_Layer: 0
   m_Name: Samurai_Melee_TwoStar
   m_TagString: Level2
@@ -177,3 +179,51 @@ MonoBehaviour:
   temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 2305421628991597455, guid: 456c5cd743068e5458ee1395a26804f7,
     type: 3}
+--- !u!65 &8208973596468512347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019698381814623590}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.75, y: 3.45, z: 0.2}
+  m_Center: {x: -0.31153655, y: 0.00000035762787, z: 0}
+--- !u!54 &3327895816402186875
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019698381814623590}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

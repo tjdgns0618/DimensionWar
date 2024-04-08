@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour
 
         removeNullTower();
 
-        RoundTime += Time.deltaTime;
-        uiManager.RoundTime.text = $"라운드 시작까지 {Mathf.FloorToInt(15-RoundTime)}";
+        // RoundTime += Time.deltaTime;
+        // uiManager.RoundTime.text = $"라운드 시작까지 {Mathf.FloorToInt(15-RoundTime)}";
         if(RoundTime >= 15)
         {
             enemySpawner.enabled = true;

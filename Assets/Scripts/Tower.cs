@@ -49,6 +49,7 @@ public class Tower : MonoBehaviour
     {
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
+        attTime = 3f;
     }
 
     void Update()
