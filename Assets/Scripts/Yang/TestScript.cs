@@ -7,6 +7,8 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
 {
     public Vector3 temp;
     public GameObject nextTower;
+    bool canMerge = false;
+    GameObject mergeTower;
     RaycastHit hit;
     Tower tower;
     bool isDraging = false;
@@ -74,14 +76,33 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
     {        
         GameManager.Instance.clicked = false;
 
-        gameObject.layer = 2;                                  // 현재 들고있는 오브젝트 ignore layer 레이파이어를 무시하는 레이어로 변경
+        #region 트리거엔터사용
+        //if (canMerge)
+        //{
+        //    Destroy(gameObject);
+        //    Destroy(mergeTower.transform.gameObject);
+        //    GameObject instance = Instantiate(mergeTower.GetComponent<TestScript>().nextTower);
+        //    instance.transform.SetParent(mergeTower.transform.parent);
+        //    instance.transform.localPosition = new Vector3(0, temp.y, 0);
+        //    GameManager.Instance.towers.Add(instance);
+        //    Debug.Log("합체성공");
+        //}
+        //else
+        //{
+        //    gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
+        //    Debug.Log("합체불가, 설치불가지역");
+        //}
+        #endregion
+
+        #region 레이캐스트이용
+        gameObject.layer = 2;                                  // 현재 들고있는 오브젝트 ignore layer 레이파이어를 무시하는 레이어로 변경        
         Vector3 mousePosition = Input.mousePosition;
 
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         if (Physics.Raycast(ray, out hit))                              // 현재 들고있는 오브젝트를 뒤에있는 오브젝트에 레이 발사
         {
-            if (hit.transform.childCount > 0 && transform.parent != hit.transform &&
-                tower.tower_type ==  hit.transform.gameObject.GetComponent<Tower>().tower_type
+            if (hit.transform.gameObject.GetComponent<Tower>() &&
+                tower.tower_type == hit.transform.gameObject.GetComponent<Tower>().tower_type
                 && hit.transform.gameObject.tag == gameObject.tag)
             {
                 gameObject.layer = 0;                                  // 레이가 맞았다면 현재 들고있는 오브젝트 레이어를 default로 다시 변경
@@ -90,7 +111,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
                 Destroy(hit.transform.gameObject);
                 GameObject instance = Instantiate(nextTower);
                 instance.transform.SetParent(hit.transform.parent);
-                instance.transform.localPosition = new Vector3(0,temp.y, 0);
+                instance.transform.localPosition = new Vector3(0, temp.y, 0);
                 // instance.transform.rotation = Quaternion.Euler(0,90,0);
                 GameManager.Instance.towers.Add(instance);
                 Debug.Log("합체성공");
@@ -98,14 +119,39 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
             else
             {
                 gameObject.layer = 0;
-                if(tower.tower_class == Tower.Tower_Class.Pixel)
+                if (tower.tower_class == Tower.Tower_Class.Pixel)
                     gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
-                else if(tower.tower_class == Tower.Tower_Class.RowPoly)
+                else if (tower.tower_class == Tower.Tower_Class.RowPoly)
                     gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
                 Debug.Log("합체불가, 설치불가지역");
             }
         }
+        #endregion
+
         isDraging = false;
     }
 
+    #region 트리거엔터사용
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.transform.childCount > 0 && transform.parent != other.transform &&
+    //            tower.tower_type == other.transform.gameObject.GetComponent<Tower>().tower_type
+    //            && other.transform.gameObject.tag == gameObject.tag)
+    //    {
+    //        canMerge = true;
+    //        mergeTower = other.gameObject;
+    //    }
+    //    else
+    //    {
+    //        canMerge = false;
+    //        mergeTower = null;
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    canMerge = false;
+    //    mergeTower = null;
+    //}
+    #endregion
 }

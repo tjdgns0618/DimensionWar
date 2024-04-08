@@ -59,6 +59,8 @@ public class Tower : MonoBehaviour
 
         targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0);
 
+
+
         nearestTarget = Scan();
         if (nearestTarget != null)
         {
@@ -140,17 +142,10 @@ public class Tower : MonoBehaviour
     void Attack()
     {
         attTime += Time.deltaTime;
-        if (attTime >= AttackDel)
-          
-        {
-          
-            attTime = 0;
-          
-            
-          
+        if (attTime >= AttackDel)          
+        {          
+            attTime = 0;          
             anim.SetTrigger("hit_1");
-       
-
         }
     }
     void test()

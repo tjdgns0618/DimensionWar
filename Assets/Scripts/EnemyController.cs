@@ -21,13 +21,16 @@ public class EnemyController : MonoBehaviour
 
     public float health = 100f; // 적의 체력
 
+    public float movementSpeed;
+
     void Start()
     {
         // 플레이어 게임 오브젝트를 태그로 찾음
         player = GameObject.FindGameObjectWithTag("Player");
         // NavMesh 에이전트를 가져옴
         navMeshAgent = GetComponent<NavMeshAgent>();
-
+        
+        movementSpeed = navMeshAgent.speed;
         // 경로를 이루는 지점들을 가져옴
         GameObject pathParent = GameObject.FindGameObjectWithTag("PathParent");
         pathPoints = new Transform[pathParent.transform.childCount];
