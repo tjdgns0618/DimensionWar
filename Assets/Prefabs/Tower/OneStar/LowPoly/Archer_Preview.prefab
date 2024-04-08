@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: -217430082137924967}
   m_Layer: 0
   m_Name: Archer_Preview
-  m_TagString: Untagged
+  m_TagString: Preview
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -886,6 +886,8 @@ MonoBehaviour:
   bullet: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
+  bulletPos: {fileID: 0}
+  enemiesInRange: []
 --- !u!1 &1862274414074112
 GameObject:
   m_ObjectHideFlags: 0

@@ -171,7 +171,7 @@ public class Tower : MonoBehaviour
     }
     void Skill()
     {
-        if (tower_state == Tower_State.Skill)
+        if (tower_state == Tower_State.Skill && gameObject.tag != "Preview")
         {
             anim.SetTrigger("skill");
             tower_state = Tower_State.Attack;
