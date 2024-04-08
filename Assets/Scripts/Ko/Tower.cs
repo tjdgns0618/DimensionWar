@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
     public Tower_State tower_state;
     public Tower_Type tower_type;
     public Tower_Class tower_class;
-
+    
 
     public bool isMelea;        //근접타워인지 판별하기위한변수
     public bool isWall;         //근접타워가 현재 적을 막을수 있는 상태인지 확인하는 변수
@@ -41,6 +41,8 @@ public class Tower : MonoBehaviour
     public Vector3 dir;
     Vector3 scale;
     public Animator anim;
+    public GameObject bulletPos;
+  
 
     // 적 목록
     public List<EnemyController> enemiesInRange = new List<EnemyController>();
@@ -54,19 +56,25 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0, targetLayer);
+
+        targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0);
 
         nearestTarget = Scan();
         if (nearestTarget != null)
         {
             dir = (nearestTarget.position - transform.position);
+            Look();
+        }
+        if (SkillCount >= SkillCost)
+        {
+            tower_state = Tower_State.Skill;
+            SkillCount = 0;
         }
         if (nearestTarget != null && tower_state != Tower_State.Skill)
         {
             Attack();
-            Look();
         }
-        else if (tower_state == Tower_State.Skill || tower_state != Tower_State.Attack)
+        else if (tower_state == Tower_State.Skill && tower_state != Tower_State.Attack)
         {
             Skill();
         }
@@ -92,18 +100,18 @@ public class Tower : MonoBehaviour
 
         foreach (RaycastHit target in targets)
         {
-            Vector3 myPos = transform.position;
-            Vector3 targetPos = target.transform.position;
-            float curDiff = Vector3.Distance(myPos, targetPos);
-            if (curDiff < diff)
+            if(target.transform.CompareTag("Enemy"))
             {
-                diff = curDiff;
-                result = target.transform;
+                Vector3 myPos = transform.position;
+                Vector3 targetPos = target.transform.position;
+                float curDiff = Vector3.Distance(myPos, targetPos);
+                if (curDiff < diff)
+                {
+                    diff = curDiff;
+                    result = target.transform;
+                }
             }
         }
-
-
-
         return result;
     }
     void Look()
@@ -124,8 +132,6 @@ public class Tower : MonoBehaviour
         else
         {
             Quaternion toRotation = Quaternion.LookRotation(dir);
-
-
             Vector3 rotateAngle = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 1).eulerAngles;
             transform.rotation = Quaternion.Euler(0, rotateAngle.y, 0);
         }
@@ -133,42 +139,46 @@ public class Tower : MonoBehaviour
 
     void Attack()
     {
-        tower_state = Tower_State.Attack;
-        if (tower_state == Tower_State.Attack)
+        attTime += Time.deltaTime;
+        if (attTime >= AttackDel)
+          
         {
-            attTime += Time.deltaTime;
-            if (attTime >= AttackDel)
-            {
-                attTime = 0;
-                if (SkillCount >= SkillCost)
-                {
-                    tower_state = Tower_State.Skill;
-                }
-                if (tower_type == Tower_Type.Range)
-                {
-                    anim.SetTrigger("hit_1");
-                }
-                else if (tower_type == Tower_Type.Meele)
-                {
-                    //nearestTarget.GetComponent<TestEnemy>().Dameged(Damage);
-                    nearestTarget.GetComponent<EnemyController>().health -= 50;
-                    anim.SetTrigger("hit_1");
-                }
-                SkillCount++;
-            }
+          
+            attTime = 0;
+          
+            
+          
+            anim.SetTrigger("hit_1");
+       
+
         }
     }
     void test()
     {
-        GameObject g = Instantiate(bullet, transform.position, transform.rotation);
+        if (tower_type == Tower_Type.Range)
+        {
+        GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
         g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
+            Destroy(g,10);
+        }
+        else if (tower_type == Tower_Type.Meele)
+        {
+            nearestTarget.GetComponent<EnemyController>().health -= Damage;   
+        }
+    }
+    void SkillCountUp()
+    {
+        SkillCount++;
+    }
+    void skillEnd()
+    {
+        tower_state = Tower_State.Attack;
     }
     void Skill()
     {
         if (tower_state == Tower_State.Skill)
         {
-            gameObject.GetComponent<Tower_Skill>().skill(Tower_id);
-            SkillCount = 0;
+            anim.SetTrigger("skill");
             tower_state = Tower_State.Attack;
         }
     }
@@ -178,7 +188,7 @@ public class Tower : MonoBehaviour
         currentEnemyCount++;
     }
 
-    // ���� Ÿ������ �����ϴ� �Լ�
+
     public void RemoveEnemy()
     {
         currentEnemyCount--;

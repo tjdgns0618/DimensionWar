@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(BT))] // YourComponent는 여러 GameObject를 포함하는 컴포넌트입니다.
+[CustomEditor(typeof(BTManager))] // YourComponent는 여러 GameObject를 포함하는 컴포넌트입니다.
 public class GameObjectArrayPreviewEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        BT bt = (BT)target;
+        BTManager bt = (BTManager)target;
 
         // GameObject 배열의 각 요소에 대한 프리뷰를 그립니다.
         for (int i = 0; i < bt.Tower.Length; i++)
