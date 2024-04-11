@@ -134,16 +134,17 @@ MonoBehaviour:
   isWall: 1
   AttackRange: 2
   AttackDel: 3
-  SkillCost: 0
+  SkillCost: 3
   SkillCount: 0
   Damage: 10
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
-  bullet: {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
+  bullet: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 4588028014005666519}
+  bulletPos: {fileID: 0}
   enemiesInRange: []
 --- !u!114 &863096113449524006
 MonoBehaviour:
@@ -158,12 +159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs:
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
-  - {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
+  SkillPrefabs: {fileID: 2679118055922346939, guid: 03a36f473907ef246bb0a4f9f31e339d,
+    type: 3}
+  colliders: []
+  skillPos: {fileID: 8019698381814623590}
 --- !u!114 &9116673062374046567
 MonoBehaviour:
   m_ObjectHideFlags: 0

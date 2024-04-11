@@ -134,7 +134,7 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 0
+  SkillCost: 3
   SkillCount: 0
   Damage: 10
   targetLayer:
@@ -144,6 +144,7 @@ MonoBehaviour:
   bullet: {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 262782410026414776}
+  bulletPos: {fileID: 1464721753591696661}
   enemiesInRange: []
 --- !u!114 &9111200978583924725
 MonoBehaviour:
@@ -158,12 +159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs:
-  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
-  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
-  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
-  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
-  - {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+  SkillPrefabs: {fileID: 1503050082581177170, guid: 5cb90d9e1be1a834cb31402373987fe2,
+    type: 3}
+  colliders: []
+  skillPos: {fileID: 1464721753591696661}
 --- !u!114 &2218610162653513723
 MonoBehaviour:
   m_ObjectHideFlags: 0

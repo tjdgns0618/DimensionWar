@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TestScript : MonoBehaviour, IBeginDragHandler
+public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler, IDragHandler, IEndDragHandler
 {
     public Vector3 temp;
     public GameObject nextTower;
@@ -14,36 +14,14 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
     bool isDraging = false;
     private void Start()
     {
-        EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
-
-        EventTrigger.Entry entry_PointerClick = new EventTrigger.Entry();
-        entry_PointerClick.eventID = EventTriggerType.PointerClick;
-        entry_PointerClick.callback.AddListener((data) => { OnClick((PointerEventData)data); });
-        eventTrigger.triggers.Add(entry_PointerClick);
-
-        EventTrigger.Entry entry_Drag = new EventTrigger.Entry();
-        entry_Drag.eventID = EventTriggerType.Drag;
-        entry_Drag.callback.AddListener((data) => { OnDrag((PointerEventData)data); });
-        eventTrigger.triggers.Add(entry_Drag);        
-
-        EventTrigger.Entry entry_EndDrag = new EventTrigger.Entry();
-        entry_EndDrag.eventID = EventTriggerType.EndDrag;
-        entry_EndDrag.callback.AddListener((data) => { OnEndDrag((PointerEventData)data); });
-        eventTrigger.triggers.Add(entry_EndDrag);
-
         tower = GetComponent<Tower>();
     }
 
-    private void Update()
-    {
-
-    }
-
-    void OnClick(PointerEventData data)
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("온클릭");
-        GameManager.Instance.tower = tower;        
-        GameManager.Instance.clicked = true;        
+        GameManager.Instance.tower = tower;
+        GameManager.Instance.clicked = true;
         if (GameManager.Instance.clicked && !isDraging)
         {
             Time.timeScale = 0;
@@ -58,8 +36,11 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
         temp = transform.position;
     }
 
-    void OnDrag(PointerEventData data)
+    void IDragHandler.OnDrag(PointerEventData eventData)
     {
+        if (transform.CompareTag("Tower"))
+            return;
+
         isDraging = true;
         GameManager.Instance.clicked = false;
 
@@ -72,8 +53,11 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
         transform.position = objPos;
     }
 
-    void OnEndDrag(PointerEventData data)
-    {        
+    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
+    {
+        if (transform.CompareTag("Tower"))
+            return;
+
         GameManager.Instance.clicked = false;
 
         #region 트리거엔터사용
@@ -101,17 +85,16 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         if (Physics.Raycast(ray, out hit))                              // 현재 들고있는 오브젝트를 뒤에있는 오브젝트에 레이 발사
         {
-            if (hit.transform.gameObject.GetComponent<Tower>() &&
-                tower.tower_type == hit.transform.gameObject.GetComponent<Tower>().tower_type
-                && hit.transform.gameObject.tag == gameObject.tag)
+            if (hit.transform.gameObject.GetComponent<Tower>() && 
+                hit.transform.gameObject.tag == gameObject.tag)
             {
                 gameObject.layer = 0;                                  // 레이가 맞았다면 현재 들고있는 오브젝트 레이어를 default로 다시 변경
                 gameObject.transform.parent.gameObject.layer = 0;
                 Destroy(gameObject);
                 Destroy(hit.transform.gameObject);
-                GameObject instance = Instantiate(nextTower);
+                GameObject instance = Instantiate(hit.transform.gameObject.GetComponent<TestScript>().nextTower);
                 instance.transform.SetParent(hit.transform.parent);
-                instance.transform.localPosition = new Vector3(0, temp.y, 0);
+                instance.transform.localPosition = new Vector3(0, hit.transform.position.y, 0);
                 // instance.transform.rotation = Quaternion.Euler(0,90,0);
                 GameManager.Instance.towers.Add(instance);
                 Debug.Log("합체성공");
@@ -130,6 +113,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler
 
         isDraging = false;
     }
+
 
     #region 트리거엔터사용
     //private void OnTriggerEnter(Collider other)

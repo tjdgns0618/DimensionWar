@@ -79,7 +79,6 @@ public class Skill : MonoBehaviour
                     StartCoroutine(id_2());
                     break;
                 case 3:
-                    if (isDmg)
                         StartCoroutine(id_3());
                     break;
                 case 4:

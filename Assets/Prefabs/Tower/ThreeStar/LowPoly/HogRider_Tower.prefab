@@ -1746,11 +1746,12 @@ GameObject:
   - component: {fileID: 95336719039465142}
   - component: {fileID: 1458216554258783229}
   - component: {fileID: 4131855968761148969}
+  - component: {fileID: 511513062063353876}
   - component: {fileID: 4672956583735392532}
   - component: {fileID: 3126182785855287637}
   m_Layer: 0
   m_Name: HogRider_Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1826,7 +1827,8 @@ MonoBehaviour:
   bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95336719039465142}
-  bulletPos: {fileID: 0}
+  bulletPos: {fileID: 1991115270737566}
+  enemiesInRange: []
 --- !u!114 &4131855968761148969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,7 +1845,21 @@ MonoBehaviour:
   SkillPrefabs: {fileID: 4903337241611104210, guid: 644d000491614ad4cb0b3071c4f1d934,
     type: 3}
   colliders: []
-  skillPos: {fileID: 0}
+  skillPos: {fileID: 1991115270737566}
+--- !u!114 &511513062063353876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991115270737566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {x: 0, y: 0, z: 0}
+  nextTower: {fileID: 0}
 --- !u!54 &4672956583735392532
 Rigidbody:
   m_ObjectHideFlags: 0

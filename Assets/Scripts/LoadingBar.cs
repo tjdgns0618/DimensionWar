@@ -57,6 +57,5 @@ public class LoadingBar : MonoBehaviour
         slider.value = _value;
         string txt = (_value.Equals(1) ? "Finished.. " : "Loading.. ") + (_value).ToString("P");
         text_Loading.text = txt;
-        Debug.Log(txt);
     }
 }

@@ -122,7 +122,7 @@ public class EnemyController : MonoBehaviour
     void OnTriggerExit(Collider other) // 타워를 통과할 때
     {
         Debug.Log("OnTriggerExit");
-        if (other.CompareTag("3D_Tower"))
+        if (other.GetComponent<Tower>().isMelea)
         {
             if (currentTower != null)
             {
