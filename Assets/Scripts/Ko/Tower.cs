@@ -203,6 +203,7 @@ public class Tower : MonoBehaviour
     {
         // 타워에 할당된 적이 있는지 확인하고, 있다면 이동을 재개하도록 함
         Debug.Log("OnDestroy");
+        transform.parent.gameObject.layer = 0;
         if (enemiesInRange != null)
         {
             foreach (EnemyController enemy in enemiesInRange)
