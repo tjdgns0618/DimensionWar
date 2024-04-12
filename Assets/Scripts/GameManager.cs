@@ -69,8 +69,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tower != null && clicked)
-            FollowCam();
+        //if(tower != null && clicked)
+        //    FollowCam();
 
         removeNullTower();
 

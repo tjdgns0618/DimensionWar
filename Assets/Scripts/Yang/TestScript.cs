@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
         Debug.Log("온클릭");
         GameManager.Instance.tower = tower;
         GameManager.Instance.clicked = true;
+        Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = this.transform;
         if (GameManager.Instance.clicked && !isDraging)
         {
             Time.timeScale = 0;
