@@ -13,6 +13,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
     RaycastHit hit;
     Tower tower;
     bool isDraging = false;
+
     private void Start()
     {
         tower = GetComponent<Tower>();
