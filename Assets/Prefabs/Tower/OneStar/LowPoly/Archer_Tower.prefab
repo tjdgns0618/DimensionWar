@@ -865,13 +865,16 @@ MonoBehaviour:
   AttackRange: 5
   AttackDel: 3
   SkillCost: 3
-  SkillCount: 0
+  SkillCount: 2
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 1876427223123748339, guid: 548b0c69cdafdfe499dcac14735a02ec, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95311496314131406}
   bulletPos: {fileID: 1854863924476294}

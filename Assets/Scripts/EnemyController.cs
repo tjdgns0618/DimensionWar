@@ -57,11 +57,11 @@ public class EnemyController : MonoBehaviour
         }
 
         // 목적지에 도착했는지 확인
-        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
-        {
-            Debug.Log("목적지 도착. 다음 목적지 설정");
-            SetDestinationToNextPathPoint(); // 다음 목적지로 설정
-        }
+        //if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
+        //{
+        //    Debug.Log("목적지 도착. 다음 목적지 설정");
+        //    SetDestinationToNextPathPoint(); // 다음 목적지로 설정
+        //}
 
         // 타워를 공격할 수 있는 상태이면 공격
         if (isAttacking && currentTower != null && currentTower.gameObject != null)
@@ -165,5 +165,18 @@ public class EnemyController : MonoBehaviour
         {
             navMeshAgent.SetDestination(player.transform.position);
         }
+    }
+
+    public void OnDamage(float Dmg)
+    {
+        health -= Dmg;
+    }
+    public void MoveSpeedCtrl(float speed)
+    {
+        movementSpeed += speed;
+    }
+    public void AttackDmgCtrl(float attackdamage)
+    {
+        attackDamage -= attackdamage;
     }
 }

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5391289195480856970}
   - component: {fileID: 7609633674708353197}
   - component: {fileID: 3811985093781409473}
-  - component: {fileID: 5273665636209928111}
-  - component: {fileID: 7094192715522659053}
-  - component: {fileID: -2300814208061465899}
-  - component: {fileID: 6567011725060798000}
-  m_Layer: 0
+  - component: {fileID: 8121177972507463203}
+  - component: {fileID: 162234271547937844}
+  - component: {fileID: 1091473280139464507}
+  - component: {fileID: 6391253181835052606}
+  m_Layer: 8
   m_Name: Tengu_Melee_ThreeStar
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -110,80 +110,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5273665636209928111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305421628991597455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
-  currentEnemyCount: 0
-  health: 500
-  Tower_id: 1
-  tower_state: 0
-  tower_type: 0
-  tower_class: 0
-  isMelea: 1
-  isWall: 1
-  AttackRange: 3
-  AttackDel: 3
-  SkillCost: 3
-  SkillCount: 0
-  Damage: 10
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  nearestTarget: {fileID: 0}
-  bullet: {fileID: 2679118055922346939, guid: 03a36f473907ef246bb0a4f9f31e339d, type: 3}
-  dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 3811985093781409473}
-  bulletPos: {fileID: 2305421628991597455}
-  enemiesInRange: []
---- !u!114 &7094192715522659053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305421628991597455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  SkillPrefabs: {fileID: 281373420534333857, guid: 5c035afc517a2ce4081e9ea32bb59c59,
-    type: 3}
-  colliders: []
-  skillPos: {fileID: 2305421628991597455}
---- !u!65 &-2300814208061465899
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305421628991597455}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.08, y: 5.05, z: 0.2}
-  m_Center: {x: -0.47245705, y: 0, z: 0}
---- !u!54 &6567011725060798000
+--- !u!54 &8121177972507463203
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,3 +137,77 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &162234271547937844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305421628991597455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.7, y: 6.4, z: 0.2}
+  m_Center: {x: -0.47245705, y: 0.7086866, z: 0}
+--- !u!114 &1091473280139464507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305421628991597455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 3
+  currentEnemyCount: 0
+  health: 100
+  Tower_id: 15
+  tower_state: 0
+  tower_type: 0
+  tower_class: 0
+  isMelea: 1
+  isWall: 1
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 3
+  SkillCount: 0
+  Damage: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 3811985093781409473}
+  bulletPos: {fileID: 0}
+  enemiesInRange: []
+--- !u!114 &6391253181835052606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305421628991597455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs: {fileID: 281373420534333857, guid: 5c035afc517a2ce4081e9ea32bb59c59,
+    type: 3}
+  colliders: []
+  skillPos: {fileID: 2305421628991597455}

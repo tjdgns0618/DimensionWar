@@ -126,22 +126,25 @@ MonoBehaviour:
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 200
-  Tower_id: 1
+  Tower_id: 9
   tower_state: 0
   tower_type: 0
   tower_class: 0
   isMelea: 1
   isWall: 1
-  AttackRange: 2
+  AttackRange: 5
   AttackDel: 3
-  SkillCost: 5
+  SkillCost: 3
   SkillCount: 0
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
-  bullet: {fileID: 1788164621379647831, guid: 09ba3c8048966bd45808097ce2e1f2a0, type: 3}
+  bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 7698801666256901024}
   bulletPos: {fileID: 3798699357544356566}
@@ -159,7 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 133522, guid: 73a2cd7932ea7074aba3fdfe9137fcc7, type: 3}
+  SkillPrefabs: {fileID: 1788164621379647831, guid: c528bffd5d5b8fa41ba9e4aa0bdab7e6,
+    type: 3}
   colliders: []
   skillPos: {fileID: 3798699357544356566}
 --- !u!114 &-51331681452811258

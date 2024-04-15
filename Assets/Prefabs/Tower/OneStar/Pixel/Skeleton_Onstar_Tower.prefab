@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 751716869835376693}
   m_Layer: 0
   m_Name: Skeleton_Onstar_Tower
-  m_TagString: Level1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
-  Tower_id: 1
+  Tower_id: 10
   tower_state: 0
   tower_type: 1
   tower_class: 0
@@ -134,14 +134,17 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 5
+  SkillCost: 3
   SkillCount: 0
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 3781795105883708524, guid: 839bc5b920c9c004e8cf36b039e53f63, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 6874992159104125505}
   bulletPos: {fileID: 1872953040485969011}
@@ -159,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 186734, guid: 85d76a30709d2d14f8ad29fa765aa17a, type: 3}
+  SkillPrefabs: {fileID: 186734, guid: 1498c1a4067beaa429adc6c45678f053, type: 3}
   colliders: []
   skillPos: {fileID: 1872953040485969011}
 --- !u!114 &-3088357879541761185
