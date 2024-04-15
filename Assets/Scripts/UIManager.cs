@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public GameObject StagePanel;
     public GameObject SettingPanel;
     public Slider BgmSlider;
+    public Canvas skillCanvas;
+    public Text RoundTime;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +41,27 @@ public class UIManager : MonoBehaviour
     {        
         PlayerPrefs.SetFloat("BgmValue", slider.value);
         Debug.Log((PlayerPrefs.GetFloat("BgmValue")*100).ToString("#"));
+    }
+    
+    public void StartGame()
+    {
+        StartCoroutine(_StartGame());
+    }
+
+    public void QuitGame()
+    {
+        StartCoroutine(_QuitGame());
+    }
+
+    IEnumerator _StartGame()
+    {
+        yield return new WaitForSeconds(3f);
+        LoadScene("StageSelect");
+    }
+
+    IEnumerator _QuitGame()
+    {
+        yield return new WaitForSeconds(3f);
+        Application.Quit();
     }
 }

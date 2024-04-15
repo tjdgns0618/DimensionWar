@@ -791,10 +791,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4006153863436176}
   - component: {fileID: 95311496314131406}
-  - component: {fileID: -3057894459289024339}
+  - component: {fileID: 5039125941089257234}
+  - component: {fileID: 4444465098650952364}
+  - component: {fileID: -239880707162836427}
+  - component: {fileID: 3829774190203961583}
+  - component: {fileID: 4823126801062346636}
   m_Layer: 0
   m_Name: Archer_Tower
-  m_TagString: Untagged
+  m_TagString: Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -837,7 +841,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-3057894459289024339
+--- !u!114 &5039125941089257234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -852,7 +856,7 @@ MonoBehaviour:
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
-  Tower_id: 0
+  Tower_id: 1
   tower_state: 0
   tower_type: 1
   tower_class: 1
@@ -860,16 +864,102 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 0
-  SkillCount: 0
-  Damage: 100
+  SkillCost: 3
+  SkillCount: 2
+  Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 1876427223123748339, guid: 548b0c69cdafdfe499dcac14735a02ec, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95311496314131406}
+  bulletPos: {fileID: 1854863924476294}
+  enemiesInRange: []
+--- !u!114 &4444465098650952364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854863924476294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs: {fileID: 7478116895827736727, guid: ced4f4476d2874b4880c93fbbfa697cb,
+    type: 3}
+  colliders: []
+  skillPos: {fileID: 1854863924476294}
+--- !u!114 &-239880707162836427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854863924476294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {x: 0, y: 0, z: 0}
+  nextTower: {fileID: 1655276156585232, guid: 0a3671a5855a89e45b526bb0d08c3dc9, type: 3}
+--- !u!136 &3829774190203961583
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854863924476294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.5893521
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7951908, z: 0}
+--- !u!54 &4823126801062346636
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854863924476294}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1862274414074112
 GameObject:
   m_ObjectHideFlags: 0

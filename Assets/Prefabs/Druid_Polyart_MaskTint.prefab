@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1406847071561513818}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Upper_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8452037198479086490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rower_Reg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7971467725091230245}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2891587305289065967}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,9 +141,10 @@ GameObject:
   - component: {fileID: 2768634848665592107}
   - component: {fileID: 566639424893801522}
   - component: {fileID: -6906898750456726317}
-  m_Layer: 0
+  - component: {fileID: -3050225397675559935}
+  m_Layer: 7
   m_Name: Druid_Polyart_MaskTint
-  m_TagString: 3D_Tower
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,6 +202,39 @@ MonoBehaviour:
   surfaceHeight: 0.7
   Towerprefab: {fileID: 1488750083593082832, guid: 2ab309dd7920a0a46a0b9d45618ac20b,
     type: 3}
+--- !u!114 &-3050225397675559935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488750083593082832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 9999
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 0
+  tower_class: 1
+  isMelea: 0
+  isWall: 0
+  AttackRange: 0
+  AttackDel: 0
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
 --- !u!1 &1507686982363449822
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9116886568325459166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7145670396539023931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Toes_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8528070117847826399}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Index_Proximal_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5819436192227016210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6140232432756491853}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Armor_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 791212328913004183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2371617998424033642}
   - component: {fileID: 1294797038514740173}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DruidMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5748686560474518169}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5642893393226933117}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Armor_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3067612920123250902}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Upper_Reg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 762872389138643966}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Upper_Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +666,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7543280895758279486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Upper_Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4235937974272077390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5880780795501673279}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lower_Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8962822820950943982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Toes_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2771958359064373122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604762217423081055}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Index_Proximal_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6099073235572337458}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rower_Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2290553633929815276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lower_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
