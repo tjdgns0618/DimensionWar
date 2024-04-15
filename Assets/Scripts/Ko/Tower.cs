@@ -31,6 +31,7 @@ public class Tower : MonoBehaviour
     public float SkillCount = 0;
 
     public float Damage = 10;
+    public float BuffDamage;
 
     public LayerMask targetLayer;
     public RaycastHit[] targets;
@@ -38,11 +39,13 @@ public class Tower : MonoBehaviour
     float attTime;
     GameObject tower;
     public GameObject bullet;
+    public GameObject buffbullet;
+    public bool isBuff;
     public Vector3 dir;
     Vector3 scale;
     public Animator anim;
     public GameObject bulletPos;
-  
+   
 
     // 적 목록
     public List<EnemyController> enemiesInRange = new List<EnemyController>();
@@ -52,14 +55,12 @@ public class Tower : MonoBehaviour
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
         attTime = 3f;
+       
     }
-
     void Update()
     {
 
         targets = Physics.SphereCastAll(transform.position, AttackRange, Vector3.up, 0);
-
-
 
         nearestTarget = Scan();
         if (nearestTarget != null)
@@ -123,12 +124,12 @@ public class Tower : MonoBehaviour
             if (dir.normalized.x >= 0)
             {
                 transform.localScale = new Vector3(scale.x/2, scale.y, scale.z);
-                Debug.Log("오른쪽");
+                //Debug.Log("오른쪽");
             }
             else if (dir.normalized.x < 0)
             {
                 transform.localScale = new Vector3(-scale.x/2, scale.y, scale.z);
-                Debug.Log("왼쪽");
+                //Debug.Log("왼쪽");
             }
         }
         else
@@ -150,19 +151,42 @@ public class Tower : MonoBehaviour
     }
     void test()
     {
-        if (tower_type == Tower_Type.Range)
+        if(isBuff)
         {
-        GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-        g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
-            Destroy(g,10);
+            if (tower_type == Tower_Type.Range)
+            {
+                GameObject g = Instantiate(buffbullet, nearestTarget.transform.position,transform.rotation);
+                g.GetComponent<Bullet>().Init(Damage*BuffDamage, 5, dir.normalized);
+                Destroy(g, 10);
+            }
+            else if (tower_type == Tower_Type.Meele)
+            {
+                nearestTarget.GetComponent<EnemyController>().health -= Damage;
+                Debug.Log("1");
+            }
         }
-        else if (tower_type == Tower_Type.Meele)
+        else
         {
-            nearestTarget.GetComponent<EnemyController>().health -= Damage;   
+            if (tower_type == Tower_Type.Range)
+            {
+                GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
+                g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
+                Destroy(g, 10);
+            }
+            else if (tower_type == Tower_Type.Meele)
+            {
+                nearestTarget.GetComponent<EnemyController>().health -= Damage;
+                
+            }
         }
+    }
+    void BuffAttack()
+    {
+        
     }
     void SkillCountUp()
     {
+        if(!isBuff)
         SkillCount++;
     }
     void skillEnd()
@@ -202,7 +226,7 @@ public class Tower : MonoBehaviour
     void OnDestroy()
     {
         // 타워에 할당된 적이 있는지 확인하고, 있다면 이동을 재개하도록 함
-        Debug.Log("OnDestroy");
+        //Debug.Log("OnDestroy");
         if (enemiesInRange != null)
         {
             foreach (EnemyController enemy in enemiesInRange)

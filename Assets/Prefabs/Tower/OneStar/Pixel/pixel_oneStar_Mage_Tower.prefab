@@ -126,7 +126,7 @@ MonoBehaviour:
   maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
-  Tower_id: 1
+  Tower_id: 11
   tower_state: 0
   tower_type: 1
   tower_class: 0
@@ -134,14 +134,17 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 5
+  SkillCost: 2
   SkillCount: 0
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 2566443613767749222, guid: 3f79d248555f4dd4e96a71f9bcf4f003, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 9142735544448062998}
   bulletPos: {fileID: 3545728980758236317}

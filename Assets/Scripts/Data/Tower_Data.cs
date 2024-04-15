@@ -14,7 +14,7 @@ public class Tower_Data : ScriptableObject
 
     [TextArea]
     public string towerDesc;
-    public Sprite towersprite;
+    public GameObject TowerObj;
 
 
     [Header("# Tower")]

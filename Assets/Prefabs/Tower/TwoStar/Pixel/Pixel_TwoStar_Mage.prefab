@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8403804233290393878}
   - component: {fileID: -2387529798655662199}
   - component: {fileID: -1236367849210633191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pixel_TwoStar_Mage
   m_TagString: Level2
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
-  Tower_id: 1
+  Tower_id: 14
   tower_state: 0
   tower_type: 1
   tower_class: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 0
+  SkillCost: 3
   SkillCount: 0
   Damage: 10
   targetLayer:
@@ -144,6 +144,7 @@ MonoBehaviour:
   bullet: {fileID: 6323917297988832822, guid: e04f7b1367502ee4ebde0f479096db63, type: 3}
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 7726880035071149482}
+  bulletPos: {fileID: 1628426222377478364}
   enemiesInRange: []
 --- !u!114 &2036049271767034329
 MonoBehaviour:
@@ -158,12 +159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs:
-  - {fileID: 7161264681831330241, guid: b49ce0f5723a0c94eaa037688926f964, type: 3}
-  - {fileID: 7161264681831330241, guid: b49ce0f5723a0c94eaa037688926f964, type: 3}
-  - {fileID: 7161264681831330241, guid: b49ce0f5723a0c94eaa037688926f964, type: 3}
-  - {fileID: 7161264681831330241, guid: b49ce0f5723a0c94eaa037688926f964, type: 3}
-  - {fileID: 7161264681831330241, guid: b49ce0f5723a0c94eaa037688926f964, type: 3}
+  SkillPrefabs: {fileID: 7161264681831330241, guid: b49ce0f5723a0c94eaa037688926f964,
+    type: 3}
+  colliders: []
+  skillPos: {fileID: 1628426222377478364}
 --- !u!114 &-8403804233290393878
 MonoBehaviour:
   m_ObjectHideFlags: 0

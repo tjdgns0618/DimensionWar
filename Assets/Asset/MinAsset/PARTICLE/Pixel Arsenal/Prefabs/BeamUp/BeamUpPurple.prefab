@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 473634}
   - component: {fileID: 19886128}
   - component: {fileID: 19961836}
+  - component: {fileID: 8258440491006140406}
+  - component: {fileID: 6036444765906269252}
   m_Layer: 0
   m_Name: BeamUpPurple
   m_TagString: Untagged
@@ -4724,7 +4726,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 699200783b324e344aa97cee2655f46b, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4777,6 +4778,42 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8258440491006140406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704cfea7b1df7c94696671b2cb75dc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  Speed: 0
+  isBuffbullet: 1
+--- !u!65 &6036444765906269252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134374}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.00002, y: 0.000020000005, z: 0.000020000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &146438
 GameObject:
   m_ObjectHideFlags: 0
@@ -9607,7 +9644,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: dc465efe33ad97c42a9a8a3b1d42c7fd, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14373,7 +14409,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2bba10c9b6a71e04199d0916017c5a18, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
