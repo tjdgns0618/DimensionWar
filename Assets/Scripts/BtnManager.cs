@@ -30,5 +30,6 @@ public class BTManager : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.Instance.clicked = false;
         Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = null;
+        Camera.main.transform.rotation = GameManager.Instance.CAMtempRotation;
     }
 }

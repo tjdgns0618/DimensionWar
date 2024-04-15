@@ -6,13 +6,12 @@ using UnityEngine.EventSystems;
 
 public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler, IDragHandler, IEndDragHandler
 {
-    public Vector3 temp;
-    public GameObject nextTower;
-    bool canMerge = false;
-    GameObject mergeTower;
+    public GameObject nextTower;    // 합성시 나오는 다음 타워
+    bool canMerge = false;          // 합성 가능 상태 확인용
+    Vector3 temp;                   // 드래그 시작시 현재 위치 저장용
     RaycastHit hit;
     Tower tower;
-    bool isDraging = false;
+    bool isDraging = false;         // 드래그 중인지 체크용
 
     private void Start()
     {
@@ -20,8 +19,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("온클릭");
+    {   // 오브젝트 클릭시
         GameManager.Instance.tower = tower;
         GameManager.Instance.clicked = true;
         Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = this.transform;
@@ -35,17 +33,17 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
-    {
+    {   // 드래그 시작할때
         temp = transform.position;
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
-    {
+    {   // 드래그 중일때
         if (transform.CompareTag("Tower"))
             return;
 
-        isDraging = true;
-        GameManager.Instance.clicked = false;
+        isDraging = true;                       // 드래그와 클릭 구분용
+        GameManager.Instance.clicked = false;   // 드래그와 클릭 구분용
 
         float distance = Camera.main.WorldToScreenPoint(transform.position).z;
 
@@ -53,33 +51,15 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
         Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
         objPos.y = temp.y;
 
-        transform.position = objPos;
+        transform.position = objPos;    // 드래그 중일때 타워가 마우스를 따라오게 하는 코드
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
-    {
+    {   // 드래그가 끝날때
         if (transform.CompareTag("Tower"))
             return;
 
         GameManager.Instance.clicked = false;
-
-        #region 트리거엔터사용
-        //if (canMerge)
-        //{
-        //    Destroy(gameObject);
-        //    Destroy(mergeTower.transform.gameObject);
-        //    GameObject instance = Instantiate(mergeTower.GetComponent<TestScript>().nextTower);
-        //    instance.transform.SetParent(mergeTower.transform.parent);
-        //    instance.transform.localPosition = new Vector3(0, temp.y, 0);
-        //    GameManager.Instance.towers.Add(instance);
-        //    Debug.Log("합체성공");
-        //}
-        //else
-        //{
-        //    gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
-        //    Debug.Log("합체불가, 설치불가지역");
-        //}
-        #endregion
 
         #region 레이캐스트이용
         gameObject.layer = 2;                                  // 현재 들고있는 오브젝트 ignore layer 레이파이어를 무시하는 레이어로 변경        
@@ -109,6 +89,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
                     gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
                 else if (tower.tower_class == Tower.Tower_Class.RowPoly)
                     gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
+                Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = null;
                 Debug.Log("합체불가, 설치불가지역");
             }
         }
@@ -116,29 +97,4 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
 
         isDraging = false;
     }
-
-
-    #region 트리거엔터사용
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.transform.childCount > 0 && transform.parent != other.transform &&
-    //            tower.tower_type == other.transform.gameObject.GetComponent<Tower>().tower_type
-    //            && other.transform.gameObject.tag == gameObject.tag)
-    //    {
-    //        canMerge = true;
-    //        mergeTower = other.gameObject;
-    //    }
-    //    else
-    //    {
-    //        canMerge = false;
-    //        mergeTower = null;
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    canMerge = false;
-    //    mergeTower = null;
-    //}
-    #endregion
 }
