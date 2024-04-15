@@ -167,6 +167,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void OnDamage(float damage)
+    {
+        health -= damage;
+    }
+
     void Die()
     {
         // Die 애니메이션을 재생

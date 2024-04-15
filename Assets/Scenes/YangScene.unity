@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2663,6 +2663,89 @@ MonoBehaviour:
   maxHealth: 100
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
+--- !u!1001 &534239603
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.139
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854081498433331749, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056446449562282449, guid: 86c26ee06f1ff334584f203ca76fa7d5,
+        type: 3}
+      propertyPath: m_Name
+      value: Chassis_Tank_Anim_ROOT
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 86c26ee06f1ff334584f203ca76fa7d5, type: 3}
 --- !u!1 &569674036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5179,8 +5262,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 1675106293410596968, guid: 3ad1d8950e1dbe448b59c15d1d3c60b5, type: 3}
-  numberOfEnemiesToSpawn: 0a000000
+  - {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843, type: 3}
+  - {fileID: 9078554842436105427, guid: 7b122526a59960743b53d0035f09128e, type: 3}
+  numberOfEnemiesToSpawn: 0a00000005000000
   spawnInterval: 2
   spawnPoints:
   - {fileID: 957065871}
@@ -11581,3 +11665,4 @@ SceneRoots:
   - {fileID: 1802309120}
   - {fileID: 1802989724}
   - {fileID: 885795391}
+  - {fileID: 534239603}
