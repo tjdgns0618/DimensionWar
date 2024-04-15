@@ -753,7 +753,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.24808206, y: -0.66215956, z: 0.24808206, w: 0.66215956}
-  m_LocalPosition: {x: 10.24, y: 7.34, z: -10}
+  m_LocalPosition: {x: 10.24, y: 7.34, z: -3.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1443,7 +1443,7 @@ Transform:
   m_GameObject: {fileID: 1067287872}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1688,9 +1688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 2484554610259644775, guid: b13bd477b2d5bac4983d53c996e6c3ca, type: 3}
-  numberOfEnemiesToSpawn: 0a000000
-  spawnInterval: 2
+  - {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843, type: 3}
+  - {fileID: 9078554842436105427, guid: 7b122526a59960743b53d0035f09128e, type: 3}
+  numberOfEnemiesToSpawn: 0300000002000000
+  spawnInterval: 1
   spawnPoints:
   - {fileID: 1192703092}
 --- !u!1001 &1195184245
@@ -2452,10 +2453,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60838685103740355, guid: 2ab309dd7920a0a46a0b9d45618ac20b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 552432479783707417, guid: 2ab309dd7920a0a46a0b9d45618ac20b,
         type: 3}
       propertyPath: health
-      value: 200
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 552432479783707417, guid: 2ab309dd7920a0a46a0b9d45618ac20b,
         type: 3}
