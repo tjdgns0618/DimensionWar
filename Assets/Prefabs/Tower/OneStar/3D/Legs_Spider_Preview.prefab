@@ -2514,13 +2514,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4199280978180433438}
   - component: {fileID: 8009876004995936664}
-  - component: {fileID: -4906871821235468576}
-  - component: {fileID: 5778939308825827887}
   - component: {fileID: 7019460460846811673}
-  - component: {fileID: 2407529727518884372}
-  - component: {fileID: 8772854971045677933}
+  - component: {fileID: -882785746215759706}
   m_Layer: 0
-  m_Name: Legs_Spider_Med_Lv1
+  m_Name: Legs_Spider_Preview
   m_TagString: Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2550,7 +2547,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6257255548361505125}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 7620b58d731a0024c895b151d5167055, type: 3}
   m_Controller: {fileID: 9100000, guid: 9074763ebf567654e897a526cbd3df80, type: 2}
   m_CullingMode: 0
@@ -2563,54 +2560,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &-4906871821235468576
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6257255548361505125}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &5778939308825827887
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6257255548361505125}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.5, y: 3.5, z: 3.5}
-  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &7019460460846811673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2640,7 +2589,7 @@ MonoBehaviour:
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   nearestTarget: {fileID: 0}
   bullet: {fileID: 0}
   buffbullet: {fileID: 0}
@@ -2649,7 +2598,7 @@ MonoBehaviour:
   anim: {fileID: 8009876004995936664}
   bulletPos: {fileID: 6257255548361505125}
   enemiesInRange: []
---- !u!114 &2407529727518884372
+--- !u!114 &-882785746215759706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2658,28 +2607,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6257255548361505125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  SkillPrefabs: {fileID: 0}
-  colliders: []
-  skillPos: {fileID: 6257255548361505125}
---- !u!114 &8772854971045677933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6257255548361505125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextTower: {fileID: 2879680523377229291, guid: 01e9ffa3765745e479a009c86fdbf09e,
+  surfaceHeight: 0.5
+  Towerprefab: {fileID: 6257255548361505125, guid: ca15ac23e0ff66244aec8598d7066b3b,
     type: 3}
-  isDraging: 0
 --- !u!1 &6395512228618518124
 GameObject:
   m_ObjectHideFlags: 0

@@ -530,9 +530,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3005798973696694962}
   - component: {fileID: 3751063183915224968}
+  - component: {fileID: -117953507177686684}
+  - component: {fileID: 8202106408660725421}
   m_Layer: 0
   m_Name: Legs_Tracks_Lvl3
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -574,6 +576,60 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-117953507177686684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042204585135364214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 100
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 1
+  tower_class: 2
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 10
+  BuffDamage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
+  isBuff: 1
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 3751063183915224968}
+  bulletPos: {fileID: 5042204585135364214}
+  enemiesInRange: []
+--- !u!114 &8202106408660725421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042204585135364214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs: {fileID: 0}
+  colliders: []
+  skillPos: {fileID: 0}
 --- !u!1 &5347974439742836364
 GameObject:
   m_ObjectHideFlags: 0

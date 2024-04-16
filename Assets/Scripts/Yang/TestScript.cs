@@ -85,10 +85,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
             else
             {
                 gameObject.layer = 0;
-                if (tower.tower_class == Tower.Tower_Class.Pixel)
-                    gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
-                else if (tower.tower_class == Tower.Tower_Class.RowPoly)
-                    gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
+                gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
                 Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = null;
                 Debug.Log("합체불가, 설치불가지역");
             }

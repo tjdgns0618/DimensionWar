@@ -241,12 +241,15 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 2
   SkillCount: 0
-  Damage: 10
+  Damage: 150
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95689927657685620}
   bulletPos: {fileID: 0}
@@ -280,8 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 1991115270737566, guid: 1df2e9525e169c34cb2bd5023fa72fe8, type: 3}
+  isDraging: 0
 --- !u!136 &8406759919946281634
 CapsuleCollider:
   m_ObjectHideFlags: 0

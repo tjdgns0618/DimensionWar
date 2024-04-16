@@ -126,9 +126,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1962741410021312199}
   - component: {fileID: 8339495134934455043}
+  - component: {fileID: 3107925746958980867}
+  - component: {fileID: 264198805824978966}
+  - component: {fileID: 1749217911113471327}
   - component: {fileID: -2038894537920622305}
+  - component: {fileID: 8939774758092788369}
   m_Layer: 0
-  m_Name: Legs_Tracks_Lvl0
+  m_Name: Legs_Tracks_Tower
   m_TagString: Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,6 +175,75 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3107925746958980867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654761967887082845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 100
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 1
+  tower_class: 2
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 5
+  SkillCount: 0
+  Damage: 10
+  BuffDamage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
+  isBuff: 0
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 8339495134934455043}
+  bulletPos: {fileID: 1654761967887082845}
+  enemiesInRange: []
+--- !u!114 &264198805824978966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654761967887082845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs: {fileID: 0}
+  colliders: []
+  skillPos: {fileID: 0}
+--- !u!114 &1749217911113471327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654761967887082845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextTower: {fileID: 4739857660683069153, guid: a889ce85fe99ebd42a5431da4ba4da5a,
+    type: 3}
+  isDraging: 0
 --- !u!54 &-2038894537920622305
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -198,6 +271,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &8939774758092788369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654761967887082845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1808726687829876154
 GameObject:
   m_ObjectHideFlags: 0

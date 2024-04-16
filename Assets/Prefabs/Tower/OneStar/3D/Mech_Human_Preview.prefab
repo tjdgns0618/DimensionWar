@@ -1538,8 +1538,6 @@ GameObject:
   - component: {fileID: 4313559536550446438}
   - component: {fileID: 7792876049278963025}
   - component: {fileID: 3049478630264402225}
-  - component: {fileID: -4530338920235524908}
-  - component: {fileID: 2414432536692703237}
   - component: {fileID: 1534749631062223207}
   - component: {fileID: -2828296767948480103}
   m_Layer: 0
@@ -1577,7 +1575,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6340468973890119990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 963fa29a513cc1840ba876fc77f3360a, type: 3}
   m_Controller: {fileID: 9100000, guid: 646c1f445f0d6ae47a42394bf2389cb4, type: 2}
   m_CullingMode: 1
@@ -1703,54 +1701,6 @@ MonoBehaviour:
     type: 2}
   handPoseList: []
   blendShapeList: []
---- !u!54 &-4530338920235524908
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340468973890119990}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &2414432536692703237
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340468973890119990}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 4, z: 3}
-  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &1534749631062223207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,8 +1720,8 @@ MonoBehaviour:
   tower_state: 0
   tower_type: 0
   tower_class: 2
-  isMelea: 0
-  isWall: 0
+  isMelea: 1
+  isWall: 1
   AttackRange: 5
   AttackDel: 3
   SkillCost: 0
@@ -1801,7 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaceHeight: 0
+  surfaceHeight: 0.5
   Towerprefab: {fileID: 6340468973890119990, guid: 3c088f70ab8352143b6389365d9b6ad7,
     type: 3}
 --- !u!1 &6408351780039261943

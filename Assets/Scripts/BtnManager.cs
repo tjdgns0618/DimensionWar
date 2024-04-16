@@ -18,7 +18,7 @@ public class BTManager : MonoBehaviour
 
     public void RangerTowerSpawn()
     {
-        int i = Random.Range(3, 7);
+        int i = Random.Range(3, 9);
         Debug.Log(1);
         Debug.Log(i);
         Instantiate(Tower[i], Input.mousePosition, Quaternion.Euler(45, 0, 0));

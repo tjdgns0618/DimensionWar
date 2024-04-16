@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         cam = Camera.main.GetComponent<Camera>();
         CAMtempRotation = cam.transform.rotation;
-        Debug.Log(CAMtempRotation);
     }
     
 

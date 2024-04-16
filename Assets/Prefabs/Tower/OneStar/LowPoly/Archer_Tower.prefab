@@ -866,7 +866,7 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 3
   SkillCount: 2
-  Damage: 10
+  Damage: 50
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -908,8 +908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 1655276156585232, guid: 0a3671a5855a89e45b526bb0d08c3dc9, type: 3}
+  isDraging: 0
 --- !u!136 &3829774190203961583
 CapsuleCollider:
   m_ObjectHideFlags: 0
