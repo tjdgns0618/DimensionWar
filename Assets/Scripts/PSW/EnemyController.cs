@@ -190,6 +190,7 @@ public class EnemyController : MonoBehaviour
     void Die()
     {
         // Die 애니메이션을 재생
+        Debug.Log("Die 트리거 재생");
         animator.SetTrigger("Die");
 
         // 적 타워의 적 수 감소
@@ -198,7 +199,19 @@ public class EnemyController : MonoBehaviour
             currentTower.RemoveEnemy();
         }
 
+        // Die 애니메이션의 길이 확인 및 파괴 실행
+        Debug.Log("코루틴 재생");
+        StartCoroutine(DestroyAfterAnimation(0.1f)); 
+    }
+
+    IEnumerator DestroyAfterAnimation(float delay)
+    {
+        // Die 애니메이션의 길이만큼 대기
+        Debug.Log("대기");
+        yield return new WaitForSeconds(delay);
+
         // 적 오브젝트 파괴
+        Debug.Log("파괴");
         Destroy(gameObject);
     }
 
