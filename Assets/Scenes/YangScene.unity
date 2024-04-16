@@ -480,10 +480,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  DamageToPlayer: 20
+  movementSpeed: 0
   attackDamage: 10
   attackCooldown: 1
   health: 500
-  movementSpeed: 0
+  attackAnimationNames:
+  - Attack01
+  - Attack02
+  - Attack03
+  - Attack04
+  - Attack05
 --- !u!1 &142558340
 GameObject:
   m_ObjectHideFlags: 0
@@ -6826,7 +6833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  damageToPlayer: 20
 --- !u!65 &1363218631
 BoxCollider:
   m_ObjectHideFlags: 0
