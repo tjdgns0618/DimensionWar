@@ -222,6 +222,7 @@ public class Tower : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     // 타워가 파괴될 때 호출되는 메서드
     void OnDestroy()
     {
