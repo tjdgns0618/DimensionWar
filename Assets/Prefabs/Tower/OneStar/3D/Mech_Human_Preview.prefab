@@ -1541,11 +1541,10 @@ GameObject:
   - component: {fileID: -4530338920235524908}
   - component: {fileID: 2414432536692703237}
   - component: {fileID: 1534749631062223207}
-  - component: {fileID: 6064855321719927613}
-  - component: {fileID: 3582880837788518945}
+  - component: {fileID: -2828296767948480103}
   m_Layer: 0
-  m_Name: Mech_Humanoid_Lvl1
-  m_TagString: Level1
+  m_Name: Mech_Human_Preview
+  m_TagString: Preview
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1764,15 +1763,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
   Tower_id: 0
   tower_state: 0
   tower_type: 0
   tower_class: 2
-  isMelea: 1
-  isWall: 1
+  isMelea: 0
+  isWall: 0
   AttackRange: 5
   AttackDel: 3
   SkillCost: 0
@@ -1790,7 +1789,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   bulletPos: {fileID: 0}
   enemiesInRange: []
---- !u!114 &6064855321719927613
+--- !u!114 &-2828296767948480103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1799,28 +1798,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6340468973890119990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Script: {fileID: 11500000, guid: ae726d8554b2432409c66aba9d663428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  SkillPrefabs: {fileID: 0}
-  colliders: []
-  skillPos: {fileID: 0}
---- !u!114 &3582880837788518945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340468973890119990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextTower: {fileID: 1378785397580164797, guid: 29fccc5f1a77ca64cbcde7d5182ef377,
+  surfaceHeight: 0
+  Towerprefab: {fileID: 6340468973890119990, guid: 3c088f70ab8352143b6389365d9b6ad7,
     type: 3}
-  isDraging: 0
 --- !u!1 &6408351780039261943
 GameObject:
   m_ObjectHideFlags: 0

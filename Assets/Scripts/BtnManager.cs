@@ -11,14 +11,14 @@ public class BTManager : MonoBehaviour
 
     public void MeleeTowerSpawn()
     {
-        int i = Random.Range(0, 2);
+        int i = Random.Range(0, 3);
         Instantiate(Tower[i], Input.mousePosition, Quaternion.Euler(45,0,0));
         Debug.Log(Tower[i].name + "辟立鸥况积己");
     }
 
     public void RangerTowerSpawn()
     {
-        int i = Random.Range(2, 6);
+        int i = Random.Range(3, 7);
         Debug.Log(1);
         Debug.Log(i);
         Instantiate(Tower[i], Input.mousePosition, Quaternion.Euler(45, 0, 0));

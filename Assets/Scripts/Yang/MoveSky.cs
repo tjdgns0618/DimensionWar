@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class MoveSky : MonoBehaviour
 {
+    public Renderer tunnel;
+    public bool start = false;
     float degree;
+    float boost;
 
     // Start is called before the first frame update
     void Start()
     {
         degree = 0;
+        boost = 3.9f;
     }
 
     // Update is called once per frame
@@ -20,5 +24,17 @@ public class MoveSky : MonoBehaviour
             degree = 0;
 
         RenderSettings.skybox.SetFloat("_Rotation", degree);
+
+        if (start)
+        {
+            boost += 0.2f * Time.deltaTime;
+            tunnel.material.SetFloat("_Boost", boost);
+            tunnel.material.SetFloat("_Exp", boost);
+        }
+    }
+
+    public void ClickStart()
+    {
+        start = true;
     }
 }

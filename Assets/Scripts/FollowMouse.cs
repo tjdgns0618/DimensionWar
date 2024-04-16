@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class FollowMouse : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class FollowMouse : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && hit.transform.childCount == 0)
                 {
                     Build = true;
-
+                    // hit.transform.gameObject.GetComponent<DOTweenAnimation>().DORestartById("up");  // 바닥 도트윈 실행
                     // 타워 제작 후 오브젝트 제거
                     GameObject instance = Instantiate(Towerprefab);
                     instance.transform.SetParent(hit.transform);
