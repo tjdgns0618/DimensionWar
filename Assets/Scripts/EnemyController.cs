@@ -5,6 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public enum EnemyType
+    {
+        Ground,
+        Air
+    }
+
+    public EnemyType enemyType; // 적의 유형
+
     // 이동에 사용되는 변수들
     private GameObject player; // 플레이어 오브젝트
     private NavMeshAgent navMeshAgent; // NavMesh 에이전트
@@ -23,8 +31,13 @@ public class EnemyController : MonoBehaviour
 
     public float movementSpeed;
 
+    private Animator animator;
+
     void Start()
     {
+        // Animator 컴포넌트 가져오기
+        animator = GetComponent<Animator>();
+            
         // 플레이어 게임 오브젝트를 태그로 찾음
         player = GameObject.FindGameObjectWithTag("Player");
         // NavMesh 에이전트를 가져옴
@@ -45,29 +58,26 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        // 체력이 0 이하인 경우 파괴하고 리턴
+        // 체력이 0 이하인 경우 Die()함수 호출
         if (health <= 0f)
         {
-            if (currentTower != null)
-            {
-                currentTower.RemoveEnemy(); // 타워의 적 수 감소
-            }
-            Destroy(gameObject); // 적 오브젝트 파괴
-            return;
+            Die();
         }
 
         //목적지에 도착했는지 확인
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
         {
-            Debug.Log("목적지 도착. 다음 목적지 설정");
             SetDestinationToNextPathPoint(); // 다음 목적지로 설정
         }
 
         // 타워를 공격할 수 있는 상태이면 공격
         if (isAttacking && currentTower != null && currentTower.gameObject != null)
         {
-            Debug.Log("타워공격중");
-            AttackTower(currentTower);
+            // 적 타입이 Ground인 경우에만 타워를 공격
+            if (enemyType == EnemyType.Ground)
+            {
+                AttackTower(currentTower);
+            }
         }
     }
 
@@ -90,7 +100,7 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Tower>()) // 충돌한 오브젝트가 "3D_Tower" 태그를 가진 타워인 경우
+        if (enemyType == EnemyType.Ground && other.GetComponent<Tower>()) // 적 타입이 Ground이고 충돌한 오브젝트가 "Tower" 태그를 가진 타워인 경우
         {
             currentTower = other.GetComponent<Tower>(); // 충돌한 타워 가져오기
 
@@ -100,7 +110,6 @@ public class EnemyController : MonoBehaviour
                 currentTower.AddEnemy(); // 타워의 적 수 증가
                 currentTower.enemiesInRange.Add(this); // 적을 타워의 적 리스트에 추가
                 navMeshAgent.isStopped = true; // 이동을 멈춤
-                Debug.Log("isStopped = true");
                 isAttacking = true; // 공격 상태로 변경
             }
             else // 최대 적 수 초과시 현재 타워를 무시하고 다시 이동
@@ -121,8 +130,13 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerExit(Collider other) // 타워를 통과할 때
     {
-        Debug.Log("OnTriggerExit");
-        if (other.CompareTag("3D_Tower"))
+        // 적 타입이 Air일 경우 리턴
+        if (enemyType == EnemyType.Air)
+        {
+            return;
+        }
+
+        if (other.CompareTag("Tower"))
         {
             if (currentTower != null)
             {
@@ -136,7 +150,6 @@ public class EnemyController : MonoBehaviour
     // 적의 이동 시작
     public void StartMoving()
     {
-        Debug.Log("StartMoving");
         SetDestinationToNextPathPoint(); // 웨이포인트로 이동
         navMeshAgent.isStopped = false; // 이동 시작
     }
@@ -147,14 +160,30 @@ public class EnemyController : MonoBehaviour
         attackCooldown -= Time.deltaTime;
         if (attackCooldown <= 0f)
         {
+            // Attack 애니메이션을 재생
+            animator.SetTrigger("Attack");
             tower.TakeDamage(attackDamage); // 타워에 데미지 주기
             attackCooldown = 1f; // 쿨다운 초기화
         }
     }
 
+    void Die()
+    {
+        // Die 애니메이션을 재생
+        animator.SetTrigger("Die");
+
+        // 적 타워의 적 수 감소
+        if (enemyType == EnemyType.Ground && currentTower != null)
+        {
+            currentTower.RemoveEnemy();
+        }
+
+        // 적 오브젝트 파괴
+        Destroy(gameObject);
+    }
+
     void SetDestinationToNextPathPoint()
     {
-        Debug.Log("SetDestinationToNextPathPoint");
         if (currentPathIndex < pathPoints.Length - 1) // 다음 지점으로 이동
         {
             currentPathIndex++;
