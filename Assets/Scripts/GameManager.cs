@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> towers = new List<GameObject>();
     public float RoundTime = 0;
     public EnemySpawner enemySpawner;
-
+    public int Killcount;
     public static GameManager Instance
     {
         get
@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
             enemySpawner.enabled = true;
             uiManager.RoundTime.gameObject.SetActive(false);
         }
+        
     }
 
     public void FollowCam()

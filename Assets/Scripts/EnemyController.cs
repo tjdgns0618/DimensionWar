@@ -96,6 +96,7 @@ public class EnemyController : MonoBehaviour
     void TakeDamage(float damage)
     {
         health -= damage; // 적의 체력 감소
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -199,6 +200,11 @@ public class EnemyController : MonoBehaviour
     public void OnDamage(float Dmg)
     {
         health -= Dmg;
+        if (health<=0)
+        {
+            Destroy(gameObject);
+        }
+        GameManager.Instance.Killcount++;
     }
     public void MoveSpeedCtrl(float speed)
     {
