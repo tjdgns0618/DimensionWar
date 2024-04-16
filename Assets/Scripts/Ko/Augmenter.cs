@@ -26,7 +26,8 @@ public class Augmenter : MonoBehaviour
     public void AugmentUpdate()
     {
         Name.text = augmenter_Datas[r].Augmenter_Name;
-        Effet.text = augmenter_Datas[r].Augmenter_Desc;   
+        Effet.text = augmenter_Datas[r].Augmenter_Desc;
+        Image.sprite = augmenter_Datas[r].image;
     }
     public void Button()
     {
