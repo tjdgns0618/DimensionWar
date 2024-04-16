@@ -218,7 +218,7 @@ public class Tower : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            // transform.parent.gameObject.layer = 0;
+            transform.parent.gameObject.layer = 0;
             Destroy(gameObject);
         }
     }

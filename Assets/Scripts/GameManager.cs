@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public List<GameObject> towers = new List<GameObject>();
-    public float RoundTime = 0;
+    
+    [HideInInspector]
+    public float RoundTime = 0;         // 라운드 시간
+    [HideInInspector]
+    public Quaternion CAMtempRotation;  // 카메라 로테이션 초기화용
     public EnemySpawner enemySpawner;
     public int Killcount;
     public static GameManager Instance
@@ -63,14 +67,16 @@ public class GameManager : MonoBehaviour
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         cam = Camera.main.GetComponent<Camera>();
+        CAMtempRotation = cam.transform.rotation;
+        Debug.Log(CAMtempRotation);
     }
     
 
     // Update is called once per frame
     void Update()
     {
-        if(tower != null && clicked)
-            FollowCam();
+        //if(tower != null && clicked)
+        //    FollowCam();
 
         removeNullTower();
 

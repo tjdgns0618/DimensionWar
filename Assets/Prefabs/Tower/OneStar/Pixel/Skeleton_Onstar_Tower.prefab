@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 751716869835376693}
   m_Layer: 0
   m_Name: Skeleton_Onstar_Tower
-  m_TagString: Tower
+  m_TagString: Level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 1464721753591696661, guid: 02c457b8e97671c41aee59ed53372bce,
     type: 3}
 --- !u!65 &2750289740566059611
@@ -199,7 +198,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 3, z: 2}
+  m_Size: {x: 1.72, y: 3, z: 0.35}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &751716869835376693
 Rigidbody:

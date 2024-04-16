@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class BTManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class BTManager : MonoBehaviour
         GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.clicked = false;
-        Camera.main.transform.rotation = Quaternion.Euler(20, 0, 0);
+        Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = null;
+        Camera.main.transform.rotation = GameManager.Instance.CAMtempRotation;
     }
 }

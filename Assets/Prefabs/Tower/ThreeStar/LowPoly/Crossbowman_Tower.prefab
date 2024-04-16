@@ -373,11 +373,12 @@ GameObject:
   - component: {fileID: 95084390982692002}
   - component: {fileID: 8499481317797390980}
   - component: {fileID: 7188353973272451385}
+  - component: {fileID: 3141795339594890817}
   - component: {fileID: 4343115890532626466}
   - component: {fileID: 3743420586976538534}
   m_Layer: 0
   m_Name: Crossbowman_Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,6 +456,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95084390982692002}
   bulletPos: {fileID: 2994474602075958266}
+  enemiesInRange: []
 --- !u!114 &7188353973272451385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +474,20 @@ MonoBehaviour:
     type: 3}
   colliders: []
   skillPos: {fileID: 2994474602075958266}
+--- !u!114 &3141795339594890817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313447101344788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {x: 0, y: 0, z: 0}
+  nextTower: {fileID: 0}
 --- !u!54 &4343115890532626466
 Rigidbody:
   m_ObjectHideFlags: 0
