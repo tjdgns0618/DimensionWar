@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float health = 200f; // 플레이어의 체력
-    public float damageToPlayer = 20f; // 플레이어에게 가해지는 데미지
 
     public void TakeDamage(float damage)
     {
