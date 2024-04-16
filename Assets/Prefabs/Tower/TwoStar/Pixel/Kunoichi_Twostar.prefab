@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2218610162653513723}
   - component: {fileID: -1200538755707630377}
   - component: {fileID: 727124879857238082}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Kunoichi_Twostar
   m_TagString: Level2
   m_Icon: {fileID: 0}
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 6050877796436588062, guid: 044f06c678d8593439031bcd7eafe190,
     type: 3}
+  isDraging: 0
 --- !u!65 &-1200538755707630377
 BoxCollider:
   m_ObjectHideFlags: 0

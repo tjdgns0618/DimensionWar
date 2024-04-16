@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3253750376353001401}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 9116673062374046567}
   - component: {fileID: 8208973596468512347}
   - component: {fileID: 3327895816402186875}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Samurai_Melee_TwoStar
   m_TagString: Level2
   m_Icon: {fileID: 0}
@@ -169,11 +169,14 @@ MonoBehaviour:
   SkillCost: 3
   SkillCount: 0
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 4588028014005666519}
   bulletPos: {fileID: 0}
@@ -207,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 2305421628991597455, guid: 456c5cd743068e5458ee1395a26804f7,
     type: 3}
+  isDraging: 0
 --- !u!65 &8208973596468512347
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -129,8 +129,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.35, y: 5.15, z: 0.2}
-  m_Center: {x: -0.51478505, y: 0.8128185, z: 0}
+  m_Size: {x: 2.35, y: 3.78202, z: 0.2}
+  m_Center: {x: -0.51478505, y: 0.12882829, z: 0}
 --- !u!54 &1789332104682695443
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,11 +184,14 @@ MonoBehaviour:
   SkillCost: 3
   SkillCount: 0
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 3781795105883708524, guid: 839bc5b920c9c004e8cf36b039e53f63, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 137484433314319262}
   bulletPos: {fileID: 6050877796436588062}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Cinemachine;
 
 public class BTManager : MonoBehaviour
@@ -31,5 +32,15 @@ public class BTManager : MonoBehaviour
         GameManager.Instance.clicked = false;
         Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = null;
         Camera.main.transform.rotation = GameManager.Instance.CAMtempRotation;
+    }
+
+    public void SpeedUp()
+    {
+        if (Time.timeScale == 1f)
+            Time.timeScale = 2f;
+        else if (Time.timeScale == 2f)
+            Time.timeScale = 3f;
+        else if (Time.timeScale == 3f)
+            Time.timeScale = 1f;
     }
 }

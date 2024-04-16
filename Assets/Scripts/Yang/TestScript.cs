@@ -11,7 +11,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
     Vector3 temp;                   // 드래그 시작시 현재 위치 저장용
     RaycastHit hit;
     Tower tower;
-    bool isDraging = false;         // 드래그 중인지 체크용
+    public bool isDraging = false;         // 드래그 중인지 체크용
 
     private void Start()
     {

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8403804233290393878}
   - component: {fileID: -2387529798655662199}
   - component: {fileID: -1236367849210633191}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Pixel_TwoStar_Mage
   m_TagString: Level2
   m_Icon: {fileID: 0}
@@ -137,11 +137,14 @@ MonoBehaviour:
   SkillCost: 3
   SkillCount: 0
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 6323917297988832822, guid: e04f7b1367502ee4ebde0f479096db63, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 7726880035071149482}
   bulletPos: {fileID: 1628426222377478364}
@@ -175,9 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 7882012697678281344, guid: 8d0b8d8c2e4e02f4593165718429f93c,
     type: 3}
+  isDraging: 0
 --- !u!65 &-2387529798655662199
 BoxCollider:
   m_ObjectHideFlags: 0
