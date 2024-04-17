@@ -80,6 +80,7 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
                 instance.transform.localPosition = new Vector3(0, hit.transform.position.y, 0);
                 // instance.transform.rotation = Quaternion.Euler(0,90,0);
                 GameManager.Instance.towers.Add(instance);
+                transform.parent.GetComponent<Blocks>().isBuild = false;
                 Debug.Log("합체성공");
             }
             else

@@ -41,7 +41,7 @@ namespace PI
                     {
                         Build = true;
                         // hit.transform.gameObject.GetComponent<DOTweenAnimation>().DORestartById("up");  // 바닥 도트윈 실행
-
+                        hit.transform.gameObject.GetComponent<Blocks>().isBuild = true;
                         
 
                         // 타워 제작 후 오브젝트 제거
