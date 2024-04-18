@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultipleObjectsMake : _ObjectsMakeBase
+public class MultipleObjectsMake1 : _ObjectsMakeBase
 {
     public float m_startDelay;
     public int m_makeCount;
@@ -19,11 +19,15 @@ public class MultipleObjectsMake : _ObjectsMakeBase
     float m_count;
     float m_scalefactor;
 
+    
+    public Vector3 m_pos;
 
+    public Vector3 m_pos1;
     void Start()
     {
         m_Time = m_Time2 = Time.time;
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor; //transform.parent.localScale.x; 
+        m_pos1 = target.transform.position;
     }
 
 
@@ -33,14 +37,14 @@ public class MultipleObjectsMake : _ObjectsMakeBase
         {
             if (Time.time > m_Time2 + m_makeDelay && m_count < m_makeCount)
             {
-                
-                Vector3 m_pos = transform.position + GetRandomVector(m_randomPos)* m_scalefactor; 
+                m_pos = GetRandomVector(m_randomPos) * m_scalefactor;
+
                 Quaternion m_rot = transform.rotation * Quaternion.Euler(GetRandomVector(m_randomRot));
-                
+
 
                 for (int i = 0; i < m_makeObjs.Length; i++)
                 {
-                    GameObject m_obj = Instantiate(m_makeObjs[i], m_pos, m_rot);
+                    GameObject m_obj = Instantiate(m_makeObjs[i], m_pos1+m_pos, m_rot);
                     Vector3 m_scale = (m_makeObjs[i].transform.localScale + GetRandomVector2(m_randomScale));
                     if(isObjectAttachToParent)
                         m_obj.transform.parent = this.transform;
