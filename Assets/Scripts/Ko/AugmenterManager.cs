@@ -7,6 +7,8 @@ public class AugmenterManager : MonoBehaviour
     public GameObject btt;
     public GameObject[] bt;
     public List<int> r = new List<int>();
+    public int count=0;
+    public int max;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,9 @@ public class AugmenterManager : MonoBehaviour
         if (GameManager.Instance.Killcount >= 10)
         {
             GameManager.Instance.Killcount = 0;
-            r = new List<int>();
+            //r = new List<int>();
+            if (max - r.Count <= 2)
+                return;
             Augmeneter();
             CreateUnDuplicateRandom();
             
@@ -35,11 +39,11 @@ public class AugmenterManager : MonoBehaviour
     {
         int currentNumber = Random.Range(0, 3);
         
-        for (int i = 0; i < 3;)
+        for (int i = 0; i < bt.Length;)
         {
             if (r.Contains(currentNumber))
             {
-                currentNumber = Random.Range(0, 3);
+                currentNumber = Random.Range(0, max);
             }
             else
             {
@@ -47,11 +51,12 @@ public class AugmenterManager : MonoBehaviour
                 i++;
             }
         }
-
+       
         for (int i = 0; i < bt.Length; i++)
         {
-            bt[i].GetComponent<Augmenter>().r = r[i];
+            bt[i].GetComponent<Augmenter>().r = r[i+(count * 3)];
             bt[i].GetComponent<Augmenter>().AugmentUpdate();
         }
+        count++;
     }
 }

@@ -47,7 +47,11 @@ public class GameManager : MonoBehaviour
     public GameObject EnemyCleaner;
 
     private Camera cam;
-
+    [Header("# Augmenter")]
+    public float towerDamage;
+    public float towerSpeed;
+    public float towerHp;
+    public float BonusDamage;
     private void Awake()
     {
         if (_instance == null)

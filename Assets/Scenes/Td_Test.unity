@@ -2735,6 +2735,10 @@ MonoBehaviour:
   maxHealth: 100
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
+  towerDamage: 0
+  towerSpeed: 0
+  towerHp: 0
+  BonusDamage: 0
 --- !u!1 &552270266
 GameObject:
   m_ObjectHideFlags: 0
@@ -5582,6 +5586,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127398357}
   m_CullTransparentMesh: 1
+--- !u!1001 &1165955244
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -453910636369215578, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
+        type: 3}
+      propertyPath: SkillPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -453910636369215578, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
+        type: 3}
+      propertyPath: SkillPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1789460182}
+    - target: {fileID: -453910636369215578, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
+        type: 3}
+      propertyPath: SkillPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7034573602798067198, guid: 579efa2c8c40325429b7a48a26af5c63,
+        type: 3}
+    - target: {fileID: 1824695601163454, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_Name
+      value: Berserker_Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
 --- !u!1 &1174507388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,6 +7269,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752008082}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1789460182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1259282276752840499, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165955244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797016802
 GameObject:
   m_ObjectHideFlags: 0
@@ -9446,3 +9529,4 @@ SceneRoots:
   - {fileID: 529766833}
   - {fileID: 96780760}
   - {fileID: 299652015}
+  - {fileID: 1165955244}

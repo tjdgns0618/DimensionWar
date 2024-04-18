@@ -200,11 +200,12 @@ public class EnemyController : MonoBehaviour
     public void OnDamage(float Dmg)
     {
         health -= Dmg;
+        health -= GameManager.Instance.BonusDamage;
         if (health<=0)
         {
-            Destroy(gameObject);
+            GameManager.Instance.Killcount++;
+            Die();
         }
-        GameManager.Instance.Killcount++;
     }
     public void MoveSpeedCtrl(float speed)
     {
