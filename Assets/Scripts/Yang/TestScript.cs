@@ -22,13 +22,11 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
     {   // 오브젝트 클릭시
         GameManager.Instance.tower = tower;
         GameManager.Instance.clicked = true;
-        Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = this.transform;
         if (GameManager.Instance.clicked && !isDraging)
         {
             Time.timeScale = 0;
-            GameManager.Instance.uiManager.skillCanvas.transform.position = transform.parent.transform.position + new Vector3(0, 3.5f, -0.5f);
-            GameManager.Instance.uiManager.skillCanvas.transform.LookAt(Camera.main.transform);
             GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
+            GameManager.Instance.uiManager.uiCanvas.gameObject.SetActive(false);
         }
     }
 
@@ -80,14 +78,14 @@ public class TestScript : MonoBehaviour, IBeginDragHandler, IPointerClickHandler
                 instance.transform.localPosition = new Vector3(0, hit.transform.position.y, 0);
                 // instance.transform.rotation = Quaternion.Euler(0,90,0);
                 GameManager.Instance.towers.Add(instance);
-                transform.parent.GetComponent<Blocks>().isBuild = false;
+                if(transform.parent.GetComponent<Blocks>())
+                    transform.parent.GetComponent<Blocks>().isBuild = false;
                 Debug.Log("합체성공");
             }
             else
             {
                 gameObject.layer = 0;
                 gameObject.transform.localPosition = new Vector3(0, temp.y, 0);
-                Camera.main.GetComponent<CinemachineVirtualCamera>().LookAt = null;
                 Debug.Log("합체불가, 설치불가지역");
             }
         }

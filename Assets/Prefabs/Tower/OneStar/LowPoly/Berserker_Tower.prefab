@@ -964,15 +964,18 @@ MonoBehaviour:
   isMelea: 1
   isWall: 1
   AttackRange: 2
-  AttackDel: 3
+  AttackDel: 2
   SkillCost: 5
   SkillCount: 4
   Damage: 10
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95228858151955370}
   bulletPos: {fileID: 1824695601163454}
@@ -1005,8 +1008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 1154614916031174, guid: 4b7420e6d9bc0554dbd0dbe902a175c9, type: 3}
+  isDraging: 0
 --- !u!136 &7978469729519569841
 CapsuleCollider:
   m_ObjectHideFlags: 0

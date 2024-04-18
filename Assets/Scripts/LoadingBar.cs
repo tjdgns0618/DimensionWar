@@ -55,7 +55,7 @@ public class LoadingBar : MonoBehaviour
     private void Set_FillAmount(float _value)
     {
         slider.value = _value;
-        string txt = (_value.Equals(1) ? "  Finished!   " : "") + (_value).ToString("P");
+        string txt = (_value.Equals(1) ? " 불러오기 완료!   " : "불러오는 중..  ") + (Mathf.Floor(_value * 10f) / 10).ToString("P");
         text_Loading.text = txt;
     }
 }

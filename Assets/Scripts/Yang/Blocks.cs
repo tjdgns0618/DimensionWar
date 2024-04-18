@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Blocks : MonoBehaviour
+public class Blocks : MonoBehaviour, IPointerClickHandler
 {
     public float speed = 2.0f; // 이동 속도
     public bool isBuild = false;
@@ -15,6 +16,12 @@ public class Blocks : MonoBehaviour
         {
             BlockDown();
         }
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        
+        isBuild = true;
     }
 
     void BlockUp()

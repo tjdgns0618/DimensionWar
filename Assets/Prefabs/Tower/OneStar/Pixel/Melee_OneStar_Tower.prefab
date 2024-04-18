@@ -133,10 +133,10 @@ MonoBehaviour:
   isMelea: 1
   isWall: 1
   AttackRange: 5
-  AttackDel: 3
+  AttackDel: 2
   SkillCost: 3
   SkillCount: 0
-  Damage: 10
+  Damage: 40
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -178,9 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 8019698381814623590, guid: 3d13e6654578c7d459f6c0a47fb52f62,
     type: 3}
+  isDraging: 0
 --- !u!65 &3104993109187684116
 BoxCollider:
   m_ObjectHideFlags: 0
