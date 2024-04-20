@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public List<GameObject> towers = new List<GameObject>();
-    
+    public GameObject SelectBlock;
     [HideInInspector]
     public float RoundTime = 0;         // 라운드 시간
     [HideInInspector]
@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
     }
 
     public UIManager uiManager;
-    public bool clicked = false;
+    public bool blockClicked = false;
+    public bool towerClicked = false;
 
     [Header("# Game Control")]
     public bool isLive;
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void FollowCam()
     {
-        if (clicked)
+        if (towerClicked)
         {
             Vector3 direction = (tower.transform.position - cam.transform.position).normalized;
             Quaternion rotation = Quaternion.LookRotation(direction);

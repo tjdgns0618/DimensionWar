@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject SettingPanel;
     public Slider BgmSlider;
     public Canvas uiCanvas;
+    public GameObject BuyPaenl;
     public Canvas skillCanvas;
     public Text RoundTime;
 
