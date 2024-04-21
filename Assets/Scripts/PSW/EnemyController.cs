@@ -35,11 +35,13 @@ public class EnemyController : MonoBehaviour
     public List<string> attackAnimationNames = new List<string> { "Attack01", "Attack02", "Attack03", "Attack04", "Attack05" }; // 공격 애니메이션 리스트
     private bool isWalking = false; // 걷기 상태 여부
 
+    private bool isDead = false; // 사망 상태 여부
+
     void Start()
     {
         // Animator 컴포넌트 가져오기
         animator = GetComponent<Animator>();
-            
+
         // 플레이어 게임 오브젝트를 태그로 찾음
         player = GameObject.FindGameObjectWithTag("Player");
         // NavMesh 에이전트를 가져옴
@@ -60,35 +62,44 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        // 체력이 0 이하인 경우 Die()함수 호출
-        if (health <= 0f)
+        // 사망 상태인 경우 아무것도 하지 않음
+        if (isDead)
         {
-            Die();
+            return;
         }
-
-        //목적지에 도착했는지 확인
-        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
+        else
         {
-            // 걷기 애니메이션 종료
-            animator.SetBool("IsWalking", false);
-            SetDestinationToNextPathPoint(); // 다음 목적지로 설정
-        }
-
-        // 타워를 공격할 수 있는 상태이면 공격
-        if (isAttacking && currentTower != null && currentTower.gameObject != null)
-        {
-            // 적 타입이 Ground인 경우에만 타워를 공격
-            if (enemyType == EnemyType.Ground)
+            // 체력이 0 이하인 경우 Die()함수 호출
+            if (health <= 0f)
             {
-                AttackTower(currentTower);
+                Die();
+                return; // 사망한 경우 이후 코드를 실행하지 않음
             }
+
+            // 목적지에 도착했는지 확인
+            if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
+            {
+                // 걷기 애니메이션 종료
+                animator.SetBool("IsWalking", false);
+                SetDestinationToNextPathPoint(); // 다음 목적지로 설정
+            }
+
+            // 타워를 공격할 수 있는 상태이면 공격
+            if (isAttacking && currentTower != null && currentTower.gameObject != null)
+            {
+                // 적 타입이 Ground인 경우에만 타워를 공격
+                if (enemyType == EnemyType.Ground)
+                {
+                    AttackTower(currentTower);
+                }
+            }
+
+            // 걷기 상태 갱신
+            isWalking = navMeshAgent.velocity.magnitude > 0.1f;
+
+            // 걷기 상태에 따라 애니메이션 설정
+            animator.SetBool("IsWalking", isWalking);
         }
-
-        // 걷기 상태 갱신
-        isWalking = navMeshAgent.velocity.magnitude > 0.1f;
-
-        // 걷기 상태에 따라 애니메이션 설정
-        animator.SetBool("IsWalking", isWalking);
     }
 
     // 타워 설정
@@ -106,7 +117,6 @@ public class EnemyController : MonoBehaviour
     void TakeDamage(float damage)
     {
         health -= damage; // 적의 체력 감소
-        
     }
 
     void OnTriggerEnter(Collider other)
@@ -154,7 +164,6 @@ public class EnemyController : MonoBehaviour
             {
                 currentTower.RemoveEnemy(); // 타워의 적 수 감소
                 currentTower = null; // 현재 타워 초기화
-                StartMoving(); // 이동 재개
             }
         }
     }
@@ -162,6 +171,12 @@ public class EnemyController : MonoBehaviour
     // 적의 이동 시작
     public void StartMoving()
     {
+        // 사망 상태인 경우 이동을 시작하지 않음
+        if (isDead)
+        {
+            return;
+        }
+
         SetDestinationToNextPathPoint(); // 웨이포인트로 이동
         navMeshAgent.isStopped = false; // 이동 시작
     }
@@ -183,10 +198,20 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void OnDamage(float damage)
+    {
+        health -= damage;
+    }
+
     void Die()
     {
+        if (isDead) // 이미 사망한 경우에는 더 이상 실행하지 않음
+        {
+            return;
+        }
+        isDead = true; // 사망 상태로 변경
+
         // Die 애니메이션을 재생
-        Debug.Log("Die 트리거 재생");
         animator.SetTrigger("Die");
 
         // 적 타워의 적 수 감소
@@ -195,19 +220,58 @@ public class EnemyController : MonoBehaviour
             currentTower.RemoveEnemy();
         }
 
-        // Die 애니메이션의 길이 확인 및 파괴 실행
-        Debug.Log("코루틴 재생");
-        StartCoroutine(DestroyAfterAnimation(0.1f)); 
+        // 네비게이션 메쉬 에이전트 비활성화
+        navMeshAgent.enabled = false;
+
+        // 콜라이더 비활성화
+        Collider collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+
+        // Air 타입인 경우 점진적으로 추락하는 효과 부여
+        if (enemyType == EnemyType.Air)
+        {
+            StartCoroutine(FallDownCoroutine());
+        }
+        else // Ground 타입인 경우는 즉시 파괴
+        {
+            StartCoroutine(DestroyAfterDelay(2f));
+        }
+
     }
 
-    IEnumerator DestroyAfterAnimation(float delay)
+    IEnumerator FallDownCoroutine()
     {
-        // Die 애니메이션의 길이만큼 대기
-        Debug.Log("대기");
+        float totalTime = 2f; // 추락하는데 걸리는 전체 시간
+        float elapsedTime = 0f;
+
+        Vector3 startPosition = transform.position;
+        Vector3 endPosition = startPosition - Vector3.up * 2f; // 추락 거리 조정
+
+        while (elapsedTime < totalTime)
+        {
+            // 현재 시간에 따라 적당한 비율로 위치를 보간
+            float t = elapsedTime / totalTime;
+            transform.position = Vector3.Lerp(startPosition, endPosition, t);
+
+            // 시간 업데이트
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        // 끝까지 추락한 후 파괴
+        Destroy(gameObject);
+    }
+
+    IEnumerator DestroyAfterDelay(float delay)
+    {
+        // delay 시간 대기
         yield return new WaitForSeconds(delay);
 
         // 적 오브젝트 파괴
-        Debug.Log("파괴");
         Destroy(gameObject);
     }
 
@@ -234,24 +298,5 @@ public class EnemyController : MonoBehaviour
             // 걷기 애니메이션 재생
             animator.SetBool("IsWalking", true);
         }
-    }
-
-    public void OnDamage(float Dmg)
-    {
-        health -= Dmg;
-        health -= GameManager.Instance.BonusDamage;
-        if (health<=0)
-        {
-            GameManager.Instance.Killcount++;
-            Die();
-        }
-    }
-    public void MoveSpeedCtrl(float speed)
-    {
-        movementSpeed += speed;
-    }
-    public void AttackDmgCtrl(float attackdamage)
-    {
-        attackDamage -= attackdamage;
     }
 }
