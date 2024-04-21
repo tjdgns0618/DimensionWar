@@ -15,6 +15,16 @@ public class BTManager : MonoBehaviour
         StartCoroutine(_BuyTower());
     }
 
+    public void SellTower()
+    {
+        StartCoroutine(_SellTower());
+    }
+
+    public void UpgradeTower()
+    {
+        StartCoroutine(_UpgradeTower());
+    }
+
     public void MeleeTowerSpawn()
     {
         if (GameManager.Instance.SelectBlock.transform.childCount >= 2)
@@ -83,11 +93,39 @@ public class BTManager : MonoBehaviour
         yield return null;
     }
 
+    IEnumerator _SellTower()
+    {
+        Destroy(GameManager.Instance.tower.gameObject);
+        GameManager.Instance.tower.transform.parent.GetComponent<Blocks>().isBuild = false;
+        GameManager.Instance.tower.transform.parent.gameObject.layer = 0;
+        Time.timeScale = 1f;
+
+        yield return null;
+    }
+
+    IEnumerator _UpgradeTower()
+    {
+        if (GameManager.Instance.tower.GetComponent<TestScript>().nextTower == null)
+        {
+            Time.timeScale = 1f;
+            yield return null;
+        }
+
+        GameObject instance = Instantiate(GameManager.Instance.tower.GetComponent<TestScript>().nextTower);
+        instance.transform.SetParent(GameManager.Instance.tower.transform.parent.transform);
+        instance.transform.position = GameManager.Instance.tower.transform.position;
+        Destroy(GameManager.Instance.tower.gameObject);
+        Time.timeScale = 1f;
+
+        yield return null;
+    }
+
     public void EndBuyTower()
     {
         GameManager.Instance.blockClicked = false;
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
+        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);
     }
 
     public void EndSkillUp()

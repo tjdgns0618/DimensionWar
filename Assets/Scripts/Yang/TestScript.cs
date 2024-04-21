@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class TestScript : MonoBehaviour, IPointerClickHandler
 {
-    // public GameObject nextTower;    // 합성시 나오는 다음 타워
+    public GameObject nextTower;    // 합성시 나오는 다음 타워
     // bool canMerge = false;          // 합성 가능 상태 확인용
     Vector3 temp;                   // 드래그 시작시 현재 위치 저장용
     RaycastHit hit;
