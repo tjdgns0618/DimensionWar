@@ -66,7 +66,7 @@ public class EnemyController : MonoBehaviour
             Die();
         }
 
-        // 목적지에 도착했는지 확인
+        //목적지에 도착했는지 확인
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
         {
             // 걷기 애니메이션 종료
@@ -106,6 +106,7 @@ public class EnemyController : MonoBehaviour
     void TakeDamage(float damage)
     {
         health -= damage; // 적의 체력 감소
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -182,11 +183,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void OnDamage(float damage)
-    {
-        health -= damage;
-    }
-
     void Die()
     {
         // Die 애니메이션을 재생
@@ -238,5 +234,24 @@ public class EnemyController : MonoBehaviour
             // 걷기 애니메이션 재생
             animator.SetBool("IsWalking", true);
         }
+    }
+
+    public void OnDamage(float Dmg)
+    {
+        health -= Dmg;
+        health -= GameManager.Instance.BonusDamage;
+        if (health<=0)
+        {
+            GameManager.Instance.Killcount++;
+            Die();
+        }
+    }
+    public void MoveSpeedCtrl(float speed)
+    {
+        movementSpeed += speed;
+    }
+    public void AttackDmgCtrl(float attackdamage)
+    {
+        attackDamage -= attackdamage;
     }
 }

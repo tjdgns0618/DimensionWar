@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public Quaternion CAMtempRotation;  // 카메라 로테이션 초기화용
     public EnemySpawner enemySpawner;
-
+    public int Killcount;
     public static GameManager Instance
     {
         get
@@ -48,7 +48,11 @@ public class GameManager : MonoBehaviour
     public GameObject EnemyCleaner;
 
     private Camera cam;
-
+    [Header("# Augmenter")]
+    public float towerDamage;
+    public float towerSpeed;
+    public float towerHp;
+    public float BonusDamage;
     private void Awake()
     {
         if (_instance == null)
@@ -87,6 +91,7 @@ public class GameManager : MonoBehaviour
             enemySpawner.enabled = true;
             uiManager.RoundTime.gameObject.SetActive(false);
         }
+        
     }
 
     public void FollowCam()
