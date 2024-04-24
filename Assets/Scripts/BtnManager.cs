@@ -9,6 +9,7 @@ public class BTManager : MonoBehaviour
 {
     [Header("Å¸¿ö")]
     public GameObject[] Tower;
+    int gameSpeed = 1;
 
     public void BuyTower()
     {
@@ -98,7 +99,7 @@ public class BTManager : MonoBehaviour
         Destroy(GameManager.Instance.tower.gameObject);
         GameManager.Instance.tower.transform.parent.GetComponent<Blocks>().isBuild = false;
         GameManager.Instance.tower.transform.parent.gameObject.layer = 0;
-        Time.timeScale = 1f;
+        Time.timeScale = gameSpeed;
 
         yield return null;
     }
@@ -107,7 +108,7 @@ public class BTManager : MonoBehaviour
     {
         if (GameManager.Instance.tower.GetComponent<TestScript>().nextTower == null)
         {
-            Time.timeScale = 1f;
+            Time.timeScale = gameSpeed;
             yield return null;
         }
 
@@ -115,7 +116,7 @@ public class BTManager : MonoBehaviour
         instance.transform.SetParent(GameManager.Instance.tower.transform.parent.transform);
         instance.transform.position = GameManager.Instance.tower.transform.position;
         Destroy(GameManager.Instance.tower.gameObject);
-        Time.timeScale = 1f;
+        Time.timeScale = gameSpeed;
 
         yield return null;
     }
@@ -130,17 +131,36 @@ public class BTManager : MonoBehaviour
 
     public void EndSkillUp()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = gameSpeed;
         GameManager.Instance.towerClicked = false;
+    }
+
+    public void StartTime()
+    {
+        Time.timeScale = gameSpeed;
+    }
+
+    public void StopTime()
+    {
+        Time.timeScale = 0;
     }
 
     public void SpeedUp()
     {
-        if (Time.timeScale == 1f)
-            Time.timeScale = 2f;
-        else if (Time.timeScale == 2f)
-            Time.timeScale = 3f;
-        else if (Time.timeScale == 3f)
-            Time.timeScale = 1f;
+        if (Time.timeScale == 1)
+        {
+            gameSpeed = 2;
+            Time.timeScale = gameSpeed;
+        }
+        else if (Time.timeScale == 2)
+        {
+            gameSpeed = 3;
+            Time.timeScale = gameSpeed;
+        }
+        else if (Time.timeScale == 3)
+        {
+            gameSpeed = 1;
+            Time.timeScale = gameSpeed;
+        }
     }
 }
