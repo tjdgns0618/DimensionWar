@@ -6,13 +6,13 @@ using DG.Tweening;
 
 public class Blocks : MonoBehaviour, IPointerClickHandler
 {
-    float speed = 2.0f; // 이동 속도
+    float speed = 2f; // 이동 속도
     public bool isBuild = false;
     public GameObject BuyEffect;
     [HideInInspector]
     public GameObject instance;
 
-    void Update()
+    void FixedUpdate()
     {
         if (gameObject.CompareTag("MeleeBuildable"))
             return;
@@ -51,7 +51,7 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
         if (distance > 0.1f)
         {
             // 부드러운 이동을 위해 Lerp 사용
-            transform.localPosition += direction * speed * Time.deltaTime;
+            transform.localPosition += direction * speed * Time.fixedDeltaTime;
         }
     }
 
@@ -69,7 +69,7 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
         if (distance > 0.1f)
         {
             // 부드러운 이동을 위해 Lerp 사용
-            transform.localPosition += direction * speed * Time.deltaTime;
+            transform.localPosition += direction * speed * Time.fixedDeltaTime;
         }
     }
 }
