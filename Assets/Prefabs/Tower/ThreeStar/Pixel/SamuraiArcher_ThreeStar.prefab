@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1789332104682695443}
   - component: {fileID: 6862177373039081592}
   - component: {fileID: 2178875990134199308}
+  - component: {fileID: 6835704190139728930}
   m_Layer: 0
   m_Name: SamuraiArcher_ThreeStar
   m_TagString: Tower
@@ -187,7 +188,7 @@ MonoBehaviour:
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   nearestTarget: {fileID: 0}
   bullet: {fileID: 3781795105883708524, guid: 839bc5b920c9c004e8cf36b039e53f63, type: 3}
   buffbullet: {fileID: 0}
@@ -209,7 +210,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 5254583522307390889, guid: 42869384b9026d84dbdefbb7cae97942,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 6050877796436588062}
+  SkillDamage: 0
+--- !u!114 &6835704190139728930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050877796436588062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextTower: {fileID: 0}

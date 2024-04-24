@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 162234271547937844}
   - component: {fileID: 1091473280139464507}
   - component: {fileID: 6391253181835052606}
+  - component: {fileID: 6099261715808109516}
   m_Layer: 8
   m_Name: Tengu_Melee_ThreeStar
   m_TagString: Tower
@@ -187,7 +188,7 @@ MonoBehaviour:
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   nearestTarget: {fileID: 0}
   bullet: {fileID: 0}
   buffbullet: {fileID: 0}
@@ -209,7 +210,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 281373420534333857, guid: 5c035afc517a2ce4081e9ea32bb59c59,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 2305421628991597455}
+  SkillDamage: 0
+--- !u!114 &6099261715808109516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305421628991597455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextTower: {fileID: 0}

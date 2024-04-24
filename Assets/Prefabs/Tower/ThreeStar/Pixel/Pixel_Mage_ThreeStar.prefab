@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3150640284847095309}
   - component: {fileID: 2849607023790668717}
   - component: {fileID: 7155512971556360080}
+  - component: {fileID: -2417393356984606999}
   m_Layer: 0
   m_Name: Pixel_Mage_ThreeStar
   m_TagString: Tower
@@ -295,10 +296,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 6778001327574822350, guid: 9e8fc2cecb74884408fcb37affc06ce0,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 7882012697678281344}
+  SkillDamage: 0
+--- !u!114 &-2417393356984606999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882012697678281344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextTower: {fileID: 0}
 --- !u!1001 &3897705212276684061
 PrefabInstance:
   m_ObjectHideFlags: 0
