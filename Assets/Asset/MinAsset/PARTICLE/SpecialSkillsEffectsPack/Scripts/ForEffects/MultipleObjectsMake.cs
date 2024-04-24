@@ -8,6 +8,7 @@ public class MultipleObjectsMake : _ObjectsMakeBase
     public int m_makeCount;
     public float m_makeDelay;
     public Vector3 m_randomPos;
+    public GameObject target;
     public Vector3 m_randomRot;
     public Vector3 m_randomScale;
     public bool isObjectAttachToParent = true;
@@ -32,6 +33,7 @@ public class MultipleObjectsMake : _ObjectsMakeBase
         {
             if (Time.time > m_Time2 + m_makeDelay && m_count < m_makeCount)
             {
+                
                 Vector3 m_pos = transform.position + GetRandomVector(m_randomPos)* m_scalefactor; 
                 Quaternion m_rot = transform.rotation * Quaternion.Euler(GetRandomVector(m_randomRot));
                 
