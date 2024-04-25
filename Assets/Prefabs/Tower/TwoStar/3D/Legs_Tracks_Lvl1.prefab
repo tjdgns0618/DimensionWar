@@ -32,7 +32,7 @@ Transform:
   - {fileID: 5638391024802854823}
   - {fileID: 3225653313855616985}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: 0.004037082, y: -0.14523962, z: -1.272212}
+  m_LocalEulerAnglesHint: {x: 0.1138785, y: -5.0007105, z: -0.24376465}
 --- !u!1 &3058739238755817774
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ Transform:
   - {fileID: 7147153735574242668}
   - {fileID: 3055234133289352547}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: -0.023443997, y: 0.5229366, z: -0.22277117}
+  m_LocalEulerAnglesHint: {x: 0.09503256, y: 5.001054, z: 0.29863414}
 --- !u!1 &3321548826208858187
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,9 +374,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 0}
+  SkillPrefabs:
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 0}
+  SkillDamage: 0
 --- !u!114 &-977714946068641219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +394,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 5042204585135364214, guid: 4844e004dbfc3944e94e527210f364be,
     type: 3}
-  isDraging: 0
 --- !u!65 &4016027631989375827
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -471,7 +473,7 @@ Transform:
   m_Children:
   - {fileID: 1958421784693905496}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: 0.6904042, y: 0.25617373, z: -0.10844749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5080964087945858796
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +789,7 @@ Transform:
   - {fileID: 2929613872647275743}
   - {fileID: 3620458062756688300}
   m_Father: {fileID: 293684009094887391}
-  m_LocalEulerAnglesHint: {x: 0.066082835, y: -0.10725492, z: 0.49817538}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &363090562304006006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1096,7 +1098,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: bdacc693c53b8e949ac19446da459c12, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 28c62af451f49c845be5b124c35af652, type: 2}
+      objectReference: {fileID: 9100000, guid: 5606cae523f9ad04ebe724394c0e5d41, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
