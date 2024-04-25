@@ -2534,7 +2534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6257255548361505125}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
@@ -2662,10 +2662,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 0}
+  SkillPrefabs:
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 2879680523377229291, guid: 01e9ffa3765745e479a009c86fdbf09e,
     type: 3}
+  SkillDamage: 0
 --- !u!114 &8772854971045677933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,7 +2683,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 2879680523377229291, guid: 01e9ffa3765745e479a009c86fdbf09e,
     type: 3}
-  isDraging: 0
 --- !u!1 &6395512228618518124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,6 +3895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon_Sniper_lvl1
       objectReference: {fileID: 0}
+    - target: {fileID: 6540242229498546228, guid: 411cf03b3cf372945a33ef804b08a344,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.051843345
+      objectReference: {fileID: 0}
     - target: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3931,7 +3938,7 @@ PrefabInstance:
     - target: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 63.213135
       objectReference: {fileID: 0}
     - target: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
         type: 3}
@@ -3941,6 +3948,11 @@ PrefabInstance:
     - target: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749047624825869359, guid: 411cf03b3cf372945a33ef804b08a344,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

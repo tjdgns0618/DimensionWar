@@ -226,9 +226,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 0}
+  SkillPrefabs:
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 0}
+  SkillDamage: 0
 --- !u!114 &1749217911113471327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 4739857660683069153, guid: a889ce85fe99ebd42a5431da4ba4da5a,
     type: 3}
-  isDraging: 0
 --- !u!54 &-2038894537920622305
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1000,7 +1002,7 @@ PrefabInstance:
     - target: {fileID: 3217485735297719680, guid: b20a4c47fe90ee04fbedf9d200060bc2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 77.485886
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3217485735297719680, guid: b20a4c47fe90ee04fbedf9d200060bc2,
         type: 3}
