@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -690,10 +690,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  DamageToPlayer: 20
+  movementSpeed: 0
   attackDamage: 10
   attackCooldown: 1
   health: 500
-  movementSpeed: 0
+  attackAnimationNames:
+  - Attack01
+  - Attack02
+  - Attack03
+  - Attack04
+  - Attack05
 --- !u!1 &133265168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6964,11 +6971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5a1763af016554282571eb2000c1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843, type: 3}
-  - {fileID: 9078554842436105427, guid: 7b122526a59960743b53d0035f09128e, type: 3}
-  numberOfEnemiesToSpawn: 0a00000005000000
-  spawnInterval: 2
+  enemySpawnInfos: []
   spawnPoints:
   - {fileID: 957065871}
 --- !u!1 &965048642
@@ -10508,7 +10511,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  damageToPlayer: 20
 --- !u!65 &1363218631
 BoxCollider:
   m_ObjectHideFlags: 0
