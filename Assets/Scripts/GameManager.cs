@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public int level;
     public float Health;
     public float maxHealth = 100;
+    public int gold = 0;
 
     [Header("# GameObject")]
     public Tower tower;
@@ -91,7 +92,7 @@ public class GameManager : MonoBehaviour
             enemySpawner.enabled = true;
             uiManager.RoundTime.gameObject.SetActive(false);
         }
-        
+        uiManager.GoldText.text = gold.ToString();
     }
 
     public void FollowCam()

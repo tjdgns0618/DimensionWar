@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject BuyPaenl;
     public Canvas skillCanvas;
     public Text RoundTime;
+    public Text GoldText;
 
     // Start is called before the first frame update
     void Start()

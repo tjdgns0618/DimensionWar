@@ -35,7 +35,7 @@ public class BTManager : MonoBehaviour
         GameObject instance = Instantiate(Tower[i]);
         instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);
         if (i == 0) {            
-            instance.transform.localPosition = new Vector3(0, 2.1f, 0);
+            instance.transform.localPosition = new Vector3(0, 1.519f, 0);
             instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 1)
@@ -62,7 +62,7 @@ public class BTManager : MonoBehaviour
         instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);
         if (i == 3 || i == 4)
         {
-            instance.transform.localPosition = new Vector3(0, 2.1f, 0);
+            instance.transform.localPosition = new Vector3(0, 1.418f, 0);
             instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 5 || i == 6)
@@ -112,9 +112,12 @@ public class BTManager : MonoBehaviour
             yield return null;
         }
 
+        
         GameObject instance = Instantiate(GameManager.Instance.tower.GetComponent<TestScript>().nextTower);
         instance.transform.SetParent(GameManager.Instance.tower.transform.parent.transform);
         instance.transform.position = GameManager.Instance.tower.transform.position;
+        if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2")
+            instance.transform.position += new Vector3(0, 0.4f, 0);
         Destroy(GameManager.Instance.tower.gameObject);
         Time.timeScale = gameSpeed;
 
