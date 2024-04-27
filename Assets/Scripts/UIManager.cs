@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public Sprite[] soundImage;
     public Slider BgmSlider;
     public Canvas uiCanvas;
-    public GameObject BuyPaenl;
     public Canvas skillCanvas;
+    public GameObject BuyPaenl;
     public Text RoundTime;
     public Text GoldText;
 
@@ -20,18 +21,30 @@ public class UIManager : MonoBehaviour
             BgmSlider.value = PlayerPrefs.GetFloat("BgmValue");
     }
 
-    public void LoadScene(string name)
+    public void SetStage(string name)
     {
         PlayerPrefs.SetString("StageName", name);
+    }
+
+    public void LoadScene()
+    {
         SceneManager.LoadScene("LoadingScene");
     }
 
     public void SetBgmValue(Slider slider)
-    {        
+    {   
         PlayerPrefs.SetFloat("BgmValue", slider.value);
         Debug.Log((PlayerPrefs.GetFloat("BgmValue")*100).ToString("#"));
     }
-    
+
+    public void SetSoundImage(Image image)
+    {
+        if (PlayerPrefs.GetFloat("BgmValue") == 0)
+            image.sprite = soundImage[0];
+        else
+            image.sprite = soundImage[1];
+    }
+
     public void StartGame()
     {
         StartCoroutine(_StartGame());
@@ -45,7 +58,7 @@ public class UIManager : MonoBehaviour
     IEnumerator _StartGame()
     {
         yield return new WaitForSeconds(3f);
-        LoadScene("StageSelect");
+        SceneManager.LoadScene("StageSelect");
     }
 
     IEnumerator _QuitGame()
