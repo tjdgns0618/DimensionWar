@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4bc56a06e8983ce458b81c1db3f0565a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 72cae3082e2363d41b9a6bb783e73e29, type: 2}
 --- !u!1001 &1065559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39009,7 +39009,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1696206251}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: SetStage
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39022,6 +39022,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1696206249}
         m_TargetAssemblyTypeName: BTManager, Assembly-CSharp
         m_MethodName: StartTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1696206251}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
