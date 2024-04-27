@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject StagePanel;
-    public GameObject SettingPanel;
     public Slider BgmSlider;
     public Canvas uiCanvas;
     public GameObject BuyPaenl;
@@ -26,18 +24,6 @@ public class UIManager : MonoBehaviour
     {
         PlayerPrefs.SetString("StageName", name);
         SceneManager.LoadScene("LoadingScene");
-    }
-
-    public void SettingBtn()
-    {
-        StagePanel.SetActive(false);
-        SettingPanel.SetActive(true);        
-    }
-
-    public void SettingQuit()
-    {
-        SettingPanel.SetActive(false);
-        StagePanel.SetActive(true);
     }
 
     public void SetBgmValue(Slider slider)

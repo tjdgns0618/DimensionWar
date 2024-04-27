@@ -9,6 +9,9 @@ public class BTManager : MonoBehaviour
 {
     [Header("타워")]
     public GameObject[] Tower;
+    [Header("게임속도표시UI")]
+    public GameObject[] SpeedUI;
+
     int gameSpeed = 1;
 
     public void BuyTower()
@@ -153,16 +156,22 @@ public class BTManager : MonoBehaviour
         if (Time.timeScale == 1)
         {
             gameSpeed = 2;
+            SpeedUI[0].SetActive(false);
+            SpeedUI[1].SetActive(true);
             Time.timeScale = gameSpeed;
         }
         else if (Time.timeScale == 2)
         {
             gameSpeed = 3;
+            SpeedUI[1].SetActive(false);
+            SpeedUI[2].SetActive(true);
             Time.timeScale = gameSpeed;
         }
         else if (Time.timeScale == 3)
         {
             gameSpeed = 1;
+            SpeedUI[2].SetActive(false);
+            SpeedUI[0].SetActive(true);
             Time.timeScale = gameSpeed;
         }
     }

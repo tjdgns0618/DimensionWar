@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     [Header("# Game Control")]
     public bool isLive;
+    public bool pauseGame;
     public float gameTime;
     
 
