@@ -104,7 +104,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5999529822986248043}
   - component: {fileID: 2242031906143011045}
-  - component: {fileID: 819254671263026063}
+  - component: {fileID: 4262733857230716290}
+  - component: {fileID: 2438824730343460274}
   m_Layer: 0
   m_Name: Weapon_DoubleGun_lvl5
   m_TagString: Untagged
@@ -120,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5179926158166587019}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.48, y: 3.05, z: 14.419046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -128,7 +129,7 @@ Transform:
   - {fileID: 5984416499836238020}
   - {fileID: 3956152490428860721}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 1.9214325, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2242031906143011045
 Animator:
   serializedVersion: 5
@@ -150,7 +151,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &819254671263026063
+--- !u!114 &4262733857230716290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,10 +179,23 @@ MonoBehaviour:
   animatorIkData: []
   originalIkData: []
   selectionData: []
-  lastSelectAnimationClip: {fileID: 7400000, guid: 48c40346cf951b4468032651df1fe62d,
+  lastSelectAnimationClip: {fileID: 7400000, guid: 276a3bc7cb3b01843b60fde077e3bc24,
     type: 2}
   handPoseList: []
   blendShapeList: []
+--- !u!114 &2438824730343460274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179926158166587019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577bc9fcb9be2a649b057317558a5e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
 --- !u!1 &5497263339287574636
 GameObject:
   m_ObjectHideFlags: 0

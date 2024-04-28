@@ -354,7 +354,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
   dir: {x: 0, y: 0, z: 0}
@@ -798,6 +798,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4925578726378492087}
     m_Modifications:
+    - target: {fileID: 1693363392360303315, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 4739857660683069153}
     - target: {fileID: 3217485735297719680, guid: b20a4c47fe90ee04fbedf9d200060bc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -848,11 +853,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4097504826756320059, guid: b20a4c47fe90ee04fbedf9d200060bc2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b5c578680804edf4297745cbb4eff070, type: 2}
     - target: {fileID: 6762973389349532103, guid: b20a4c47fe90ee04fbedf9d200060bc2,
         type: 3}
       propertyPath: m_Name
