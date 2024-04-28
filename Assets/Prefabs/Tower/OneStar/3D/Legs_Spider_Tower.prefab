@@ -3895,11 +3895,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon_Sniper_lvl1
       objectReference: {fileID: 0}
-    - target: {fileID: 6540242229498546228, guid: 411cf03b3cf372945a33ef804b08a344,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.32836404
-      objectReference: {fileID: 0}
     - target: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3950,16 +3945,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7749047624825869359, guid: 411cf03b3cf372945a33ef804b08a344,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5004248072617779231, guid: 411cf03b3cf372945a33ef804b08a344,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1007260186445585515}
   m_SourcePrefab: {fileID: 100100000, guid: 411cf03b3cf372945a33ef804b08a344, type: 3}
+--- !u!1 &3116815436102021797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5004248072617779231, guid: 411cf03b3cf372945a33ef804b08a344,
+    type: 3}
+  m_PrefabInstance: {fileID: 7940846955846980282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1007260186445585515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116815436102021797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577bc9fcb9be2a649b057317558a5e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 6257255548361505125}
 --- !u!4 &3465565876202149091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
