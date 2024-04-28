@@ -16,6 +16,7 @@ public class BTManager : MonoBehaviour
 
     public void BuyTower()
     {
+        if(GameManager.Instance.gold >= 20)
         StartCoroutine(_BuyTower());
     }
 
@@ -26,7 +27,12 @@ public class BTManager : MonoBehaviour
 
     public void UpgradeTower()
     {
-        StartCoroutine(_UpgradeTower());
+        if (GameManager.Instance.gold >= 50)
+            StartCoroutine(_UpgradeTower());
+        else
+        {
+            StartTime();
+        }
     }
 
     public void MeleeTowerSpawn()
@@ -89,6 +95,7 @@ public class BTManager : MonoBehaviour
         else
             RangerTowerSpawn();
 
+        GameManager.Instance.gold -= 20;
         GameManager.Instance.blockClicked = false;
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
         GameManager.Instance.SelectBlock.layer = 2;
@@ -99,6 +106,7 @@ public class BTManager : MonoBehaviour
 
     IEnumerator _SellTower()
     {
+        GameManager.Instance.gold += 20;
         Destroy(GameManager.Instance.tower.gameObject);
         GameManager.Instance.tower.transform.parent.GetComponent<Blocks>().isBuild = false;
         GameManager.Instance.tower.transform.parent.gameObject.layer = 0;
@@ -115,7 +123,7 @@ public class BTManager : MonoBehaviour
             yield return null;
         }
 
-        
+        GameManager.Instance.gold -= 50;
         GameObject instance = Instantiate(GameManager.Instance.tower.GetComponent<TestScript>().nextTower);
         instance.transform.SetParent(GameManager.Instance.tower.transform.parent.transform);
         instance.transform.position = GameManager.Instance.tower.transform.position;

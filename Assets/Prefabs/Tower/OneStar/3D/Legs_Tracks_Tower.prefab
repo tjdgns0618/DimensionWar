@@ -115,7 +115,7 @@ Transform:
   - {fileID: 500622446278147958}
   - {fileID: 5492019198321369338}
   m_Father: {fileID: 3383185956387486062}
-  m_LocalEulerAnglesHint: {x: -0.081039555, y: -6.335542, z: -7.749389}
+  m_LocalEulerAnglesHint: {x: -0.1903559, y: 0, z: 0}
 --- !u!1 &1654761967887082845
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,17 +200,17 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 5
   SkillCount: 0
-  Damage: 10
+  Damage: 50
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
   dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 8339495134934455043}
+  anim: {fileID: 7289142732753498286}
   bulletPos: {fileID: 1654761967887082845}
   enemiesInRange: []
 --- !u!114 &264198805824978966
@@ -230,7 +230,7 @@ MonoBehaviour:
   - {fileID: 0}
   tower_Level: 0
   colliders: []
-  skillPos: {fileID: 0}
+  skillPos: {fileID: 1654761967887082845}
   SkillDamage: 0
 --- !u!114 &1749217911113471327
 MonoBehaviour:
@@ -411,7 +411,7 @@ Transform:
   - {fileID: 6885028720301367374}
   - {fileID: 3389960228315975189}
   m_Father: {fileID: 2868358852211310364}
-  m_LocalEulerAnglesHint: {x: 1.7113041, y: -1.0935782, z: -6.2828526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2245341178865469449
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +724,7 @@ Transform:
   m_Children:
   - {fileID: 9183896748852053537}
   m_Father: {fileID: 3383185956387486062}
-  m_LocalEulerAnglesHint: {x: 15.451919, y: 5.897189, z: -2.6579118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8098844144613297186
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +789,7 @@ Transform:
   - {fileID: 6747453618289357207}
   - {fileID: 930350872070003790}
   m_Father: {fileID: 3383185956387486062}
-  m_LocalEulerAnglesHint: {x: -2.1257632, y: 15.086292, z: 14.728099}
+  m_LocalEulerAnglesHint: {x: -0.4410308, y: 0, z: 0}
 --- !u!1001 &3151298383301507879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -968,8 +968,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6762973389349532103, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8673492788342111099}
   m_SourcePrefab: {fileID: 100100000, guid: b20a4c47fe90ee04fbedf9d200060bc2, type: 3}
+--- !u!1 &13394436796910162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6762973389349532103, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6770456548803492757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8673492788342111099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13394436796910162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577bc9fcb9be2a649b057317558a5e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1654761967887082845}
+--- !u!95 &7289142732753498286 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4097504826756320059, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6770456548803492757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8166064504252704277 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3217485735297719680, guid: b20a4c47fe90ee04fbedf9d200060bc2,

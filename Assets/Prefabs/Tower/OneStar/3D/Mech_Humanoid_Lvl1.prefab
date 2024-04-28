@@ -1537,11 +1537,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4313559536550446438}
   - component: {fileID: 7792876049278963025}
-  - component: {fileID: -4530338920235524908}
-  - component: {fileID: 2414432536692703237}
   - component: {fileID: 1534749631062223207}
   - component: {fileID: 6064855321719927613}
   - component: {fileID: 3582880837788518945}
+  - component: {fileID: -4530338920235524908}
+  - component: {fileID: 2414432536692703237}
   - component: {fileID: 8135119202392372602}
   m_Layer: 0
   m_Name: Mech_Humanoid_Lvl1
@@ -1591,6 +1591,77 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1534749631062223207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340468973890119990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 3
+  currentEnemyCount: 0
+  health: 200
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 0
+  tower_class: 2
+  isMelea: 1
+  isWall: 1
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 5
+  SkillCount: 0
+  Damage: 40
+  BuffDamage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
+  isBuff: 0
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 7792876049278963025}
+  bulletPos: {fileID: 6340468973890119990}
+  enemiesInRange: []
+--- !u!114 &6064855321719927613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340468973890119990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs:
+  - {fileID: 3550624965638275775, guid: 66865480d97dfce488e0b6af75a75817, type: 3}
+  tower_Level: 0
+  colliders: []
+  skillPos: {fileID: 6340468973890119990}
+  SkillDamage: 0
+--- !u!114 &3582880837788518945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340468973890119990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextTower: {fileID: 1378785397580164797, guid: 29fccc5f1a77ca64cbcde7d5182ef377,
+    type: 3}
 --- !u!54 &-4530338920235524908
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1639,77 +1710,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 4, z: 3}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!114 &1534749631062223207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340468973890119990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
-  currentEnemyCount: 0
-  health: 100
-  Tower_id: 0
-  tower_state: 0
-  tower_type: 0
-  tower_class: 2
-  isMelea: 1
-  isWall: 1
-  AttackRange: 5
-  AttackDel: 3
-  SkillCost: 5
-  SkillCount: 0
-  Damage: 10
-  BuffDamage: 0
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  nearestTarget: {fileID: 0}
-  bullet: {fileID: 0}
-  buffbullet: {fileID: 0}
-  isBuff: 0
-  dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 0}
-  bulletPos: {fileID: 0}
-  enemiesInRange: []
---- !u!114 &6064855321719927613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340468973890119990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  SkillPrefabs:
-  - {fileID: 0}
-  tower_Level: 0
-  colliders: []
-  skillPos: {fileID: 0}
-  SkillDamage: 0
---- !u!114 &3582880837788518945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340468973890119990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextTower: {fileID: 1378785397580164797, guid: 29fccc5f1a77ca64cbcde7d5182ef377,
-    type: 3}
 --- !u!114 &8135119202392372602
 MonoBehaviour:
   m_ObjectHideFlags: 0

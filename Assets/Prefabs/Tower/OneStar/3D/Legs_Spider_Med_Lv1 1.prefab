@@ -2583,20 +2583,20 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 0
+  SkillCost: 10
   SkillCount: 0
   Damage: 10
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 0}
   buffbullet: {fileID: 0}
   isBuff: 0
   dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 0}
-  bulletPos: {fileID: 0}
+  anim: {fileID: 4252957973247253592}
+  bulletPos: {fileID: 6257255548361505125}
   enemiesInRange: []
 --- !u!114 &7755133844325909884
 MonoBehaviour:
@@ -2611,9 +2611,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 0}
+  SkillPrefabs:
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
-  skillPos: {fileID: 0}
+  skillPos: {fileID: 6257255548361505125}
+  SkillDamage: 0
 --- !u!1 &6395512228618518124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3826,6 +3829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon_Sniper_lvl1
       objectReference: {fileID: 0}
+    - target: {fileID: 6540242229498546228, guid: 411cf03b3cf372945a33ef804b08a344,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.35654268
+      objectReference: {fileID: 0}
     - target: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3874,6 +3882,11 @@ PrefabInstance:
     - target: {fileID: 6785701940576568921, guid: 411cf03b3cf372945a33ef804b08a344,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749047624825869359, guid: 411cf03b3cf372945a33ef804b08a344,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3989,6 +4002,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5744100392050310166}
+    - targetCorrespondingSourceObject: {fileID: 7833124522018351231, guid: a36b32b3b870c0b43911811d3d9010ec,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5320178598446765078}
   m_SourcePrefab: {fileID: 100100000, guid: a36b32b3b870c0b43911811d3d9010ec, type: 3}
 --- !u!1 &167732276875560791 stripped
 GameObject:
@@ -4030,6 +4047,50 @@ MonoBehaviour:
     type: 2}
   handPoseList: []
   blendShapeList: []
+--- !u!114 &5320178598446765078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167732276875560791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 3
+  currentEnemyCount: 0
+  health: 9999
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 0
+  tower_class: 0
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 0
+  SkillCount: 0
+  Damage: 10
+  BuffDamage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
+  isBuff: 0
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  bulletPos: {fileID: 0}
+  enemiesInRange: []
+--- !u!95 &4252957973247253592 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6188707179228722032, guid: a36b32b3b870c0b43911811d3d9010ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 7991425185733881640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5711122145695837992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2424842639973416960, guid: a36b32b3b870c0b43911811d3d9010ec,

@@ -142,7 +142,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void Attack()
+    public void Attack()
     {
         attTime += Time.deltaTime;
         if (attTime >= AttackDel)          
@@ -151,7 +151,7 @@ public class Tower : MonoBehaviour
             anim.SetTrigger("hit_1");
         }
     }
-    void test()
+    public void test()
     {
         if (isBuff)
         {

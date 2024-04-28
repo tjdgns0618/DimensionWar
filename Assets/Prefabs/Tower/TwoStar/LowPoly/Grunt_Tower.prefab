@@ -267,10 +267,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 3265690925621845008, guid: 63fb7dbe32e4e3345980e31b1ffb6491,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 3265690925621845008, guid: 63fb7dbe32e4e3345980e31b1ffb6491, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 1154614916031174}
+  SkillDamage: 0
 --- !u!114 &7972061348660202874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTower: {fileID: 1991115270737566, guid: 1df2e9525e169c34cb2bd5023fa72fe8, type: 3}
-  isDraging: 0
 --- !u!136 &8406759919946281634
 CapsuleCollider:
   m_ObjectHideFlags: 0

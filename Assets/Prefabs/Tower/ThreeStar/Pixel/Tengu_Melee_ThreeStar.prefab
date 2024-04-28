@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5391289195480856970}
   - component: {fileID: 7609633674708353197}
   - component: {fileID: 3811985093781409473}
-  - component: {fileID: 8121177972507463203}
   - component: {fileID: 162234271547937844}
+  - component: {fileID: 8121177972507463203}
   - component: {fileID: 1091473280139464507}
   - component: {fileID: 6391253181835052606}
   - component: {fileID: 6099261715808109516}
@@ -111,6 +111,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &162234271547937844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305421628991597455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.35, y: 2.6695724, z: 1.27}
+  m_Center: {x: -0.26997554, y: -0.08882165, z: 0}
 --- !u!54 &8121177972507463203
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,27 +159,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &162234271547937844
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305421628991597455}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.7, y: 6.4, z: 0.2}
-  m_Center: {x: -0.47245705, y: 0.7086866, z: 0}
 --- !u!114 &1091473280139464507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   isWall: 1
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 3
+  SkillCost: 10
   SkillCount: 0
   Damage: 400
   BuffDamage: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   SkillPrefabs:
-  - {fileID: 0}
+  - {fileID: 4202923209222442757, guid: 4c17bb13724be94478145ee7cba4ead0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   tower_Level: 0
