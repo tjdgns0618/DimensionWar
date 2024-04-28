@@ -7,11 +7,14 @@ using UnityEngine.EventSystems;
 public class TestScript : MonoBehaviour, IPointerClickHandler
 {
     public GameObject nextTower;    // 합성시 나오는 다음 타워
-    // bool canMerge = false;          // 합성 가능 상태 확인용
     Vector3 temp;                   // 드래그 시작시 현재 위치 저장용
-    RaycastHit hit;
-    Tower tower;
+    Tower tower;                    // 본인의 타워 스크립트 정보 저장용
+
+    #region 레이캐스트용
+    // bool canMerge = false;          // 합성 가능 상태 확인용
+    // RaycastHit hit;
     // public bool isDraging = false;         // 드래그 중인지 체크용
+    #endregion
 
     private void Start()
     {
@@ -19,17 +22,18 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
-    {   // 오브젝트 클릭시
-        GameManager.Instance.tower = tower;
-        GameManager.Instance.towerClicked = true;
-        if (GameManager.Instance.towerClicked)
+    {   // 타워 오브젝트 클릭시
+        GameManager.Instance.tower = tower;         // 게임메니저에 현재 타워에 대한 정보 저장
+        GameManager.Instance.towerClicked = true;   // 현재 클릭중임
+        if (GameManager.Instance.towerClicked)      // 타워가 클릭되었을때
         {
             Time.timeScale = 0;
-            GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);
-            GameManager.Instance.uiManager.uiCanvas.gameObject.SetActive(false);
+            GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);  // 스킬업그레이드 캔버스 활성화
+            GameManager.Instance.uiManager.uiCanvas.gameObject.SetActive(false);    // 게임 ui를 모두 비활성화
         }
     }
 
+    #region 레이캐스트 사용, 드래그 합성 사용시
     //void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     //{   // 드래그 시작할때
     //    temp = transform.position;
@@ -93,4 +97,5 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
 
     //    isDraging = false;
     //}
+    #endregion
 }

@@ -25,7 +25,7 @@ public class Augmenter : MonoBehaviour
     public void Button()
     {
         button.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = PlayerPrefs.GetInt("Timescale");
         switch (number)
         {
             case 0:

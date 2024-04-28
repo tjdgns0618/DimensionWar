@@ -158,7 +158,7 @@ public class Tower : MonoBehaviour
             if (tower_type == Tower_Type.Range)
             {
                 GameObject g = Instantiate(buffbullet, nearestTarget.transform.position,transform.rotation);
-                g.GetComponent<Bullet>().Init(Damage*BuffDamage, 5, dir.normalized);
+                g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized);
                 Destroy(g, 10);
             }
             else if (tower_type == Tower_Type.Meele)
@@ -171,7 +171,7 @@ public class Tower : MonoBehaviour
             if (tower_type == Tower_Type.Range)
             {
                 GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-                g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
+                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
                 Destroy(g, 10);
             }
             else if (tower_type == Tower_Type.Meele)
@@ -200,6 +200,7 @@ public class Tower : MonoBehaviour
         {
             anim.SetTrigger("skill");
             tower_state = Tower_State.Attack;
+            transform.GetChild(2).GetComponent<SkillCutScene>().skillCutScene();
         }
     }
 

@@ -1326,9 +1326,10 @@ MonoBehaviour:
   enemyType: 0
   DamageToPlayer: 20
   movementSpeed: 0
+  currentTower: {fileID: 0}
   attackDamage: 20
   attackCooldown: 0.75
-  health: 100
+  health: 500
   attackAnimationNames:
   - Attack01
   - Attack02
@@ -1343,7 +1344,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120

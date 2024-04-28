@@ -20,12 +20,10 @@ public class SkillCutScene : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
 
-        button.onClick.AddListener(OnClickButton);
     }
 
-    void OnClickButton()
-    {
-       
+    public void skillCutScene()
+    {       
         StartCoroutine(BiggerAndFadeInOut()); // 스케일링 실행
     }
 

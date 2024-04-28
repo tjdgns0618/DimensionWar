@@ -214,6 +214,7 @@ public class EnemyController : MonoBehaviour
         isDead = true; // 사망 상태로 변경
 
         GameManager.Instance.gold += 10; // 사망시 골드 흭득
+        GameManager.Instance.Killcount++; // 사망시 킬카운트 1증가
 
         // Die 애니메이션을 재생
         animator.SetTrigger("Die");

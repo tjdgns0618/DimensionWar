@@ -18,7 +18,8 @@ public class SoundManager : MonoBehaviour
         {
             for (int i = 0; i < audios.Length; i++)
             {
-                audios[i].volume = PlayerPrefs.GetFloat("BgmValue");
+                // 매니저 안에 들어있는 오디오 소스의 볼륨을 변경해준다.
+                audios[i].volume = PlayerPrefs.GetFloat("BgmValue"); 
             }
         }
     }

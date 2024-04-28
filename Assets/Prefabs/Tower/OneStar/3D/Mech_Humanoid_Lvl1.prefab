@@ -1612,7 +1612,7 @@ MonoBehaviour:
   tower_class: 2
   isMelea: 1
   isWall: 1
-  AttackRange: 5
+  AttackRange: 2
   AttackDel: 3
   SkillCost: 5
   SkillCount: 0
@@ -1648,6 +1648,7 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 6340468973890119990}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &3582880837788518945
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
             for (int j = 0; j < enemySpawnInfos[i].numberOfEnemiesToSpawn; j++)
             {
                 GameObject enemy = Instantiate(enemySpawnInfos[i].enemyPrefab);
+                enemy.transform.SetParent(transform);
                 enemy.SetActive(false);
                 enemyPools[i].Add(enemy);
             }
