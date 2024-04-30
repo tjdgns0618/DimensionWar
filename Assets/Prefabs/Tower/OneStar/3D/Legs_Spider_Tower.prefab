@@ -2669,6 +2669,7 @@ MonoBehaviour:
   skillPos: {fileID: 2879680523377229291, guid: 01e9ffa3765745e479a009c86fdbf09e,
     type: 3}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &8772854971045677933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3815,7 +3816,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9195009963852546579, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 3982169097342594323, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 89606412639704345, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 8783379744575012796, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 8783379744575012798, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 7297540170012608800, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 6337291219446129369, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 6337291219446129371, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
+    - {fileID: 5563083395461452994, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 400004, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
