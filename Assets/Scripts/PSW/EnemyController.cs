@@ -8,7 +8,8 @@ public class EnemyController : MonoBehaviour
     public enum EnemyType // 적의 타입
     {
         Ground,
-        Air
+        Air,
+        Robot
     }
 
     public EnemyType enemyType; // 적의 유형
@@ -31,7 +32,9 @@ public class EnemyController : MonoBehaviour
 
     public float health = 100f; // 적의 체력
 
-    private Animator animator;
+    private Animator torsoAnimator; // 상체 애니메이터
+
+    private Animator animator; // 상태 애니메이터
     public List<string> attackAnimationNames = new List<string> { "Attack01", "Attack02", "Attack03", "Attack04", "Attack05" }; // 공격 애니메이션 리스트
     private bool isWalking = false; // 걷기 상태 여부
 
@@ -41,6 +44,22 @@ public class EnemyController : MonoBehaviour
     {
         // Animator 컴포넌트 가져오기
         animator = GetComponent<Animator>();
+
+        // 로봇인 경우 상체 애니메이터 활성화
+        if (enemyType == EnemyType.Robot)
+        {
+            // Torso 오브젝트를 찾기 위해 정확한 경로를 사용합니다.
+            Transform torsoTransform = transform.Find("Spider_Hvy/ROOT/Pelvis/Top/Mount_Top/Mount_Weapon/Shoulder_Shield_Lvl1/Torso");
+            if (torsoTransform != null)
+            {
+                torsoAnimator = torsoTransform.GetComponent<Animator>();
+                if (torsoAnimator != null)
+                {
+                    // 애니메이터 활성화
+                    torsoAnimator.enabled = true;
+                }
+            }
+        }
 
         // 플레이어 게임 오브젝트를 태그로 찾음
         player = GameObject.FindGameObjectWithTag("Player");
@@ -88,7 +107,7 @@ public class EnemyController : MonoBehaviour
             if (isAttacking && currentTower != null && currentTower.gameObject != null)
             {
                 // 적 타입이 Ground인 경우에만 타워를 공격
-                if (enemyType == EnemyType.Ground)
+                if (enemyType == EnemyType.Ground || enemyType == EnemyType.Robot)
                 {
                     AttackTower(currentTower);
                 }
@@ -121,7 +140,7 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (enemyType == EnemyType.Ground && other.GetComponent<Tower>()) // 적 타입이 Ground이고 충돌한 오브젝트가 "Tower" 태그를 가진 타워인 경우
+        if ((enemyType == EnemyType.Ground || enemyType == EnemyType.Robot) && other.GetComponent<Tower>()) // 적 타입이 Ground 또는 Robot이고 충돌한 오브젝트가 "Tower" 태그를 가진 타워인 경우
         {
             currentTower = other.GetComponent<Tower>(); // 충돌한 타워 가져오기
 
@@ -215,7 +234,7 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Die");
 
         // 적 타워의 적 수 감소
-        if (enemyType == EnemyType.Ground && currentTower != null)
+        if ((enemyType == EnemyType.Ground || enemyType == EnemyType.Robot) && currentTower != null)
         {
             currentTower.RemoveEnemy();
         }
