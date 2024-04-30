@@ -15369,12 +15369,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: []
-  SelectBlock: {fileID: 0}
   RoundTime: 0
   CAMtempRotation: {x: 0, y: 0, z: 0, w: 0}
+  SelectBlock: {fileID: 0}
+  uiManager: {fileID: 1696206251}
   enemySpawner: {fileID: 957065872}
   Killcount: 0
-  uiManager: {fileID: 1696206251}
   blockClicked: 0
   towerClicked: 0
   isLive: 0
@@ -15383,7 +15383,7 @@ MonoBehaviour:
   level: 0
   Health: 0
   maxHealth: 100
-  gold: 100
+  gold: 10000
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
