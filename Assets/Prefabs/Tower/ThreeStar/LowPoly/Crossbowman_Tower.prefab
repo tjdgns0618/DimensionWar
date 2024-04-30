@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
   Tower_id: 7
@@ -481,6 +481,7 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 2994474602075958266}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &3141795339594890817
 MonoBehaviour:
   m_ObjectHideFlags: 0

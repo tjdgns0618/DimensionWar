@@ -17,8 +17,9 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(BgmSlider)
+        if(BgmSlider != null)
             BgmSlider.value = PlayerPrefs.GetFloat("BgmValue"); // PlayerPref에 저장한 볼륨 불러오기
+        //StartGame();  // 영상제작용
     }
 
     public void SetDimension(int dimension)
@@ -62,6 +63,7 @@ public class UIManager : MonoBehaviour
     IEnumerator _StartGame()                    // 게임을 시작하는 함수
     {
         yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(10f);   // 영상찍기용
         SceneManager.LoadScene("StageSelect");    
     }
 

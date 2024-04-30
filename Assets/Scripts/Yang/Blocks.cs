@@ -7,6 +7,10 @@ using DG.Tweening;
 public class Blocks : MonoBehaviour, IPointerClickHandler
 {
     float speed = 2f;               // 이동 속도
+
+    [HideInInspector]
+    public AudioSource audiosource;
+    public AudioClip[] audio;
     public bool isBuild = false;    // 타워가 설치된 블럭 구별용
     public GameObject BuyEffect;    // 클릭된 블럭 구별용 이펙트
     public int dimension;           // 현재 스테이지에 따라 블럭움직임을 줄지 정하는 변수
@@ -16,6 +20,7 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         dimension = PlayerPrefs.GetInt("dimension");    // 현재 스테이지의 Dimension을 받아온다.
+        audiosource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -33,6 +38,10 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
     {
         if (GameManager.Instance.blockClicked)  // 이미 선택된 블럭이 존재하는 경우 반환
             return;
+
+        audiosource.clip = audio[0];
+        audiosource.volume = PlayerPrefs.GetFloat("BgmValue");
+        audiosource.Play();
 
         GameManager.Instance.blockClicked = true;               // 블럭이 선택됨
         GameManager.Instance.SelectBlock = this.gameObject;     // 게임매니저에 현재 선택된 블럭에 이 블럭을 저장

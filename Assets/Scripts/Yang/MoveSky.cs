@@ -14,6 +14,8 @@ public class MoveSky : MonoBehaviour
     {
         degree = 0;
         boost = 3.9f;
+
+        //StartCoroutine(_start()); // 영상제작용
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class MoveSky : MonoBehaviour
         // 게임이 시작되면 Material에 있는 변수 값을 변경시키는 함수
         if (start)
         {
-            boost += 0.2f * Time.deltaTime;
+            boost += 0.1f * Time.deltaTime;
             tunnel.material.SetFloat("_Boost", boost);
             tunnel.material.SetFloat("_Exp", boost);
         }
@@ -37,6 +39,12 @@ public class MoveSky : MonoBehaviour
     // 게임 시작을 확인하는 함수
     public void ClickStart()
     {
+        start = true;
+    }
+
+    IEnumerator _start()
+    {
+        yield return new WaitForSeconds(3f);
         start = true;
     }
 }

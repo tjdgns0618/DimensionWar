@@ -140,6 +140,11 @@ public class BTManager : MonoBehaviour
     {
         GameManager.Instance.blockClicked = false;
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
+        GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.clip =
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().audio[1];
+        GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.volume = PlayerPrefs.GetFloat("BgmValue");
+        GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.Play();
+
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
         Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);
     }

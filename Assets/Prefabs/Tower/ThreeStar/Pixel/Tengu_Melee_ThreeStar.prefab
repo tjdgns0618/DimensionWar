@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  maxEnemiesPerTower: 5
   currentEnemyCount: 0
-  health: 100
+  health: 1000
   Tower_id: 15
   tower_state: 0
   tower_type: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 0}
   buffbullet: {fileID: 0}

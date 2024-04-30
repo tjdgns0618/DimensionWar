@@ -200,7 +200,6 @@ public class Tower : MonoBehaviour
         {
             anim.SetTrigger("skill");
             tower_state = Tower_State.Attack;
-            transform.GetChild(2).GetComponent<SkillCutScene>().skillCutScene();
         }
     }
 
