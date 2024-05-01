@@ -35,7 +35,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2870032954907410122}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4141009875994129117
@@ -145,9 +146,10 @@ MonoBehaviour:
   bullet: {fileID: 2566443613767749222, guid: 3f79d248555f4dd4e96a71f9bcf4f003, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 9142735544448062998}
-  bulletPos: {fileID: 3545728980758236317}
+  bulletPos: {fileID: 6384168771592200977}
   enemiesInRange: []
 --- !u!114 &-8279907914774846242
 MonoBehaviour:
@@ -168,8 +170,9 @@ MonoBehaviour:
   - {fileID: 0}
   tower_Level: 0
   colliders: []
-  skillPos: {fileID: 3545728980758236317}
+  skillPos: {fileID: 6384168771592200977}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &-6084072497118865262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +235,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &6384168771592200977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2870032954907410122}
+  m_Layer: 0
+  m_Name: SkillPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2870032954907410122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384168771592200977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1852453789667720184}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -118,6 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6330952545631932604}
   - component: {fileID: 5551921174417560613}
+  - component: {fileID: 6855967443330052638}
   m_Layer: 0
   m_Name: Effect_40_DropingBomb
   m_TagString: Untagged
@@ -164,6 +165,24 @@ MonoBehaviour:
   isObjectAttachToParent: 1
   m_pos: {x: 0, y: 0, z: 0}
   m_pos1: {x: 0, y: 0, z: 0}
+--- !u!114 &6855967443330052638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330952545631932605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
 --- !u!1 &6330952546900703322
 GameObject:
   m_ObjectHideFlags: 0

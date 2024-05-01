@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MultipleObjectsMake : _ObjectsMakeBase
@@ -12,13 +13,14 @@ public class MultipleObjectsMake : _ObjectsMakeBase
     public Vector3 m_randomRot;
     public Vector3 m_randomScale;
     public bool isObjectAttachToParent = true;
-
+  
     float m_Time;
     float m_Time2;
     float m_delayTime;
     float m_count;
     float m_scalefactor;
 
+    public GameObject parent;
 
     void Start()
     {

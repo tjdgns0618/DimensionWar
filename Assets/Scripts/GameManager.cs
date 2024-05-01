@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public float towerSpeed;
     public float towerHp;
     public float BonusDamage;
+    
     private void Awake()
     {
         if (_instance == null)

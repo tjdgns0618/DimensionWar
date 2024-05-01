@@ -32,7 +32,7 @@ Transform:
   - {fileID: 5638391024802854823}
   - {fileID: 3225653313855616985}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: 0.1138785, y: -5.0007105, z: -0.24376465}
+  m_LocalEulerAnglesHint: {x: 0.034855228, y: 0.15295175, z: -0.76160496}
 --- !u!1 &3058739238755817774
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ Transform:
   - {fileID: 7147153735574242668}
   - {fileID: 3055234133289352547}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: 0.09503256, y: 5.001054, z: 0.29863414}
+  m_LocalEulerAnglesHint: {x: -0.047266703, y: -0.07958946, z: -0.62990946}
 --- !u!1 &3321548826208858187
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 986021222222099186}
   - component: {fileID: 2912782076521297567}
-  - component: {fileID: 142301374401061370}
+  - component: {fileID: 7395097994256271163}
   - component: {fileID: 8152244656686346259}
   - component: {fileID: -977714946068641219}
   - component: {fileID: 4016027631989375827}
@@ -323,7 +323,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &142301374401061370
+--- !u!114 &7395097994256271163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,13 +332,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4739857660683069153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 0
+  maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
-  Tower_id: 0
+  Tower_id: 23
   tower_state: 0
   tower_type: 1
   tower_class: 2
@@ -348,19 +348,30 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 5
   SkillCount: 0
-  Damage: 10
+  Damage: 50
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
+  attTime: 0
   bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 2912782076521297567}
-  bulletPos: {fileID: 4739857660683069153}
+  bulletPos: {fileID: 6400490857592809137}
   enemiesInRange: []
+  Attanim:
+  - {fileID: 4455386177300536397}
+  Skillanim:
+  - {fileID: 4035091176234432962}
+  attcount: 0
+  doubleattack: 0
+  doubleSkillattack: 0
+  bulletPose: []
+  child: {fileID: 0}
 --- !u!114 &8152244656686346259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,11 +386,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   SkillPrefabs:
-  - {fileID: 0}
+  - {fileID: 2993710702256539494, guid: 7045cc659eb6cfc408bca2b0e5b9246f, type: 3}
   tower_Level: 0
   colliders: []
-  skillPos: {fileID: 0}
+  skillPos: {fileID: 7998394370367606700}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &-977714946068641219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +485,7 @@ Transform:
   m_Children:
   - {fileID: 1958421784693905496}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.4740222, y: -0.20471504, z: 0.062378235}
 --- !u!1 &5080964087945858796
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +801,7 @@ Transform:
   - {fileID: 2929613872647275743}
   - {fileID: 3620458062756688300}
   m_Father: {fileID: 293684009094887391}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.032468747, y: -0.15546173, z: 0.47352242}
 --- !u!1001 &363090562304006006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -866,6 +878,18 @@ PrefabInstance:
 --- !u!4 &3003684123809401590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3217485735297719680, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 363090562304006006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4455386177300536397 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4097504826756320059, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 363090562304006006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6400490857592809137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6762973389349532103, guid: b20a4c47fe90ee04fbedf9d200060bc2,
     type: 3}
   m_PrefabInstance: {fileID: 363090562304006006}
   m_PrefabAsset: {fileID: 0}
@@ -955,6 +979,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b5c578680804edf4297745cbb4eff070, type: 2}
+    - target: {fileID: 2438824730343460274, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 4739857660683069153}
     - target: {fileID: 5179926158166587019, guid: b5aa1c859c4c8e740b1c3b116f82a432,
         type: 3}
       propertyPath: m_Name
@@ -1015,6 +1044,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5aa1c859c4c8e740b1c3b116f82a432, type: 3}
+--- !u!95 &4035091176234432962 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2242031906143011045, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+    type: 3}
+  m_PrefabInstance: {fileID: 2946139379660962087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7998394370367606700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5179926158166587019, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+    type: 3}
+  m_PrefabInstance: {fileID: 2946139379660962087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8908215438074062412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5999529822986248043, guid: b5aa1c859c4c8e740b1c3b116f82a432,

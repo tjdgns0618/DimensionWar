@@ -115,7 +115,7 @@ Transform:
   - {fileID: 500622446278147958}
   - {fileID: 5492019198321369338}
   m_Father: {fileID: 3383185956387486062}
-  m_LocalEulerAnglesHint: {x: -0.1903559, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1654761967887082845
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1962741410021312199}
   - component: {fileID: 8339495134934455043}
-  - component: {fileID: 3107925746958980867}
+  - component: {fileID: 5311158488651766778}
   - component: {fileID: 264198805824978966}
   - component: {fileID: 1749217911113471327}
   - component: {fileID: -2038894537920622305}
@@ -175,7 +175,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3107925746958980867
+--- !u!114 &5311158488651766778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,13 +184,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1654761967887082845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 0
+  maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
-  Tower_id: 0
+  Tower_id: 20
   tower_state: 0
   tower_type: 1
   tower_class: 2
@@ -206,13 +206,28 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
+  attTime: 0
   bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 7289142732753498286}
+  anim: {fileID: 8339495134934455043}
   bulletPos: {fileID: 1654761967887082845}
   enemiesInRange: []
+  Attanim:
+  - {fileID: 7289142732753498286}
+  - {fileID: 6376903939131026813}
+  Skillanim:
+  - {fileID: 7289142732753498286}
+  - {fileID: 6376903939131026813}
+  attcount: 0
+  doubleattack: 1
+  doubleSkillattack: 1
+  bulletPose:
+  - {fileID: 13394436796910162}
+  - {fileID: 4429565944035727233}
+  child: {fileID: 0}
 --- !u!114 &264198805824978966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,11 +242,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   SkillPrefabs:
-  - {fileID: 0}
+  - {fileID: 8035656000921429529, guid: ecc43357994ecc84390beb3775ea3c8d, type: 3}
   tower_Level: 0
   colliders: []
-  skillPos: {fileID: 1654761967887082845}
+  skillPos: {fileID: 13394436796910162}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &1749217911113471327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,7 +805,7 @@ Transform:
   - {fileID: 6747453618289357207}
   - {fileID: 930350872070003790}
   m_Father: {fileID: 3383185956387486062}
-  m_LocalEulerAnglesHint: {x: -0.4410308, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3151298383301507879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -965,7 +981,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon_DoubleGun_lvl2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1693363392360303315, guid: b20a4c47fe90ee04fbedf9d200060bc2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -993,6 +1010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1654761967887082845}
+  parentid: 0
+  pos: 0
 --- !u!95 &7289142732753498286 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4097504826756320059, guid: b20a4c47fe90ee04fbedf9d200060bc2,
@@ -1013,6 +1032,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3151298383301632421}
     m_Modifications:
+    - target: {fileID: 1693363392360303315, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1654761967887082845}
     - target: {fileID: 1756161110489725948, guid: b20a4c47fe90ee04fbedf9d200060bc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,9 +1117,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b20a4c47fe90ee04fbedf9d200060bc2, type: 3}
+--- !u!1 &4429565944035727233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6762973389349532103, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6963148549361231430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5477745541326404550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3217485735297719680, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6963148549361231430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6376903939131026813 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4097504826756320059, guid: b20a4c47fe90ee04fbedf9d200060bc2,
     type: 3}
   m_PrefabInstance: {fileID: 6963148549361231430}
   m_PrefabAsset: {fileID: 0}

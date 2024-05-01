@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using static Tower;
+
 
 public class Augmenter : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Augmenter : MonoBehaviour
     public Image Image;
     public GameObject button;
     public Augmenter_Data[] augmenter_Datas;
+
     public int r;
    
     // Start is called before the first frame update
@@ -44,9 +47,17 @@ public class Augmenter : MonoBehaviour
                 Skill_DamageUp();
                 break;
             case 5:
-                bloodsuck();
+                pixelcharaterAttUp();
                 break;
-                
+            case 6:
+                pixelcharaterHealthUp();
+                break;
+            case 7:
+                rowPolycharaterAttUp();
+                break;
+            case 8:
+                rowPolycharaterHealthUp();
+                break;
         }
     }
     public void HealthUP()
@@ -89,13 +100,51 @@ public class Augmenter : MonoBehaviour
 
         }
     }
-    public void Wit()
+
+    public void pixelcharaterAttUp()
     {
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            Tower g = GameManager.Instance.towers[i].GetComponent<Tower>();
+            if(g.tower_class == Tower.Tower_Class.Pixel)
+            {
+               g.Damage += g.Damage*0.5f;
+            }
 
+        }
     }
-    public void bloodsuck()
+    public void pixelcharaterHealthUp()
     {
-
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            Tower g = GameManager.Instance.towers[i].GetComponent<Tower>();
+            if (g.tower_class == Tower.Tower_Class.Pixel)
+            {
+                g.health += g.health*0.5f;
+            }
+        }
     }
+    public void rowPolycharaterAttUp()
+    {
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            Tower g = GameManager.Instance.towers[i].GetComponent<Tower>();
+            if (g.tower_class == Tower.Tower_Class.Pixel)
+            {
+                g.Damage += g.Damage * 0.5f;
+            }
 
+        }
+    }
+    public void rowPolycharaterHealthUp()
+    {
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            Tower g = GameManager.Instance.towers[i].GetComponent<Tower>();
+            if (g.tower_class == Tower.Tower_Class.Pixel)
+            {
+                g.health += g.health * 0.5f;
+            }
+        }
+    }
 }

@@ -228,6 +228,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47691476}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &49510426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1675106293410596968, guid: ae56bc7cc8f99d145a9f261c3919a064,
+    type: 3}
+  m_PrefabInstance: {fileID: 299652015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &49510434
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49510426}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &96780758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1194,16 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6189127469216932110, guid: ae56bc7cc8f99d145a9f261c3919a064,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302177027262308163, guid: ae56bc7cc8f99d145a9f261c3919a064,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1168,7 +1211,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1675106293410596968, guid: ae56bc7cc8f99d145a9f261c3919a064,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 731085863}
+      addedObject: {fileID: 49510434}
   m_SourcePrefab: {fileID: 100100000, guid: ae56bc7cc8f99d145a9f261c3919a064, type: 3}
 --- !u!1 &326635894
 GameObject:
@@ -2724,15 +2767,19 @@ MonoBehaviour:
   towers: []
   RoundTime: 0
   CAMtempRotation: {x: 0, y: 0, z: 0, w: 0}
+  SelectBlock: {fileID: 0}
+  uiManager: {fileID: 0}
   enemySpawner: {fileID: 0}
   Killcount: 0
-  uiManager: {fileID: 0}
-  clicked: 0
+  blockClicked: 0
+  towerClicked: 0
   isLive: 0
+  pauseGame: 0
   gameTime: 0
   level: 0
   Health: 0
   maxHealth: 100
+  gold: 0
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
@@ -3497,33 +3544,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708382970}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &731085855 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1675106293410596968, guid: ae56bc7cc8f99d145a9f261c3919a064,
-    type: 3}
-  m_PrefabInstance: {fileID: 299652015}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &731085863
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731085855}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &734826318
 GameObject:
   m_ObjectHideFlags: 0
@@ -5586,79 +5606,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127398357}
   m_CullTransparentMesh: 1
---- !u!1001 &1165955244
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -453910636369215578, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
-        type: 3}
-      propertyPath: SkillPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -453910636369215578, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
-        type: 3}
-      propertyPath: SkillPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1789460182}
-    - target: {fileID: -453910636369215578, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
-        type: 3}
-      propertyPath: SkillPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 7034573602798067198, guid: 579efa2c8c40325429b7a48a26af5c63,
-        type: 3}
-    - target: {fileID: 1824695601163454, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_Name
-      value: Berserker_Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560606877486694, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7fe8bf0ef43dd8045b4af456bac6f161, type: 3}
 --- !u!1 &1174507388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,6 +7000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tower:
   - {fileID: 1000010262668220, guid: ba14b1072941d08489530b1a37780ce5, type: 3}
+  SpeedUI: []
 --- !u!4 &1696206250
 Transform:
   m_ObjectHideFlags: 0
@@ -7080,11 +7028,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a1384ca07239b4f94130fbfe8e47f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StagePanel: {fileID: 0}
-  SettingPanel: {fileID: 0}
+  soundImage: []
   BgmSlider: {fileID: 0}
+  uiCanvas: {fileID: 0}
   skillCanvas: {fileID: 0}
+  BuyPaenl: {fileID: 0}
   RoundTime: {fileID: 0}
+  GoldText: {fileID: 0}
 --- !u!1 &1736922215
 GameObject:
   m_ObjectHideFlags: 0
@@ -7269,12 +7219,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752008082}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1789460182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1259282276752840499, guid: 7fe8bf0ef43dd8045b4af456bac6f161,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165955244}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797016802
 GameObject:
   m_ObjectHideFlags: 0
@@ -9529,4 +9473,3 @@ SceneRoots:
   - {fileID: 529766833}
   - {fileID: 96780760}
   - {fileID: 299652015}
-  - {fileID: 1165955244}

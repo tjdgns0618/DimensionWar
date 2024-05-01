@@ -36,15 +36,17 @@ public class Tower : MonoBehaviour
     public LayerMask targetLayer;
     public RaycastHit[] targets;
     public Transform nearestTarget;
-    float attTime;
+    public float attTime;
     GameObject tower;
     public GameObject bullet;
     public GameObject buffbullet;
     public bool isBuff;
+    public bool isSkill =false;
     public Vector3 dir;
     Vector3 scale;
+
     public Animator anim;
-    public GameObject bulletPos;
+    public  GameObject bulletPos;
    
 
     // 적 목록
@@ -68,22 +70,23 @@ public class Tower : MonoBehaviour
             dir = (nearestTarget.position - transform.position);
             Look();
         }
-        if (SkillCount >= SkillCost)
+        else 
         {
-            tower_state = Tower_State.Skill;
-            SkillCount = 0;
+            tower_state = Tower_State.Idle;
         }
+        
         if (nearestTarget != null && tower_state != Tower_State.Skill)
         {
             Attack();
+            if (SkillCount >= SkillCost)
+            {
+                tower_state = Tower_State.Skill;
+                SkillCount = 0;
+            }
         }
-        else if (tower_state == Tower_State.Skill && tower_state != Tower_State.Attack)
+        else if (tower_state == Tower_State.Skill)
         {
             Skill();
-        }
-        else
-        {
-            tower_state = Tower_State.Idle;
         }
     }
     void Init()
@@ -142,8 +145,9 @@ public class Tower : MonoBehaviour
         }
     }
 
-    public void Attack()
+    protected virtual void Attack()
     {
+       
         attTime += Time.deltaTime;
         if (attTime >= AttackDel)          
         {          
@@ -151,13 +155,14 @@ public class Tower : MonoBehaviour
             anim.SetTrigger("hit_1");
         }
     }
-    public void test()
+    public virtual void test()
     {
         if (isBuff)
         {
             if (tower_type == Tower_Type.Range)
             {
                 GameObject g = Instantiate(buffbullet, nearestTarget.transform.position,transform.rotation);
+                
                 g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized);
                 Destroy(g, 10);
             }
@@ -185,22 +190,22 @@ public class Tower : MonoBehaviour
     {
         
     }
-    void SkillCountUp()
+    public void SkillCountUp()
     {
         if(!isBuff)
         SkillCount++;
     }
-    void skillEnd()
+    public void skillEnd()
     {
+        isSkill = false;
         tower_state = Tower_State.Attack;
     }
-    void Skill()
+    public virtual void  Skill()
     {
-        if (tower_state == Tower_State.Skill && gameObject.tag != "Preview")
+        if (tower_state == Tower_State.Skill && gameObject.tag != "Preview"&&!isSkill)
         {
             anim.SetTrigger("skill");
-            tower_state = Tower_State.Attack;
-            transform.GetChild(2).GetComponent<SkillCutScene>().skillCutScene();
+            isSkill = true;
         }
     }
 
