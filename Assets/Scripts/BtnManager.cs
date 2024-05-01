@@ -92,12 +92,13 @@ public class BTManager : MonoBehaviour
             MeleeTowerSpawn();
         else
             RangerTowerSpawn();
-
+                
         GameManager.Instance.gold -= 20;            // 20골드가 소모된다.
         GameManager.Instance.blockClicked = false;  // 블럭 클릭상태를 초기화해준다.
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // 구매 패널을 돌려보낸다.
         GameManager.Instance.SelectBlock.layer = 2; // 블럭을 클릭 불가능하게 만든다.
         Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);   // 블럭 선택 이펙트를 지워준다.
+        GameManager.Instance.SelectBlock = null;
 
         yield return null;
     }
@@ -106,9 +107,10 @@ public class BTManager : MonoBehaviour
     {
         GameManager.Instance.gold += 20;    // 20골드를 돌려받는다.
         Destroy(GameManager.Instance.tower.gameObject); // 타워를 제거한다.
-        GameManager.Instance.tower.transform.parent.GetComponent<Blocks>().isBuild = false; // 블럭에 설치상태를 초기화한다.
+        GameManager.Instance.tower.transform.parent.GetComponent<Blocks>().isBuild = false;
+        GameManager.Instance.blockClicked = false;  // 블럭 클릭상태를 초기화해준다.
+        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // 구매 패널을 돌려보낸다.
         GameManager.Instance.tower.transform.parent.gameObject.layer = 0;   // 블럭을 클릭 가능하게 만든다.
-        Time.timeScale = gameSpeed;     // timescale을 원래 속도로 초기화한다.
 
         yield return null;
     }
@@ -138,6 +140,12 @@ public class BTManager : MonoBehaviour
     // 블럭 선택을 취소하고 구매 패널을 돌려보내는 함수
     public void EndBuyTower()
     {
+        if (GameManager.Instance.tower != null)
+        {
+            GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
+            return;
+        }
+
         GameManager.Instance.blockClicked = false;
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.clip =
@@ -147,6 +155,8 @@ public class BTManager : MonoBehaviour
 
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
         Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);
+        GameManager.Instance.SelectBlock = null;
+        GameManager.Instance.tower = null;
     }
 
     // 스킬 캔버스를 종료하고 게임속도를 원래대로 하는 함수

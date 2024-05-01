@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class TestScript : MonoBehaviour, IPointerClickHandler
 {
@@ -22,14 +24,36 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
-    {   // 타워 오브젝트 클릭시
+    {   // 블럭이 클릭된 상태
+        if (GameManager.Instance.SelectBlock)
+        {
+            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);   // 블럭 선택 이펙트를 지워준다.
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
+            GameManager.Instance.SelectBlock = null;            
+            TowerClick();
+        }    
+        // 블럭이 클릭 안된상태
+        else
+        {
+            TowerClick();
+        }
+    }
+
+    void TowerClick()
+    {
         GameManager.Instance.tower = tower;         // 게임메니저에 현재 타워에 대한 정보 저장
         GameManager.Instance.towerClicked = true;   // 현재 클릭중임
+        GameManager.Instance.uiManager.SellButton.image.color = Color.white;
+        GameManager.Instance.uiManager.BuyButton.image.color = Color.gray;
+        GameManager.Instance.uiManager.UpgradeButton.image.color = Color.white;
+        GameManager.Instance.uiManager.SellButton.GetComponent<Button>().enabled = true;
+        GameManager.Instance.uiManager.BuyButton.GetComponent<Button>().enabled = false;
+        GameManager.Instance.uiManager.UpgradeButton.GetComponent<Button>().enabled = true;
         if (GameManager.Instance.towerClicked)      // 타워가 클릭되었을때
         {
-            Time.timeScale = 0;
-            GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);  // 스킬업그레이드 캔버스 활성화
-            GameManager.Instance.uiManager.uiCanvas.gameObject.SetActive(false);    // 게임 ui를 모두 비활성화
+            GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORestart();
+            // GameManager.Instance.uiManager.skillCanvas.gameObject.SetActive(true);  // 스킬업그레이드 캔버스 활성화
+            // GameManager.Instance.uiManager.uiCanvas.gameObject.SetActive(false);    // 게임 ui를 모두 비활성화
         }
     }
 

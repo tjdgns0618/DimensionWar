@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     public GameObject BuyPaenl;     // 타워 구매 패널
     public Text RoundTime;          // 라운드 시작까지 남은 시간
     public Text GoldText;           // 현재 소유중인 골드
+    public Button BuyButton;
+    public Button SellButton;
+    public Button UpgradeButton;
 
     // Start is called before the first frame update
     void Start()

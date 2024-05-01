@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Blocks : MonoBehaviour, IPointerClickHandler
 {
@@ -36,9 +37,32 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        if (GameManager.Instance.blockClicked)  // 이미 선택된 블럭이 존재하는 경우 반환
-            return;
+        // 이미 선택된 블럭이 존재하는 경우 반환, 타워가 선택중일경우
+        if (GameManager.Instance.tower)
+        {
+            GameManager.Instance.tower = null;
+            BlockClick();
+        }
+        else if (GameManager.Instance.SelectBlock)
+        {
+            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
+            BlockClick();
+        }
+        else
+        {
+            BlockClick();
+        }
+    }
 
+    void BlockClick()
+    {
+        GameManager.Instance.uiManager.SellButton.image.color = Color.gray;
+        GameManager.Instance.uiManager.BuyButton.image.color = Color.white;
+        GameManager.Instance.uiManager.UpgradeButton.image.color = Color.gray;
+        GameManager.Instance.uiManager.SellButton.GetComponent<Button>().enabled = false;
+        GameManager.Instance.uiManager.BuyButton.GetComponent<Button>().enabled = true;
+        GameManager.Instance.uiManager.UpgradeButton.GetComponent<Button>().enabled = false;
         audiosource.clip = audio[0];
         audiosource.volume = PlayerPrefs.GetFloat("BgmValue");
         audiosource.Play();

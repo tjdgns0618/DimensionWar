@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;   // 싱글톤
 
     public List<GameObject> towers = new List<GameObject>();    // 현재 설치되있는 모든 타워들
+    public List<GameObject> enemys = new List<GameObject>();    // 현재 살아있는 적들
     [HideInInspector]
     public float RoundTime = 0;         // 라운드 시간
     [HideInInspector]
@@ -76,17 +77,17 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-
         removeNullTower();
-
+        
         // RoundTime += Time.deltaTime;
         // uiManager.RoundTime.text = $"라운드 시작까지 {Mathf.FloorToInt(15-RoundTime)}"; // 남은 라운드 시간 표시
-        if(RoundTime >= 15)     // 라운드 시간이 전부 지났을경우 스포너 활성화
+        if (RoundTime >= 15)     // 라운드 시간이 전부 지났을경우 스포너 활성화
         {
             enemySpawner.enabled = true;
             uiManager.RoundTime.gameObject.SetActive(false);
         }
         uiManager.GoldText.text = gold.ToString();  // 현재 가지고있는 골드 출력
+
     }
 
     // towers에서 사라진 타워를 지워주는 함수
