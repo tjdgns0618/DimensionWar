@@ -594,7 +594,7 @@ MonoBehaviour:
   maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
-  Tower_id: 0
+  Tower_id: 26
   tower_state: 0
   tower_type: 1
   tower_class: 2
@@ -610,9 +610,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
+  attTime: 0
   bullet: {fileID: 0}
   buffbullet: {fileID: 0}
   isBuff: 1
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 3751063183915224968}
   bulletPos: {fileID: 5042204585135364214}
@@ -636,6 +638,7 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 0}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!65 &-7980905309994924390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2155,6 +2158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 5042204585135364214}
+  parentid: 0
 --- !u!4 &2281715434591378988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5999529822986248043, guid: b5aa1c859c4c8e740b1c3b116f82a432,

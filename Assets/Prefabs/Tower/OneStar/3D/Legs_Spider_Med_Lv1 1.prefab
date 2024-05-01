@@ -2578,7 +2578,7 @@ MonoBehaviour:
   Tower_id: 0
   tower_state: 0
   tower_type: 0
-  tower_class: 0
+  tower_class: 2
   isMelea: 0
   isWall: 0
   AttackRange: 5
@@ -2594,6 +2594,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   buffbullet: {fileID: 0}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 4252957973247253592}
   bulletPos: {fileID: 6257255548361505125}
@@ -2617,6 +2618,7 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 6257255548361505125}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!1 &6395512228618518124
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,6 +4083,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   buffbullet: {fileID: 0}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   bulletPos: {fileID: 0}

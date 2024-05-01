@@ -36,13 +36,15 @@ public class Tower : MonoBehaviour
     public LayerMask targetLayer;
     public RaycastHit[] targets;
     public Transform nearestTarget;
-    float attTime;
+    public float attTime;
     GameObject tower;
     public GameObject bullet;
     public GameObject buffbullet;
     public bool isBuff;
+    public bool isSkill =false;
     public Vector3 dir;
     Vector3 scale;
+
     public Animator anim;
     public GameObject bulletPos;
    
@@ -77,7 +79,7 @@ public class Tower : MonoBehaviour
         {
             Attack();
         }
-        else if (tower_state == Tower_State.Skill && tower_state != Tower_State.Attack)
+        else if (tower_state == Tower_State.Skill && tower_state != Tower_State.Attack&&!isSkill)
         {
             Skill();
         }
@@ -142,7 +144,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    public void Attack()
+    protected virtual void Attack()
     {
         attTime += Time.deltaTime;
         if (attTime >= AttackDel)          
@@ -185,22 +187,23 @@ public class Tower : MonoBehaviour
     {
         
     }
-    void SkillCountUp()
+    public void SkillCountUp()
     {
         if(!isBuff)
         SkillCount++;
     }
-    void skillEnd()
+    public void skillEnd()
     {
+        isSkill = false;
         tower_state = Tower_State.Attack;
     }
-    void Skill()
+    public virtual void  Skill()
     {
         if (tower_state == Tower_State.Skill && gameObject.tag != "Preview")
         {
             anim.SetTrigger("skill");
-            tower_state = Tower_State.Attack;
-            transform.GetChild(2).GetComponent<SkillCutScene>().skillCutScene();
+           isSkill = true;
+            //transform.GetChild(2).GetComponent<SkillCutScene>().skillCutScene();
         }
     }
 

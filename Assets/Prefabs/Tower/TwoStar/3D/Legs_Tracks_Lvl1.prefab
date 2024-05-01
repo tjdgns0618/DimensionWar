@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 986021222222099186}
   - component: {fileID: 2912782076521297567}
-  - component: {fileID: 142301374401061370}
+  - component: {fileID: 7395097994256271163}
   - component: {fileID: 8152244656686346259}
   - component: {fileID: -977714946068641219}
   - component: {fileID: 4016027631989375827}
@@ -323,7 +323,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &142301374401061370
+--- !u!114 &7395097994256271163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,13 +332,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4739857660683069153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 0
+  maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
-  Tower_id: 0
+  Tower_id: 23
   tower_state: 0
   tower_type: 1
   tower_class: 2
@@ -348,19 +348,26 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 5
   SkillCount: 0
-  Damage: 10
+  Damage: 50
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
+  attTime: 0
   bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 2912782076521297567}
-  bulletPos: {fileID: 4739857660683069153}
+  bulletPos: {fileID: 6400490857592809137}
   enemiesInRange: []
+  Attanim:
+  - {fileID: 4455386177300536397}
+  Skillanim:
+  - {fileID: 4035091176234432962}
+  attcount: 0
 --- !u!114 &8152244656686346259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,8 +385,10 @@ MonoBehaviour:
   - {fileID: 0}
   tower_Level: 0
   colliders: []
-  skillPos: {fileID: 0}
+  skillPos: {fileID: 2993710702256539494, guid: 7045cc659eb6cfc408bca2b0e5b9246f,
+    type: 3}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &-977714946068641219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +878,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 363090562304006006}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &4455386177300536397 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4097504826756320059, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 363090562304006006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6400490857592809137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6762973389349532103, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 363090562304006006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2912827242434877728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -955,6 +976,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b5c578680804edf4297745cbb4eff070, type: 2}
+    - target: {fileID: 2438824730343460274, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 4739857660683069153}
     - target: {fileID: 5179926158166587019, guid: b5aa1c859c4c8e740b1c3b116f82a432,
         type: 3}
       propertyPath: m_Name
@@ -1015,6 +1041,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5aa1c859c4c8e740b1c3b116f82a432, type: 3}
+--- !u!95 &4035091176234432962 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2242031906143011045, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+    type: 3}
+  m_PrefabInstance: {fileID: 2946139379660962087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8908215438074062412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5999529822986248043, guid: b5aa1c859c4c8e740b1c3b116f82a432,

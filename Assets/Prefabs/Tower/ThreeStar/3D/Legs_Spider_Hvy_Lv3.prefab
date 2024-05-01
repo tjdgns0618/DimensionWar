@@ -1101,7 +1101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1362846338744651299}
   - component: {fileID: 5630691172630786652}
-  - component: {fileID: 2722320224413073522}
+  - component: {fileID: 111618643216531886}
   - component: {fileID: 7108719797515622346}
   - component: {fileID: 5425789185589207447}
   - component: {fileID: 5273307902771704107}
@@ -1151,7 +1151,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2722320224413073522
+--- !u!114 &111618643216531886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1160,13 +1160,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9065313555950288798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 0
+  maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
-  Tower_id: 0
+  Tower_id: 25
   tower_state: 0
   tower_type: 1
   tower_class: 2
@@ -1176,19 +1176,27 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 5
   SkillCount: 0
-  Damage: 100
+  Damage: 10
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
+  attTime: 0
   bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
-  buffbullet: {fileID: 0}
+  buffbullet: {fileID: 9065313555950288798}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 5630691172630786652}
   bulletPos: {fileID: 9065313555950288798}
   enemiesInRange: []
+  Attanim:
+  - {fileID: 477551435853917631}
+  Skillanim:
+  - {fileID: 1269507926438319054}
+  - {fileID: 477551435853917631}
+  attcount: 0
 --- !u!114 &7108719797515622346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,6 +1216,7 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 0}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!65 &5425789185589207447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1346,6 +1355,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49a9e7053c56d24c94ba51c8dbc956d, type: 3}
+--- !u!95 &477551435853917631 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7211855008673382744, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1269507926438319054 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8298744124546465577, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7112658719150945895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c49a9e7053c56d24c94ba51c8dbc956d,

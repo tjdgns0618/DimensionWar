@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
         Ground,
         Air
     }
-
+    public bool isStun = false;
     public EnemyType enemyType; // 적의 유형
     public float DamageToPlayer = 20f; // 적이 플레이어에게 가하는 데미지
 
@@ -63,6 +63,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if(isStun) { return; }
         // 사망 상태인 경우 아무것도 하지 않음
         if (isDead)
         {
@@ -204,7 +205,12 @@ public class EnemyController : MonoBehaviour
     {
         health -= damage;
     }
-
+    public IEnumerator OnStun(float time)
+    {
+        isStun = true;
+        yield return new WaitForSeconds(time);
+        isStun = false;
+    }
     void Die()
     {
         if (isDead) // 이미 사망한 경우에는 더 이상 실행하지 않음
