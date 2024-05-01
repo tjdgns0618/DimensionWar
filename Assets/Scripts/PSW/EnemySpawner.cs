@@ -8,18 +8,20 @@ public class EnemySpawner : MonoBehaviour
     [System.Serializable]
     public class EnemyWave
     {
-        public List<GameObject> enemyPrefabs; // Àû ÇÁ¸®ÆÕ ¸®½ºÆ®
-        public List<int> numberOfEnemiesPerPrefab; // ÇÁ¸®ÆÕ´ç ÀûÀÇ ¼ö ¸®½ºÆ®
-        public float spawnInterval; // ½ºÆù °£°İ
+        public List<GameObject> enemyPrefabs; // ì  í”„ë¦¬íŒ¹ ë¦¬ìŠ¤íŠ¸
+        public List<int> numberOfEnemiesPerPrefab; // í”„ë¦¬íŒ¹ë‹¹ ì ì˜ ìˆ˜ ë¦¬ìŠ¤íŠ¸
+        public float spawnInterval; // ìŠ¤í° ê°„ê²©
+        public bool increaseSpeed; // í•´ë‹¹ ì›¨ì´ë¸Œì—ì„œ ì ì˜ ì†ë„ë¥¼ ì¦ê°€ì‹œí‚¬ì§€ ì—¬ë¶€
+        public float speedMultiplier; // ì†ë„ ì¦ê°€ ë°°ìˆ˜
     }
 
-    public List<EnemyWave> EnemyWaves; // Àû ½ºÆù Á¤º¸ ¸®½ºÆ®
-    public Transform[] spawnPoints; // ÀûÀ» ¼ÒÈ¯ÇÒ À§Ä¡µéÀÇ ¹è¿­
-    public Button startWaveButton; // ¿şÀÌºê ½ÃÀÛ ¹öÆ°
+    public List<EnemyWave> EnemyWaves; // ì  ìŠ¤í° ì •ë³´ ë¦¬ìŠ¤íŠ¸
+    public Transform[] spawnPoints; // ì ì„ ì†Œí™˜í•  ìœ„ì¹˜ë“¤ì˜ ë°°ì—´
+    public Button startWaveButton; // ì›¨ì´ë¸Œ ì‹œì‘ ë²„íŠ¼
 
-    private List<GameObject>[] enemyPools; // ÀûÀÇ ¿ÀºêÁ§Æ® Ç®µéÀÇ ¸®½ºÆ®
-    private int currentWaveIndex = 0; // ÇöÀç ¿şÀÌºê ÀÎµ¦½º
-    private bool isWaveInProgress = false; // ÇöÀç ¿şÀÌºê°¡ ÁøÇà ÁßÀÎÁö ¿©ºÎ
+    private List<GameObject>[] enemyPools; // ì ì˜ ì˜¤ë¸Œì íŠ¸ í’€ë“¤ì˜ ë¦¬ìŠ¤íŠ¸
+    private int currentWaveIndex = 0; // í˜„ì¬ ì›¨ì´ë¸Œ ì¸ë±ìŠ¤
+    private bool isWaveInProgress = false; // í˜„ì¬ ì›¨ì´ë¸Œê°€ ì§„í–‰ ì¤‘ì¸ì§€ ì—¬ë¶€
 
     void Start()
     {
@@ -29,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     void InitializeEnemyPools()
     {
-        // ÀûÀÇ ¿ÀºêÁ§Æ® Ç®µéÀ» ÃÊ±âÈ­
+        // ì ì˜ ì˜¤ë¸Œì íŠ¸ í’€ë“¤ì„ ì´ˆê¸°í™”
         enemyPools = new List<GameObject>[EnemyWaves.Count];
         for (int i = 0; i < EnemyWaves.Count; i++)
         {
@@ -61,23 +63,29 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int k = 0; k < EnemyWaves[currentWaveIndex].numberOfEnemiesPerPrefab[j]; k++)
             {
-                // Àû ÇÁ¸®ÆÕ ¼±ÅÃ
+                // ì  í”„ë¦¬íŒ¹ ì„ íƒ
                 GameObject enemyPrefab = EnemyWaves[currentWaveIndex].enemyPrefabs[j];
 
-                // ¼ÒÈ¯ À§Ä¡ ¼±ÅÃ
+                // ì†Œí™˜ ìœ„ì¹˜ ì„ íƒ
                 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-                // ¿ÀºêÁ§Æ® Ç®¿¡¼­ ºñÈ°¼ºÈ­µÈ Àû °¡Á®¿À±â
+                // ì˜¤ë¸Œì íŠ¸ í’€ì—ì„œ ë¹„í™œì„±í™”ëœ ì  ê°€ì ¸ì˜¤ê¸°
                 GameObject enemy = GetPooledEnemy(enemyPrefab);
 
-                // °¡Á®¿Â ÀûÀÌ ÀÖÀ» °æ¿ì À§Ä¡ ¼³Á¤ÇÏ°í È°¼ºÈ­
+                // ê°€ì ¸ì˜¨ ì ì´ ìˆì„ ê²½ìš° ìœ„ì¹˜ ì„¤ì •í•˜ê³  í™œì„±í™”
                 if (enemy != null)
                 {
                     enemy.transform.position = spawnPoint.position;
                     enemy.SetActive(true);
+
+                    // ì ì˜ ì†ë„ ì¦ê°€ ì²´í¬ ì—¬ë¶€ì— ë”°ë¼ ì†ë„ ì¦ê°€
+                    if (EnemyWaves[currentWaveIndex].increaseSpeed)
+                    {
+                        IncreaseEnemySpeed(enemy, EnemyWaves[currentWaveIndex].speedMultiplier);
+                    }
                 }
 
-                // ´ÙÀ½ ¼ÒÈ¯À» À§ÇÑ °£°İ¸¸Å­ ´ë±â
+                // ë‹¤ìŒ ì†Œí™˜ì„ ìœ„í•œ ê°„ê²©ë§Œí¼ ëŒ€ê¸°
                 yield return new WaitForSeconds(EnemyWaves[currentWaveIndex].spawnInterval);
             }
         }
@@ -86,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (currentWaveIndex >= EnemyWaves.Count)
         {
-            // ¸¶Áö¸· ¿şÀÌºêÀÌ¹Ç·Î ¹öÆ° ºñÈ°¼ºÈ­
+            // ë§ˆì§€ë§‰ ì›¨ì´ë¸Œì´ë¯€ë¡œ ë²„íŠ¼ ë¹„í™œì„±í™”
             startWaveButton.interactable = false;
         }
 
@@ -95,7 +103,7 @@ public class EnemySpawner : MonoBehaviour
 
     GameObject GetPooledEnemy(GameObject enemyPrefab)
     {
-        // ÇØ´ç Á¾·ùÀÇ Àû ¿ÀºêÁ§Æ® Ç®¿¡¼­ ºñÈ°¼ºÈ­µÈ ÀûÀ» Ã£¾Æ ¹İÈ¯
+        // í•´ë‹¹ ì¢…ë¥˜ì˜ ì  ì˜¤ë¸Œì íŠ¸ í’€ì—ì„œ ë¹„í™œì„±í™”ëœ ì ì„ ì°¾ì•„ ë°˜í™˜
         int index = GetEnemySpawnIndex(enemyPrefab);
         if (index >= 0 && index < enemyPools.Length)
         {
@@ -112,7 +120,7 @@ public class EnemySpawner : MonoBehaviour
 
     int GetEnemySpawnIndex(GameObject enemyPrefab)
     {
-        // ÁÖ¾îÁø Àû ÇÁ¸®ÆÕ¿¡ ´ëÇÑ ÀÎµ¦½º ¹İÈ¯
+        // ì£¼ì–´ì§„ ì  í”„ë¦¬íŒ¹ì— ëŒ€í•œ ì¸ë±ìŠ¤ ë°˜í™˜
         for (int i = 0; i < EnemyWaves.Count; i++)
         {
             if (EnemyWaves[i].enemyPrefabs.Contains(enemyPrefab))
@@ -121,5 +129,15 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    // ì ì˜ ì†ë„ë¥¼ ì¦ê°€ì‹œí‚¤ëŠ” í•¨ìˆ˜
+    void IncreaseEnemySpeed(GameObject enemy, float multiplier)
+    {
+        UnityEngine.AI.NavMeshAgent agent = enemy.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        if (agent != null)
+        {
+            agent.speed *= multiplier;
+        }
     }
 }
