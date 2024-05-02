@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,9 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject>[] enemyPools; // 적의 오브젝트 풀들의 리스트
     private int currentWaveIndex = 0; // 현재 웨이브 인덱스
     private bool isWaveInProgress = false; // 현재 웨이브가 진행 중인지 여부
+
+    // 적이 모두 사망했거나 웨이브가 끝났음을 알리는 이벤트
+    public event Action<bool> OnWaveEnd;
 
     void Start()
     {
@@ -61,6 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
+        // 해당 웨이브의 모든 적을 소환
         for (int j = 0; j < EnemyWaves[currentWaveIndex].enemyPrefabs.Count; j++)
         {
             for (int k = 0; k < EnemyWaves[currentWaveIndex].numberOfEnemiesPerPrefab[j]; k++)
@@ -69,7 +74,9 @@ public class EnemySpawner : MonoBehaviour
                 GameObject enemyPrefab = EnemyWaves[currentWaveIndex].enemyPrefabs[j];
 
                 // 소환 위치 선택
-                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                System.Random random = new System.Random();
+                int index = random.Next(0, spawnPoints.Length);
+                Transform spawnPoint = spawnPoints[index];
 
                 // 오브젝트 풀에서 비활성화된 적 가져오기
                 GameObject enemy = GetPooledEnemy(enemyPrefab);
@@ -92,14 +99,43 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
+        // 현재 웨이브 인덱스 증가
         currentWaveIndex++;
 
+        // 모든 웨이브를 완료했는지 확인
         if (currentWaveIndex >= EnemyWaves.Count)
         {
             // 마지막 웨이브이므로 버튼 비활성화
             startWaveButton.interactable = false;
+
+            // 다른 스크립트에 웨이브 종료 정보 전달
+                OnWaveEnd.Invoke(true);
+                Debug.Log("OnWaveEnd");
+        }
+        else
+        {
+            // 한 웨이브의 모든 적이 사망한 상태일 때 호출
+            bool isWaveComplete = true;
+            foreach (var pool in enemyPools)
+            {
+                foreach (var enemy in pool)
+                {
+                    if (enemy != null && enemy.activeInHierarchy)
+                    {
+                        isWaveComplete = false;
+                        break;
+                    }
+                }
+            }
+
+            if (isWaveComplete)
+            {
+                OnWaveEnd.Invoke(false);
+                Debug.Log("OnWaveEnd");
+            }
         }
 
+        // 현재 웨이브 종료
         isWaveInProgress = false;
     }
 
