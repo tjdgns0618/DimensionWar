@@ -697,12 +697,12 @@ Transform:
   m_GameObject: {fileID: 2829023774822766498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5000002, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8406551292623674945}
-  m_Father: {fileID: 853398500356369453}
+  m_Father: {fileID: 4148733139150288686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3000983643690192712
 GameObject:
@@ -1082,7 +1082,8 @@ Transform:
   m_LocalPosition: {x: -0.84000015, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 985375031626178086}
   m_Father: {fileID: 5317000276353139465}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4923426160244869877
@@ -1253,7 +1254,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 376789355939077553}
-  - {fileID: 985375031626178086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8249153895511775480
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   DamageToPlayer: 50
   movementSpeed: 0
   increasedSpeedMultiplier: 1.5
-  attackDamage: 15
+  attackDamage: 25
   attackCooldown: 0.8
   health: 2500
   attackAnimationNames:

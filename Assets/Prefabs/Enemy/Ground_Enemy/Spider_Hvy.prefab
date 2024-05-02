@@ -1287,7 +1287,8 @@ Transform:
   m_LocalPosition: {x: -0.84000015, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3623585200148292625}
   m_Father: {fileID: 5013168531359536271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4543162799786224375
@@ -1657,7 +1658,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7737206247082333607}
-  - {fileID: 3623585200148292625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &143445126295256628
@@ -1698,8 +1698,8 @@ MonoBehaviour:
   movementSpeed: 0
   increasedSpeedMultiplier: 1.5
   attackDamage: 10
-  attackCooldown: 1
-  health: 250
+  attackCooldown: 1.3
+  health: 550
   attackAnimationNames:
   - Attack01
   - Attack02
@@ -2444,10 +2444,10 @@ Transform:
   m_GameObject: {fileID: 9182773477751599076}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5000002, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4681299183922411501}
-  m_Father: {fileID: 4647805314557132338}
+  m_Father: {fileID: 7550222012161009485}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
