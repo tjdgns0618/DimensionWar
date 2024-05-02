@@ -1896,7 +1896,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
-    - {fileID: 5311974460344436497, guid: e975f2f6c2ee8f440b4e823199605f3e, type: 3}
+    - {fileID: 1520265563894574178, guid: 4c46ab06c09d5d44e82a01859e46c23b, type: 3}
+    numberOfEnemiesPerPrefab: 01000000
+    spawnInterval: 5
+    increaseSpeed: 0
+    speedMultiplier: 0
+  - enemyPrefabs:
+    - {fileID: 1239901341023663014, guid: 7ca0bec5b9a01f94fb7ec98f20d75c83, type: 3}
     numberOfEnemiesPerPrefab: 01000000
     spawnInterval: 5
     increaseSpeed: 0
