@@ -871,15 +871,19 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 3
   SkillCount: 0
-  Damage: 10
+  Damage: 100
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 1876427223123748339, guid: 548b0c69cdafdfe499dcac14735a02ec, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95536290325807116}
   bulletPos: {fileID: 8068511008029465628}
+  enemiesInRange: []
 --- !u!114 &7056038496549799704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,10 +897,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 8679931775562000089, guid: 056b41383afe6414d8e2a4fe020ac16d,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 8679931775562000089, guid: 056b41383afe6414d8e2a4fe020ac16d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 8068511008029465628}
+  SkillDamage: 0
 --- !u!114 &7300662548656342198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 1313447101344788, guid: fe80cb137dedfd2438c9d0156e7442d7, type: 3}
 --- !u!54 &2118850451520603333
 Rigidbody:

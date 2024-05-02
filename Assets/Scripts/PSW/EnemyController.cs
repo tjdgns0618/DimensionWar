@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     public float increasedSpeedMultiplier = 1.5f; // 속도 증가 배수
 
     // 타워에 대한 참조
+    [SerializeField]
     private Tower currentTower; // 현재 충돌한 타워
 
     // 공격에 사용되는 변수들
@@ -174,7 +175,7 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-
+        
     // 적의 이동 시작
     public void StartMoving()
     {
@@ -205,6 +206,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+
     public void OnDamage(float damage)
     {
         health -= damage;
@@ -217,6 +219,9 @@ public class EnemyController : MonoBehaviour
             return;
         }
         isDead = true; // 사망 상태로 변경
+
+        GameManager.Instance.gold += 10; // 사망시 골드 흭득
+        GameManager.Instance.Killcount++; // 사망시 킬카운트 1증가
 
         // Die 애니메이션을 재생
         animator.SetTrigger("Die");

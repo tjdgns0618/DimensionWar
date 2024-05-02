@@ -54,8 +54,8 @@ public class Tower : MonoBehaviour
     {
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
-        attTime = 3f;
-       
+        attTime = 0f;
+        Init();
     }
     void Update()
     {
@@ -88,7 +88,9 @@ public class Tower : MonoBehaviour
     }
     void Init()
     {
-
+        Damage += GameManager.Instance.towerDamage;
+        health += GameManager.Instance.towerHp;
+        //AttackDel = GameManager.Instance.towerDamage;
     }
     void OnDrawGizmos()
     {
@@ -140,7 +142,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void Attack()
+    public void Attack()
     {
         attTime += Time.deltaTime;
         if (attTime >= AttackDel)          
@@ -149,20 +151,19 @@ public class Tower : MonoBehaviour
             anim.SetTrigger("hit_1");
         }
     }
-    void test()
+    public void test()
     {
-        if(isBuff)
+        if (isBuff)
         {
             if (tower_type == Tower_Type.Range)
             {
                 GameObject g = Instantiate(buffbullet, nearestTarget.transform.position,transform.rotation);
-                g.GetComponent<Bullet>().Init(Damage*BuffDamage, 5, dir.normalized);
+                g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized);
                 Destroy(g, 10);
             }
             else if (tower_type == Tower_Type.Meele)
             {
-                nearestTarget.GetComponent<EnemyController>().health -= Damage;
-                Debug.Log("1");
+                nearestTarget.GetComponent<EnemyController>().OnDamage(Damage);
             }
         }
         else
@@ -170,13 +171,13 @@ public class Tower : MonoBehaviour
             if (tower_type == Tower_Type.Range)
             {
                 GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-                g.GetComponent<Bullet>().Init(Damage, 5, dir.normalized);
+                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
                 Destroy(g, 10);
             }
             else if (tower_type == Tower_Type.Meele)
             {
-                nearestTarget.GetComponent<EnemyController>().health -= Damage;
-                
+                nearestTarget.GetComponent<EnemyController>().OnDamage(Damage);
+
             }
         }
     }

@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3217485735297719680}
   - component: {fileID: 4097504826756320059}
+  - component: {fileID: 1693363392360303315}
   m_Layer: 0
   m_Name: Weapon_DoubleGun_lvl2
   m_TagString: Untagged
@@ -172,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 6762973389349532103}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 01d488cf61a4780429487ab5a53c39a4, type: 3}
-  m_Controller: {fileID: 9100000, guid: 02191cd9a45dd5e4081af0df5f101423, type: 2}
+  m_Controller: {fileID: 9100000, guid: b5c578680804edf4297745cbb4eff070, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,6 +184,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1693363392360303315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6762973389349532103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577bc9fcb9be2a649b057317558a5e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
 --- !u!1 &7024821908215868709
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,693 @@
+fileFormatVersion: 2
+guid: 559c310b8f6e97f4bbff67071325e1ed
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - Mech_Humanoid_ROOT
+    - mixamo:Mech_Humanoid_Arm_L_Geom
+    - mixamo:Mech_Humanoid_Body_Geom
+    - mixamo:Mech_Humanoid_Hand_L_Geom
+    - mixamo:Mech_Humanoid_Arm_R_Geom
+    - mixamo:Mech_Humanoid_Hand_R_Geom
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: mixamo.com
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 114
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Mech_Humanoid_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_Spine_1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_Spine_2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftToe
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightToe
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftHandThumb1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftHandThumb2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_LeftHandThumb3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Mech_Humanoid_RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Jump Attack(Clone)
+      parentName: 
+      position: {x: 0.03914345, y: -0.5784035, z: 0.13331011}
+      rotation: {x: -0.0021408421, y: 0.00632522, z: 0.00924195, w: 0.99993503}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Mech_Humanoid_Legs_Geom
+      parentName: Jump Attack(Clone)
+      position: {x: -0, y: 2.576305, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Mech_Humanoid_Body_Geom
+      parentName: Jump Attack(Clone)
+      position: {x: -0, y: 3.124012, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Mech_Humanoid_Arm_L_Geom
+      parentName: Jump Attack(Clone)
+      position: {x: -0.733693, y: 4.172991, z: 0.083631}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Mech_Humanoid_Arm_R_Geom
+      parentName: Jump Attack(Clone)
+      position: {x: 0.733693, y: 4.172991, z: 0.083631}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Mech_Humanoid_Hand_L_Geom
+      parentName: Jump Attack(Clone)
+      position: {x: -1.799994, y: 2.7740052, z: 1.2904938}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Mech_Humanoid_Hand_R_Geom
+      parentName: Jump Attack(Clone)
+      position: {x: 1.7998229, y: 2.7740052, z: 1.2904938}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_ROOT
+      parentName: Jump Attack(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_Hips
+      parentName: Mech_Humanoid_ROOT
+      position: {x: 0.008193862, y: 3.020202, z: 0.0019527515}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftUpLeg
+      parentName: Mech_Humanoid_Hips
+      position: {x: -0.93829596, y: 0, z: 0}
+      rotation: {x: -0.0073270258, y: -0.0560269, z: -0.09093493, w: 0.9942526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftLeg
+      parentName: Mech_Humanoid_LeftUpLeg
+      position: {x: -0, y: -0.919357, z: 0.14489199}
+      rotation: {x: 0.1658086, y: 0.03985068, z: 0.07471249, w: 0.98251593}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftFoot
+      parentName: Mech_Humanoid_LeftLeg
+      position: {x: -0, y: -1.115558, z: -0.14489199}
+      rotation: {x: -0.15514359, y: -0.02314177, z: 0.005005851, w: 0.9876082}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftToe
+      parentName: Mech_Humanoid_LeftFoot
+      position: {x: -0, y: -0.451822, z: 0.384091}
+      rotation: {x: -0.04188425, y: 0.11248015, z: 0.011207106, w: 0.9927076}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftToe_End
+      parentName: Mech_Humanoid_LeftToe
+      position: {x: -0, y: -0.101653, z: 0.564232}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHeel
+      parentName: Mech_Humanoid_LeftFoot
+      position: {x: -0, y: -0.19266799, z: -0.169915}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHeel_End
+      parentName: Mech_Humanoid_LeftHeel
+      position: {x: -0, y: -0.34872198, z: -0.31321898}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightUpLeg
+      parentName: Mech_Humanoid_Hips
+      position: {x: 0.93829596, y: 0, z: 0}
+      rotation: {x: -0.01325015, y: 0.14108574, z: 0.06127297, w: 0.9880106}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightLeg
+      parentName: Mech_Humanoid_RightUpLeg
+      position: {x: -0, y: -0.919357, z: 0.14489199}
+      rotation: {x: 0.17507534, y: -0.0958641, z: -0.035243362, w: 0.9792429}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightFoot
+      parentName: Mech_Humanoid_RightLeg
+      position: {x: -0, y: -1.115558, z: -0.14489199}
+      rotation: {x: -0.15582715, y: 0.06266653, z: -0.029503804, w: 0.98535293}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightToe
+      parentName: Mech_Humanoid_RightFoot
+      position: {x: -0, y: -0.451822, z: 0.384091}
+      rotation: {x: -0.051087562, y: -0.088238634, z: -0.10438132, w: 0.98929703}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightToe_End
+      parentName: Mech_Humanoid_RightToe
+      position: {x: -0, y: -0.101653, z: 0.564232}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHeel
+      parentName: Mech_Humanoid_RightFoot
+      position: {x: -0, y: -0.19266799, z: -0.169915}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHeel_End
+      parentName: Mech_Humanoid_RightHeel
+      position: {x: -0, y: -0.34872198, z: -0.31321898}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_Spine_1
+      parentName: Mech_Humanoid_Hips
+      position: {x: -0, y: 0.54770696, z: 0}
+      rotation: {x: 0.14293295, y: -0.0013896748, z: -0.0066880807, w: 0.98970884}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_Spine_2
+      parentName: Mech_Humanoid_Spine_1
+      position: {x: -0, y: 0.4534, z: 0}
+      rotation: {x: 0.09889829, y: -0.0019742637, z: -0.008912764, w: 0.99505574}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_Neck
+      parentName: Mech_Humanoid_Spine_2
+      position: {x: -0, y: 0.906705, z: 0}
+      rotation: {x: -0.10592842, y: 0.007738152, z: 0.0014709558, w: 0.99434257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_Head
+      parentName: Mech_Humanoid_Neck
+      position: {x: -0, y: 0.56798196, z: 0.12558}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightShoulder
+      parentName: Mech_Humanoid_Spine_2
+      position: {x: 0.733693, y: 0.59558, z: 0.083631}
+      rotation: {x: 0.12797695, y: -0.14856568, z: 0.20215741, w: 0.959522}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightArm
+      parentName: Mech_Humanoid_RightShoulder
+      position: {x: 1.0661299, y: -0.17401199, z: -0.10610899}
+      rotation: {x: -0.1277533, y: 0.20358399, z: -0.22116311, w: 0.94515586}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightForeArm
+      parentName: Mech_Humanoid_RightArm
+      position: {x: 0.97097796, y: 0, z: 0.124924}
+      rotation: {x: -0.14244533, y: 0.08851247, z: -0.015508797, w: 0.9857152}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mount_Gadget_R
+      parentName: Mech_Humanoid_RightForeArm
+      position: {x: 1.1558789, y: 0, z: 0.37405798}
+      rotation: {x: 0, y: -0.25881907, z: -0, w: 0.9659259}
+      scale: {x: 1, y: -1, z: 1}
+    - name: Mech_Humanoid_RightHand
+      parentName: Mech_Humanoid_RightForeArm
+      position: {x: 1.1558789, y: 0, z: 0.37405798}
+      rotation: {x: -0.0020078116, y: 0.08797122, z: -0.15708113, w: 0.9836577}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHandThumb1
+      parentName: Mech_Humanoid_RightHand
+      position: {x: 0.24016799, y: -0.099999994, z: 0.14492099}
+      rotation: {x: -0.053801123, y: 0.103082, z: 0.21805917, w: 0.9689839}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHandThumb2
+      parentName: Mech_Humanoid_RightHandThumb1
+      position: {x: 0.172053, y: -0.01207, z: 0.317372}
+      rotation: {x: 0.023067407, y: -0.19903333, z: -0.037098363, w: 0.97901857}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHandThumb3
+      parentName: Mech_Humanoid_RightHandThumb2
+      position: {x: 0.25937298, y: 0, z: 0.219442}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHandMiddle1
+      parentName: Mech_Humanoid_RightHand
+      position: {x: 0.35266602, y: 0.143163, z: 0.029373}
+      rotation: {x: 0.4118358, y: 0.05084359, z: 0.08808053, w: 0.9055651}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHandMiddle2
+      parentName: Mech_Humanoid_RightHandMiddle1
+      position: {x: 0.235994, y: 0.034659, z: 0.0000069999996}
+      rotation: {x: 0.059186727, y: 0.024972025, z: 0.19542025, w: 0.9786135}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHandMiddle3
+      parentName: Mech_Humanoid_RightHandMiddle2
+      position: {x: 0.233815, y: -0.051988, z: 0.000001}
+      rotation: {x: 0.09230769, y: -0.010265319, z: 0.17971864, w: 0.97932386}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_RightHandMiddle4
+      parentName: Mech_Humanoid_RightHandMiddle3
+      position: {x: 0.329354, y: -0.195821, z: 0.00010099999}
+      rotation: {x: 0, y: -0.0021589706, z: -0, w: 0.9999977}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mount_HalfShoulder_R
+      parentName: Mech_Humanoid_RightShoulder
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: -1, y: 1, z: 1}
+    - name: mixamo:Shoulder_Skinny_Up_R_Geom
+      parentName: Mount_HalfShoulder_R
+      position: {x: 0.0000009918213, y: 0, z: 0}
+      rotation: {x: -6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: Mech_Humanoid_LeftShoulder
+      parentName: Mech_Humanoid_Spine_2
+      position: {x: -0.73386395, y: 0.59557897, z: 0.083631}
+      rotation: {x: 0.13647164, y: 0.17818668, z: -0.18841349, w: 0.9560991}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftArm
+      parentName: Mech_Humanoid_LeftShoulder
+      position: {x: -1.066127, y: -0.17401199, z: -0.10610899}
+      rotation: {x: -0.15553145, y: -0.21967906, z: 0.20860413, w: 0.9402316}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftForeArm
+      parentName: Mech_Humanoid_LeftArm
+      position: {x: -0.97097796, y: 0, z: 0.124924}
+      rotation: {x: 0.05793943, y: -0.0910819, z: -0.02045823, w: 0.99394596}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mount_Gadget_L
+      parentName: Mech_Humanoid_LeftForeArm
+      position: {x: -1.1558789, y: 0, z: 0.37405798}
+      rotation: {x: 0, y: 0.25881907, z: -0, w: 0.9659259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHand
+      parentName: Mech_Humanoid_LeftForeArm
+      position: {x: -1.1558789, y: 0, z: 0.37405798}
+      rotation: {x: -0.007103419, y: -0.067370854, z: 0.22451866, w: 0.9721122}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHandThumb1
+      parentName: Mech_Humanoid_LeftHand
+      position: {x: -0.24016799, y: -0.099999994, z: 0.144922}
+      rotation: {x: 0.18890898, y: -0.47346148, z: -0.30286098, w: 0.8052471}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHandThumb2
+      parentName: Mech_Humanoid_LeftHandThumb1
+      position: {x: -0.172053, y: -0.01207, z: 0.317372}
+      rotation: {x: 0.023068307, y: 0.19903326, z: 0.037099265, w: 0.9790185}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHandThumb3
+      parentName: Mech_Humanoid_LeftHandThumb2
+      position: {x: -0.25937298, y: 0, z: 0.219442}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHandMiddle1
+      parentName: Mech_Humanoid_LeftHand
+      position: {x: -0.35266602, y: 0.143163, z: 0.029373}
+      rotation: {x: 0.41183704, y: -0.05084256, z: -0.08808138, w: 0.9055645}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHandMiddle2
+      parentName: Mech_Humanoid_LeftHandMiddle1
+      position: {x: -0.235994, y: 0.034659, z: 0.0000069999996}
+      rotation: {x: 0.059185263, y: -0.024979223, z: -0.19542034, w: 0.9786133}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHandMiddle3
+      parentName: Mech_Humanoid_LeftHandMiddle2
+      position: {x: -0.233815, y: -0.051988, z: 0.000004}
+      rotation: {x: 0.09233233, y: 0.01041777, z: -0.17970484, w: 0.97932243}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mech_Humanoid_LeftHandMiddle4
+      parentName: Mech_Humanoid_LeftHandMiddle3
+      position: {x: -0.329354, y: -0.195821, z: 0.000003}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mount_HalfShoulder_L
+      parentName: Mech_Humanoid_LeftShoulder
+      position: {x: 0.000171, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Shoulder_Skinny_Up_L_Geom
+      parentName: Mount_HalfShoulder_L
+      position: {x: -0.00017105103, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mount_Cockpit
+      parentName: Mech_Humanoid_Spine_2
+      position: {x: -0, y: 0.141575, z: -0.16637199}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mount_Backpack
+      parentName: Mech_Humanoid_Spine_2
+      position: {x: -0, y: 0.58991796, z: -0.357066}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

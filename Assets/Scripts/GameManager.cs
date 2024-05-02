@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
+    private static GameManager _instance;   // 싱글톤
 
-    public List<GameObject> towers = new List<GameObject>();
-    
+    public List<GameObject> towers = new List<GameObject>();    // 현재 설치되있는 모든 타워들
     [HideInInspector]
     public float RoundTime = 0;         // 라운드 시간
     [HideInInspector]
     public Quaternion CAMtempRotation;  // 카메라 로테이션 초기화용
-    public EnemySpawner enemySpawner;
+    public GameObject SelectBlock;      // 현재 선택된 블럭
+    public UIManager uiManager;         // ui매니저
+    public EnemySpawner enemySpawner;   // 적스포너
+    public int Killcount;               // 현재 죽인 적 카운트
 
-    public static GameManager Instance
+    public static GameManager Instance  // 싱글톤
     {
         get
         {
@@ -29,11 +31,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public UIManager uiManager;
-    public bool clicked = false;
+    public bool blockClicked = false;   // 현재 블럭이 선택되었는지
+    public bool towerClicked = false;   // 현재 타워가 선택되었는지
 
     [Header("# Game Control")]
     public bool isLive;
+    public bool pauseGame;
     public float gameTime;
     
 
@@ -41,13 +44,17 @@ public class GameManager : MonoBehaviour
     public int level;
     public float Health;
     public float maxHealth = 100;
+    public int gold = 0;
 
     [Header("# GameObject")]
-    public Tower tower;
+    public Tower tower;                 // 현재 선택된 타워 정보
     public GameObject EnemyCleaner;
 
-    private Camera cam;
-
+    [Header("# Augmenter")]
+    public float towerDamage;
+    public float towerSpeed;
+    public float towerHp;
+    public float BonusDamage;
     private void Awake()
     {
         if (_instance == null)
@@ -61,51 +68,29 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        cam = Camera.main.GetComponent<Camera>();
-        CAMtempRotation = cam.transform.rotation;
-        Debug.Log(CAMtempRotation);
     }
     
-
-    // Update is called once per frame
     void Update()
     {
-        //if(tower != null && clicked)
-        //    FollowCam();
 
         removeNullTower();
 
         // RoundTime += Time.deltaTime;
-        // uiManager.RoundTime.text = $"라운드 시작까지 {Mathf.FloorToInt(15-RoundTime)}";
-        if(RoundTime >= 15)
+        // uiManager.RoundTime.text = $"라운드 시작까지 {Mathf.FloorToInt(15-RoundTime)}"; // 남은 라운드 시간 표시
+        if(RoundTime >= 15)     // 라운드 시간이 전부 지났을경우 스포너 활성화
         {
             enemySpawner.enabled = true;
             uiManager.RoundTime.gameObject.SetActive(false);
         }
+        uiManager.GoldText.text = gold.ToString();  // 현재 가지고있는 골드 출력
     }
 
-    public void FollowCam()
-    {
-        if (clicked)
-        {
-            Vector3 direction = (tower.transform.position - cam.transform.position).normalized;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            Quaternion rotateValue = Quaternion.RotateTowards(cam.transform.rotation, rotation, 0.1f * Time.unscaledTime);
-            cam.transform.rotation = rotateValue;
-        }
-        else
-        {
-            Quaternion toRotation = Quaternion.Euler(20, 0, 0);
-            cam.transform.rotation = toRotation;
-        }
-    }
-
-    public void removeNullTower()
+    // towers에서 사라진 타워를 지워주는 함수
+    public void removeNullTower()   
     {
         for (int i = 0; i < towers.Count; i++)
         {

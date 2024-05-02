@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7928022783946761892}
   - component: {fileID: 1584100156864982287}
   - component: {fileID: 7143377151808748010}
+  - component: {fileID: -6658962844675646894}
   m_Layer: 0
   m_Name: Buildable
   m_TagString: MeleeBuildable
@@ -105,3 +106,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6658962844675646894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830199439099885316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de1888264146794592ecf46cfffc7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBuild: 0
+  BuyEffect: {fileID: 9059046049495886740, guid: acec00a3d057b8e47a77895673b4e056,
+    type: 3}

@@ -32,7 +32,7 @@ Transform:
   - {fileID: 5638391024802854823}
   - {fileID: 3225653313855616985}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: 0.004037082, y: -0.14523962, z: -1.272212}
+  m_LocalEulerAnglesHint: {x: 0.1138785, y: -5.0007105, z: -0.24376465}
 --- !u!1 &3058739238755817774
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ Transform:
   - {fileID: 7147153735574242668}
   - {fileID: 3055234133289352547}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: -0.023443997, y: 0.5229366, z: -0.22277117}
+  m_LocalEulerAnglesHint: {x: 0.09503256, y: 5.001054, z: 0.29863414}
 --- !u!1 &3321548826208858187
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,9 +274,14 @@ GameObject:
   m_Component:
   - component: {fileID: 986021222222099186}
   - component: {fileID: 2912782076521297567}
+  - component: {fileID: 142301374401061370}
+  - component: {fileID: 8152244656686346259}
+  - component: {fileID: -977714946068641219}
+  - component: {fileID: 4016027631989375827}
+  - component: {fileID: 690461130403538209}
   m_Layer: 0
   m_Name: Legs_Tracks_Lvl1
-  m_TagString: Untagged
+  m_TagString: Level2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,6 +323,125 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &142301374401061370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739857660683069153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemiesPerTower: 0
+  currentEnemyCount: 0
+  health: 100
+  Tower_id: 0
+  tower_state: 0
+  tower_type: 1
+  tower_class: 2
+  isMelea: 0
+  isWall: 0
+  AttackRange: 5
+  AttackDel: 3
+  SkillCost: 5
+  SkillCount: 0
+  Damage: 10
+  BuffDamage: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+  bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
+  dir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 2912782076521297567}
+  bulletPos: {fileID: 4739857660683069153}
+  enemiesInRange: []
+--- !u!114 &8152244656686346259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739857660683069153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1149b0b2e4e516a4abb8715cf862d5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  SkillPrefabs:
+  - {fileID: 0}
+  tower_Level: 0
+  colliders: []
+  skillPos: {fileID: 0}
+  SkillDamage: 0
+--- !u!114 &-977714946068641219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739857660683069153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextTower: {fileID: 5042204585135364214, guid: 4844e004dbfc3944e94e527210f364be,
+    type: 3}
+--- !u!65 &4016027631989375827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739857660683069153}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 4, z: 3}
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!54 &690461130403538209
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739857660683069153}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5069631966033569413
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +473,7 @@ Transform:
   m_Children:
   - {fileID: 1958421784693905496}
   m_Father: {fileID: 7949241964671552937}
-  m_LocalEulerAnglesHint: {x: 0.6904042, y: 0.25617373, z: -0.10844749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5080964087945858796
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +789,7 @@ Transform:
   - {fileID: 2929613872647275743}
   - {fileID: 3620458062756688300}
   m_Father: {fileID: 293684009094887391}
-  m_LocalEulerAnglesHint: {x: 0.066082835, y: -0.10725492, z: 0.49817538}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &363090562304006006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,6 +798,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4925578726378492087}
     m_Modifications:
+    - target: {fileID: 1693363392360303315, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 4739857660683069153}
     - target: {fileID: 3217485735297719680, guid: b20a4c47fe90ee04fbedf9d200060bc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -821,6 +950,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2912827242435265440}
     m_Modifications:
+    - target: {fileID: 2242031906143011045, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b5c578680804edf4297745cbb4eff070, type: 2}
     - target: {fileID: 5179926158166587019, guid: b5aa1c859c4c8e740b1c3b116f82a432,
         type: 3}
       propertyPath: m_Name
@@ -974,7 +1108,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: bdacc693c53b8e949ac19446da459c12, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 28c62af451f49c845be5b124c35af652, type: 2}
+      objectReference: {fileID: 9100000, guid: 5606cae523f9ad04ebe724394c0e5d41, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

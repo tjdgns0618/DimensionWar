@@ -136,7 +136,7 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 2
   SkillCount: 0
-  Damage: 10
+  Damage: 50
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -162,10 +162,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 2808651401978747545, guid: d975d826a73c4ef4790ce27e94abdb5f,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 2808651401978747545, guid: d975d826a73c4ef4790ce27e94abdb5f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 3545728980758236317}
+  SkillDamage: 0
 --- !u!114 &-6084072497118865262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 1628426222377478364, guid: 2b151e259e603c24b87979200420f0cd,
     type: 3}
 --- !u!65 &662511126231983477
@@ -196,11 +199,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.43, y: 3.3, z: 0.35}
+  m_Size: {x: 0.8, y: 1.8857143, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3718521004712617815
 Rigidbody:

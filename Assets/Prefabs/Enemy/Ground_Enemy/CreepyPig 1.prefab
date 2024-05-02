@@ -1806,9 +1806,10 @@ MonoBehaviour:
   enemyType: 0
   DamageToPlayer: 20
   movementSpeed: 0
-  attackDamage: 15
-  attackCooldown: 0.5
-  health: 350
+  currentTower: {fileID: 0}
+  attackDamage: 25
+  attackCooldown: 1
+  health: 500
   attackAnimationNames:
   - Attack01
 --- !u!65 &2816266679795434674

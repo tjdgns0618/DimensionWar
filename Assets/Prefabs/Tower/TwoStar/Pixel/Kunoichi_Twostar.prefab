@@ -137,7 +137,7 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 3
   SkillCount: 0
-  Damage: 10
+  Damage: 100
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -163,9 +163,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 6842958088515641888}
+  SkillPrefabs:
+  - {fileID: 1503050082581177170, guid: 5cb90d9e1be1a834cb31402373987fe2, type: 3}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 1464721753591696661}
+  SkillDamage: 0
 --- !u!114 &2218610162653513723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 6050877796436588062, guid: 044f06c678d8593439031bcd7eafe190,
     type: 3}
-  isDraging: 0
 --- !u!65 &-1200538755707630377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -196,12 +198,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.15, y: 3.2, z: 0.2}
-  m_Center: {x: -0.11741103, y: -0.18444097, z: 0}
+  m_Size: {x: 0.6571429, y: 1.8285714, z: 0.54}
+  m_Center: {x: -0.06709203, y: 0, z: 0}
 --- !u!54 &727124879857238082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -305,12 +307,6 @@ PrefabInstance:
 --- !u!4 &1815233837438274328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5989219850751576682, guid: 5cb90d9e1be1a834cb31402373987fe2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5344921967969632626}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6842958088515641888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1503050082581177170, guid: 5cb90d9e1be1a834cb31402373987fe2,
     type: 3}
   m_PrefabInstance: {fileID: 5344921967969632626}
   m_PrefabAsset: {fileID: 0}

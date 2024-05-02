@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
   Tower_id: 7
@@ -447,12 +447,15 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 3
   SkillCount: 0
-  Damage: 10
+  Damage: 250
+  BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   bullet: {fileID: 1876427223123748339, guid: 548b0c69cdafdfe499dcac14735a02ec, type: 3}
+  buffbullet: {fileID: 0}
+  isBuff: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95084390982692002}
   bulletPos: {fileID: 2994474602075958266}
@@ -470,10 +473,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 2456733596399416924, guid: 759825d9d7297cd4287ad8affa8ea475,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 2920292627676943812, guid: c4e2f260216b6c74ea9521f0c9018d95, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 2994474602075958266}
+  SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &3141795339594890817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c256e69a4a42eaa42b4c7114b335b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {x: 0, y: 0, z: 0}
   nextTower: {fileID: 0}
 --- !u!54 &4343115890532626466
 Rigidbody:

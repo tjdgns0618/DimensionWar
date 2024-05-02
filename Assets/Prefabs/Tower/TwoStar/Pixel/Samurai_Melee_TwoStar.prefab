@@ -155,20 +155,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  maxEnemiesPerTower: 4
   currentEnemyCount: 0
-  health: 100
+  health: 500
   Tower_id: 12
   tower_state: 0
   tower_type: 0
   tower_class: 0
   isMelea: 1
   isWall: 1
-  AttackRange: 3.34
+  AttackRange: 2
   AttackDel: 3
   SkillCost: 3
   SkillCount: 0
-  Damage: 10
+  Damage: 150
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -194,10 +194,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillPrefabs: {fileID: 2679118055922346939, guid: 03a36f473907ef246bb0a4f9f31e339d,
-    type: 3}
+  SkillPrefabs:
+  - {fileID: 2679118055922346939, guid: 03a36f473907ef246bb0a4f9f31e339d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  tower_Level: 0
   colliders: []
   skillPos: {fileID: 7603060880962196940}
+  SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &9116673062374046567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 2305421628991597455, guid: 456c5cd743068e5458ee1395a26804f7,
     type: 3}
-  isDraging: 0
 --- !u!65 &8208973596468512347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -228,12 +232,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.75, y: 3.45, z: 0.2}
-  m_Center: {x: -0.31153655, y: 0.00000035762787, z: 0}
+  m_Size: {x: 1, y: 1.9714285, z: 0.71}
+  m_Center: {x: -0.1780209, y: 0.00000023841858, z: 0}
 --- !u!54 &3327895816402186875
 Rigidbody:
   m_ObjectHideFlags: 0
