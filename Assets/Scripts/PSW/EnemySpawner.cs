@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     public List<EnemyWave> EnemyWaves; // 적 스폰 정보 리스트
     public Transform[] spawnPoints; // 적을 소환할 위치들의 배열
     public Button startWaveButton; // 웨이브 시작 버튼
+    public GameObject enemyParent;
 
     private List<GameObject>[] enemyPools; // 적의 오브젝트 풀들의 리스트
     private int currentWaveIndex = 0; // 현재 웨이브 인덱스
@@ -41,6 +42,7 @@ public class EnemySpawner : MonoBehaviour
                 for (int k = 0; k < EnemyWaves[i].numberOfEnemiesPerPrefab[j]; k++)
                 {
                     GameObject enemy = Instantiate(EnemyWaves[i].enemyPrefabs[j]);
+                    enemy.transform.SetParent(enemyParent.transform);
                     enemy.SetActive(false);
                     enemyPools[i].Add(enemy);
                 }

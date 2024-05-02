@@ -16,7 +16,7 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
     public GameObject BuyEffect;    // 클릭된 블럭 구별용 이펙트
     public int dimension;           // 현재 스테이지에 따라 블럭움직임을 줄지 정하는 변수
     [HideInInspector]
-    public GameObject instance;     // BuyEffect를 생성해줄 GameObject 변수
+    public GameObject tempBuyEffect;     // BuyEffect를 생성해줄 GameObject 변수
 
     private void Awake()
     {
@@ -40,12 +40,13 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
         // 이미 선택된 블럭이 존재하는 경우 반환, 타워가 선택중일경우
         if (GameManager.Instance.tower)
         {
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
             GameManager.Instance.tower = null;
             BlockClick();
         }
         else if (GameManager.Instance.SelectBlock)
         {
-            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);
+            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);
             GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
             BlockClick();
         }
@@ -71,9 +72,9 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
         GameManager.Instance.SelectBlock = this.gameObject;     // 게임매니저에 현재 선택된 블럭에 이 블럭을 저장
         isBuild = true;
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORestart();   // 구매 패널이 올라오게하는 함수
-        instance = Instantiate(BuyEffect);      // 블럭이 선택되었는지 알려주는 이펙트 생성
-        instance.transform.parent = transform;  // 이펙트를 이 블럭의 자식으로 생성
-        instance.transform.localPosition = new Vector3(0, 0.8f, 0); // 이펙트의 위치 변경
+        tempBuyEffect = Instantiate(BuyEffect);      // 블럭이 선택되었는지 알려주는 이펙트 생성
+        tempBuyEffect.transform.parent = transform;  // 이펙트를 이 블럭의 자식으로 생성
+        tempBuyEffect.transform.localPosition = new Vector3(0, 0.8f, 0); // 이펙트의 위치 변경
     }
 
     void BlockUp()

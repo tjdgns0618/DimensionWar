@@ -35,7 +35,7 @@ public class AugmenterManager : MonoBehaviour
         Time.timeScale = 0;
         btt.SetActive(true);
     }
-    void CreateUnDuplicateRandom()
+    public void CreateUnDuplicateRandom()
     {
         int currentNumber = Random.Range(0, 3);
         

@@ -9,8 +9,11 @@ using UnityEngine.UI;
 public class TestScript : MonoBehaviour, IPointerClickHandler
 {
     public GameObject nextTower;    // 합성시 나오는 다음 타워
+    public GameObject ClickEffect;    // 클릭된 블럭 구별용 이펙트
+
     Vector3 temp;                   // 드래그 시작시 현재 위치 저장용
     Tower tower;                    // 본인의 타워 스크립트 정보 저장용
+
 
     #region 레이캐스트용
     // bool canMerge = false;          // 합성 가능 상태 확인용
@@ -27,11 +30,17 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
     {   // 블럭이 클릭된 상태
         if (GameManager.Instance.SelectBlock)
         {
-            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);   // 블럭 선택 이펙트를 지워준다.
+            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);   // 블럭 선택 이펙트를 지워준다.
             GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
-            GameManager.Instance.SelectBlock = null;            
+            GameManager.Instance.SelectBlock = null;
             TowerClick();
-        }    
+        }
+        // 다른 타워가 클릭된 상태였다면
+        else if (GameManager.Instance.tower)
+        {
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
+            TowerClick();
+        }
         // 블럭이 클릭 안된상태
         else
         {
@@ -49,6 +58,7 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
         GameManager.Instance.uiManager.SellButton.GetComponent<Button>().enabled = true;
         GameManager.Instance.uiManager.BuyButton.GetComponent<Button>().enabled = false;
         GameManager.Instance.uiManager.UpgradeButton.GetComponent<Button>().enabled = true;
+        ClickEffect.SetActive(true);
         if (GameManager.Instance.towerClicked)      // 타워가 클릭되었을때
         {
             GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORestart();

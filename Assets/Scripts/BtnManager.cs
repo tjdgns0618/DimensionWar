@@ -51,12 +51,12 @@ public class BTManager : MonoBehaviour
         else if (i == 1)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 로우폴리 근접 타워 위치 초기화
-            instance.transform.rotation = Quaternion.Euler(0, 90, 0);
+            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 2)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D 근접 타워 위치 초기화
-            instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -77,12 +77,12 @@ public class BTManager : MonoBehaviour
         else if (i == 5 || i == 6)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 로우폴리 원거리 타워 위치 초기화
-            instance.transform.rotation = Quaternion.Euler(0, 90, 0);
+            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 7 || i == 8)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D 원거리 타워 위치 초기화
-            instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -97,7 +97,7 @@ public class BTManager : MonoBehaviour
         GameManager.Instance.blockClicked = false;  // 블럭 클릭상태를 초기화해준다.
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // 구매 패널을 돌려보낸다.
         GameManager.Instance.SelectBlock.layer = 2; // 블럭을 클릭 불가능하게 만든다.
-        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);   // 블럭 선택 이펙트를 지워준다.
+        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);   // 블럭 선택 이펙트를 지워준다.
         GameManager.Instance.SelectBlock = null;
 
         yield return null;
@@ -129,6 +129,8 @@ public class BTManager : MonoBehaviour
         GameObject instance = Instantiate(GameManager.Instance.tower.GetComponent<TestScript>().nextTower);
         instance.transform.SetParent(GameManager.Instance.tower.transform.parent.transform);
         instance.transform.position = GameManager.Instance.tower.transform.position;
+        if(instance.GetComponent<Tower>().tower_class != global::Tower.Tower_Class.Pixel)
+            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2")
             instance.transform.position += new Vector3(0, 0.4f, 0); // 픽셀 3성 위치값 예외처리
         Destroy(GameManager.Instance.tower.gameObject); // 현재 타워를 제거한다.
@@ -154,7 +156,7 @@ public class BTManager : MonoBehaviour
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.Play();
 
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
-        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().instance.gameObject);
+        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);
         GameManager.Instance.SelectBlock = null;
         GameManager.Instance.tower = null;
     }
