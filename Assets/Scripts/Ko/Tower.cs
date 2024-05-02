@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
     public int maxEnemiesPerTower = 3;
     public int currentEnemyCount = 0;
     public float health = 100f;
+    public float tempHealth;
 
 
     public int Tower_id;
@@ -52,6 +53,7 @@ public class Tower : MonoBehaviour
 
     void Awake()
     {
+        tempHealth = health;
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
         attTime = 0f;
@@ -219,13 +221,14 @@ public class Tower : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            transform.parent.gameObject.layer = 0;
-            Destroy(gameObject);
+            // transform.parent.gameObject.layer = 0;
+            // Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
     // 타워가 파괴될 때 호출되는 메서드
-    void OnDestroy()
+    void OnDisable()
     {
         // 타워에 할당된 적이 있는지 확인하고, 있다면 이동을 재개하도록 함
         //Debug.Log("OnDestroy");

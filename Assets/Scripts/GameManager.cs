@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();        
     }
     
     void Update()
@@ -88,6 +88,19 @@ public class GameManager : MonoBehaviour
         }
         uiManager.GoldText.text = gold.ToString();  // 현재 가지고있는 골드 출력
 
+    }
+
+    public void meleeRespawn()
+    {
+        for(int i = 0; i < towers.Count; i++)
+        {
+            if (towers[i].activeSelf == false)
+            {
+                towers[i].GetComponent<Tower>().health =
+                    towers[i].GetComponent<Tower>().tempHealth;
+                towers[i].SetActive(true);
+            }
+        }
     }
 
     // towers에서 사라진 타워를 지워주는 함수

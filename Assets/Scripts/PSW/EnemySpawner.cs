@@ -26,10 +26,11 @@ public class EnemySpawner : MonoBehaviour
     private bool isWaveInProgress = false; // 현재 웨이브가 진행 중인지 여부
 
     // 적이 모두 사망했거나 웨이브가 끝났음을 알리는 이벤트
-    public event Action<bool> OnWaveEnd;
+    public Action OnWaveEnd;
 
     void Start()
     {
+        OnWaveEnd += GameManager.Instance.meleeRespawn;
         startWaveButton.onClick.AddListener(StartNextWave);
         InitializeEnemyPools();
     }
@@ -109,8 +110,7 @@ public class EnemySpawner : MonoBehaviour
             startWaveButton.interactable = false;
 
             // 다른 스크립트에 웨이브 종료 정보 전달
-                OnWaveEnd.Invoke(true);
-                Debug.Log("OnWaveEnd");
+            Debug.Log("OnWaveEnd");
         }
         else
         {
@@ -122,7 +122,9 @@ public class EnemySpawner : MonoBehaviour
                 {
                     if (enemy != null && enemy.activeInHierarchy)
                     {
+                        OnWaveEnd();
                         isWaveComplete = false;
+                        Debug.Log("isWaveComplete");
                         break;
                     }
                 }
@@ -130,12 +132,11 @@ public class EnemySpawner : MonoBehaviour
 
             if (isWaveComplete)
             {
-                OnWaveEnd.Invoke(false);
                 Debug.Log("OnWaveEnd");
             }
         }
 
-        // 현재 웨이브 종료
+        Debug.Log("WaveProgress false");
         isWaveInProgress = false;
     }
 
