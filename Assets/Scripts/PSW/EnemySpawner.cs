@@ -19,18 +19,16 @@ public class EnemySpawner : MonoBehaviour
     public List<EnemyWave> EnemyWaves; // 적 스폰 정보 리스트
     public Transform[] spawnPoints; // 적을 소환할 위치들의 배열
     public Button startWaveButton; // 웨이브 시작 버튼
-    public GameObject enemyParent;
 
     private List<GameObject>[] enemyPools; // 적의 오브젝트 풀들의 리스트
     private int currentWaveIndex = 0; // 현재 웨이브 인덱스
     private bool isWaveInProgress = false; // 현재 웨이브가 진행 중인지 여부
 
-    // 적이 모두 사망했거나 웨이브가 끝났음을 알리는 이벤트
-    public Action OnWaveEnd;
+    // 적이 모두 사망했음을 알리는 이벤트
+    public event Action OnAllEnemiesDead;
 
     void Start()
     {
-        OnWaveEnd += GameManager.Instance.meleeRespawn;
         startWaveButton.onClick.AddListener(StartNextWave);
         InitializeEnemyPools();
     }
@@ -47,7 +45,6 @@ public class EnemySpawner : MonoBehaviour
                 for (int k = 0; k < EnemyWaves[i].numberOfEnemiesPerPrefab[j]; k++)
                 {
                     GameObject enemy = Instantiate(EnemyWaves[i].enemyPrefabs[j]);
-                    enemy.transform.SetParent(enemyParent.transform);
                     enemy.SetActive(false);
                     enemyPools[i].Add(enemy);
                 }
@@ -108,36 +105,13 @@ public class EnemySpawner : MonoBehaviour
         {
             // 마지막 웨이브이므로 버튼 비활성화
             startWaveButton.interactable = false;
-
-            // 다른 스크립트에 웨이브 종료 정보 전달
-            Debug.Log("OnWaveEnd");
-        }
-        else
-        {
-            // 한 웨이브의 모든 적이 사망한 상태일 때 호출
-            bool isWaveComplete = true;
-            foreach (var pool in enemyPools)
-            {
-                foreach (var enemy in pool)
-                {
-                    if (enemy != null && enemy.activeInHierarchy)
-                    {
-                        OnWaveEnd();
-                        isWaveComplete = false;
-                        Debug.Log("isWaveComplete");
-                        break;
-                    }
-                }
-            }
-
-            if (isWaveComplete)
-            {
-                Debug.Log("OnWaveEnd");
-            }
         }
 
-        Debug.Log("WaveProgress false");
+        // 현재 웨이브 종료
         isWaveInProgress = false;
+
+        // 적이 모두 사망했는지 확인
+        CheckAllEnemiesDead();
     }
 
     GameObject GetPooledEnemy(GameObject enemyPrefab)
@@ -177,6 +151,29 @@ public class EnemySpawner : MonoBehaviour
         if (agent != null)
         {
             agent.speed *= multiplier;
+        }
+    }
+
+    // 적이 모두 사망했는지 확인하는 함수
+    void CheckAllEnemiesDead()
+    {
+        bool allDead = true;
+        foreach (var pool in enemyPools)
+        {
+            foreach (var enemy in pool)
+            {
+                if (enemy != null && enemy.activeInHierarchy)
+                {
+                    allDead = false;
+                    break;
+                }
+            }
+        }
+
+        // 모든 적이 사망했으면 이벤트 호출
+        if (allDead && OnAllEnemiesDead != null)
+        {
+            OnAllEnemiesDead.Invoke();
         }
     }
 }
