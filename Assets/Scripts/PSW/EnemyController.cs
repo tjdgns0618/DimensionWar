@@ -200,6 +200,17 @@ public class EnemyController : MonoBehaviour
             // 선택된 공격 애니메이션의 트리거 재생
             animator.SetTrigger(randomAttackAnimation);
 
+            // 만약 Weapon 태그를 가진 오브젝트를 가지고 있다면 해당 애니메이터 사용
+            GameObject[] weaponObjects = GameObject.FindGameObjectsWithTag("Weapon");
+            foreach (GameObject weaponObject in weaponObjects)
+            {
+                Animator weaponAnimator = weaponObject.GetComponent<Animator>();
+                if (weaponAnimator != null)
+                {
+                    weaponAnimator.SetTrigger(randomAttackAnimation);
+                }
+            }
+
             tower.TakeDamage(attackDamage); // 타워 체력 감소 
             attackCooldown = 1f; // 쿨다운 초기화
         }
