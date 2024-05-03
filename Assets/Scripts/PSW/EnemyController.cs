@@ -329,4 +329,16 @@ public class EnemyController : MonoBehaviour
         // 속도를 증가된 속도로 설정
         navMeshAgent.speed = originalSpeed * multiplier;
     }
+
+    private void OnDestroy()
+    {
+        foreach (GameObject obj in GameManager.Instance.enemys)
+        {
+            if (obj.activeSelf)
+            {
+                return;
+            }
+        }
+        GameManager.Instance.meleeRespawn();
+    }
 }

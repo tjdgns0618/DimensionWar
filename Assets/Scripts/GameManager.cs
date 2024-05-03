@@ -77,8 +77,10 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        removeNullTower();
+        RemoveNullTower();
         
+        RemoveNullEnemy();
+
         // RoundTime += Time.deltaTime;
         // uiManager.RoundTime.text = $"라운드 시작까지 {Mathf.FloorToInt(15-RoundTime)}"; // 남은 라운드 시간 표시
         if (RoundTime >= 15)     // 라운드 시간이 전부 지났을경우 스포너 활성화
@@ -103,13 +105,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RemoveNullEnemy()
+    {
+        for (int i = 0; i < enemys.Count; i++)
+        {
+            if (!enemys[i])
+                enemys.RemoveAt(i);
+        }
+    }
+
     // towers에서 사라진 타워를 지워주는 함수
-    public void removeNullTower()   
+    public void RemoveNullTower()   
     {
         for (int i = 0; i < towers.Count; i++)
         {
             if (!towers[i])
-                towers.Remove(towers[i]);
+                towers.RemoveAt(i);
         }
     }
 }
