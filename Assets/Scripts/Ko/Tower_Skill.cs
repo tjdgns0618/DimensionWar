@@ -284,4 +284,13 @@ public class Tower_Skill : MonoBehaviour
         yield return null;
 
     }
+
+    private void OnEnable()
+    {
+        foreach(GameObject g in SkillPrefabs)
+        {
+            g.gameObject.SetActive(false);
+        }
+
+    }
 }
