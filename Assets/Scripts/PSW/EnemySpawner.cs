@@ -25,10 +25,11 @@ public class EnemySpawner : MonoBehaviour
     private bool isWaveInProgress = false; // 현재 웨이브가 진행 중인지 여부
 
     // 적이 모두 사망했음을 알리는 이벤트
-    public event Action OnAllEnemiesDead;
+    public event Action OnWaveEnd;
 
     void Start()
     {
+        OnWaveEnd += GameManager.Instance.meleeRespawn;
         startWaveButton.onClick.AddListener(StartNextWave);
         InitializeEnemyPools();
     }
@@ -154,7 +155,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // 적이 모두 사망했는지 확인하는 함수
+    // 적이 모두 사망했는지 확인
     void CheckAllEnemiesDead()
     {
         bool allDead = true;
@@ -171,9 +172,9 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // 모든 적이 사망했으면 이벤트 호출
-        if (allDead && OnAllEnemiesDead != null)
+        if (allDead && OnWaveEnd != null)
         {
-            OnAllEnemiesDead.Invoke();
+            OnWaveEnd.Invoke();
         }
     }
 }
