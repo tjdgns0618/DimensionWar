@@ -4600,7 +4600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1819686241720480098
 Transform:
   m_ObjectHideFlags: 0
@@ -9435,7 +9435,9 @@ MonoBehaviour:
   Damage: 1
   Speed: 10
   id: 2
+  SpeedCtrl: 0
   hitObject: []
+  ps: {fileID: 0}
 --- !u!65 &2101440740856411334
 BoxCollider:
   m_ObjectHideFlags: 0

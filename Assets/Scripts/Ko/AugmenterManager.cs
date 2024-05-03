@@ -32,6 +32,22 @@ public class AugmenterManager : MonoBehaviour
     {
         Time.timeScale = 0;
         btt.SetActive(true);
+
+        GameManager.Instance.blockClicked = false;
+        if (GameManager.Instance.SelectBlock)
+        {
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.clip =
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().audio[1];
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.Play();
+            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);
+            GameManager.Instance.SelectBlock = null;
+        }
+        if (GameManager.Instance.tower)
+        {
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
+            GameManager.Instance.tower = null;
+        }
     }
     public void reroll(int num)
     {

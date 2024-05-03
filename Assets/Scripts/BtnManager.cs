@@ -145,18 +145,17 @@ public class BTManager : MonoBehaviour
         if (GameManager.Instance.tower != null)
         {
             GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
             return;
         }
-
         GameManager.Instance.blockClicked = false;
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.clip =
             GameManager.Instance.SelectBlock.GetComponent<Blocks>().audio[1];
-        GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.volume = PlayerPrefs.GetFloat("BgmValue");
         GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.Play();
+        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);
 
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
-        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);
         GameManager.Instance.SelectBlock = null;
         GameManager.Instance.tower = null;
     }

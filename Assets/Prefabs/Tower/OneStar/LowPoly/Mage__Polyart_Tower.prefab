@@ -360,9 +360,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
+  attTime: 0
   bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95065115426487442}
   bulletPos: {fileID: 8747348191922476664}
@@ -382,8 +384,6 @@ MonoBehaviour:
   id: 0
   SkillPrefabs:
   - {fileID: 7034573602798067198, guid: d7421f2cd4a97944a9be934d40a0bcba, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 8747348191922476664}

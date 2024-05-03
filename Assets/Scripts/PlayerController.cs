@@ -18,4 +18,9 @@ public class PlayerController : MonoBehaviour
             // 게임 오버 또는 다른 처리를 수행할 수 있음
         }
     }
+
+    private void OnDisable()
+    {
+        
+    }
 }
