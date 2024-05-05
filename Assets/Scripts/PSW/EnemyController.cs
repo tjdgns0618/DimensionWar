@@ -338,7 +338,8 @@ public class EnemyController : MonoBehaviour
                 return;
             }
         }
-        
+
+        GameManager.Instance.diamond += 3;  // 웨이브 종료후 다이아 흭득
         GameManager.Instance.meleeRespawn();
     }
 }
