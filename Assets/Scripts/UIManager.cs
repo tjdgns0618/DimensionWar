@@ -8,13 +8,18 @@ public class UIManager : MonoBehaviour
 {
     // public Slider BgmSlider;        // 배경음악 볼륨 조절 슬라이더
     public Canvas uiCanvas;         // 게임ui용 캔버스
-    public Canvas skillCanvas;      // 스킬업그레이드ui용 캔버스
+    public Canvas UpgradeCanvas;      // 스킬업그레이드ui용 캔버스
     public GameObject BuyPaenl;     // 타워 구매 패널
+    public GameObject ClearPanel;
+    public GameObject FailedPanel;
     public Text RoundTime;          // 라운드 시작까지 남은 시간
     public Text GoldText;           // 현재 소유중인 골드
+    public Text DiaText;
     public Button BuyButton;
     public Button SellButton;
-    public Button UpgradeButton;
+    public Button stat1Button;      // 1번 강화버튼
+    public Button stat2Button;      // 2번 강화버튼
+    public Button UpgradeButton;    // 1,2 강화한 후 활성화되는 버튼
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +27,7 @@ public class UIManager : MonoBehaviour
         //if(BgmSlider != null)
         //    BgmSlider.value = PlayerPrefs.GetFloat("BgmValue"); // PlayerPref에 저장한 볼륨 불러오기
         //StartGame();  // 영상제작용
+        Screen.SetResolution(1920, 1080, true);
     }
 
     public void SetDimension(int dimension)

@@ -16,7 +16,7 @@ public class BTManager : MonoBehaviour
 
     public void BuyTower()      // 타워 구매 함수
     {
-        if(GameManager.Instance.gold >= 20) // 20골드가 있어야만 구매 가능 조건
+        if(GameManager.Instance.diamond >= 1) // 20골드가 있어야만 구매 가능 조건
             StartCoroutine(_BuyTower());
     }
 
@@ -86,6 +86,73 @@ public class BTManager : MonoBehaviour
         }
     }
 
+    public void UpgradeBtnClick()
+    {
+        GameManager.Instance.uiManager.UpgradeCanvas.gameObject.SetActive(true);
+
+        if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[0])
+            GameManager.Instance.uiManager.stat1Button.image.color = Color.white;
+        else
+            GameManager.Instance.uiManager.stat1Button.image.color = Color.green;
+
+        if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
+            GameManager.Instance.uiManager.stat2Button.image.color = Color.white;
+        else
+            GameManager.Instance.uiManager.stat2Button.image.color = Color.green;
+
+
+        GameManager.Instance.uiManager.stat1Button.enabled = !GameManager.Instance.tower.GetComponent<Tower>().upgrade[0];
+        GameManager.Instance.uiManager.stat2Button.enabled = !GameManager.Instance.tower.GetComponent<Tower>().upgrade[1];
+        GameManager.Instance.uiManager.UpgradeButton.enabled = (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && GameManager.Instance.tower.GetComponent<Tower>().upgrade[1]);
+    }
+
+    public void Stat1Upgrade()
+    {
+        GameManager.Instance.uiManager.stat1Button.enabled = false;
+        GameManager.Instance.uiManager.stat1Button.image.color = Color.green;
+        GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] = true;
+        if(GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && 
+            GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
+        {
+            GameManager.Instance.uiManager.UpgradeButton.enabled = true;
+        }
+        StartTime();
+    }
+
+    public void Stat2Upgrade()
+    {
+        GameManager.Instance.uiManager.stat2Button.enabled = false;
+        GameManager.Instance.uiManager.stat2Button.image.color = Color.green;
+        GameManager.Instance.tower.GetComponent<Tower>().upgrade[1] = true;
+        if (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] &&
+            GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
+        {
+            GameManager.Instance.uiManager.UpgradeButton.enabled = true;
+        }
+        StartTime();
+    }
+
+    public void DamageUpgrade()
+    {
+        GameManager.Instance.tower.GetComponent<Tower>().Damage *= 1.2f;
+    }
+
+    public void SpeedUpgrade()
+    {
+        GameManager.Instance.tower.GetComponent<Tower>().AttackDel *= 0.9f;
+    }
+
+    public void SkillCoolUpgrade()
+    {
+        GameManager.Instance.tower.GetComponent<Tower>().SkillCost--;
+    }
+
+    public void HealthUpgrade()
+    {
+        GameManager.Instance.tower.GetComponent<Tower>().health *= 2f;
+        GameManager.Instance.tower.GetComponent<Tower>().tempHealth *= 2f;
+    }
+
     IEnumerator _BuyTower()
     {
         if (GameManager.Instance.SelectBlock.CompareTag("MeleeBuildable"))  // 근접 설치 가능 블럭이라면
@@ -93,7 +160,7 @@ public class BTManager : MonoBehaviour
         else
             RangerTowerSpawn();
                 
-        GameManager.Instance.gold -= 20;            // 20골드가 소모된다.
+        GameManager.Instance.diamond--;            // 20골드가 소모된다.
         GameManager.Instance.blockClicked = false;  // 블럭 클릭상태를 초기화해준다.
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // 구매 패널을 돌려보낸다.
         GameManager.Instance.SelectBlock.layer = 2; // 블럭을 클릭 불가능하게 만든다.
@@ -171,6 +238,11 @@ public class BTManager : MonoBehaviour
     public void StartTime()
     {
         Time.timeScale = gameSpeed;
+    }
+
+    public void MakeTime1()
+    {
+        Time.timeScale = 1;
     }
 
     // timescale을 0으로 만드는 함수

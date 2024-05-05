@@ -20,18 +20,18 @@ public class AugmenterManager : MonoBehaviour
     {
         if (GameManager.Instance.Killcount >= 10)
         {
-            GameManager.Instance.Killcount = 0;
-            r = new List<int>();
+            GameManager.Instance.Killcount = 0;            
             Augmeneter();
-            CreateUnDuplicateRandom();
-            
+            CreateUnDuplicateRandom();            
         }
-
     }
+
     public void Augmeneter()
     {
+        r = new List<int>();
         Time.timeScale = 0;
         btt.SetActive(true);
+
 
         GameManager.Instance.blockClicked = false;
         if (GameManager.Instance.SelectBlock)
@@ -49,6 +49,7 @@ public class AugmenterManager : MonoBehaviour
             GameManager.Instance.tower = null;
         }
     }
+
     public void reroll(int num)
     {
         
@@ -65,7 +66,7 @@ public class AugmenterManager : MonoBehaviour
         bt[num].GetComponent<Augmenter>().r = r[num];
         bt[num].GetComponent<Augmenter>().AugmentUpdate();
     }
-    void CreateUnDuplicateRandom()
+    public void CreateUnDuplicateRandom()
     {
         int currentNumber = Random.Range(0, max);
         

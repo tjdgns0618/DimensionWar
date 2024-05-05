@@ -289,7 +289,7 @@ public class Tower_Skill : MonoBehaviour
     {
         foreach(GameObject g in SkillPrefabs)
         {
-            if (SkillPrefabs is null && gameObject.GetComponent<Tower>().tower_type != Tower.Tower_Type.Meele)
+            if (SkillPrefabs is null || gameObject.GetComponent<Tower>().tower_type != Tower.Tower_Type.Meele)
                 break;
             else
                 g.gameObject.SetActive(false);

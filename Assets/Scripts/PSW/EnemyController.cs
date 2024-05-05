@@ -151,8 +151,7 @@ public class EnemyController : MonoBehaviour
             PlayerController playerController = other.GetComponent<PlayerController>(); // 플레이어 컴포넌트 가져오기
             if (playerController != null)
             {
-                float damageToPlayer = DamageToPlayer;
-                playerController.TakeDamage(damageToPlayer);
+                playerController.TakeDamage(1);
             }
             Destroy(gameObject); // 적 오브젝트 파괴
         }
@@ -339,6 +338,7 @@ public class EnemyController : MonoBehaviour
                 return;
             }
         }
+        
         GameManager.Instance.meleeRespawn();
     }
 }

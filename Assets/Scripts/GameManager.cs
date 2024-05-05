@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public float Health;
     public float maxHealth = 100;
     public int gold = 0;
+    public int diamond = 0;
 
     [Header("# GameObject")]
     public Tower tower;                 // 현재 선택된 타워 정보
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
             uiManager.RoundTime.gameObject.SetActive(false);
         }
         uiManager.GoldText.text = gold.ToString();  // 현재 가지고있는 골드 출력
+        uiManager.DiaText.text = diamond.ToString(); // 현재 가지고있는 다이아 출력
 
     }
 
@@ -101,6 +103,10 @@ public class GameManager : MonoBehaviour
                 towers[i].GetComponent<Tower>().health =
                     towers[i].GetComponent<Tower>().tempHealth;
                 towers[i].SetActive(true);
+            }
+            else if(towers[i].activeSelf == true && towers[i].GetComponent<Tower>().tower_type == Tower.Tower_Type.Meele)
+            {
+                towers[i].GetComponent<Tower>().health = towers[i].GetComponent<Tower>().tempHealth;
             }
         }
     }

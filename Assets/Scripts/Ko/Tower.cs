@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
+[RequireComponent(typeof(AudioSource))]
 public class Tower : MonoBehaviour
 {
+    public List<bool> upgrade = new List<bool>();
     public int maxEnemiesPerTower = 3;
     public int currentEnemyCount = 0;
     public float health = 100f;
@@ -48,13 +51,20 @@ public class Tower : MonoBehaviour
 
     public Animator anim;
     public GameObject bulletPos;
-   
+    public AudioClip attackClip;
+    public AudioMixerGroup mixerGroup;
+    AudioSource audio;
 
     // 적 목록
     public List<EnemyController> enemiesInRange = new List<EnemyController>();
 
     void Awake()
     {
+        upgrade.Add(false);
+        upgrade.Add(false);
+        audio = GetComponent<AudioSource>();
+        audio.outputAudioMixerGroup = mixerGroup;
+        audio.clip = attackClip;
         tempHealth = health;
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
@@ -157,6 +167,7 @@ public class Tower : MonoBehaviour
     }
     public void test()
     {
+        audio.Play();
         if (isBuff)
         {
             if (tower_type == Tower_Type.Range)
