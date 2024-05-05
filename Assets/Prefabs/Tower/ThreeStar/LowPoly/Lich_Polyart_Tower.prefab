@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: -2909304425732377332}
   - component: {fileID: 4572792373168102714}
   - component: {fileID: 5533717410102330729}
+  - component: {fileID: 3329504419675302917}
   m_Layer: 0
   m_Name: Lich_Polyart_Tower
   m_TagString: Tower
@@ -552,12 +553,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
+  attTime: 0
   bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
-  buffbullet: {fileID: 0}
+  buffbullet: {fileID: 8501675956551136181}
   isBuff: 0
+  isSkill: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 95830442387745868}
   bulletPos: {fileID: 8501675956551136181}
+  AttSound: {fileID: 8300000, guid: 00d6b7e8dd41b334080d8d15f5c9b36a, type: 3}
+  SkillSound: {fileID: 8300000, guid: 3dc39805e9d14874ebfe30c8e6cac0f7, type: 3}
+  audioSource: {fileID: 0}
   enemiesInRange: []
 --- !u!114 &1412629872659579480
 MonoBehaviour:
@@ -572,14 +578,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  EnemyTrans: {fileID: 0}
   SkillPrefabs:
-  - {fileID: 2456733596399416924, guid: 759825d9d7297cd4287ad8affa8ea475, type: 3}
-  - {fileID: 0}
+  - {fileID: 2920292627676943812, guid: c4e2f260216b6c74ea9521f0c9018d95, type: 3}
   - {fileID: 0}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 8501675956551136181}
   SkillDamage: 0
+  skillParent: {fileID: 0}
 --- !u!114 &-2909304425732377332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +650,102 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &3329504419675302917
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396567563581874}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1449443688734946
 GameObject:
   m_ObjectHideFlags: 0

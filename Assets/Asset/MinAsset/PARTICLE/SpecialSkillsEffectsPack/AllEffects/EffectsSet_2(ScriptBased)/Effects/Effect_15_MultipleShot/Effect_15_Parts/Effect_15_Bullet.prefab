@@ -9,7 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6381046891688313447}
-  - component: {fileID: 114759275491862116}
+  - component: {fileID: 599381284525815621}
+  - component: {fileID: 6040191331125607868}
+  - component: {fileID: 7892401556591671087}
+  - component: {fileID: 3878035167501030934}
   m_Layer: 0
   m_Name: Effect_15_Bullet
   m_TagString: Untagged
@@ -33,7 +36,7 @@ Transform:
   - {fileID: 5320854668367439878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114759275491862116
+--- !u!114 &599381284525815621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +45,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 621980410761430292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e17d10c4e020147ae8b5e49a85fd67, type: 3}
+  m_Script: {fileID: 11500000, guid: 182ee2617bfd2014893b8c4481a5b0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_gameObjectMain: {fileID: 621980410761430292}
@@ -50,16 +53,85 @@ MonoBehaviour:
   m_hitObject: {fileID: 108527783434241406, guid: afa8ef8c069267a4c9ad04dbaa91a1f2,
     type: 3}
   maxLength: 2
-  isDestroy: 1
+  isDestroy: 0
   ObjectDestroyTime: 0.5
   TailDestroyTime: 0
   HitObjectDestroyTime: 0.1
   maxTime: 1
-  MoveSpeed: 40
+  MoveSpeed: 10
   isCheckHitTag: 0
   mtag: 
   isShieldActive: 1
   isHitMake: 1
+  parent: {fileID: 0}
+  parent_skillDmg: 0
+--- !u!54 &6040191331125607868
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621980410761430292}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7892401556591671087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621980410761430292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
+--- !u!65 &3878035167501030934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621980410761430292}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.1, z: 0.74}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9163396348520894969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,7 +3810,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -4979,3 +5051,4 @@ MonoBehaviour:
   SpeedCtrl: 0
   hitObject: []
   ps: {fileID: 0}
+  parentTower: {fileID: 0}

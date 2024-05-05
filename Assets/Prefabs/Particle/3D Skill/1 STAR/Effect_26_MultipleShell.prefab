@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7063725700923794494}
-  - component: {fileID: 7063725700923794493}
   m_Layer: 0
   m_Name: Effect_26_ShellFire
   m_TagString: Untagged
@@ -32,29 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7063725701932385642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7063725700923794493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7063725700923794495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7994742634f09eb4a88499d7e511671d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_makeObjs:
-  - {fileID: 8274030933793845326, guid: b5872815af9b4d24781b75df5cf6d340, type: 3}
-  - {fileID: 7868329102629265088, guid: 6f164ed0bec652f4c85b2705109215bf, type: 3}
-  m_startDelay: 0
-  m_makeCount: 3
-  m_makeDelay: 0.5
-  m_randomPos: {x: 0, y: 0, z: 0}
-  target: {fileID: 0}
-  m_randomRot: {x: 1, y: 1, z: 0}
-  m_randomScale: {x: 0, y: 0, z: 0}
-  isObjectAttachToParent: 1
 --- !u!1 &7063725701932385643
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7063725701932385642}
+  - component: {fileID: 2388879730438940716}
+  - component: {fileID: 6709925404169971835}
   m_Layer: 0
   m_Name: Effect_26_MultipleShell
   m_TagString: Untagged
@@ -87,3 +65,47 @@ Transform:
   - {fileID: 7063725700923794494}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2388879730438940716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063725701932385643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7994742634f09eb4a88499d7e511671d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_makeObjs:
+  - {fileID: 8274030933793845326, guid: b5872815af9b4d24781b75df5cf6d340, type: 3}
+  - {fileID: 7868329102629265088, guid: 6f164ed0bec652f4c85b2705109215bf, type: 3}
+  m_startDelay: 0
+  m_makeCount: 3
+  m_makeDelay: 0.5
+  m_randomPos: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  m_randomRot: {x: 1, y: 1, z: 0}
+  m_randomScale: {x: 0, y: 0, z: 0}
+  isObjectAttachToParent: 1
+  parent: {fileID: 0}
+  parent_skillDmg: 0
+--- !u!114 &6709925404169971835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063725701932385643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}

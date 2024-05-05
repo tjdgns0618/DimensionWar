@@ -28,15 +28,17 @@ public class ObjectMoveDestroy : MonoBehaviour
     {
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor;//transform.parent.localScale.x;
         time = Time.time;
+      
     }
 
     void LateUpdate()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * MoveSpeed * m_scalefactor);
+
         if (!ishit)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, maxLength))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, maxLength,6))
                 HitObj(hit);
         }
 
@@ -73,6 +75,7 @@ public class ObjectMoveDestroy : MonoBehaviour
         if (isCheckHitTag)
             if (hit.transform.tag != mtag)
                 return;
+        
         ishit = true;
         if(m_gameObjectTail)
             m_gameObjectTail.transform.parent = null;

@@ -27,6 +27,11 @@ public class WeaponAnim : MonoBehaviour
     {
         parent.GetComponent<Tower_Skill>().skill(parentid);
     }
+    public void parentDoubleSkill()
+    {
+        parent.GetComponent<Tower_Skill>().posNum = pos;
+        parent.GetComponent<Tower_Skill>().skill(parentid);
+    }
     public void parentSkillEnd()
     {
         parent.GetComponent<Tower_3D>().skillEnd();

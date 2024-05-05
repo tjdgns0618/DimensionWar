@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -42,13 +43,17 @@ public class Tower : MonoBehaviour
     public GameObject buffbullet;
     public bool isBuff;
     public bool isSkill =false;
+
+    public bool createbullet= false;
     public Vector3 dir;
     Vector3 scale;
 
     public Animator anim;
     public  GameObject bulletPos;
-   
-
+    
+    public AudioClip AttSound;
+    public AudioClip SkillSound;
+    public AudioSource audioSource;
     // 적 목록
     public List<EnemyController> enemiesInRange = new List<EnemyController>();
 
@@ -57,6 +62,7 @@ public class Tower : MonoBehaviour
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
         attTime = 0f;
+        audioSource = GetComponent<AudioSource>();
         Init();
     }
     void Update()
@@ -77,7 +83,9 @@ public class Tower : MonoBehaviour
         
         if (nearestTarget != null && tower_state != Tower_State.Skill)
         {
+            
             Attack();
+           
             if (SkillCount >= SkillCost)
             {
                 tower_state = Tower_State.Skill;
@@ -157,11 +165,14 @@ public class Tower : MonoBehaviour
     }
     public virtual void test()
     {
+       
         if (isBuff)
         {
+            audioSource.clip = SkillSound;
+            audioSource.Play();
             if (tower_type == Tower_Type.Range)
             {
-                GameObject g = Instantiate(buffbullet, nearestTarget.transform.position,transform.rotation);
+                GameObject g = Instantiate(buffbullet, nearestTarget.transform.position, buffbullet.transform.rotation);
                 
                 g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized);
                 Destroy(g, 10);
@@ -173,11 +184,24 @@ public class Tower : MonoBehaviour
         }
         else
         {
+            audioSource.clip = AttSound;
+            audioSource.Play();
             if (tower_type == Tower_Type.Range)
             {
-                GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
-                Destroy(g, 10);
+                if(createbullet)
+                {
+                    GameObject g = Instantiate(bullet, nearestTarget.transform.position, bullet.transform.rotation);
+
+                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                    Destroy(g, 10);
+                }
+                else
+                {
+                    GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
+                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                    Destroy(g, 10);
+
+                }
             }
             else if (tower_type == Tower_Type.Meele)
             {
@@ -202,6 +226,7 @@ public class Tower : MonoBehaviour
     }
     public virtual void  Skill()
     {
+
         if (tower_state == Tower_State.Skill && gameObject.tag != "Preview"&&!isSkill)
         {
             anim.SetTrigger("skill");
@@ -226,8 +251,12 @@ public class Tower : MonoBehaviour
         if (health <= 0f)
         {
             transform.parent.gameObject.layer = 0;
-            Destroy(gameObject);
+            
         }
+    }
+    public void DestroyTower()
+    {
+        Destroy(gameObject);
     }
 
     // 타워가 파괴될 때 호출되는 메서드

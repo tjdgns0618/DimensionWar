@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: -977714946068641219}
   - component: {fileID: 4016027631989375827}
   - component: {fileID: 690461130403538209}
+  - component: {fileID: 7838350009846153529}
   m_Layer: 0
   m_Name: Legs_Tracks_Lvl1
   m_TagString: Level2
@@ -346,8 +347,8 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 5
-  SkillCount: 0
+  SkillCost: 3
+  SkillCount: 2
   Damage: 50
   BuffDamage: 0
   targetLayer:
@@ -362,6 +363,9 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 2912782076521297567}
   bulletPos: {fileID: 6400490857592809137}
+  AttSound: {fileID: 8300000, guid: 11b32ab3c7b32e54dadebcb9c959e335, type: 3}
+  SkillSound: {fileID: 0}
+  audioSource: {fileID: 0}
   enemiesInRange: []
   Attanim:
   - {fileID: 4455386177300536397}
@@ -385,13 +389,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 2993710702256539494, guid: 7045cc659eb6cfc408bca2b0e5b9246f, type: 3}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 7998394370367606700}
+  skillPose: []
   SkillDamage: 0
   skillParent: {fileID: 0}
+  posNum: 0
 --- !u!114 &-977714946068641219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +461,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &7838350009846153529
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739857660683069153}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5069631966033569413
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +968,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4097504826756320059, guid: b20a4c47fe90ee04fbedf9d200060bc2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da50c1304a6931842a9b1790bb9e32ce, type: 2}
     - target: {fileID: 6762973389349532103, guid: b20a4c47fe90ee04fbedf9d200060bc2,
         type: 3}
       propertyPath: m_Name
@@ -978,7 +1086,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b5c578680804edf4297745cbb4eff070, type: 2}
+      objectReference: {fileID: 9100000, guid: da50c1304a6931842a9b1790bb9e32ce, type: 2}
     - target: {fileID: 2438824730343460274, guid: b5aa1c859c4c8e740b1c3b116f82a432,
         type: 3}
       propertyPath: parent
@@ -988,6 +1096,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapon_DoubleGun_lvl5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368455806263579501, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368455806263579501, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3238356
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368455806263579501, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6155842
       objectReference: {fileID: 0}
     - target: {fileID: 5999529822986248043, guid: b5aa1c859c4c8e740b1c3b116f82a432,
         type: 3}
@@ -1038,6 +1161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208238941187931828, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5917948
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

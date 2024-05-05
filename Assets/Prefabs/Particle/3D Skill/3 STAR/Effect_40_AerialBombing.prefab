@@ -54,6 +54,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 10, z: 0}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 0}
+  parent_skillDmg: 0
 --- !u!1 &6330952545285391420
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +110,8 @@ MonoBehaviour:
   m_randomRot: {x: 10, y: 10, z: 10}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 0}
+  parent_skillDmg: 0
 --- !u!1 &6330952545631932605
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,11 +164,13 @@ MonoBehaviour:
   m_makeDelay: 0.15
   m_randomPos: {x: 5, y: 0, z: 5}
   target: {fileID: 0}
-  m_randomRot: {x: 20, y: 20, z: 20}
+  m_randomRot: {x: 10, y: 10, z: 10}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
   m_pos: {x: 0, y: 0, z: 0}
   m_pos1: {x: 0, y: 0, z: 0}
+  parent_skillDmg: 0
+  upperPos: 4
 --- !u!114 &6855967443330052638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +189,7 @@ MonoBehaviour:
   SpeedCtrl: 0
   hitObject: []
   ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &6330952546900703322
 GameObject:
   m_ObjectHideFlags: 0

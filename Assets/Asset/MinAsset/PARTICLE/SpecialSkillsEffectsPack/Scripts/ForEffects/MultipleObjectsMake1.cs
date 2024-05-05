@@ -23,11 +23,18 @@ public class MultipleObjectsMake1 : _ObjectsMakeBase
     public Vector3 m_pos;
 
     public Vector3 m_pos1;
+
+    public float parent_skillDmg;
+    Vector3 skillpos;
+    public float upperPos;
     void Start()
     {
         m_Time = m_Time2 = Time.time;
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor; //transform.parent.localScale.x; 
-        m_pos1 = target.transform.position;
+        skillpos = gameObject.GetComponent<Skill>().parentTower.GetComponent<Tower_Skill>().EnemyTrans.position;
+        m_pos1 = skillpos+Vector3.up* upperPos;
+        //parent_skillDmg = parent.GetComponent<Skill>().Damage;
+        
     }
 
 
@@ -49,6 +56,8 @@ public class MultipleObjectsMake1 : _ObjectsMakeBase
                     if(isObjectAttachToParent)
                         m_obj.transform.parent = this.transform;
                     m_obj.transform.localScale = m_scale;
+                    m_obj.GetComponent<DropEffect>().parent = gameObject;
+
                 }
 
                 m_Time2 = Time.time;

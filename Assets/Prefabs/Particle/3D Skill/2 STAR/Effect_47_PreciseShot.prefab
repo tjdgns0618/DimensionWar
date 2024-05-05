@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7570429131191609462}
   - component: {fileID: 2071999894085643306}
+  - component: {fileID: 2521557076013704536}
   m_Layer: 0
   m_Name: Effect_47_PreciseShot
   m_TagString: Untagged
@@ -49,6 +50,25 @@ MonoBehaviour:
   m_activeObj:
   - {fileID: 3322150679214529012}
   m_delayTime: 1.5
+--- !u!114 &2521557076013704536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630922378255281482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &3088662975558949275
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public int Speed;
     Rigidbody rigid;
     public bool isBuffbullet = false;
+    public bool isDestroy = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,6 +42,7 @@ public class Bullet : MonoBehaviour
         if(other.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyController>().OnDamage(damage);
+            if(isDestroy)
             Destroy(gameObject);
         }
     }

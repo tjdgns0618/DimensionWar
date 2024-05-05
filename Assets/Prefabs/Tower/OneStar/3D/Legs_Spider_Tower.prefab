@@ -2550,6 +2550,7 @@ GameObject:
   - component: {fileID: 3567832250226851458}
   - component: {fileID: 2407529727518884372}
   - component: {fileID: 8772854971045677933}
+  - component: {fileID: 2215930799701370202}
   m_Layer: 0
   m_Name: Legs_Spider_Tower
   m_TagString: Level1
@@ -2682,6 +2683,9 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 8009876004995936664}
   bulletPos: {fileID: 9116846814754942514}
+  AttSound: {fileID: 8300000, guid: c4f73c61f7da49643965848d01c7450f, type: 3}
+  SkillSound: {fileID: 0}
+  audioSource: {fileID: 0}
   enemiesInRange: []
   Attanim:
   - {fileID: 9116846814762360306}
@@ -2705,6 +2709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 7063725701932385643, guid: 3d57aae77a7ef334388b2df59198bc73, type: 3}
   tower_Level: 0
@@ -2726,6 +2731,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 2879680523377229291, guid: 01e9ffa3765745e479a009c86fdbf09e,
     type: 3}
+--- !u!82 &2215930799701370202
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257255548361505125}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6395512228618518124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,6 +3958,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4599830858995252358, guid: 5a271c871c44a314f8dc597a42f63cdb,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6257255548361505125}
+    - target: {fileID: 5109558716207811039, guid: 5a271c871c44a314f8dc597a42f63cdb,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6257255548361505125}
     - target: {fileID: 5563083395461613792, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

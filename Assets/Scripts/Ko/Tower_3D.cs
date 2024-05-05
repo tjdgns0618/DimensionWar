@@ -51,14 +51,15 @@ public class Tower_3D : Tower
 
     public override void test()
     {
-        if(tower_type == Tower_Type.Range)
+        audioSource.clip = AttSound;
+        audioSource.Play();
+        if (tower_type == Tower_Type.Range)
         {
             
                 GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
                 dir = nearestTarget.transform.position-bulletPos.transform.position;
                 g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
                 Destroy(g, 10);
-            
         }
             else if (tower_type == Tower_Type.Meele)
         {
@@ -68,8 +69,11 @@ public class Tower_3D : Tower
     }
     public void attdouble(int i)
     {
+        audioSource.clip = AttSound;
+        audioSource.Play();
         if (tower_type == Tower_Type.Range)
         {
+                
                 GameObject g = Instantiate(bullet, bulletPose[i].transform.position, bulletPose[i].transform.rotation);
                 dir = nearestTarget.transform.position - bulletPose[i].transform.position;
                 g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
@@ -84,7 +88,7 @@ public class Tower_3D : Tower
     }
     public override void Skill()
     {
-        if (tower_state == Tower_State.Skill && gameObject.tag != "Preview")
+        if (tower_state == Tower_State.Skill && gameObject.tag != "Preview"&&!isSkill)
         {
             isSkill = true; 
             if(doubleSkillattack)

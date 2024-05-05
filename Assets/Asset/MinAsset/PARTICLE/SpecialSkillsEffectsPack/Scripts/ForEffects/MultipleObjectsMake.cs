@@ -19,13 +19,15 @@ public class MultipleObjectsMake : _ObjectsMakeBase
     float m_delayTime;
     float m_count;
     float m_scalefactor;
-
     public GameObject parent;
-
+    public float parent_skillDmg;
+    Vector3 skillpos;
     void Start()
     {
+        
         m_Time = m_Time2 = Time.time;
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor; //transform.parent.localScale.x; 
+        //skillpos = GetComponent<Skill>().parentTower.GetComponent<Tower_Skill>().EnemyTrans.transform.position - GetComponent<Skill>().parentTower.GetComponent<Tower_Skill>().skillPos.transform.position;
     }
 
 
