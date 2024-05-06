@@ -58,6 +58,7 @@ public class AugmenterManager : MonoBehaviour
         if (r.Contains(currentNumber))
         {
             currentNumber = Random.Range(0, max);
+
         }
         else
         {

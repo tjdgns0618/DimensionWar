@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -46,6 +47,8 @@ public class Tower : MonoBehaviour
     public GameObject buffbullet;
     public bool isBuff;
     public bool isSkill =false;
+
+    public bool createbullet= false;
     public Vector3 dir;
     Vector3 scale;
 
@@ -69,6 +72,7 @@ public class Tower : MonoBehaviour
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
         attTime = 0f;
+        audioSource = GetComponent<AudioSource>();
         Init();
     }
     void Update()
@@ -82,22 +86,25 @@ public class Tower : MonoBehaviour
             dir = (nearestTarget.position - transform.position);
             Look();
         }
-        if (SkillCount >= SkillCost)
-        {
-            tower_state = Tower_State.Skill;
-            SkillCount = 0;
-        }
-        if (nearestTarget != null && tower_state != Tower_State.Skill)
-        {
-            Attack();
-        }
-        else if (tower_state == Tower_State.Skill && tower_state != Tower_State.Attack&&!isSkill)
-        {
-            Skill();
-        }
-        else
+        else 
         {
             tower_state = Tower_State.Idle;
+        }
+        
+        if (nearestTarget != null && tower_state != Tower_State.Skill)
+        {
+            
+            Attack();
+           
+            if (SkillCount >= SkillCost)
+            {
+                tower_state = Tower_State.Skill;
+                SkillCount = 0;
+            }
+        }
+        else if (tower_state == Tower_State.Skill)
+        {
+            Skill();
         }
     }
     void Init()
@@ -160,6 +167,7 @@ public class Tower : MonoBehaviour
 
     protected virtual void Attack()
     {
+       
         attTime += Time.deltaTime;
         if (attTime >= AttackDel)          
         {          
@@ -167,14 +175,17 @@ public class Tower : MonoBehaviour
             anim.SetTrigger("hit_1");
         }
     }
-    public void test()
+    public virtual void test()
     {
         audio.Play();
         if (isBuff)
         {
+            audioSource.clip = SkillSound;
+            audioSource.Play();
             if (tower_type == Tower_Type.Range)
             {
-                GameObject g = Instantiate(buffbullet, nearestTarget.transform.position,transform.rotation);
+                GameObject g = Instantiate(buffbullet, nearestTarget.transform.position, buffbullet.transform.rotation);
+                
                 g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized);
                 Destroy(g, 10);
             }
@@ -185,11 +196,24 @@ public class Tower : MonoBehaviour
         }
         else
         {
+            audioSource.clip = AttSound;
+            audioSource.Play();
             if (tower_type == Tower_Type.Range)
             {
-                GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
-                Destroy(g, 10);
+                if(createbullet)
+                {
+                    GameObject g = Instantiate(bullet, nearestTarget.transform.position, bullet.transform.rotation);
+
+                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                    Destroy(g, 10);
+                }
+                else
+                {
+                    GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
+                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                    Destroy(g, 10);
+
+                }
             }
             else if (tower_type == Tower_Type.Meele)
             {
@@ -214,10 +238,11 @@ public class Tower : MonoBehaviour
     }
     public virtual void  Skill()
     {
-        if (tower_state == Tower_State.Skill && gameObject.tag != "Preview")
+
+        if (tower_state == Tower_State.Skill && gameObject.tag != "Preview"&&!isSkill)
         {
             anim.SetTrigger("skill");
-            tower_state = Tower_State.Attack;
+            isSkill = true;
         }
     }
 
@@ -241,6 +266,10 @@ public class Tower : MonoBehaviour
             // Destroy(gameObject);
             gameObject.SetActive(false);
         }
+    }
+    public void DestroyTower()
+    {
+        Destroy(gameObject);
     }
 
     // 타워가 파괴될 때 호출되는 메서드

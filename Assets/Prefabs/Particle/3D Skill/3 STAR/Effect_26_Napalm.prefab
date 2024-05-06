@@ -54,6 +54,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 0}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 0}
+  parent_skillDmg: 0
 --- !u!1 &7729559464457596884
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +65,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7729559464457596885}
+  - component: {fileID: 1544851655149559626}
   m_Layer: 0
   m_Name: Effect_26_Napalm
   m_TagString: Untagged
@@ -87,6 +90,25 @@ Transform:
   - {fileID: 8273670482566431679}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1544851655149559626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7729559464457596884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &8273670482566431672
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8273670482566431679}
-  - component: {fileID: 8273670482566431678}
+  - component: {fileID: 8356236367763321751}
   m_Layer: 0
   m_Name: Effect_26_ExplosionMake
   m_TagString: Untagged
@@ -119,7 +141,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7729559464457596885}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8273670482566431678
+--- !u!114 &8356236367763321751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8273670482566431672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7994742634f09eb4a88499d7e511671d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6820757367df09b4a9b094aba8bb125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_makeObjs:
@@ -141,3 +163,6 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 0}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 7729559464457596884}
+  parent_skillDmg: 0
+  parent_skill_id: 26

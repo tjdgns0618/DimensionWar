@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2993710701452777397}
   - component: {fileID: 2993710701452777395}
   - component: {fileID: 2993710701452777396}
+  - component: {fileID: 2682568722596651241}
   m_Layer: 0
   m_Name: Effect_22_Shot_8
   m_TagString: Untagged
@@ -55,6 +56,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710701452777396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +71,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &2682568722596651241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710701452777398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &2993710701708081563
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +101,7 @@ GameObject:
   - component: {fileID: 2993710701708081562}
   - component: {fileID: 2993710701708081560}
   - component: {fileID: 2993710701708081561}
+  - component: {fileID: 5566499947639798045}
   m_Layer: 0
   m_Name: Effect_22_Shot_5
   m_TagString: Untagged
@@ -123,6 +146,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710701708081561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +161,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &5566499947639798045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710701708081563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &2993710701755733743
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +231,7 @@ GameObject:
   - component: {fileID: 2993710701794382439}
   - component: {fileID: 2993710701794382437}
   - component: {fileID: 2993710701794382438}
+  - component: {fileID: 308164243683482344}
   m_Layer: 0
   m_Name: Effect_22_Shot_9
   m_TagString: Untagged
@@ -231,6 +276,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710701794382438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +291,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &308164243683482344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710701794382440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &2993710701815553751
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +365,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710701815553748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +391,7 @@ GameObject:
   - component: {fileID: 2993710701918085092}
   - component: {fileID: 2993710701918085090}
   - component: {fileID: 2993710701918085091}
+  - component: {fileID: 6577927861705996970}
   m_Layer: 0
   m_Name: Effect_22_Shot_3
   m_TagString: Untagged
@@ -367,6 +436,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710701918085091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +451,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &6577927861705996970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710701918085093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &2993710702235836153
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,7 +5318,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 03f7bc134197fc5499590a88232da880, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5290,6 +5379,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2993710702256539493}
+  - component: {fileID: 4427471495181831834}
+  - component: {fileID: 555836873853545892}
   m_Layer: 0
   m_Name: Effect_22_PreciseMultipleShot
   m_TagString: Untagged
@@ -5317,6 +5408,126 @@ Transform:
   - {fileID: 2993710701755733742}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4427471495181831834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710702256539494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b3f7b3cca2c504f9a27f0e5c457992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillList:
+  - {fileID: 2993710701815553751}
+  - {fileID: 2993710702337683017}
+  - {fileID: 2993710701918085093}
+  - {fileID: 2993710702383740467}
+  - {fileID: 2993710701708081563}
+  - {fileID: 2993710703032977452}
+  - {fileID: 2993710703293405814}
+  - {fileID: 2993710701452777398}
+  - {fileID: 2993710701794382440}
+  id: 0
+  Damage: 0
+--- !u!82 &555836873853545892
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710702256539494}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4f247ecb67d1843479e827991edc3dc5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2993710702337683017
 GameObject:
   m_ObjectHideFlags: 0
@@ -5328,6 +5539,7 @@ GameObject:
   - component: {fileID: 2993710702337683016}
   - component: {fileID: 2993710702337683015}
   - component: {fileID: 2993710702337683014}
+  - component: {fileID: 2125904628197033951}
   m_Layer: 0
   m_Name: Effect_22_Shot_2
   m_TagString: Untagged
@@ -5372,6 +5584,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710702337683014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5385,6 +5599,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &2125904628197033951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710702337683017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &2993710702383740467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,6 +5629,7 @@ GameObject:
   - component: {fileID: 2993710702383740466}
   - component: {fileID: 2993710702383740464}
   - component: {fileID: 2993710702383740465}
+  - component: {fileID: 7777287175123353127}
   m_Layer: 0
   m_Name: Effect_22_Shot_4
   m_TagString: Untagged
@@ -5440,6 +5674,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710702383740465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5453,6 +5689,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &7777287175123353127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710702383740467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &2993710702508396646
 GameObject:
   m_ObjectHideFlags: 0
@@ -10301,7 +10556,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 53ddfb6e3e402a14487c4aeefe2d0a54, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15233,7 +15487,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 03f7bc134197fc5499590a88232da880, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15297,6 +15550,7 @@ GameObject:
   - component: {fileID: 2993710703032977451}
   - component: {fileID: 2993710703032977449}
   - component: {fileID: 2993710703032977450}
+  - component: {fileID: 3274507698600504424}
   m_Layer: 0
   m_Name: Effect_22_Shot_6
   m_TagString: Untagged
@@ -15341,6 +15595,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710703032977450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15354,6 +15610,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &3274507698600504424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710703032977452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &2993710703293405814
 GameObject:
   m_ObjectHideFlags: 0
@@ -15365,6 +15640,7 @@ GameObject:
   - component: {fileID: 2993710703293405813}
   - component: {fileID: 2993710703293405811}
   - component: {fileID: 2993710703293405812}
+  - component: {fileID: 5845910294080407384}
   m_Layer: 0
   m_Name: Effect_22_Shot_7
   m_TagString: Untagged
@@ -15409,6 +15685,8 @@ MonoBehaviour:
   m_randomRot: {x: 0, y: 0, z: 1}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
+  parent: {fileID: 2993710702256539494}
+  parent_skillDmg: 0
 --- !u!114 &2993710703293405812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15422,3 +15700,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 2993710702546355398}
+--- !u!114 &5845910294080407384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993710703293405814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
