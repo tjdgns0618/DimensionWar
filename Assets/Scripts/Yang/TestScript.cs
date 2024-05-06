@@ -52,12 +52,14 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
     {
         GameManager.Instance.tower = tower;         // 게임메니저에 현재 타워에 대한 정보 저장
         GameManager.Instance.towerClicked = true;   // 현재 클릭중임
-        GameManager.Instance.uiManager.SellButton.image.color = Color.white;
         GameManager.Instance.uiManager.BuyButton.image.color = Color.gray;
-        GameManager.Instance.uiManager.UpgradeButton.image.color = Color.white;
-        GameManager.Instance.uiManager.SellButton.GetComponent<Button>().enabled = true;
+        GameManager.Instance.uiManager.SellButton.image.color = Color.white;
+        GameManager.Instance.uiManager.towerUpgradeButton.image.color = Color.white;
+        GameManager.Instance.uiManager.argumentButton.image.color = Color.white;
         GameManager.Instance.uiManager.BuyButton.GetComponent<Button>().enabled = false;
-        GameManager.Instance.uiManager.UpgradeButton.GetComponent<Button>().enabled = true;
+        GameManager.Instance.uiManager.SellButton.GetComponent<Button>().enabled = true;
+        GameManager.Instance.uiManager.towerUpgradeButton.GetComponent<Button>().enabled = true;
+        GameManager.Instance.uiManager.argumentButton.GetComponent<Button>().enabled = true;
         ClickEffect.SetActive(true);
         if (GameManager.Instance.towerClicked)      // 타워가 클릭되었을때
         {

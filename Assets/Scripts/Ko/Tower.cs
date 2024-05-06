@@ -140,11 +140,13 @@ public class Tower : MonoBehaviour
             if (dir.normalized.x >= 0)
             {
                 transform.localScale = new Vector3(scale.x/2, scale.y, scale.z);
+                GetComponent<TestScript>().ClickEffect.transform.localScale = new Vector3(scale.x, scale.y/2, scale.z);
                 //Debug.Log("오른쪽");
             }
             else if (dir.normalized.x < 0)
             {
                 transform.localScale = new Vector3(-scale.x/2, scale.y, scale.z);
+                GetComponent<TestScript>().ClickEffect.transform.localScale = new Vector3(scale.x, scale.y/2, scale.z);
                 //Debug.Log("왼쪽");
             }
         }

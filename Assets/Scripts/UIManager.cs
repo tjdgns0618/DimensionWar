@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     public Text DiaText;
     public Button BuyButton;
     public Button SellButton;
+    public Button towerUpgradeButton;
+    public Button argumentButton;
     public Button stat1Button;      // 1번 강화버튼
     public Button stat2Button;      // 2번 강화버튼
     public Button UpgradeButton;    // 1,2 강화한 후 활성화되는 버튼
