@@ -19,8 +19,10 @@ public class UIManager : MonoBehaviour
     public Button SellButton;
     public Button towerUpgradeButton;
     public Button argumentButton;
-    public Button stat1Button;      // 1번 강화버튼
-    public Button stat2Button;      // 2번 강화버튼
+    public Button rangeStat1Button;      // 1번 강화버튼
+    public Button rangeStat2Button;      // 2번 강화버튼
+    public Button meleeStat1Button;      // 2번 강화버튼
+    public Button meleeStat2Button;      // 2번 강화버튼
     public Button UpgradeButton;    // 1,2 강화한 후 활성화되는 버튼
 
     // Start is called before the first frame update
@@ -79,7 +81,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator _QuitGame()                     // 게임을 종료하는 함수
     {
-        yield return new WaitForSeconds(3f);
         Application.Quit();
+        yield return null;
     }
 }

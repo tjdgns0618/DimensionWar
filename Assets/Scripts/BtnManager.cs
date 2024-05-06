@@ -90,26 +90,74 @@ public class BTManager : MonoBehaviour
     {
         GameManager.Instance.uiManager.UpgradeCanvas.gameObject.SetActive(true);
 
-        if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[0])
-            GameManager.Instance.uiManager.stat1Button.image.color = Color.white;
+        if(GameManager.Instance.tower.GetComponent<Tower>().tower_type == 
+            global::Tower.Tower_Type.Meele)
+        {
+            GameManager.Instance.uiManager.rangeStat1Button.gameObject.SetActive(false);
+            GameManager.Instance.uiManager.rangeStat2Button.gameObject.SetActive(false);
+            GameManager.Instance.uiManager.meleeStat1Button.gameObject.SetActive(true);
+            GameManager.Instance.uiManager.meleeStat2Button.gameObject.SetActive(true);
+
+            if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[0])
+                GameManager.Instance.uiManager.meleeStat1Button.image.color = Color.white;
+            else
+                GameManager.Instance.uiManager.meleeStat1Button.image.color = Color.green;
+
+            if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
+                GameManager.Instance.uiManager.meleeStat2Button.image.color = Color.white;
+            else
+                GameManager.Instance.uiManager.meleeStat2Button.image.color = Color.green;
+
+            GameManager.Instance.uiManager.meleeStat1Button.enabled =
+                !GameManager.Instance.tower.GetComponent<Tower>().upgrade[0];
+            GameManager.Instance.uiManager.meleeStat2Button.enabled =
+                !GameManager.Instance.tower.GetComponent<Tower>().upgrade[1];
+        }
         else
-            GameManager.Instance.uiManager.stat1Button.image.color = Color.green;
+        {
+            GameManager.Instance.uiManager.meleeStat1Button.gameObject.SetActive(false);
+            GameManager.Instance.uiManager.meleeStat2Button.gameObject.SetActive(false);
+            GameManager.Instance.uiManager.rangeStat1Button.gameObject.SetActive(true);
+            GameManager.Instance.uiManager.rangeStat2Button.gameObject.SetActive(true);
 
-        if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
-            GameManager.Instance.uiManager.stat2Button.image.color = Color.white;
-        else
-            GameManager.Instance.uiManager.stat2Button.image.color = Color.green;
+            if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[0])
+                GameManager.Instance.uiManager.rangeStat1Button.image.color = Color.white;
+            else
+                GameManager.Instance.uiManager.rangeStat1Button.image.color = Color.green;
 
+            if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
+                GameManager.Instance.uiManager.rangeStat2Button.image.color = Color.white;
+            else
+                GameManager.Instance.uiManager.rangeStat2Button.image.color = Color.green;
 
-        GameManager.Instance.uiManager.stat1Button.enabled = !GameManager.Instance.tower.GetComponent<Tower>().upgrade[0];
-        GameManager.Instance.uiManager.stat2Button.enabled = !GameManager.Instance.tower.GetComponent<Tower>().upgrade[1];
-        GameManager.Instance.uiManager.UpgradeButton.enabled = (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && GameManager.Instance.tower.GetComponent<Tower>().upgrade[1]);
+            GameManager.Instance.uiManager.rangeStat1Button.enabled =
+                !GameManager.Instance.tower.GetComponent<Tower>().upgrade[0];
+            GameManager.Instance.uiManager.rangeStat2Button.enabled =
+                !GameManager.Instance.tower.GetComponent<Tower>().upgrade[1];
+        }
+
+        
+
+        GameManager.Instance.uiManager.UpgradeButton.enabled = 
+            (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && 
+            GameManager.Instance.tower.GetComponent<Tower>().upgrade[1]);
     }
 
     public void Stat1Upgrade()
     {
-        GameManager.Instance.uiManager.stat1Button.enabled = false;
-        GameManager.Instance.uiManager.stat1Button.image.color = Color.green;
+        if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
+            global::Tower.Tower_Type.Meele)
+        {
+            GameManager.Instance.uiManager.meleeStat1Button.enabled = false;
+            GameManager.Instance.uiManager.meleeStat1Button.image.color = Color.green;
+        }
+        else
+        {
+            GameManager.Instance.uiManager.rangeStat1Button.enabled = false;
+            GameManager.Instance.uiManager.rangeStat1Button.image.color = Color.green;
+        }
+
+            
         GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] = true;
         if(GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && 
             GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
@@ -121,8 +169,18 @@ public class BTManager : MonoBehaviour
 
     public void Stat2Upgrade()
     {
-        GameManager.Instance.uiManager.stat2Button.enabled = false;
-        GameManager.Instance.uiManager.stat2Button.image.color = Color.green;
+        if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
+            global::Tower.Tower_Type.Meele)
+        {
+            GameManager.Instance.uiManager.meleeStat2Button.enabled = false;
+            GameManager.Instance.uiManager.meleeStat2Button.image.color = Color.green;
+        }
+        else
+        {
+            GameManager.Instance.uiManager.rangeStat2Button.enabled = false;
+            GameManager.Instance.uiManager.rangeStat2Button.image.color = Color.green;
+        }
+
         GameManager.Instance.tower.GetComponent<Tower>().upgrade[1] = true;
         if (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] &&
             GameManager.Instance.tower.GetComponent<Tower>().upgrade[1])
@@ -134,21 +192,25 @@ public class BTManager : MonoBehaviour
 
     public void DamageUpgrade()
     {
+        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().Damage *= 1.2f;
     }
 
     public void SpeedUpgrade()
     {
+        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().AttackDel *= 0.9f;
     }
 
     public void SkillCoolUpgrade()
     {
+        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().SkillCost--;
     }
 
     public void HealthUpgrade()
     {
+        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().health *= 2f;
         GameManager.Instance.tower.GetComponent<Tower>().tempHealth *= 2f;
     }
