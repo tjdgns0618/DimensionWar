@@ -3709,10 +3709,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9c8360af468274fbe1c798daf01ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStun: 0
   enemyType: 0
   DamageToPlayer: 20
   movementSpeed: 0
+  increasedSpeedMultiplier: 1.5
   currentTower: {fileID: 0}
   attackDamage: 10
   attackCooldown: 1
@@ -15378,6 +15378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: []
+  enemys: []
   RoundTime: 0
   CAMtempRotation: {x: 0, y: 0, z: 0, w: 0}
   SelectBlock: {fileID: 0}
@@ -15393,6 +15394,7 @@ MonoBehaviour:
   Health: 0
   maxHealth: 100
   gold: 100
+  diamond: 0
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
@@ -29148,44 +29150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5a1763af016554282571eb2000c1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnInfos:
-  - enemyPrefab: {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843,
-      type: 3}
-    numberOfEnemiesToSpawn: 10
-    spawnInterval: 3
-    SpawnDelay: 0
-  - enemyPrefab: {fileID: 7162350847740585720, guid: e1b3b352c35b90e428463c785d3dd81c,
-      type: 3}
-    numberOfEnemiesToSpawn: 10
-    spawnInterval: 3
-    SpawnDelay: 10
-  - enemyPrefab: {fileID: 1520265563894574178, guid: 4c46ab06c09d5d44e82a01859e46c23b,
-      type: 3}
-    numberOfEnemiesToSpawn: 15
-    spawnInterval: 3
-    SpawnDelay: 10
-  - enemyPrefab: {fileID: 5276253056415564214, guid: b055b971a28ac8b488c2f91ea40a1e4e,
-      type: 3}
-    numberOfEnemiesToSpawn: 15
-    spawnInterval: 3
-    SpawnDelay: 10
-  - enemyPrefab: {fileID: 4343050227916122152, guid: 8ec8425fbf1b72342a323a3ae541acb4,
-      type: 3}
-    numberOfEnemiesToSpawn: 5
-    spawnInterval: 3
-    SpawnDelay: 0
-  - enemyPrefab: {fileID: 7150227203530337113, guid: 96f77dea8f9fb8a46900491019b6eb04,
-      type: 3}
-    numberOfEnemiesToSpawn: 10
-    spawnInterval: 3
-    SpawnDelay: 10
-  - enemyPrefab: {fileID: 9082778515294869830, guid: c9680cf1435b44641929701ee3d7a0c6,
-      type: 3}
-    numberOfEnemiesToSpawn: 1
-    spawnInterval: 3
-    SpawnDelay: 10
+  EnemyWaves: []
   spawnPoints:
   - {fileID: 957065871}
+  startWaveButton: {fileID: 0}
+  poolParent: {fileID: 0}
 --- !u!1 &957141017
 GameObject:
   m_ObjectHideFlags: 0
@@ -42656,6 +42625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  rocket: {fileID: 0}
+  effect: {fileID: 0}
 --- !u!65 &1363218631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53172,13 +53143,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a1384ca07239b4f94130fbfe8e47f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundImage: []
-  BgmSlider: {fileID: 0}
   uiCanvas: {fileID: 345588599}
-  skillCanvas: {fileID: 479948225}
+  UpgradeCanvas: {fileID: 0}
   BuyPaenl: {fileID: 1779663040}
+  ClearPanel: {fileID: 0}
+  FailedPanel: {fileID: 0}
   RoundTime: {fileID: 213534951}
   GoldText: {fileID: 37777942}
+  DiaText: {fileID: 0}
+  BuyButton: {fileID: 0}
+  SellButton: {fileID: 0}
+  towerUpgradeButton: {fileID: 0}
+  argumentButton: {fileID: 0}
+  stat1Button: {fileID: 0}
+  stat2Button: {fileID: 0}
+  UpgradeButton: {fileID: 0}
 --- !u!1 &1697113452
 GameObject:
   m_ObjectHideFlags: 0

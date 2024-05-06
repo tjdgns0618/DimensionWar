@@ -2653,23 +2653,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 6257255548361505125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
+  m_Script: {fileID: 11500000, guid: d98d64c17a4145647ab062949ae6c331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrade: 
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
+  tempHealth: 0
   Tower_id: 19
   tower_state: 0
   tower_type: 1
   tower_class: 2
   isMelea: 0
   isWall: 0
-  AttackRange: 7.8
+  AttackRange: 5
   AttackDel: 3
   SkillCost: 3
   SkillCount: 0
-  Damage: 50
+  Damage: 10
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -2680,21 +2682,24 @@ MonoBehaviour:
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
+  createbullet: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 8009876004995936664}
-  bulletPos: {fileID: 9116846814754942514}
-  AttSound: {fileID: 8300000, guid: c4f73c61f7da49643965848d01c7450f, type: 3}
-  SkillSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  bulletPos: {fileID: 0}
+  attackClip: {fileID: 0}
+  mixerGroup: {fileID: 0}
   enemiesInRange: []
   Attanim:
   - {fileID: 9116846814762360306}
+  - {fileID: 7224642184402480103}
   Skillanim:
-  - {fileID: 4252957973247253592}
+  - {fileID: 5806206726173032599}
   attcount: 0
-  doubleattack: 0
+  doubleattack: 1
   doubleSkillattack: 0
-  bulletPose: []
+  bulletPose:
+  - {fileID: 9116846814754942514}
+  - {fileID: 7224642184393119783}
   child: {fileID: 0}
 --- !u!114 &2407529727518884372
 MonoBehaviour:
@@ -2714,9 +2719,12 @@ MonoBehaviour:
   - {fileID: 7063725701932385643, guid: 3d57aae77a7ef334388b2df59198bc73, type: 3}
   tower_Level: 0
   colliders: []
-  skillPos: {fileID: 167732276875560791}
+  skillPos: {fileID: 5806206726182433623}
+  skillPose:
+  - {fileID: 5806206726182433623}
   SkillDamage: 0
   skillParent: {fileID: 0}
+  posNum: 0
 --- !u!114 &8772854971045677933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2731,6 +2739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 2879680523377229291, guid: 01e9ffa3765745e479a009c86fdbf09e,
     type: 3}
+  ClickEffect: {fileID: 0}
 --- !u!82 &2215930799701370202
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3965,6 +3974,11 @@ PrefabInstance:
       objectReference: {fileID: 6257255548361505125}
     - target: {fileID: 5109558716207811039, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
+      propertyPath: pos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5109558716207811039, guid: 5a271c871c44a314f8dc597a42f63cdb,
+        type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 6257255548361505125}
@@ -4037,6 +4051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.046766877
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337291219446431473, guid: 5a271c871c44a314f8dc597a42f63cdb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.23649108
       objectReference: {fileID: 0}
     - target: {fileID: 7297540170012251394, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
@@ -4171,6 +4190,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8243927348504871536}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8783379744575012790, guid: 5a271c871c44a314f8dc597a42f63cdb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5191275927839459473}
     - targetCorrespondingSourceObject: {fileID: 6337291219446129363, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
       insertIndex: -1
@@ -4185,6 +4208,45 @@ Transform:
 --- !u!4 &2987891058682189413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 5a271c871c44a314f8dc597a42f63cdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987891058682580193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5806206726173032599 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8783379744567610486, guid: 5a271c871c44a314f8dc597a42f63cdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987891058682580193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5806206726182433623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8783379744575012790, guid: 5a271c871c44a314f8dc597a42f63cdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987891058682580193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5191275927839459473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806206726182433623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577bc9fcb9be2a649b057317558a5e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 6257255548361505125}
+  parentid: 0
+  pos: 0
+--- !u!1 &7224642184393119783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5563083395461452998, guid: 5a271c871c44a314f8dc597a42f63cdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987891058682580193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7224642184402480103 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5563083395468879622, guid: 5a271c871c44a314f8dc597a42f63cdb,
     type: 3}
   m_PrefabInstance: {fileID: 2987891058682580193}
   m_PrefabAsset: {fileID: 0}
@@ -4538,12 +4600,6 @@ MonoBehaviour:
   parent: {fileID: 6257255548361505125}
   parentid: 0
   pos: 0
---- !u!95 &4252957973247253592 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6188707179228722032, guid: a36b32b3b870c0b43911811d3d9010ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 7991425185733881640}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5711122145695837992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2424842639973416960, guid: a36b32b3b870c0b43911811d3d9010ec,

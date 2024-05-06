@@ -28,8 +28,8 @@ public class TargetEffect : _ObjectsMakeBase
     void Start()
     {
 
-        Target = parent.GetComponentInParent<Skill>().parentTower.GetComponent<Tower_Skill>().EnemyTrans.transform.position;
-        parent_skillDmg = parent.GetComponentInParent<Skill>().Damage;
+        //Target = parent.GetComponent<Skill>().parentTower.GetComponent<Tower_Skill>().EnemyTrans.transform.position;
+        //parent_skillDmg = parent.GetComponentInParent<Skill>().Damage;
 
         m_Time = m_Time2 = Time.time;
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor;
@@ -51,7 +51,7 @@ public class TargetEffect : _ObjectsMakeBase
                 for (int i = 0; i < m_makeObjs.Length; i++)
                 {
                     GameObject m_obj = Instantiate(m_makeObjs[i], Target, m_rot);
-                    m_obj.GetComponent<Skill>().init(parent_skillDmg,parent_skill_id);
+                    //m_obj.GetComponent<Skill>().init(parent_skillDmg,parent_skill_id);
                     Vector3 m_scale = (m_makeObjs[i].transform.localScale + GetRandomVector2(m_randomScale));
                     if (isObjectAttachToParent)
                         m_obj.transform.parent = this.transform;

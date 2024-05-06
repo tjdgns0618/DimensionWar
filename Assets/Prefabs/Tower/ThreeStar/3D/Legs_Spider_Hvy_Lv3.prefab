@@ -1169,7 +1169,7 @@ MonoBehaviour:
   currentEnemyCount: 0
   health: 100
   tempHealth: 0
-  Tower_id: 26
+  Tower_id: 25
   tower_state: 0
   tower_type: 1
   tower_class: 2
@@ -1186,7 +1186,7 @@ MonoBehaviour:
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
@@ -1197,12 +1197,18 @@ MonoBehaviour:
   attackClip: {fileID: 0}
   mixerGroup: {fileID: 0}
   enemiesInRange: []
-  Attanim: []
-  Skillanim: []
+  Attanim:
+  - {fileID: 3413893716163664595}
+  - {fileID: 716693830050085608}
+  Skillanim:
+  - {fileID: 477551435853917631}
+  - {fileID: 1269507926438319054}
   attcount: 0
-  doubleattack: 0
-  doubleSkillattack: 0
-  bulletPose: []
+  doubleattack: 1
+  doubleSkillattack: 1
+  bulletPose:
+  - {fileID: 4218310094454113635}
+  - {fileID: 8948731700911356942}
   child: {fileID: 0}
 --- !u!114 &7108719797515622346
 MonoBehaviour:
@@ -1223,7 +1229,9 @@ MonoBehaviour:
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 9065313555950288798}
-  skillPose: []
+  skillPose:
+  - {fileID: 2410363856308758177}
+  - {fileID: 3913061911588214992}
   SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
@@ -2045,6 +2053,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3006872103395464271}
   m_SourcePrefab: {fileID: 100100000, guid: c49a9e7053c56d24c94ba51c8dbc956d, type: 3}
+--- !u!95 &477551435853917631 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7211855008673382744, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &716693830050085608 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7730156452665153039, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1269507926438319054 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8298744124546465577, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2410363856308758177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4883705485874481734, guid: c49a9e7053c56d24c94ba51c8dbc956d,
@@ -2066,6 +2092,12 @@ MonoBehaviour:
   parent: {fileID: 9065313555950288798}
   parentid: 0
   pos: 0
+--- !u!95 &3413893716163664595 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5608577292105823796, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3913061911588214992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6122855315638989879, guid: c49a9e7053c56d24c94ba51c8dbc956d,
@@ -2087,9 +2119,21 @@ MonoBehaviour:
   parent: {fileID: 9065313555950288798}
   parentid: 0
   pos: 0
+--- !u!1 &4218310094454113635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6358888909752265092, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7112658719150945895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c49a9e7053c56d24c94ba51c8dbc956d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112658719151074535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8948731700911356942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2199293161573748969, guid: c49a9e7053c56d24c94ba51c8dbc956d,
     type: 3}
   m_PrefabInstance: {fileID: 7112658719151074535}
   m_PrefabAsset: {fileID: 0}

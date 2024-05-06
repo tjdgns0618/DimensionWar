@@ -361,6 +361,7 @@ public class Tower_Skill : MonoBehaviour
     {
         g = Instantiate(SkillPrefabs[tower_Level], transform.position, transform.rotation);
         g.GetComponent<Skill>().init(SkillDmg * 1f, id);
+        g.GetComponentInChildren<Skill>().parentTower = gameObject;
         yield return new WaitForSeconds(5f);
         Destroy(g);
     }
