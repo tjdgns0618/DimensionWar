@@ -282,7 +282,7 @@ public class Skill : MonoBehaviour
     void id_18(EnemyController enemy)
     {
         enemy.OnDamage(Damage);
-        StartCoroutine(enemy.OnStun(1.5f));
+        //  StartCoroutine(enemy.OnStun(1.5f));
     }
     IEnumerator id_20(EnemyController enemy)
     {

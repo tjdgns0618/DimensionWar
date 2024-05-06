@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 986021222222099186}
   - component: {fileID: 2912782076521297567}
-  - component: {fileID: 7395097994256271163}
+  - component: {fileID: 7428521259806947931}
   - component: {fileID: 8152244656686346259}
   - component: {fileID: -977714946068641219}
   - component: {fileID: 4016027631989375827}
@@ -324,7 +324,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7395097994256271163
+--- !u!114 &7428521259806947931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,12 +333,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4739857660683069153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
+  m_Script: {fileID: 11500000, guid: d98d64c17a4145647ab062949ae6c331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrade: 
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
+  tempHealth: 0
   Tower_id: 23
   tower_state: 0
   tower_type: 1
@@ -348,8 +350,8 @@ MonoBehaviour:
   AttackRange: 5
   AttackDel: 3
   SkillCost: 3
-  SkillCount: 2
-  Damage: 50
+  SkillCount: 0
+  Damage: 10
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -360,12 +362,12 @@ MonoBehaviour:
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
+  createbullet: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 2912782076521297567}
   bulletPos: {fileID: 6400490857592809137}
-  AttSound: {fileID: 8300000, guid: 11b32ab3c7b32e54dadebcb9c959e335, type: 3}
-  SkillSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  attackClip: {fileID: 0}
+  mixerGroup: {fileID: 0}
   enemiesInRange: []
   Attanim:
   - {fileID: 4455386177300536397}
@@ -374,7 +376,8 @@ MonoBehaviour:
   attcount: 0
   doubleattack: 0
   doubleSkillattack: 0
-  bulletPose: []
+  bulletPose:
+  - {fileID: 6400490857592809137}
   child: {fileID: 0}
 --- !u!114 &8152244656686346259
 MonoBehaviour:
@@ -413,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 5042204585135364214, guid: 4844e004dbfc3944e94e527210f364be,
     type: 3}
+  ClickEffect: {fileID: 0}
 --- !u!65 &4016027631989375827
 BoxCollider:
   m_ObjectHideFlags: 0

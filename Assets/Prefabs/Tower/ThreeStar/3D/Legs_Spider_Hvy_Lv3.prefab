@@ -1161,12 +1161,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9065313555950288798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
+  m_Script: {fileID: 11500000, guid: d98d64c17a4145647ab062949ae6c331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  upgrade: 
+  maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
+  tempHealth: 0
   Tower_id: 25
   tower_state: 0
   tower_type: 1
@@ -1175,7 +1177,7 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 6
+  SkillCost: 5
   SkillCount: 0
   Damage: 10
   BuffDamage: 0
@@ -1185,28 +1187,28 @@ MonoBehaviour:
   nearestTarget: {fileID: 0}
   attTime: 0
   bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
-  buffbullet: {fileID: 9065313555950288798}
+  buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
+  createbullet: 0
   dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 5630691172630786652}
-  bulletPos: {fileID: 9065313555950288798}
-  AttSound: {fileID: 8300000, guid: c4f73c61f7da49643965848d01c7450f, type: 3}
-  SkillSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  anim: {fileID: 0}
+  bulletPos: {fileID: 0}
+  attackClip: {fileID: 0}
+  mixerGroup: {fileID: 0}
   enemiesInRange: []
   Attanim:
-  - {fileID: 716693830050085608}
   - {fileID: 3413893716163664595}
+  - {fileID: 716693830050085608}
   Skillanim:
-  - {fileID: 1269507926438319054}
   - {fileID: 477551435853917631}
+  - {fileID: 1269507926438319054}
   attcount: 0
   doubleattack: 1
-  doubleSkillattack: 0
+  doubleSkillattack: 1
   bulletPose:
-  - {fileID: 8948731700911356942}
   - {fileID: 4218310094454113635}
+  - {fileID: 8948731700911356942}
   child: {fileID: 0}
 --- !u!114 &7108719797515622346
 MonoBehaviour:
@@ -1227,7 +1229,9 @@ MonoBehaviour:
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 9065313555950288798}
-  skillPose: []
+  skillPose:
+  - {fileID: 2410363856308758177}
+  - {fileID: 3913061911588214992}
   SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
@@ -1292,6 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTower: {fileID: 0}
+  ClickEffect: {fileID: 0}
 --- !u!82 &478532249726356759
 AudioSource:
   m_ObjectHideFlags: 0

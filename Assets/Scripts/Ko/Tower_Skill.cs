@@ -38,12 +38,12 @@ public class Tower_Skill : MonoBehaviour
 
         id = this.gameObject.GetComponent<Tower>().Tower_id;
         SkillDmg = this.gameObject.GetComponent<Tower>().Damage;
-        
+
     }
 
     public void skill(int _id)
     {
-       
+
         EnemyTrans = GetComponent<Tower>().nearestTarget;
         switch (id)
         {
@@ -93,10 +93,10 @@ public class Tower_Skill : MonoBehaviour
                 StartCoroutine(skill_14());
                 break;
             case 15:
-                StartCoroutine (skill_15());
+                StartCoroutine(skill_15());
                 break;
             case 16:
-                StartCoroutine(skill_16()); 
+                StartCoroutine(skill_16());
                 break;
             case 17:
                 StartCoroutine(skill_17());
@@ -136,8 +136,6 @@ public class Tower_Skill : MonoBehaviour
         SkillPrefabs[tower_Level].SetActive(true);
         gameObject.GetComponent<Tower>().AttackDel -= temp / 2;
         gameObject.GetComponent<Tower>().anim.speed *= 2;
-        GetComponent<Tower>().audioSource.clip = GetComponent<Tower>().SkillSound;
-        GetComponent<Tower>().audioSource.Play();
         yield return new WaitForSeconds(5f);
         gameObject.GetComponent<Tower>().AttackDel += temp / 2;
         gameObject.GetComponent<Tower>().anim.speed /= 2;
@@ -232,14 +230,14 @@ public class Tower_Skill : MonoBehaviour
         // g.GetComponent<Bullet_Skill>().Init(SkillDmg*0.15f, 5, EnemyTrans.transform.position- transform.position);
         //g.transform.parent = skillParent.transform;
 
-          yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(4f);
         Destroy(g);
     }
     IEnumerator skill_10()
     {
         g = Instantiate(SkillPrefabs[tower_Level], skillPos.transform.position, transform.rotation);
-        g.GetComponent<Skill>().ShotInit(SkillDmg*0.1f, 5, EnemyTrans.transform.position - transform.position, id);
-       // g.transform.parent = skillParent.transform;
+        g.GetComponent<Skill>().ShotInit(SkillDmg * 0.1f, 5, EnemyTrans.transform.position - transform.position, id);
+        // g.transform.parent = skillParent.transform;
 
         yield return null;
     }
@@ -266,10 +264,10 @@ public class Tower_Skill : MonoBehaviour
     }
     IEnumerator skill_13()
     {
-       time = 0;
-       SkillPrefabs[tower_Level].SetActive(true);
-        
-        while (time<15f) { 
+        time = 0;
+        SkillPrefabs[tower_Level].SetActive(true);
+
+        while (time < 15f) {
             foreach (RaycastHit ray in gameObject.GetComponent<Tower>().targets)
             {
                 if (ray.transform.CompareTag("Tower"))
@@ -289,8 +287,8 @@ public class Tower_Skill : MonoBehaviour
     }
     IEnumerator skill_14()
     {
-        
-        g = Instantiate(SkillPrefabs[tower_Level],EnemyTrans.position + transform.up*5, SkillPrefabs[tower_Level].transform.rotation);
+
+        g = Instantiate(SkillPrefabs[tower_Level], EnemyTrans.position + transform.up * 5, SkillPrefabs[tower_Level].transform.rotation);
         g.GetComponent<Skill>().init(SkillDmg * 1.3f, id);
         g.transform.parent = skillParent.transform;
 
@@ -319,7 +317,7 @@ public class Tower_Skill : MonoBehaviour
     {
         Debug.Log("skill17_1");
         gameObject.GetComponent<Tower>().isBuff = true;
-        g = Instantiate(SkillPrefabs[tower_Level], transform.position,SkillPrefabs[tower_Level].transform.rotation);
+        g = Instantiate(SkillPrefabs[tower_Level], transform.position, SkillPrefabs[tower_Level].transform.rotation);
         //g.transform.parent = skillParent.transform;
 
         Debug.Log("skill17");
@@ -329,6 +327,11 @@ public class Tower_Skill : MonoBehaviour
         yield return null;
 
     }
+    IEnumerator skill_18()
+    {
+        yield return null;
+    }
+
     IEnumerator skill_19()
     {
         g = Instantiate(SkillPrefabs[tower_Level], skillPos.transform.position, transform.rotation);
@@ -358,6 +361,7 @@ public class Tower_Skill : MonoBehaviour
     {
         g = Instantiate(SkillPrefabs[tower_Level], transform.position, transform.rotation);
         g.GetComponent<Skill>().init(SkillDmg * 1f, id);
+        g.GetComponentInChildren<Skill>().parentTower = gameObject;
         yield return new WaitForSeconds(5f);
         Destroy(g);
     }
@@ -365,18 +369,17 @@ public class Tower_Skill : MonoBehaviour
     {
         g = Instantiate(SkillPrefabs[tower_Level], EnemyTrans.transform.position, EnemyTrans.transform.rotation);
         g.GetComponent<Multi_Skill>().init(SkillDmg * 1f, id);
-        
+
         yield return new WaitForSeconds(5f);
         Destroy(g);
     }
     IEnumerator skill_24()
     {
-        g = Instantiate(SkillPrefabs[tower_Level],skillPos.transform.position, skillPos.transform.rotation);
+        g = Instantiate(SkillPrefabs[tower_Level], skillPos.transform.position, skillPos.transform.rotation);
         g.GetComponent<Skill>().init(SkillDmg * 1f, id);
         yield return new WaitForSeconds(3f);
-        Destroy(g);
-
-    
+        Destroy(g);        
+    }
     IEnumerator skill_25()
     {
         g = Instantiate(SkillPrefabs[tower_Level], transform.position, transform.rotation);
@@ -393,10 +396,10 @@ public class Tower_Skill : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Destroy(g);
     }
-    
+
     private void OnEnable()
     {
-        foreach(GameObject g in SkillPrefabs)
+        foreach (GameObject g in SkillPrefabs)
         {
             if (SkillPrefabs is null || gameObject.GetComponent<Tower>().tower_type != Tower.Tower_Type.Meele)
                 break;
