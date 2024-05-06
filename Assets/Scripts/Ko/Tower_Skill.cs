@@ -347,7 +347,7 @@ public class Tower_Skill : MonoBehaviour
         g.GetComponentInChildren<Skill>().init(SkillDmg * 1.5f, id);
         g.GetComponentInChildren<Skill>().parentTower = gameObject;
         yield return new WaitForSeconds(5f);
-        Destroy(g);
+        Destroy(g.gameObject);
     }
     IEnumerator skill_21()
     {
