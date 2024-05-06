@@ -1161,13 +1161,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 9065313555950288798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
+  m_Script: {fileID: 11500000, guid: d98d64c17a4145647ab062949ae6c331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesPerTower: 3
+  upgrade: 
+  maxEnemiesPerTower: 0
   currentEnemyCount: 0
   health: 100
-  Tower_id: 25
+  tempHealth: 0
+  Tower_id: 26
   tower_state: 0
   tower_type: 1
   tower_class: 2
@@ -1175,7 +1177,7 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 6
+  SkillCost: 5
   SkillCount: 0
   Damage: 10
   BuffDamage: 0
@@ -1184,29 +1186,23 @@ MonoBehaviour:
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
-  buffbullet: {fileID: 9065313555950288798}
+  bullet: {fileID: 0}
+  buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
+  createbullet: 0
   dir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 5630691172630786652}
-  bulletPos: {fileID: 9065313555950288798}
-  AttSound: {fileID: 8300000, guid: c4f73c61f7da49643965848d01c7450f, type: 3}
-  SkillSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  anim: {fileID: 0}
+  bulletPos: {fileID: 0}
+  attackClip: {fileID: 0}
+  mixerGroup: {fileID: 0}
   enemiesInRange: []
-  Attanim:
-  - {fileID: 716693830050085608}
-  - {fileID: 3413893716163664595}
-  Skillanim:
-  - {fileID: 1269507926438319054}
-  - {fileID: 477551435853917631}
+  Attanim: []
+  Skillanim: []
   attcount: 0
-  doubleattack: 1
+  doubleattack: 0
   doubleSkillattack: 0
-  bulletPose:
-  - {fileID: 8948731700911356942}
-  - {fileID: 4218310094454113635}
+  bulletPose: []
   child: {fileID: 0}
 --- !u!114 &7108719797515622346
 MonoBehaviour:
@@ -1292,6 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTower: {fileID: 0}
+  ClickEffect: {fileID: 0}
 --- !u!82 &478532249726356759
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2048,24 +2045,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3006872103395464271}
   m_SourcePrefab: {fileID: 100100000, guid: c49a9e7053c56d24c94ba51c8dbc956d, type: 3}
---- !u!95 &477551435853917631 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7211855008673382744, guid: c49a9e7053c56d24c94ba51c8dbc956d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7112658719151074535}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &716693830050085608 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7730156452665153039, guid: c49a9e7053c56d24c94ba51c8dbc956d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7112658719151074535}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1269507926438319054 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8298744124546465577, guid: c49a9e7053c56d24c94ba51c8dbc956d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7112658719151074535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2410363856308758177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4883705485874481734, guid: c49a9e7053c56d24c94ba51c8dbc956d,
@@ -2087,12 +2066,6 @@ MonoBehaviour:
   parent: {fileID: 9065313555950288798}
   parentid: 0
   pos: 0
---- !u!95 &3413893716163664595 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5608577292105823796, guid: c49a9e7053c56d24c94ba51c8dbc956d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7112658719151074535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3913061911588214992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6122855315638989879, guid: c49a9e7053c56d24c94ba51c8dbc956d,
@@ -2114,21 +2087,9 @@ MonoBehaviour:
   parent: {fileID: 9065313555950288798}
   parentid: 0
   pos: 0
---- !u!1 &4218310094454113635 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6358888909752265092, guid: c49a9e7053c56d24c94ba51c8dbc956d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7112658719151074535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7112658719150945895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c49a9e7053c56d24c94ba51c8dbc956d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7112658719151074535}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8948731700911356942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2199293161573748969, guid: c49a9e7053c56d24c94ba51c8dbc956d,
     type: 3}
   m_PrefabInstance: {fileID: 7112658719151074535}
   m_PrefabAsset: {fileID: 0}

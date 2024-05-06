@@ -72,7 +72,6 @@ public class Tower : MonoBehaviour
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
         attTime = 0f;
-        audioSource = GetComponent<AudioSource>();
         Init();
     }
     void Update()
@@ -180,8 +179,6 @@ public class Tower : MonoBehaviour
         audio.Play();
         if (isBuff)
         {
-            audioSource.clip = SkillSound;
-            audioSource.Play();
             if (tower_type == Tower_Type.Range)
             {
                 GameObject g = Instantiate(buffbullet, nearestTarget.transform.position, buffbullet.transform.rotation);
@@ -196,8 +193,6 @@ public class Tower : MonoBehaviour
         }
         else
         {
-            audioSource.clip = AttSound;
-            audioSource.Play();
             if (tower_type == Tower_Type.Range)
             {
                 if(createbullet)

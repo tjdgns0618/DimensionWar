@@ -51,8 +51,6 @@ public class Tower_3D : Tower
 
     public override void test()
     {
-        audioSource.clip = AttSound;
-        audioSource.Play();
         if (tower_type == Tower_Type.Range)
         {
             
@@ -69,8 +67,6 @@ public class Tower_3D : Tower
     }
     public void attdouble(int i)
     {
-        audioSource.clip = AttSound;
-        audioSource.Play();
         if (tower_type == Tower_Type.Range)
         {
                 
