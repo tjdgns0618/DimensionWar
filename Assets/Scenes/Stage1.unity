@@ -30851,7 +30851,19 @@ MonoBehaviour:
   EnemyWaves:
   - enemyPrefabs:
     - {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843, type: 3}
-    numberOfEnemiesPerPrefab: 01000000
+    numberOfEnemiesPerPrefab: 0a000000
+    spawnInterval: 3
+    increaseSpeed: 0
+    speedMultiplier: 0
+  - enemyPrefabs:
+    - {fileID: 7162350847740585720, guid: e1b3b352c35b90e428463c785d3dd81c, type: 3}
+    numberOfEnemiesPerPrefab: 0a000000
+    spawnInterval: 3
+    increaseSpeed: 0
+    speedMultiplier: 0
+  - enemyPrefabs:
+    - {fileID: 7208832572220091809, guid: 9d547b88245be8243ba0ce6e825057e6, type: 3}
+    numberOfEnemiesPerPrefab: 0a000000
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -33245,6 +33257,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1672707834}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 957065872}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartNextWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
