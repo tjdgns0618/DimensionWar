@@ -370,15 +370,20 @@ public class EnemyController : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (GameObject obj in GameManager.Instance.enemys)
-        {
-            if (obj.activeSelf)
-            {
-                return;
-            }
-        }        
+        //foreach (GameObject obj in GameManager.Instance.enemys)
+        //{
+        //    if (obj.activeSelf)
+        //    {
+        //        return;
+        //    }
+        //}        
 
-        GameManager.Instance.diamond += 3;  // 웨이브 종료후 다이아 흭득
-        GameManager.Instance.meleeRespawn();
+        //GameManager.Instance.diamond += 3;  // 웨이브 종료후 다이아 흭득
+        //GameManager.Instance.meleeRespawn();
+        if(transform.parent.childCount == 1)
+        {
+            GameManager.Instance.diamond += 3;
+            GameManager.Instance.meleeRespawn();
+        }
     }
 }
