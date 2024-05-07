@@ -155,6 +155,7 @@ Transform:
   - {fileID: 2868358852211310364}
   - {fileID: 2418348495665509976}
   - {fileID: 3570140567414058587}
+  - {fileID: 660303930196469668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8339495134934455043
@@ -255,13 +256,14 @@ MonoBehaviour:
   - {fileID: 8035656000921429529, guid: ecc43357994ecc84390beb3775ea3c8d, type: 3}
   tower_Level: 0
   colliders: []
-  skillPos: {fileID: 1654761967887082845}
+  skillPos: {fileID: 8419993607492238250}
   skillPose:
   - {fileID: 13394436796910162}
   - {fileID: 4429565944035727233}
   SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
+  curTowwer_Skill_Level: 0
 --- !u!114 &1749217911113471327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +919,37 @@ Transform:
   - {fileID: 6747453618289357207}
   - {fileID: 930350872070003790}
   m_Father: {fileID: 3383185956387486062}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8419993607492238250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 660303930196469668}
+  m_Layer: 0
+  m_Name: skillpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &660303930196469668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419993607492238250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.649, z: 1.031}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1962741410021312199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2422772364813673276
 PrefabInstance:

@@ -44,7 +44,8 @@ public class EnemyController : MonoBehaviour
     private bool isWalking = false; // 걷기 상태 여부
 
     private bool isDead = false; // 사망 상태 여부
-
+    public bool isStun = false;
+    float Waittime;
     void Start()
     {
         // Animator 컴포넌트 가져오기
@@ -74,6 +75,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         // 사망 상태인 경우 아무것도 하지 않음
+        if(isStun)
+        {
+            return;
+        }
         if (isDead)
         {
             return;
@@ -219,7 +224,32 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
+    public void OnStun(float time)
+    {
+        Waittime += Time.deltaTime;
+        isStun = true;
+        if(Waittime >= time)
+        isStun = false;
+    }
+    public IEnumerator OnStop(float time)
+    {
+        float temp = movementSpeed;
+        movementSpeed = 0;
+        yield return new WaitForSeconds(time);
+        movementSpeed = temp;
+    }
+    public IEnumerator OnDamageDown(float DamageDown,float time)
+    {
+        attackDamage *= (1 - DamageDown);
+        yield return new WaitForSeconds(time);
+        attackDamage /= (1 - DamageDown);
+    }
+    public IEnumerator OnSpeedDown(float SpeedDown, float time)
+    {
+        movementSpeed *= (1 - SpeedDown);
+        yield return new WaitForSeconds(time);
+        movementSpeed /= (1 - SpeedDown);
+    }
     public void OnDamage(float damage)
     {
         health -= damage;
@@ -239,10 +269,11 @@ public class EnemyController : MonoBehaviour
         // Die 애니메이션을 재생
         animator.SetTrigger("Die");
 
-        if (isBoss)
+        if (isBoss && GameManager.Instance.enemys.FirstOrDefault() != null)
         {
-            
+            GameManager.Instance.ClearGame();
         }
+
         // 적 타워의 적 수 감소
         if ((enemyType == EnemyType.Ground) && currentTower != null)
         {
@@ -334,13 +365,6 @@ public class EnemyController : MonoBehaviour
     {
         // 속도를 증가된 속도로 설정
         navMeshAgent.speed = originalSpeed * multiplier;
-    }
-
-    IEnumerator bossDead()
-    {
-        Time.timeScale = 1;
-        yield return new WaitForSeconds(3f);
-        GameManager.Instance.uiManager.ClearPanel.SetActive(true);
     }
 
     private void OnDestroy()

@@ -62,6 +62,12 @@ public class UIManager : MonoBehaviour
             image.sprite = soundImage[1];
     }*/
 
+    public void ResetClear()
+    {
+        PlayerPrefs.SetInt("Stage1Clear", 0);
+        PlayerPrefs.SetInt("Stage2Clear", 0);
+    }
+
     public void StartGame()
     {
         StartCoroutine(_StartGame());

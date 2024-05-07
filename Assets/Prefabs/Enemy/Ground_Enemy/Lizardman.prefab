@@ -1153,13 +1153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  DamageToPlayer: 20
+  isBoss: 0
+  movementSpeed: 0
+  increasedSpeedMultiplier: 1.5
+  currentTower: {fileID: 0}
   attackDamage: 25
   attackCooldown: 1.5
-  health: 300
-  movementSpeed: 0
+  health: 200
   attackAnimationNames:
   - Attack01
   - Attack02
+  isStun: 0
 --- !u!65 &1303064463695024112
 BoxCollider:
   m_ObjectHideFlags: 0

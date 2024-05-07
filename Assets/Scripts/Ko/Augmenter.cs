@@ -13,7 +13,7 @@ public class Augmenter : MonoBehaviour
     public GameObject button;
     public Augmenter_Data[] augmenter_Datas;
     public int r;
-   
+
     // Start is called before the first frame update
     public void AugmentUpdate()
     {
@@ -44,9 +44,23 @@ public class Augmenter : MonoBehaviour
                 Skill_DamageUp();
                 break;
             case 5:
-                bloodsuck();
+                Pixel_HealthUP();
                 break;
-                
+            case 6:
+                Pixel_AttackUp();
+                break;
+            case 7:
+                LowPoly_HealthUP();
+                break;
+            case 8:
+                LowPoly_AttackUp();
+                break;
+            case 9:
+                _3D_HealthUP();
+                break;
+            case 10:
+                _3D_AttackUp();
+                break;
         }
     }
     public void HealthUP()
@@ -59,8 +73,8 @@ public class Augmenter : MonoBehaviour
         }
     }
 
-    public void AttackUp() 
-    { 
+    public void AttackUp()
+    {
         GameManager.Instance.towerDamage += 100;
 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
@@ -72,7 +86,7 @@ public class Augmenter : MonoBehaviour
     {
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
-            GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel /=1.5f;
+            GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel /= 1.5f;
 
         }
     }
@@ -85,17 +99,71 @@ public class Augmenter : MonoBehaviour
     {
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
-            GameManager.Instance.towers[i].GetComponent<Tower_Skill>().SkillDamage +=100;
-
+            GameManager.Instance.towers[i].GetComponent<Tower_Skill>().SkillDamage += 100;
         }
     }
-    public void Wit()
+    public void Pixel_HealthUP()
     {
 
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.Pixel)
+                GameManager.Instance.towers[i].GetComponent<Tower>().health += 100;
+        }
     }
-    public void bloodsuck()
+
+    public void Pixel_AttackUp()
     {
 
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.Pixel)
+                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += 100;
+        }
+    }
+    public void LowPoly_HealthUP()
+    {
+
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
+                GameManager.Instance.towers[i].GetComponent<Tower>().health += 100;
+        }
     }
 
+    public void LowPoly_AttackUp()
+    {
+
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
+                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += 100;
+        }
+    }
+    public void _3D_HealthUP()
+    {
+
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
+                GameManager.Instance.towers[i].GetComponent<Tower>().health += 100;
+        }
+    }
+    public void _3D_AttackUp()
+    {
+
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
+                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += 100;
+        }
+    }
 }
+
+
+
+
+
+    
+
+
