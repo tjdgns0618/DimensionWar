@@ -14685,7 +14685,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3710015548026666270}
-  - component: {fileID: 6361119993196250202}
   - component: {fileID: 4747461124599031895}
   - component: {fileID: 8432428762034246288}
   - component: {fileID: 8270506757093942128}
@@ -14713,37 +14712,6 @@ Transform:
   - {fileID: 4352742084242040689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6361119993196250202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7157100283062958701}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8391ac9f90ab77749bf2774199f4d061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_gameObjectMain: {fileID: 7157100283062958701}
-  m_gameObjectTail: {fileID: 1828371793924853500}
-  m_hitObject: {fileID: 668170370306011875, guid: 3f2414fa90b360447af5b07e0a4edadb,
-    type: 3}
-  maxLength: 2
-  isDestroy: 0
-  ObjectDestroyTime: 0
-  TailDestroyTime: 1
-  HitObjectDestroyTime: 1
-  maxTime: 2
-  MoveSpeed: 50
-  isCheckHitTag: 0
-  mtag: 
-  isShieldActive: 0
-  isHitMake: 1
-  parent: {fileID: 0}
-  parent_id: 0
-  parent_skill_damage: 0
-  isMultiskill: 0
 --- !u!114 &4747461124599031895
 MonoBehaviour:
   m_ObjectHideFlags: 0

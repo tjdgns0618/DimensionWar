@@ -19645,8 +19645,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4728025538715359398}
-  - component: {fileID: 5996745245714797934}
   - component: {fileID: 989940394614419375}
+  - component: {fileID: 113844150213274280}
   m_Layer: 0
   m_Name: Effect_47_PreciseShot 1
   m_TagString: Untagged
@@ -19671,25 +19671,6 @@ Transform:
   - {fileID: 5569061991786934884}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5996745245714797934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4098773455528245824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 0
-  Speed: 0
-  id: 0
-  SpeedCtrl: 0
-  hitObject: []
-  ps: {fileID: 0}
-  parentTower: {fileID: 0}
 --- !u!114 &989940394614419375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19708,13 +19689,32 @@ MonoBehaviour:
   m_makeCount: 3
   m_makeDelay: 0.2
   m_randomPos: {x: 0, y: 0, z: 0}
-  target: {fileID: 4266431569532956646}
+  target: {fileID: 4098773455528245824}
   m_randomRot: {x: 0, y: 0, z: 0}
   m_randomScale: {x: 0, y: 0, z: 0}
   isObjectAttachToParent: 1
   parent: {fileID: 0}
   parent_skillDmg: 0
   parent_skill_id: 0
+--- !u!114 &113844150213274280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098773455528245824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &4266431569532956646
 GameObject:
   m_ObjectHideFlags: 0
@@ -19816,6 +19816,7 @@ GameObject:
   - component: {fileID: 6969020204027722542}
   - component: {fileID: 1382970229245522849}
   - component: {fileID: 8505065520524335907}
+  - component: {fileID: 2766917053955568584}
   m_Layer: 0
   m_Name: Effect_47_BulletEffects
   m_TagString: Untagged
@@ -23719,7 +23720,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -23896,11 +23897,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 64
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -24955,6 +24956,25 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2766917053955568584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235826343000447167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!1 &8768420893400339422
 GameObject:
   m_ObjectHideFlags: 0
@@ -29966,6 +29986,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501411365572167886, guid: 0b8638be49ac6784f94eb307679937c4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501411365572167886, guid: 0b8638be49ac6784f94eb307679937c4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501411365572167886, guid: 0b8638be49ac6784f94eb307679937c4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1501411365572167886, guid: 0b8638be49ac6784f94eb307679937c4,
         type: 3}

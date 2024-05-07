@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float damage;
     public int Speed;
+    public int id;
     Rigidbody rigid;
     public bool isBuffbullet = false;
     public bool isDestroy = false;
@@ -23,10 +24,11 @@ public class Bullet : MonoBehaviour
         
     }
 
-    public void Init(float damage, int Speed, Vector3 dir)
+    public void Init(float damage, int Speed, Vector3 dir,int id)
     {
         this.damage = damage;
         this.Speed = Speed;
+        this.id = id;
         if (!isBuffbullet)
         {
             rigid.velocity = dir * Speed;
@@ -42,7 +44,7 @@ public class Bullet : MonoBehaviour
         if(other.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyController>().OnDamage(damage);
-            if(isDestroy)
+            if(!isDestroy)
             Destroy(gameObject);
         }
     }

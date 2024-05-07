@@ -105,7 +105,8 @@ public class GameManager : MonoBehaviour
                     towers[i].GetComponent<Tower>().tempHealth;
                 towers[i].SetActive(true);
             }
-            else if(towers[i].activeSelf == true && towers[i].GetComponent<Tower>().tower_type == Tower.Tower_Type.Meele)
+            else if(towers[i].activeSelf == true && 
+                towers[i].GetComponent<Tower>().tower_type == Tower.Tower_Type.Meele)
             {
                 towers[i].GetComponent<Tower>().health = towers[i].GetComponent<Tower>().tempHealth;
             }

@@ -36,7 +36,6 @@ public class EnemySpawner : MonoBehaviour
 
     void InitializeEnemyPools()
     {
-        int a = 0;
         // 적의 오브젝트 풀들을 초기화
         enemyPools = new List<GameObject>[EnemyWaves.Count];
         for (int i = 0; i < EnemyWaves.Count; i++)

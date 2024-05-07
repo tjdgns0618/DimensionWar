@@ -455,7 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2368532204079907}
   - component: {fileID: 8267648894578593924}
-  - component: {fileID: 3369792929516462620}
+  - component: {fileID: 4284974499420575426}
   - component: {fileID: 2201069360060993670}
   - component: {fileID: -4803562959704171224}
   - component: {fileID: 2547518828524824916}
@@ -506,7 +506,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3369792929516462620
+--- !u!114 &4284974499420575426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -515,19 +515,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2879680523377229291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6798a1e24a70c4d409d875650f869b39, type: 3}
+  m_Script: {fileID: 11500000, guid: d98d64c17a4145647ab062949ae6c331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrade: 
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
+  tempHealth: 0
   Tower_id: 22
   tower_state: 0
   tower_type: 1
   tower_class: 2
   isMelea: 0
   isWall: 0
-  AttackRange: 6
+  AttackRange: 5
   AttackDel: 3
   SkillCost: 3
   SkillCount: 0
@@ -546,20 +548,20 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 8267648894578593924}
   bulletPos: {fileID: 0}
-  AttSound: {fileID: 8300000, guid: c4f73c61f7da49643965848d01c7450f, type: 3}
-  SkillSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  attackClip: {fileID: 0}
+  mixerGroup: {fileID: 0}
   enemiesInRange: []
   Attanim:
+  - {fileID: 4888507737712158348}
   - {fileID: 7756728126678285166}
   Skillanim:
   - {fileID: 6878598252911595550}
   attcount: 0
-  doubleattack: 0
+  doubleattack: 1
   doubleSkillattack: 0
   bulletPose:
+  - {fileID: 4888507737719543116}
   - {fileID: 7756728126668916910}
-  - {fileID: 8170639356473818811}
   child: {fileID: 0}
 --- !u!114 &2201069360060993670
 MonoBehaviour:
@@ -576,7 +578,7 @@ MonoBehaviour:
   id: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
-  - {fileID: 4098773455528245824, guid: 5149c2b5ccbab374eb99f8114b17aa2f, type: 3}
+  - {fileID: 4098773455528245824, guid: c014c8368fdd19e40ac514036decdf78, type: 3}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 6878598252920988638}
@@ -598,6 +600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTower: {fileID: 9065313555950288798, guid: 834b5a3b82706b74691709eeeda9baf7,
     type: 3}
+  ClickEffect: {fileID: 0}
 --- !u!65 &2547518828524824916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1855,6 +1858,11 @@ PrefabInstance:
       objectReference: {fileID: 2879680523377229291}
     - target: {fileID: 5109558716207811039, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
+      propertyPath: pos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5109558716207811039, guid: 5a271c871c44a314f8dc597a42f63cdb,
+        type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 2879680523377229291}
@@ -1931,13 +1939,17 @@ PrefabInstance:
     - target: {fileID: 8783379744575366036, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.8409197
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4599830858995252358, guid: 5a271c871c44a314f8dc597a42f63cdb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7297540170012608804, guid: 5a271c871c44a314f8dc597a42f63cdb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1133391454040914130}
     - targetCorrespondingSourceObject: {fileID: 8783379744575012790, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
       insertIndex: -1
@@ -1953,6 +1965,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2779114585775103080}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &4888507737712158348 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7297540170003233508, guid: 5a271c871c44a314f8dc597a42f63cdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2779114585775103080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4888507737719543116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7297540170012608804, guid: 5a271c871c44a314f8dc597a42f63cdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2779114585775103080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1133391454040914130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888507737719543116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577bc9fcb9be2a649b057317558a5e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 2879680523377229291}
+  parentid: 0
+  pos: 0
 --- !u!95 &6878598252911595550 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8783379744567610486, guid: 5a271c871c44a314f8dc597a42f63cdb,

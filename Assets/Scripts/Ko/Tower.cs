@@ -183,7 +183,7 @@ public class Tower : MonoBehaviour
             {
                 GameObject g = Instantiate(buffbullet, nearestTarget.transform.position, buffbullet.transform.rotation);
                 
-                g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized);
+                g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized, Tower_id);
                 Destroy(g, 10);
             }
             else if (tower_type == Tower_Type.Meele)
@@ -199,13 +199,13 @@ public class Tower : MonoBehaviour
                 {
                     GameObject g = Instantiate(bullet, nearestTarget.transform.position, bullet.transform.rotation);
 
-                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized, Tower_id);
                     Destroy(g, 10);
                 }
                 else
                 {
                     GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized, Tower_id);
                     Destroy(g, 10);
 
                 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0034967244, g: 0.0031423457, b: 0.0035260723, a: 1}
+  m_IndirectSpecularColor: {r: 0.003329328, g: 0.0030072606, b: 0.0033630359, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11767,12 +11767,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 0}
-  skillCanvas: {fileID: 0}
+  UpgradeCanvas: {fileID: 0}
   BuyPaenl: {fileID: 0}
+  ClearPanel: {fileID: 0}
+  FailedPanel: {fileID: 0}
   RoundTime: {fileID: 0}
   GoldText: {fileID: 0}
+  DiaText: {fileID: 0}
   BuyButton: {fileID: 0}
   SellButton: {fileID: 0}
+  towerUpgradeButton: {fileID: 0}
+  argumentButton: {fileID: 0}
+  stat1Button: {fileID: 0}
+  stat2Button: {fileID: 0}
   UpgradeButton: {fileID: 0}
 --- !u!4 &801074597
 Transform:
@@ -13579,9 +13586,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Dimension
+  m_Text: 'dimension
 
-    War'
+    war'
 --- !u!222 &1748428194
 CanvasRenderer:
   m_ObjectHideFlags: 0

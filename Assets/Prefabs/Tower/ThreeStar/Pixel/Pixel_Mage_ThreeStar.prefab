@@ -257,9 +257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrade: 
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
   health: 100
+  tempHealth: 0
   Tower_id: 17
   tower_state: 0
   tower_type: 1
@@ -274,7 +276,7 @@ MonoBehaviour:
   BuffDamage: 3
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   nearestTarget: {fileID: 0}
   attTime: 0
   bullet: {fileID: 4016779162852907547, guid: fd60c8c20364ee34db4c1cab6fe1e5fa, type: 3}
@@ -285,9 +287,8 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 4079254826923526014}
   bulletPos: {fileID: 7882012697678281344}
-  AttSound: {fileID: 8300000, guid: d51b7831358556b44a328c89d01544b0, type: 3}
-  SkillSound: {fileID: 8300000, guid: 9898e9d0278b8ec4bb003ce1b8a7dae9, type: 3}
-  audioSource: {fileID: 0}
+  attackClip: {fileID: 0}
+  mixerGroup: {fileID: 0}
   enemiesInRange: []
 --- !u!114 &7155512971556360080
 MonoBehaviour:
@@ -305,9 +306,8 @@ MonoBehaviour:
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 6778001327574822350, guid: 9e8fc2cecb74884408fcb37affc06ce0, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  tower_Level: 0
+  - {fileID: 692147797467683129, guid: 450db3cc04fdb884aa02726a209c1f92, type: 3}
+  tower_Level: 1
   colliders: []
   skillPos: {fileID: 7882012697678281344}
   skillPose: []
@@ -327,6 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTower: {fileID: 0}
+  ClickEffect: {fileID: 1739276621125387221, guid: e8e19399e5ccc2340adf18f5b0379dae,
+    type: 3}
 --- !u!82 &3613726673076128719
 AudioSource:
   m_ObjectHideFlags: 0
