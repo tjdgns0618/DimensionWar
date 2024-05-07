@@ -932,12 +932,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   DamageToPlayer: 10
+  isBoss: 0
   movementSpeed: 0
+  increasedSpeedMultiplier: 1.5
   currentTower: {fileID: 0}
   attackDamage: 10
   attackCooldown: 1
   health: 300
+  goldDropAmount: 10
   attackAnimationNames: []
+  isStun: 0
 --- !u!65 &2340859712716552082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -969,7 +973,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.5
+  m_Speed: 0.8
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120

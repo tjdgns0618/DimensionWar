@@ -142,5 +142,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.5f;
         yield return new WaitForSeconds(2f);
         uiManager.ClearPanel.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0;
     }
 }

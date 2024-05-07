@@ -4806,37 +4806,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116051252}
   m_CullTransparentMesh: 1
---- !u!1 &117126805
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 117126810}
-  m_Layer: 6
-  m_Name: EnemyPool
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &117126810
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117126805}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1802309120}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &119132518
 GameObject:
   m_ObjectHideFlags: 0
@@ -9367,7 +9336,7 @@ MonoBehaviour:
   id: click
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 0
   autoGenerate: 1
   isActive: 1
@@ -9568,7 +9537,7 @@ MonoBehaviour:
   id: on
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 0
   autoGenerate: 1
   isActive: 1
@@ -17998,7 +17967,7 @@ PrefabInstance:
     - target: {fileID: 3366509632816171244, guid: d6ac4791363ef6d44b6337936d9d746d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21718,8 +21687,8 @@ MonoBehaviour:
   level: 0
   Health: 0
   maxHealth: 100
-  gold: 10000
-  diamond: 5
+  gold: 5000
+  diamond: 10
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
@@ -26760,59 +26729,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
-      goldDropAmount: 0
-    spawnInterval: 3
+    - enemyPrefab: {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843,
+        type: 3}
+      numberOfEnemies: 10
+      enemyHealth: 200
+      goldDropAmount: 10
+    spawnInterval: 2
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
-      goldDropAmount: 0
-    spawnInterval: 3
+    - enemyPrefab: {fileID: 649056549192762477, guid: f8fac282266725440b1ae3f66290ee6c,
+        type: 3}
+      numberOfEnemies: 10
+      enemyHealth: 400
+      goldDropAmount: 10
+    spawnInterval: 2
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
-      goldDropAmount: 0
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
-      goldDropAmount: 0
-    spawnInterval: 3
+    - enemyPrefab: {fileID: 7162350847740585720, guid: e1b3b352c35b90e428463c785d3dd81c,
+        type: 3}
+      numberOfEnemies: 10
+      enemyHealth: 600
+      goldDropAmount: 15
+    spawnInterval: 2
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
-      goldDropAmount: 0
-    spawnInterval: 3
+    - enemyPrefab: {fileID: 8891175828826502979, guid: 4291e13e47863d247bfb5d3064ba55d9,
+        type: 3}
+      numberOfEnemies: 10
+      enemyHealth: 800
+      goldDropAmount: 20
+    spawnInterval: 2
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
-      goldDropAmount: 0
-    spawnInterval: 3
+    - enemyPrefab: {fileID: 9082778515294869830, guid: c9680cf1435b44641929701ee3d7a0c6,
+        type: 3}
+      numberOfEnemies: 1
+      enemyHealth: 6000
+      goldDropAmount: 200
+    spawnInterval: 2
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
@@ -32705,7 +32675,7 @@ PrefabInstance:
     - target: {fileID: 2472992160979518454, guid: b4ebfe3d8ab4def429989cd25349eb90,
         type: 3}
       propertyPath: health
-      value: 10
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 6236790930908222091, guid: b4ebfe3d8ab4def429989cd25349eb90,
         type: 3}
@@ -52930,7 +52900,7 @@ MonoBehaviour:
   id: on
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 0
   autoGenerate: 1
   isActive: 1
@@ -53172,7 +53142,7 @@ MonoBehaviour:
   id: click
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 0
   autoGenerate: 1
   isActive: 1
@@ -61494,7 +61464,7 @@ MonoBehaviour:
   id: click
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 0
   autoGenerate: 1
   isActive: 1
@@ -61695,7 +61665,7 @@ MonoBehaviour:
   id: on
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 0
   autoGenerate: 1
   isActive: 1
@@ -67759,7 +67729,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 117126810}
   - {fileID: 848667470}
   - {fileID: 258494528}
   m_Father: {fileID: 0}
@@ -70878,7 +70847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1930798845
 RectTransform:
   m_ObjectHideFlags: 0

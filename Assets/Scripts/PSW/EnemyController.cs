@@ -270,10 +270,7 @@ public class EnemyController : MonoBehaviour
         // Die 애니메이션을 재생
         animator.SetTrigger("Die");
 
-        if (isBoss && GameManager.Instance.enemys.FirstOrDefault() != null)
-        {
-            GameManager.Instance.ClearGame();
-        }
+        
 
         // 적 타워의 적 수 감소
         if ((enemyType == EnemyType.Ground) && currentTower != null)
@@ -380,10 +377,16 @@ public class EnemyController : MonoBehaviour
 
         //GameManager.Instance.diamond += 3;  // 웨이브 종료후 다이아 흭득
         //GameManager.Instance.meleeRespawn();
-        if(transform.parent.childCount == 1)
+
+        if (isBoss && transform.parent.childCount == 1)
+        {
+            GameManager.Instance.ClearGame();
+        }
+        else if (transform.parent.childCount == 1)
         {
             GameManager.Instance.diamond += 3;
             GameManager.Instance.meleeRespawn();
         }
+
     }
 }
