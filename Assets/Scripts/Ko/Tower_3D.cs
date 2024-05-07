@@ -11,6 +11,7 @@ public class Tower_3D : Tower
     public bool doubleSkillattack = false;
     public  GameObject[] bulletPose;
     public GameObject child;
+
     // Start is called before the first frame update
 
     protected override void Attack()
@@ -56,7 +57,7 @@ public class Tower_3D : Tower
             
                 GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
                 dir = nearestTarget.transform.position-bulletPos.transform.position;
-                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized,Tower_id);
                 Destroy(g, 10);
         }
             else if (tower_type == Tower_Type.Meele)
@@ -70,9 +71,9 @@ public class Tower_3D : Tower
         if (tower_type == Tower_Type.Range)
         {
                 
-                GameObject g = Instantiate(bullet, bulletPose[i].transform.position, bulletPose[i].transform.rotation);
+                GameObject g = Instantiate(bullet, bulletPose[i].transform.position,transform.rotation);
                 dir = nearestTarget.transform.position - bulletPose[i].transform.position;
-                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized);
+                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized,Tower_id);
                 Destroy(g, 10);
   
         }
