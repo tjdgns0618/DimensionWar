@@ -139,8 +139,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator _ClearGame()
     {
-        Time.timeScale = 1;
-        yield return new WaitForSeconds(3f);
+        Time.timeScale = 0.5f;
+        yield return new WaitForSeconds(2f);
         uiManager.ClearPanel.SetActive(true);
     }
 }
