@@ -51,8 +51,13 @@ public class Skill : MonoBehaviour
         if(other.CompareTag("Enemy"))
         {
             EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+            Debug.Log(other.tag);
             switch (id)
             {
+                case 4:
+                    StartCoroutine(id_4(enemy));
+                    enemy.StartCoroutine(enemy.OnStop(3));
+                    break;
                 case 7:
                     id_7(enemy);
                     Debug.Log("1");
@@ -110,7 +115,7 @@ public class Skill : MonoBehaviour
             switch (id)
             {
                 case 1:
-                    AttackDamageDown(enemyController);
+                    enemyController.StartCoroutine(enemyController.OnDamageDown(0.3f, 3));
                     StartCoroutine(id_1(enemyController));
                     break;
                 case 2:
@@ -224,7 +229,7 @@ public class Skill : MonoBehaviour
         isDmg = false;
         enemy.OnDamage(Damage);
         Debug.Log(enemy.health);
-        yield return new WaitForSeconds(gameObject.GetComponent<ParticleSystem>().duration);
+        yield return new WaitForSeconds(1);
     }
     IEnumerator id_6(EnemyController enemy)
     {
