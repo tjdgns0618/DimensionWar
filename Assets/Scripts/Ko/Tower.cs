@@ -101,7 +101,7 @@ public class Tower : MonoBehaviour
                 SkillCount = 0;
             }
         }
-        else if (tower_state == Tower_State.Skill)
+        else if (tower_state == Tower_State.Skill&& nearestTarget != null)
         {
             Skill();
         }

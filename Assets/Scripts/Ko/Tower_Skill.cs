@@ -201,7 +201,7 @@ public class Tower_Skill : MonoBehaviour
         {
             case 0:
                 g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
-                g.GetComponent<Skill>().init(SkillDmg * 3, id); g.SetActive(true); 
+                g.GetComponentInChildren<Skill>().init(SkillDmg * 3, id); g.SetActive(true); 
                 break;
 
             case 1:
@@ -226,18 +226,17 @@ public class Tower_Skill : MonoBehaviour
                 break;
                 
             case 1:
-                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
-                g.GetComponent<Skill>().init(SkillDmg * 6, id);
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position +transform.up*5, transform.rotation);
+                g.GetComponent<Multi_Skill>().init(SkillDmg * 1, id);
                 break;
 
         }
         curTowwer_Skill_Level++;
         if (curTowwer_Skill_Level > tower_Level)
             curTowwer_Skill_Level = 0;
-        //g.transform.parent = skillParent.transform;
+        //g.transform.parent = skillParent.transform;s
 
         yield return null;
-        Destroy(g);
     }
     IEnumerator skill_8()// �⸦ ��Ҵٰ� 3�ʵ��� �������� ���. ���ݷ��� 20%�� �ʴ絥�������ش�
     {
@@ -436,26 +435,79 @@ public class Tower_Skill : MonoBehaviour
     }
     IEnumerator skill_24()
     {
-        g = Instantiate(SkillPrefabs[tower_Level], skillPos.transform.position, skillPos.transform.rotation);
-        g.GetComponent<Skill>().init(SkillDmg * 1f, id);
-        yield return new WaitForSeconds(3f);
-        Destroy(g);        
+        switch (curTowwer_Skill_Level)
+        {
+            case 0:
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
+                g.GetComponentInChildren<Skill>().init(SkillDmg * 1f, id);
+                g.GetComponentInChildren<Skill>().parentTower = gameObject;
+                g.SetActive(true);
+                break;
+
+            case 1:
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
+                g.GetComponentInChildren<Skill>().init(SkillDmg * 1f, id);
+                g.GetComponentInChildren<Skill>().parentTower = gameObject;
+                g.SetActive(true);
+                break;
+        }
+        curTowwer_Skill_Level++;
+        if (curTowwer_Skill_Level > tower_Level)
+            curTowwer_Skill_Level = 0;
+
+        yield return new WaitForSeconds(5f);
+        Destroy(g);
     }
     IEnumerator skill_25()
     {
-        g = Instantiate(SkillPrefabs[tower_Level], transform.position, transform.rotation);
-        g.GetComponentInChildren<Skill>().init(SkillDmg * 1f, id);
-        g.GetComponentInChildren<Skill>().parentTower = gameObject;
+        switch (curTowwer_Skill_Level)
+        {
+            case 0:
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
+                g.GetComponentInChildren<Skill>().init(SkillDmg * 1f, id);
+                g.GetComponentInChildren<Skill>().parentTower = gameObject;
+                g.SetActive(true);
+                break;
+
+            case 1:
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position, transform.rotation);
+                g.GetComponent<Skill>().init(SkillDmg * 5, id); 
+                g.SetActive(true);
+                yield return new WaitForSeconds(2);
+                Destroy(g);
+                break;
+
+        }
+        curTowwer_Skill_Level++;
+        if (curTowwer_Skill_Level > tower_Level)
+            curTowwer_Skill_Level = 0;
+
         yield return new WaitForSeconds(5f);
         Destroy(g);
     }
     IEnumerator skill_26()
     {
-        g = Instantiate(SkillPrefabs[tower_Level], transform.position, transform.rotation);
-        g.GetComponentInChildren<Skill>().init(SkillDmg * 2f, id);
-        g.GetComponentInChildren<Skill>().parentTower = gameObject;
-        yield return new WaitForSeconds(5f);
-        Destroy(g);
+        switch (curTowwer_Skill_Level)
+        {
+            case 0:
+                g = Instantiate(SkillPrefabs[tower_Level], transform.position, transform.rotation);
+                g.GetComponentInChildren<Skill>().init(SkillDmg * 2f, id);
+                g.GetComponentInChildren<Skill>().parentTower = gameObject;
+                g.SetActive(true);
+                break;
+
+            case 1:
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position, transform.rotation);
+                g.GetComponent<Skill>().init(SkillDmg * 5, id);
+                g.SetActive(true);
+                yield return new WaitForSeconds(2);
+                Destroy(g);
+                break;
+
+        }
+        curTowwer_Skill_Level++;
+        if (curTowwer_Skill_Level > tower_Level)
+            curTowwer_Skill_Level = 0;
     }
 
     private void OnEnable()
