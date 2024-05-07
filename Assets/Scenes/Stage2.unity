@@ -7934,6 +7934,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1696206249}
+        m_TargetAssemblyTypeName: BTManager, Assembly-CSharp
+        m_MethodName: MakeTime1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &218692522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9772,6 +9784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 271336203}
+  - component: {fileID: 271336204}
   m_Layer: 5
   m_Name: Augmenter
   m_TagString: Untagged
@@ -9805,6 +9818,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &271336204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271336202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d596156f12c2640988b711afaac89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioHighPassFilter: {fileID: 616512032}
 --- !u!224 &271557060 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 25615774419240098, guid: d6ac4791363ef6d44b6337936d9d746d,
@@ -14577,7 +14603,7 @@ PrefabInstance:
     - target: {fileID: 3366509632816171244, guid: d6ac4791363ef6d44b6337936d9d746d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19363,6 +19389,7 @@ GameObject:
   - component: {fileID: 616512027}
   - component: {fileID: 616512030}
   - component: {fileID: 616512031}
+  - component: {fileID: 616512032}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -20320,6 +20347,16 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!165 &616512032
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616512019}
+  m_Enabled: 1
+  m_CutoffFrequency: 2000
+  m_HighpassResonanceQ: 1
 --- !u!1 &621448759
 GameObject:
   m_ObjectHideFlags: 0
@@ -49486,6 +49523,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1696206249}
+        m_TargetAssemblyTypeName: BTManager, Assembly-CSharp
+        m_MethodName: MakeTime1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1412783790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58439,6 +58488,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1696206251}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1696206249}
+        m_TargetAssemblyTypeName: BTManager, Assembly-CSharp
+        m_MethodName: MakeTime1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
