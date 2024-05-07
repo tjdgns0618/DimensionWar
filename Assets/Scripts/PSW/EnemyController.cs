@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
@@ -13,6 +14,8 @@ public class EnemyController : MonoBehaviour
 
     public EnemyType enemyType; // 적의 유형
     public float DamageToPlayer = 20f; // 적이 플레이어에게 가하는 데미지
+
+    public bool isBoss = false;
 
     // 이동에 사용되는 변수들
     private GameObject player; // 플레이어 오브젝트
@@ -266,6 +269,11 @@ public class EnemyController : MonoBehaviour
         // Die 애니메이션을 재생
         animator.SetTrigger("Die");
 
+        if (isBoss && GameManager.Instance.enemys.FirstOrDefault() != null)
+        {
+            GameManager.Instance.ClearGame();
+        }
+
         // 적 타워의 적 수 감소
         if ((enemyType == EnemyType.Ground) && currentTower != null)
         {
@@ -367,10 +375,7 @@ public class EnemyController : MonoBehaviour
             {
                 return;
             }
-        }
-
-        if (GameManager.Instance.enemys == null)
-            GameManager.Instance.uiManager.ClearPanel.SetActive(true);
+        }        
 
         GameManager.Instance.diamond += 3;  // 웨이브 종료후 다이아 흭득
         GameManager.Instance.meleeRespawn();

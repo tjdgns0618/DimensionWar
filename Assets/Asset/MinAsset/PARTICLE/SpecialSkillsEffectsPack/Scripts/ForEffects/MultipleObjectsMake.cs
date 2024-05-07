@@ -24,7 +24,7 @@ public class MultipleObjectsMake : _ObjectsMakeBase
     Vector3 skillpos;
     void Start()
     {
-        
+        Destroy(gameObject,5f);
         m_Time = m_Time2 = Time.time;
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor; //transform.parent.localScale.x; 
         //skillpos = GetComponent<Skill>().parentTower.GetComponent<Tower_Skill>().EnemyTrans.transform.position - GetComponent<Skill>().parentTower.GetComponent<Tower_Skill>().skillPos.transform.position;

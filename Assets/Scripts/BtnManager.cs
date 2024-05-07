@@ -164,7 +164,6 @@ public class BTManager : MonoBehaviour
         {
             GameManager.Instance.uiManager.UpgradeButton.enabled = true;
         }
-        StartTime();
     }
 
     public void Stat2Upgrade()
@@ -187,7 +186,6 @@ public class BTManager : MonoBehaviour
         {
             GameManager.Instance.uiManager.UpgradeButton.enabled = true;
         }
-        StartTime();
     }
 
     public void DamageUpgrade()
@@ -281,7 +279,8 @@ public class BTManager : MonoBehaviour
             return;
         }
         GameManager.Instance.blockClicked = false;
-        GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
+        if(GameManager.Instance.SelectBlock)
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
         //GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.clip =
         //    GameManager.Instance.SelectBlock.GetComponent<Blocks>().audio[1];
         //GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.Play();

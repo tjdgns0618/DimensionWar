@@ -42,7 +42,6 @@ public class MoveEffect : MonoBehaviour
 
     void LateUpdate()
     {
-        Debug.Log(g);
         rig.velocity = skillpos.normalized * MoveSpeed * m_scalefactor;
         //transform.Translate(Vector3.forward * Time.deltaTime * MoveSpeed * m_scalefactor);
 
