@@ -41,7 +41,8 @@ public class EnemyController : MonoBehaviour
     private bool isWalking = false; // 걷기 상태 여부
 
     private bool isDead = false; // 사망 상태 여부
-
+    public bool isStun = false;
+    float Waittime;
     void Start()
     {
         // Animator 컴포넌트 가져오기
@@ -71,6 +72,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         // 사망 상태인 경우 아무것도 하지 않음
+        if(isStun)
+        {
+            return;
+        }
         if (isDead)
         {
             return;
@@ -216,7 +221,21 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void OnStun(float time)
+    {
+        Waittime += Time.deltaTime;
+        isStun = true;
+        if(Waittime >= time)
+        isStun = false;
+    }
+    public void OnSpeedDown()
+    {
 
+    }
+    public void OnDamageDown()
+    {
+
+    }
     public void OnDamage(float damage)
     {
         health -= damage;

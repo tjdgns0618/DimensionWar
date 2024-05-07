@@ -31,6 +31,7 @@ public class MoveEffect : MonoBehaviour
     Rigidbody rig;
     private void Start()
     {
+        Destroy(gameObject);           
         parent = transform.parent.gameObject;
         parent_skillDmg = parent.GetComponent<Skill>().Damage;
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor;//transform.parent.localScale.x;

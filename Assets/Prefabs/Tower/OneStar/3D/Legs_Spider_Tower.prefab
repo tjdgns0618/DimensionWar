@@ -2685,20 +2685,18 @@ MonoBehaviour:
   createbullet: 0
   dir: {x: 0, y: 0, z: 0}
   anim: {fileID: 8009876004995936664}
-  bulletPos: {fileID: 0}
+  bulletPos: {fileID: 7224642184393119783}
   attackClip: {fileID: 0}
   mixerGroup: {fileID: 0}
   enemiesInRange: []
   Attanim:
-  - {fileID: 9116846814762360306}
   - {fileID: 7224642184402480103}
   Skillanim:
   - {fileID: 5806206726173032599}
   attcount: 0
-  doubleattack: 1
+  doubleattack: 0
   doubleSkillattack: 0
   bulletPose:
-  - {fileID: 9116846814754942514}
   - {fileID: 7224642184393119783}
   child: {fileID: 0}
 --- !u!114 &2407529727518884372
@@ -3975,7 +3973,7 @@ PrefabInstance:
     - target: {fileID: 5109558716207811039, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
       propertyPath: pos
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5109558716207811039, guid: 5a271c871c44a314f8dc597a42f63cdb,
         type: 3}
@@ -4280,12 +4278,6 @@ MonoBehaviour:
   parent: {fileID: 6257255548361505125}
   parentid: 0
   pos: 0
---- !u!95 &9116846814762360306 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6337291219455480083, guid: 5a271c871c44a314f8dc597a42f63cdb,
-    type: 3}
-  m_PrefabInstance: {fileID: 2987891058682580193}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6402677698896633551
 PrefabInstance:
   m_ObjectHideFlags: 0

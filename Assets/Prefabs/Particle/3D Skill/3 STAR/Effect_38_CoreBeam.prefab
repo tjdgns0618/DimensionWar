@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3654670879950911873
 Transform:
   m_ObjectHideFlags: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
   Damage: 0
   Speed: 0
   id: 0
+  towerSkillLevel: 0
   SpeedCtrl: 0
   hitObject: []
   ps: {fileID: 0}
@@ -86,7 +87,8 @@ AudioSource:
   m_GameObject: {fileID: 3654670879950911874}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6323739569904691906, guid: eb42231d279062648a05d6c2c909f91c,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: ccc4e6cdcff538b4f96f956ac9ce0375, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

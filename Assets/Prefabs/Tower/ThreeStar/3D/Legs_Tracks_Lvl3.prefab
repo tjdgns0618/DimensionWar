@@ -605,9 +605,9 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 3
+  SkillCost: 10
   SkillCount: 0
-  Damage: 10
+  Damage: 500
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -633,7 +633,7 @@ MonoBehaviour:
   - {fileID: 6049909542292177314}
   attcount: 0
   doubleattack: 1
-  doubleSkillattack: 1
+  doubleSkillattack: 0
   bulletPose:
   - {fileID: 1855172673942822316}
   - {fileID: 795483376070473676}
@@ -654,6 +654,7 @@ MonoBehaviour:
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 7729559464457596884, guid: 6ccc5629ecf44e34394284ffd3090adf, type: 3}
+  - {fileID: 5711988094466745346, guid: d89950dc31d2a544c939326a116d9885, type: 3}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 5042204585135364214}
@@ -663,6 +664,7 @@ MonoBehaviour:
   SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
+  curTowwer_Skill_Level: 0
 --- !u!65 &-7980905309994924390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2379,6 +2381,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6923157218629836514}
     m_Modifications:
+    - target: {fileID: 2438824730343460274, guid: b5aa1c859c4c8e740b1c3b116f82a432,
+        type: 3}
+      propertyPath: pos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2438824730343460274, guid: b5aa1c859c4c8e740b1c3b116f82a432,
         type: 3}
       propertyPath: parent
