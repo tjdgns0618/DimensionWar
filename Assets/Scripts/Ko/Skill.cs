@@ -53,10 +53,6 @@ public class Skill : MonoBehaviour
             EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
             switch (id)
             {
-                case 4:
-                    StartCoroutine(id_4(enemy));
-                    SpeedDown(enemy);
-                    break;
                 case 7:
                     id_7(enemy);
                     Debug.Log("1");
@@ -121,17 +117,18 @@ public class Skill : MonoBehaviour
                     StartCoroutine(id_2(enemyController));
                     break;
                 case 3:
-                    SpeedDown(enemyController);
+                    enemyController.StartCoroutine(enemyController.OnSpeedDown(0.3f,3));
                     StartCoroutine(id_3(enemyController));
                     break;
                 case 4:
                     StartCoroutine(id_4(enemyController));
-                    //StopCtl();
+                    enemyController.StartCoroutine(enemyController.OnStop(3));
                     break;
                 case 5:
                     break;
                 case 6:
                     StartCoroutine(id_6(enemyController));
+
                     break;
                 case 7:
                     break;
