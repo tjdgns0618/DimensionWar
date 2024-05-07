@@ -253,7 +253,7 @@ public class EnemyController : MonoBehaviour
     }
     public void OnDamage(float damage)
     {
-        health -= damage;
+        health -= (damage+GameManager.Instance.BonusDamage);
     }
 
     void Die()

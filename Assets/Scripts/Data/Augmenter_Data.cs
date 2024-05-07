@@ -11,16 +11,15 @@ public class Augmenter_Data : ScriptableObject
     public string Augmenter_Name;
 
     [TextArea]
-    public string Augmenter_Desc = "0";
+    public string Augmenter_Desc;
 
     [Header("# Image")]
     public Sprite image;
 
     [Header("# Ctrl_Num")]
-    public int num;
+    //public int num;
+    public int count;
+    public List<int> num;
 
-    void gostring()
-    {
-        Augmenter_Desc = num.ToString();
-    }
+    
 }

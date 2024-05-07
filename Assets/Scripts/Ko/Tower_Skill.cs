@@ -317,12 +317,12 @@ public class Tower_Skill : MonoBehaviour
                     Debug.Log(name);
                 }
             }
-            g.transform.parent = skillParent.transform;
+            //g.transform.parent = skillParent.transform;
 
             yield return new WaitForSeconds(1);
         }
         SkillPrefabs[tower_Level].SetActive(false);
-        g.transform.parent = skillParent.transform;
+        //g.transform.parent = skillParent.transform;
 
         yield return null;
     }
@@ -379,7 +379,9 @@ public class Tower_Skill : MonoBehaviour
                 break;
             case 1:
                 g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position, SkillPrefabs[curTowwer_Skill_Level].transform.rotation);
-                g.GetComponent<Skill>().init(SkillDmg * 0.5f, id);
+                g.GetComponentInChildren<Skill>().init(SkillDmg * 0.5f, id);
+                yield return new WaitForSeconds(5);
+                Destroy(g);
                 break;
         }
         curTowwer_Skill_Level++;
@@ -420,8 +422,8 @@ public class Tower_Skill : MonoBehaviour
     IEnumerator skill_22()
     {
         g = Instantiate(SkillPrefabs[tower_Level], transform.position, transform.rotation);
-        g.GetComponent<Skill>().init(SkillDmg * 1f, id);
-        g.GetComponentInChildren<Skill>().parentTower = gameObject;
+        g.GetComponentInChildren<Skill>().init(SkillDmg * 1f, id);
+      //  g.GetComponentInChildren<Skill>().parentTower = gameObject;
         yield return new WaitForSeconds(5f);
         Destroy(g);
     }
