@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
     private bool isAttacking = false; // 현재 타워를 공격 중인지 여부
 
     public float health = 100f; // 적의 체력
+    public int goldDropAmount = 10; // 적이 드랍하는 골드의 양
 
     private Animator WeaponAnimator; // 무기 애니메이터
 

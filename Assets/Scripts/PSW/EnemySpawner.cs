@@ -9,11 +9,35 @@ public class EnemySpawner : MonoBehaviour
     [System.Serializable]
     public class EnemyWave
     {
-        public List<GameObject> enemyPrefabs; // 적 프리팹 리스트
-        public List<int> numberOfEnemiesPerPrefab; // 프리팹당 적의 수 리스트
+        [System.Serializable]
+        public class EnemyPrefabData
+        {
+            public GameObject enemyPrefab; // 적 프리팹
+            public int numberOfEnemies; // 해당 프리팹의 적의 수
+            public float enemyHealth; // 적의 체력
+            public int goldDropAmount; // 적이 드랍하는 골드의 양
+
+            public EnemyPrefabData(GameObject prefab, int numEnemies, float health, int gold)
+            {
+                enemyPrefab = prefab;
+                numberOfEnemies = numEnemies;
+                enemyHealth = health;
+                goldDropAmount = gold;
+            }
+        }
+
+        public List<EnemyPrefabData> enemyPrefabs; // 적 프리팹 데이터 리스트
         public float spawnInterval; // 스폰 간격
         public bool increaseSpeed; // 해당 웨이브에서 적의 속도를 증가시킬지 여부
         public float speedMultiplier; // 속도 증가 배수
+
+        public EnemyWave(List<EnemyPrefabData> prefabs, float interval, bool speedIncrease, float multiplier)
+        {
+            enemyPrefabs = prefabs;
+            spawnInterval = interval;
+            increaseSpeed = speedIncrease;
+            speedMultiplier = multiplier;
+        }
     }
 
     public List<EnemyWave> EnemyWaves; // 적 스폰 정보 리스트
@@ -41,11 +65,11 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < EnemyWaves.Count; i++)
         {
             enemyPools[i] = new List<GameObject>();
-            for (int j = 0; j < EnemyWaves[i].enemyPrefabs.Count; j++)
+            foreach (var prefabData in EnemyWaves[i].enemyPrefabs)
             {
-                for (int k = 0; k < EnemyWaves[i].numberOfEnemiesPerPrefab[j]; k++)
+                for (int k = 0; k < prefabData.numberOfEnemies; k++)
                 {
-                    GameObject enemy = Instantiate(EnemyWaves[i].enemyPrefabs[j]);
+                    GameObject enemy = Instantiate(prefabData.enemyPrefab);
                     enemy.SetActive(false);
                     enemy.transform.SetParent(poolParent.transform);
                     GameManager.Instance.enemys.Add(enemy);
@@ -69,10 +93,10 @@ public class EnemySpawner : MonoBehaviour
         // 해당 웨이브의 모든 적을 소환
         for (int j = 0; j < EnemyWaves[currentWaveIndex].enemyPrefabs.Count; j++)
         {
-            for (int k = 0; k < EnemyWaves[currentWaveIndex].numberOfEnemiesPerPrefab[j]; k++)
+            for (int k = 0; k < EnemyWaves[currentWaveIndex].enemyPrefabs[j].numberOfEnemies; k++)
             {
                 // 적 프리팹 선택
-                GameObject enemyPrefab = EnemyWaves[currentWaveIndex].enemyPrefabs[j];
+                GameObject enemyPrefab = EnemyWaves[currentWaveIndex].enemyPrefabs[j].enemyPrefab;
 
                 // 소환 위치 선택
                 System.Random random = new System.Random();
@@ -123,9 +147,9 @@ public class EnemySpawner : MonoBehaviour
         int index = GetEnemySpawnIndex(enemyPrefab);
         if (index >= 0 && index < enemyPools.Length)
         {
-            foreach (GameObject enemy in enemyPools[index])
+            foreach (var enemy in enemyPools[index])
             {
-                if (enemy != null && !enemy.activeInHierarchy)
+                if (!enemy.activeInHierarchy)
                 {
                     return enemy;
                 }
@@ -139,7 +163,7 @@ public class EnemySpawner : MonoBehaviour
         // 주어진 적 프리팹에 대한 인덱스 반환
         for (int i = 0; i < EnemyWaves.Count; i++)
         {
-            if (EnemyWaves[i].enemyPrefabs.Contains(enemyPrefab))
+            if (EnemyWaves[i].enemyPrefabs.Exists(data => data.enemyPrefab == enemyPrefab))
             {
                 return i;
             }
