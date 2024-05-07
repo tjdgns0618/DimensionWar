@@ -231,13 +231,24 @@ public class EnemyController : MonoBehaviour
         if(Waittime >= time)
         isStun = false;
     }
-    public void OnSpeedDown()
+    public IEnumerator OnStop(float time)
     {
-
+        float temp = movementSpeed;
+        movementSpeed = 0;
+        yield return new WaitForSeconds(time);
+        movementSpeed = temp;
     }
-    public void OnDamageDown()
+    public IEnumerator OnDamageDown(float DamageDown,float time)
     {
-
+        attackDamage *= (1 - DamageDown);
+        yield return new WaitForSeconds(time);
+        attackDamage /= (1 - DamageDown);
+    }
+    public IEnumerator OnSpeedDown(float SpeedDown, float time)
+    {
+        movementSpeed *= (1 - SpeedDown);
+        yield return new WaitForSeconds(time);
+        movementSpeed /= (1 - SpeedDown);
     }
     public void OnDamage(float damage)
     {
