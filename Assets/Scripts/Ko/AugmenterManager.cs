@@ -55,16 +55,20 @@ public class AugmenterManager : MonoBehaviour
     {
         
         int currentNumber = Random.Range(0, max);
-        if (r.Contains(currentNumber))
+        while(true)
         {
-            currentNumber = Random.Range(0, max);
-
+            if (r.Contains(currentNumber))
+            {
+                currentNumber = Random.Range(0, max);
+            }
+            else
+            {
+                r.RemoveAt(num);
+                r.Insert(num, currentNumber);
+                break;
+            }
         }
-        else
-        {
-            r.RemoveAt(num);
-            r.Insert(num, currentNumber);
-        }
+        Debug.Log("reroll");
         bt[num].GetComponent<Augmenter>().r = r[num];
         bt[num].GetComponent<Augmenter>().AugmentUpdate();
     }
