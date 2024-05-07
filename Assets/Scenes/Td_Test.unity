@@ -808,17 +808,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7108719797515622346, guid: 834b5a3b82706b74691709eeeda9baf7,
-        type: 3}
-      propertyPath: SkillPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108719797515622346, guid: 834b5a3b82706b74691709eeeda9baf7,
-        type: 3}
-      propertyPath: SkillPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 6330952546900703322, guid: 5d70bf1495bab5148858990fea3ec03c,
-        type: 3}
     - target: {fileID: 9065313555950288798, guid: 834b5a3b82706b74691709eeeda9baf7,
         type: 3}
       propertyPath: m_Name
@@ -2226,7 +2215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1991115270737566, guid: 1df2e9525e169c34cb2bd5023fa72fe8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4761612879694652, guid: 1df2e9525e169c34cb2bd5023fa72fe8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2278,6 +2267,12 @@ PrefabInstance:
       propertyPath: tower_Level
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4131855968761148969, guid: 1df2e9525e169c34cb2bd5023fa72fe8,
+        type: 3}
+      propertyPath: SkillPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7607619655946925671, guid: d98c9038271b7254994d1dcea1741439,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6600,7 +6595,7 @@ PrefabInstance:
     - target: {fileID: 3540759575623908019, guid: facff2c726f548e48a2f12f96be18aab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3540759575623908019, guid: facff2c726f548e48a2f12f96be18aab,
         type: 3}
@@ -6610,7 +6605,7 @@ PrefabInstance:
     - target: {fileID: 3540759575623908019, guid: facff2c726f548e48a2f12f96be18aab,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3540759575623908019, guid: facff2c726f548e48a2f12f96be18aab,
         type: 3}
@@ -8026,10 +8021,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossbowman_Tower 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1313447101344788, guid: b40b3d5440af65540b3e6adcdd953810, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4735856776367944, guid: b40b3d5440af65540b3e6adcdd953810, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8070,11 +8061,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95084390982692002, guid: b40b3d5440af65540b3e6adcdd953810,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5812e168ecb03ce408e0f8d5cb9c6fcb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9721,7 +9707,7 @@ PrefabInstance:
     - target: {fileID: 3005798973696694962, guid: 4844e004dbfc3944e94e527210f364be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 3005798973696694962, guid: 4844e004dbfc3944e94e527210f364be,
         type: 3}
@@ -9731,7 +9717,7 @@ PrefabInstance:
     - target: {fileID: 3005798973696694962, guid: 4844e004dbfc3944e94e527210f364be,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 3005798973696694962, guid: 4844e004dbfc3944e94e527210f364be,
         type: 3}

@@ -164,7 +164,16 @@ public class Skill : MonoBehaviour
                     StartCoroutine(id_21(enemyController));
                     break;
                 case 24:
-                    StartCoroutine(id_24(enemyController));
+                    switch (towerSkillLevel)
+                    {
+                        case 0:
+                            StartCoroutine(id_24(enemyController));
+                            break;
+                        case 1:
+                            StartCoroutine(id_24(enemyController));
+                            enemyController.OnStun(3);
+                            break;
+                    }
                     break;
                 case 25:
                     StartCoroutine(id_25(enemyController));

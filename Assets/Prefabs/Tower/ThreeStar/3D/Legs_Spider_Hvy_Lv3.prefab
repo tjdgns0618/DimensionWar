@@ -1181,7 +1181,7 @@ MonoBehaviour:
   AttackDel: 3
   SkillCost: 5
   SkillCount: 0
-  Damage: 10
+  Damage: 100
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   - {fileID: 1269507926438319054}
   attcount: 0
   doubleattack: 1
-  doubleSkillattack: 1
+  doubleSkillattack: 0
   bulletPose:
   - {fileID: 4218310094454113635}
   - {fileID: 8948731700911356942}
@@ -1229,7 +1229,8 @@ MonoBehaviour:
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 6330952546900703322, guid: 5d70bf1495bab5148858990fea3ec03c, type: 3}
-  tower_Level: 0
+  - {fileID: 3799399992363025654, guid: fb5bf13eb1b862c4c875b307d6d8812f, type: 3}
+  tower_Level: 1
   colliders: []
   skillPos: {fileID: 9065313555950288798}
   skillPose:
@@ -1238,6 +1239,7 @@ MonoBehaviour:
   SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
+  curTowwer_Skill_Level: 0
 --- !u!65 &5425789185589207447
 BoxCollider:
   m_ObjectHideFlags: 0
