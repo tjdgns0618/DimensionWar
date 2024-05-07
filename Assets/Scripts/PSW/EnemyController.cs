@@ -239,10 +239,11 @@ public class EnemyController : MonoBehaviour
         // Die 애니메이션을 재생
         animator.SetTrigger("Die");
 
-        if (isBoss)
+        if (isBoss && GameManager.Instance.enemys.FirstOrDefault() != null)
         {
-            
+            GameManager.Instance.ClearGame();
         }
+
         // 적 타워의 적 수 감소
         if ((enemyType == EnemyType.Ground) && currentTower != null)
         {
@@ -334,13 +335,6 @@ public class EnemyController : MonoBehaviour
     {
         // 속도를 증가된 속도로 설정
         navMeshAgent.speed = originalSpeed * multiplier;
-    }
-
-    IEnumerator bossDead()
-    {
-        Time.timeScale = 1;
-        yield return new WaitForSeconds(3f);
-        GameManager.Instance.uiManager.ClearPanel.SetActive(true);
     }
 
     private void OnDestroy()

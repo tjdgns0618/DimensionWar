@@ -131,4 +131,16 @@ public class GameManager : MonoBehaviour
                 towers.RemoveAt(i);
         }
     }
+
+    public void ClearGame()
+    {
+        StartCoroutine(_ClearGame());
+    }
+
+    IEnumerator _ClearGame()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(3f);
+        uiManager.ClearPanel.SetActive(true);
+    }
 }

@@ -9,8 +9,8 @@ public class Skill : MonoBehaviour
     public float Damage;
     public float Speed;
     public int id;
+    public int towerSkillLevel;
     public float SpeedCtrl;
-    float Deltime;
     public List<GameObject> hitObject = new List<GameObject>();
 
     public GameObject ps;
@@ -24,19 +24,18 @@ public class Skill : MonoBehaviour
     }
     void Start()
     {
+        Destroy(gameObject,5);
         if (id == 9)
             rigid = GetComponent<Rigidbody>();
         
-            //StartCoroutine(particleDestroy());
+           
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // StartCoroutine(particleDestroy());
-        Deltime += Time.deltaTime;
-
+        
     }
 
     private IEnumerator particleDestroy()
@@ -132,7 +131,7 @@ public class Skill : MonoBehaviour
                 case 5:
                     break;
                 case 6:
-                    StartCoroutine(id_4(enemyController));
+                    StartCoroutine(id_6(enemyController));
                     break;
                 case 7:
                     break;
@@ -143,6 +142,7 @@ public class Skill : MonoBehaviour
                     id_9(enemyController);
                     break;
                 case 10:
+                    StartCoroutine(id_10(enemyController));
                     break;
                 case 11:
                     StartCoroutine(id_1(enemyController));
@@ -220,6 +220,12 @@ public class Skill : MonoBehaviour
         Debug.Log(enemy.health);
         yield return new WaitForSeconds(gameObject.GetComponent<ParticleSystem>().duration);
     }
+    IEnumerator id_6(EnemyController enemy)
+    {
+        enemy.OnDamage(Damage);
+        Debug.Log(enemy.health);
+        yield return  null;
+    }
     void id_7(EnemyController enemy)
     {
        // enemy.OnDamage(Damage);
@@ -248,7 +254,16 @@ public class Skill : MonoBehaviour
         parents.transform.parent = enemy.transform;
         Destroy(gameObject);
     }
-    
+    IEnumerator id_10(EnemyController enemy)
+    {
+
+        while (true)
+        {
+            enemy.OnDamage(Damage);
+            Debug.Log(enemy.name + enemy.health);
+            yield return new WaitForSeconds(1);
+        }
+    }
 
     void id_12(EnemyController enemy)
     {
@@ -272,6 +287,7 @@ public class Skill : MonoBehaviour
 
     IEnumerator id_16(EnemyController enemy)
     {
+        
         while (true)
         {
             enemy.OnDamage(Damage);

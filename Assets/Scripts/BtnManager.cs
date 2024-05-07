@@ -248,6 +248,9 @@ public class BTManager : MonoBehaviour
         if (GameManager.Instance.tower.GetComponent<TestScript>().nextTower == null)
         {
             Time.timeScale = gameSpeed;
+            //임시로 3성 타워 스킬레벨 업 추가
+            if (GameManager.Instance.tower.GetComponent<Tower_Skill>().tower_Level + 1 <= GameManager.Instance.tower.GetComponent<Tower_Skill>().SkillPrefabs.Length)
+                GameManager.Instance.tower.GetComponent<Tower_Skill>().tower_Level++;
             yield return null;
         }
 
