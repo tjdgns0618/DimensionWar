@@ -136,8 +136,8 @@ public class BTManager : MonoBehaviour
                 !GameManager.Instance.tower.GetComponent<Tower>().upgrade[1];
         }
 
-        
 
+        GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
         GameManager.Instance.uiManager.UpgradeButton.enabled = 
             (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && 
             GameManager.Instance.tower.GetComponent<Tower>().upgrade[1]);
