@@ -79,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        EnemyWave currentWave = EnemyWaves[currentWaveIndex];
+        EnemyWave currentWave = EnemyWaves[currentWaveIndex]; // 현재 웨이브 가져오기
 
         // 해당 웨이브의 모든 적을 소환
         foreach (var prefabData in currentWave.enemyPrefabs)
@@ -174,8 +174,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // 적이 모두 사망했는지 확인하는 함수
-    void CheckAllEnemiesDead()
+    bool CheckAllEnemiesDead()
     {
         if (GameManager.Instance != null) // GameManager.Instance가 null이 아닌지 확인
         {
@@ -199,6 +198,16 @@ public class EnemySpawner : MonoBehaviour
                 GameManager.Instance.meleeRespawn(); // GameManager.Instance가 null이 아닐 때만 호출
                 OnAllEnemiesDead.Invoke();
             }
+
+            return allDead; // 모든 적이 사망한지 여부 반환
         }
+        return false; // GameManager.Instance가 null인 경우에는 모든 적이 사망한 것으로 간주하지 않음
+    }
+
+    void Update()
+    {
+        // 모든 적이 사망한 경우에만 버튼 활성화
+        bool allEnemiesDead = CheckAllEnemiesDead();
+        startWaveButton.interactable = !isWaveInProgress && allEnemiesDead;
     }
 }
