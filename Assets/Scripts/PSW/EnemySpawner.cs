@@ -79,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        EnemyWave currentWave = EnemyWaves[currentWaveIndex];
+        EnemyWave currentWave = EnemyWaves[currentWaveIndex]; // 현재 웨이브 가져오기
 
         // 해당 웨이브의 모든 적을 소환
         foreach (var prefabData in currentWave.enemyPrefabs)
@@ -174,7 +174,6 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // 적이 모두 사망했는지 확인하는 함수
     bool CheckAllEnemiesDead()
     {
         if (GameManager.Instance != null) // GameManager.Instance가 null이 아닌지 확인
