@@ -14,6 +14,12 @@ public class Augmenter_Data : ScriptableObject
     public string Augmenter_Desc;
 
     [Header("# Image")]
-    public Sprite image;  
+    public Sprite image;
 
+    [Header("# Ctrl_Num")]
+    //public int num;
+    public int count;
+    public List<int> num;
+
+    
 }

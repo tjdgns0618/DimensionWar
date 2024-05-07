@@ -65,6 +65,9 @@ public class Skill : MonoBehaviour
                 case 14:
                     id_14(enemy);
                     break;
+                case 17:
+                    StartCoroutine(id_17(enemy));
+                    break;
                 case 20:
                     StartCoroutine(id_20(enemy));
                     Debug.Log(enemy.health);
@@ -305,6 +308,11 @@ public class Skill : MonoBehaviour
             Debug.Log(enemy.name + enemy.health);
             yield return new WaitForSeconds(1);
         }
+    }
+    IEnumerator id_17(EnemyController enemy)
+    {
+        enemy.OnDamage(Damage);
+        yield return new WaitForSeconds(1);
     }
     void id_18(EnemyController enemy)
     {
