@@ -461,6 +461,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9773a06107077d74c82db9caf1e17889, type: 3}
+--- !u!1 &276475680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 276475682}
+  - component: {fileID: 276475681}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &276475681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276475680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379ddca2f5e668548bef54783750ceb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towers: []
+  enemys: []
+  RoundTime: 0
+  CAMtempRotation: {x: 0, y: 0, z: 0, w: 0}
+  SelectBlock: {fileID: 0}
+  uiManager: {fileID: 0}
+  enemySpawner: {fileID: 1192703093}
+  Killcount: 0
+  blockClicked: 0
+  towerClicked: 0
+  isLive: 0
+  pauseGame: 0
+  gameTime: 0
+  level: 0
+  Health: 0
+  maxHealth: 100
+  gold: 0
+  diamond: 0
+  tower: {fileID: 999436219}
+  EnemyCleaner: {fileID: 0}
+  towerDamage: 0
+  towerSpeed: 0
+  towerHp: 0
+  BonusDamage: 0
+--- !u!4 &276475682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276475680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3014847, y: 1.3671193, z: -13.230265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &296848944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1204,6 +1272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  rocket: {fileID: 0}
+  effect: {fileID: 0}
 --- !u!54 &729931369
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1467,7 +1537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4491361078694306, guid: 4b7420e6d9bc0554dbd0dbe902a175c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4491361078694306, guid: 4b7420e6d9bc0554dbd0dbe902a175c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1511,6 +1581,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7420e6d9bc0554dbd0dbe902a175c9, type: 3}
+--- !u!114 &999436219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2269183428138998621, guid: 4b7420e6d9bc0554dbd0dbe902a175c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 976617314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4dfe3b9baed2e41aeda3ccf9ea4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1031837512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,6 +1992,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1192703092}
   startWaveButton: {fileID: 1253878536}
+  poolParent: {fileID: 1192703087}
 --- !u!1001 &1195184245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3112,6 +3195,7 @@ SceneRoots:
   - {fileID: 872760576}
   - {fileID: 832575519}
   - {fileID: 1192703092}
+  - {fileID: 276475682}
   - {fileID: 1901495128}
   - {fileID: 2132284949}
   - {fileID: 694195642}

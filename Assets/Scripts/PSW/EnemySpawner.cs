@@ -161,24 +161,26 @@ public class EnemySpawner : MonoBehaviour
     // 적이 모두 사망했는지 확인하는 함수
     void CheckAllEnemiesDead()
     {
-        bool allDead = true;
-        foreach (var pool in enemyPools)
+        if (GameManager.Instance != null) // GameManager.Instance가 null이 아닌지 확인
         {
-            foreach (var enemy in pool)
+            bool allDead = true;
+            foreach (var pool in enemyPools)
             {
-                if (enemy != null && enemy.activeInHierarchy)
+                foreach (var enemy in pool)
                 {
-                    allDead = false;
-                    break;
+                    if (enemy != null && enemy.activeInHierarchy)
+                    {
+                        allDead = false;
+                        break;
+                    }
                 }
             }
-        }
 
-        // 모든 적이 사망했으면 이벤트 호출
-        if (allDead && OnAllEnemiesDead != null)
-        {
-            Debug.Log("all dead");
-            OnAllEnemiesDead.Invoke();
+            if (allDead && OnAllEnemiesDead != null)
+            {
+                GameManager.Instance.meleeRespawn(); // GameManager.Instance가 null이 아닐 때만 호출
+                OnAllEnemiesDead.Invoke();
+            }
         }
     }
 }
