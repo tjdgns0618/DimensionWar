@@ -879,7 +879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4572065091673146215
 Transform:
   m_ObjectHideFlags: 0
@@ -939,6 +939,7 @@ MonoBehaviour:
   attackDamage: 10
   attackCooldown: 1
   health: 300
+  tempHealth: 0
   goldDropAmount: 10
   attackAnimationNames: []
   isStun: 0

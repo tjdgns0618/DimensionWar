@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnPoints; // 적을 소환할 위치들의 배열
     public Button startWaveButton; // 웨이브 시작 버튼
 
+    public int count;
     private int currentWaveIndex = 0; // 현재 웨이브 인덱스
     private bool isWaveInProgress = false; // 현재 웨이브가 진행 중인지 여부
 
@@ -43,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        startWaveButton.onClick.AddListener(StartNextWave);
+        // startWaveButton.onClick.AddListener(StartNextWave);
         InitializeEnemyPools();
     }
 
@@ -60,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
                 for (int i = 0; i < prefabData.numberOfEnemies; i++)
                 {
                     GameObject enemy = Instantiate(prefabData.enemyPrefab);
-                    enemy.SetActive(false);
+                    // enemy.SetActive(false);
                     enemy.transform.SetParent(wave.poolParent.transform);
                     wave.enemyPool.Add(enemy);
                 }
@@ -72,6 +74,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!isWaveInProgress)
         {
+            count = 0;
             isWaveInProgress = true;
             StartCoroutine(SpawnEnemies());
         }
@@ -102,6 +105,8 @@ public class EnemySpawner : MonoBehaviour
                 {
                     enemy.transform.position = spawnPoint.position;
                     enemy.SetActive(true);
+                    count++;
+                    Debug.Log(count);
 
                     // 적의 속도 증가 체크 여부에 따라 속도 증가
                     if (currentWave.increaseSpeed)
@@ -110,8 +115,12 @@ public class EnemySpawner : MonoBehaviour
                     }
                 }
 
-                // 마지막 적인 경우에는 플래그 설정
-                if (i == prefabData.numberOfEnemies - 1 && prefabData == currentWave.enemyPrefabs[currentWave.enemyPrefabs.Count - 1])
+                //마지막 적인 경우에는 플래그 설정
+                //if (i == prefabData.numberOfEnemies - 1 && prefabData == currentWave.enemyPrefabs[currentWave.enemyPrefabs.Count - 1])
+                //{
+                //    currentWave.lastEnemySpawned = true;
+                //}
+                if (count == prefabData.numberOfEnemies - 1)
                 {
                     currentWave.lastEnemySpawned = true;
                 }
@@ -143,6 +152,10 @@ public class EnemySpawner : MonoBehaviour
         // 해당 오브젝트 풀에서 비활성화된 적을 찾아 반환
         foreach (GameObject enemy in enemyPool)
         {
+            //if(enemyPool.FirstOrDefault().activeSelf == true)
+            //{
+            //    enemyPool[0].transform.SetAsLastSibling();
+            //}
             if (!enemy.activeSelf)
             {
                 return enemy;
@@ -196,6 +209,7 @@ public class EnemySpawner : MonoBehaviour
             if (currentWave.lastEnemySpawned && allDead && OnAllEnemiesDead != null)
             {
                 GameManager.Instance.meleeRespawn(); // GameManager.Instance가 null이 아닐 때만 호출
+                GameManager.Instance.diamond += 3;
                 OnAllEnemiesDead.Invoke();
             }
 

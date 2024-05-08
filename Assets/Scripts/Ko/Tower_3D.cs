@@ -14,14 +14,20 @@ public class Tower_3D : Tower
 
     // Start is called before the first frame update
 
+    private void Start()
+    {
+        AudioSetting();
+    }
+
     protected override void Attack()
     {
-        
-          attTime += Time.deltaTime;
-        
-            if (attTime >= AttackDel)
-            {
-                 attTime = 0;
+
+        attTime += Time.deltaTime;
+
+        if (attTime >= AttackDel)
+        {
+            attTime = 0;
+            AttackSoundPlay();
             if (doubleattack)
             {
 
@@ -44,7 +50,7 @@ public class Tower_3D : Tower
                 }
                 else
                 {
-                    Attanim[0].SetTrigger("hit_1"); 
+                    Attanim[0].SetTrigger("hit_1");
                 }
             }
         }
@@ -52,6 +58,7 @@ public class Tower_3D : Tower
 
     public override void test()
     {
+        
         if (tower_type == Tower_Type.Range)
         {
             

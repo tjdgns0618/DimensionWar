@@ -408,7 +408,7 @@ public class Tower_Skill : MonoBehaviour
         g = Instantiate(SkillPrefabs[tower_Level], skillPose[posNum].transform.position, skillPose[posNum].transform.rotation);
         g.GetComponentInChildren<Skill>().init(SkillDmg * 1.5f, id);
         g.GetComponentInChildren<Skill>().parentTower = gameObject;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         Destroy(g.gameObject);
     }
     IEnumerator skill_21()

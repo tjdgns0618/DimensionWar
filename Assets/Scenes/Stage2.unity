@@ -61560,7 +61560,7 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 300
       goldDropAmount: 10
-    spawnInterval: 2
+    spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
@@ -61572,7 +61572,7 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 500
       goldDropAmount: 20
-    spawnInterval: 2
+    spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
@@ -61581,15 +61581,22 @@ MonoBehaviour:
   - enemyPrefabs:
     - enemyPrefab: {fileID: 3680090095260274964, guid: 7337bbe9aae5e9a49808bc5a2b068dbf,
         type: 3}
-      numberOfEnemies: 5
+      numberOfEnemies: 10
       enemyHealth: 800
       goldDropAmount: 20
+    spawnInterval: 3
+    increaseSpeed: 0
+    speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
+  - enemyPrefabs:
     - enemyPrefab: {fileID: 4343050227916122152, guid: 8ec8425fbf1b72342a323a3ae541acb4,
         type: 3}
       numberOfEnemies: 5
       enemyHealth: 500
-      goldDropAmount: 25
-    spawnInterval: 2
+      goldDropAmount: 30
+    spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
@@ -61601,7 +61608,7 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 50000
       goldDropAmount: 300
-    spawnInterval: 2
+    spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
@@ -61622,6 +61629,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1695479137}
   startWaveButton: {fileID: 1009900265}
+  count: 0
 --- !u!1 &1696206248
 GameObject:
   m_ObjectHideFlags: 0

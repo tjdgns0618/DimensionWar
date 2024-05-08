@@ -25,6 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7252557991237821940, guid: 62d2a7f5da1084f6994dcbca19a2ddb2,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252557991237821940, guid: 62d2a7f5da1084f6994dcbca19a2ddb2,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -181,12 +186,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   DamageToPlayer: 5
+  isBoss: 0
   movementSpeed: 10
+  increasedSpeedMultiplier: 1.5
   currentTower: {fileID: 0}
   attackDamage: 1
   attackCooldown: 1
   health: 200
+  tempHealth: 0
+  goldDropAmount: 10
   attackAnimationNames: []
+  isStun: 0
 --- !u!195 &849126988161846240
 NavMeshAgent:
   m_ObjectHideFlags: 0

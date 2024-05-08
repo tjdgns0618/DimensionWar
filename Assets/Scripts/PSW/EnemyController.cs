@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
     private bool isAttacking = false; // 현재 타워를 공격 중인지 여부
 
     public float health = 100f; // 적의 체력
+    public float tempHealth;
     public int goldDropAmount = 10; // 적이 드랍하는 골드의 양
 
     private Animator WeaponAnimator; // 무기 애니메이터
@@ -49,6 +50,7 @@ public class EnemyController : MonoBehaviour
     float Waittime;
     void Start()
     {
+        tempHealth = health;
         // Animator 컴포넌트 가져오기
         animator = GetComponent<Animator>();
 
@@ -162,7 +164,7 @@ public class EnemyController : MonoBehaviour
             {
                 playerController.TakeDamage(1);
             }
-            Destroy(gameObject); // 적 오브젝트 파괴
+            gameObject.SetActive(false); // 적 오브젝트 파괴
         }
     }
 
@@ -321,7 +323,7 @@ public class EnemyController : MonoBehaviour
         }
 
         // 끝까지 추락한 후 파괴
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     IEnumerator DestroyAfterDelay(float delay)
@@ -330,7 +332,8 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // 적 오브젝트 파괴
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     string GetRandomAttackAnimation()
@@ -365,7 +368,16 @@ public class EnemyController : MonoBehaviour
         navMeshAgent.speed = originalSpeed * multiplier;
     }
 
-    private void OnDestroy()
+    private void OnEnable()
+    {
+        GetComponent<NavMeshAgent>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
+        SetDestinationToNextPathPoint();
+        health = tempHealth;
+        isDead = false;
+    }
+
+    private void OnDisable()
     {
         //foreach (GameObject obj in GameManager.Instance.enemys)
         //{
@@ -377,16 +389,22 @@ public class EnemyController : MonoBehaviour
 
         //GameManager.Instance.diamond += 3;  // 웨이브 종료후 다이아 흭득
         //GameManager.Instance.meleeRespawn();
+        transform.SetAsLastSibling();
 
         if (isBoss && transform.parent.childCount == 1)
         {
             GameManager.Instance.ClearGame();
         }
-        else if (transform.parent.childCount == 1)
+
+        foreach (EnemyController e in transform.parent.GetComponentsInChildren<EnemyController>())
         {
-            GameManager.Instance.diamond += 3;
-            GameManager.Instance.meleeRespawn();
+            if (e.isDead == false)
+            {
+                return;
+            }
         }
+        GameManager.Instance.diamond += 3;
+        GameManager.Instance.meleeRespawn();
 
     }
 }

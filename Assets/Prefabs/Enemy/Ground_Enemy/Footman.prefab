@@ -699,7 +699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1132406618033851405
 Transform:
   m_ObjectHideFlags: 0
@@ -752,14 +752,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   DamageToPlayer: 20
+  isBoss: 0
   movementSpeed: 0
+  increasedSpeedMultiplier: 1.5
   currentTower: {fileID: 0}
   attackDamage: 10
   attackCooldown: 0.7
   health: 250
+  goldDropAmount: 10
   attackAnimationNames:
   - Attack01
   - Attack02
+  isStun: 0
 --- !u!65 &1254908417165951835
 BoxCollider:
   m_ObjectHideFlags: 0

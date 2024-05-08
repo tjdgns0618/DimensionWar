@@ -1239,7 +1239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &853398500356369453
 Transform:
   m_ObjectHideFlags: 0
@@ -1298,10 +1298,12 @@ MonoBehaviour:
   attackDamage: 25
   attackCooldown: 0.8
   health: 2500
+  goldDropAmount: 10
   attackAnimationNames:
   - Attack01
   - Attack02
   - Attack03
+  isStun: 0
 --- !u!195 &1896467950661096871
 NavMeshAgent:
   m_ObjectHideFlags: 0

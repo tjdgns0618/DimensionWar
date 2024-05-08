@@ -65,15 +65,26 @@ public class Tower : MonoBehaviour
     {
         upgrade.Add(false);
         upgrade.Add(false);
-        audio = GetComponent<AudioSource>();
-        audio.outputAudioMixerGroup = mixerGroup;
-        audio.clip = attackClip;
+        AudioSetting();
         tempHealth = health;
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
         attTime = 0f;
         Init();
     }
+
+    public void AudioSetting()
+    {
+        audio = GetComponent<AudioSource>();
+        audio.outputAudioMixerGroup = mixerGroup;
+        audio.clip = attackClip;
+    }
+
+    public void AttackSoundPlay()
+    {
+        audio.Play();
+    }
+
     void Update()
     {
 
@@ -176,7 +187,7 @@ public class Tower : MonoBehaviour
     }
     public virtual void test()
     {
-        audio.Play();
+        AttackSoundPlay();
         if (isBuff)
         {
             if (tower_type == Tower_Type.Range)

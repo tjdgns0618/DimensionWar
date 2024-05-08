@@ -1754,7 +1754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7786938514449871229
 Transform:
   m_ObjectHideFlags: 0
@@ -1814,7 +1814,9 @@ MonoBehaviour:
   attackDamage: 1
   attackCooldown: 1
   health: 5000
+  goldDropAmount: 10
   attackAnimationNames: []
+  isStun: 0
 --- !u!65 &8337203914361010587
 BoxCollider:
   m_ObjectHideFlags: 0
