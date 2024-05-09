@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> towers = new List<GameObject>();    // 현재 설치되있는 모든 타워들
     public List<GameObject> enemys = new List<GameObject>();    // 현재 살아있는 적들
+
+    public UIManager uiManager;         // ui매니저
+    public AudioMixerController soundManager;   // 사운드매니저
+
     [HideInInspector]
     public float RoundTime = 0;         // 라운드 시간
     [HideInInspector]
     public Quaternion CAMtempRotation;  // 카메라 로테이션 초기화용
     public GameObject SelectBlock;      // 현재 선택된 블럭
-    public UIManager uiManager;         // ui매니저
     public EnemySpawner enemySpawner;   // 적스포너
     public int Killcount;               // 현재 죽인 적 카운트
 
