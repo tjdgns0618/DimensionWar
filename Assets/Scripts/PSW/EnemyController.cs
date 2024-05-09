@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -35,8 +36,9 @@ public class EnemyController : MonoBehaviour
     public float attackCooldown = 1f; // 적의 공격 쿨다운 시간
     private bool isAttacking = false; // 현재 타워를 공격 중인지 여부
 
+    [SerializeField] private Slider hpBar; // Inspector 창에서 할당될 Slider
     public float health = 100f; // 적의 체력
-    public float tempHealth;
+
     public int goldDropAmount = 10; // 적이 드랍하는 골드의 양
 
     private Animator WeaponAnimator; // 무기 애니메이터
@@ -50,7 +52,13 @@ public class EnemyController : MonoBehaviour
     float Waittime;
     void Start()
     {
-        tempHealth = health;
+        // 체력 Slider의 MaxValue를 설정
+        if (hpBar != null)
+        {
+            hpBar.maxValue = health;
+            hpBar.value = health;
+        }
+
         // Animator 컴포넌트 가져오기
         animator = GetComponent<Animator>();
 
@@ -118,6 +126,21 @@ public class EnemyController : MonoBehaviour
 
             // 걷기 상태에 따라 애니메이션 설정
             animator.SetBool("IsWalking", isWalking);
+
+            // 체력 Slider의 값 갱신
+            UpdateHealthBar();
+        }
+
+        void UpdateHealthBar()
+        {
+            // 체력 Slider가 할당되어 있지 않으면 리턴
+            if (hpBar == null)
+            {
+                return;
+            }
+
+            // 체력 Slider의 값 갱신
+            hpBar.value = health;
         }
     }
 
@@ -136,6 +159,11 @@ public class EnemyController : MonoBehaviour
     void TakeDamage(float damage)
     {
         health -= damage; // 적의 체력 감소
+
+        if (health < 0f)
+        {
+            health = 0f;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -373,7 +401,6 @@ public class EnemyController : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
         SetDestinationToNextPathPoint();
-        health = tempHealth;
         isDead = false;
     }
 

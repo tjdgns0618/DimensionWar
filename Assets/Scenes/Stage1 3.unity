@@ -8299,6 +8299,7 @@ MonoBehaviour:
   - {fileID: 1807003647}
   - {fileID: 314114903}
   r: 
+  FullUp: 
   count: 0
   max: 6
 --- !u!4 &248422957
@@ -10375,6 +10376,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
   r: 0
+  n: 0
 --- !u!114 &314114906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29600,6 +29602,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
   r: 0
+  n: 0
 --- !u!114 &913216333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30819,7 +30822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 5276253056415564214, guid: b055b971a28ac8b488c2f91ea40a1e4e,
+    - enemyPrefab: {fileID: 8891175828826502979, guid: 4291e13e47863d247bfb5d3064ba55d9,
         type: 3}
       numberOfEnemies: 10
       enemyHealth: 200
@@ -30827,8 +30830,11 @@ MonoBehaviour:
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 3680090095260274964, guid: 7337bbe9aae5e9a49808bc5a2b068dbf,
+    - enemyPrefab: {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843,
         type: 3}
       numberOfEnemies: 10
       enemyHealth: 150
@@ -30836,10 +30842,13 @@ MonoBehaviour:
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
   spawnPoints:
   - {fileID: 957065871}
   startWaveButton: {fileID: 1009900265}
-  poolParent: {fileID: 1009386874}
+  count: 0
 --- !u!1 &957141017
 GameObject:
   m_ObjectHideFlags: 0
@@ -62418,6 +62427,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
   r: 0
+  n: 0
 --- !u!114 &1807003650
 MonoBehaviour:
   m_ObjectHideFlags: 0
