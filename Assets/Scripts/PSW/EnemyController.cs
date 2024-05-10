@@ -129,6 +129,9 @@ public class EnemyController : MonoBehaviour
 
             // 체력 Slider의 값 갱신
             UpdateHealthBar();
+
+            // 이동 속도 및 공격 쿨다운에 따른 애니메이션 속도 조절
+            AdjustAnimationSpeed();
         }
 
         void UpdateHealthBar()
@@ -253,6 +256,17 @@ public class EnemyController : MonoBehaviour
             tower.TakeDamage(attackDamage); // 타워 체력 감소 
             attackCooldown = 1f; // 쿨다운 초기화
         }
+    }
+
+    // 이동 속도 및 공격 쿨다운에 따른 애니메이션 속도 조절
+    void AdjustAnimationSpeed()
+    {
+        // 이동 애니메이션 속도 조절
+        animator.SetFloat("WalkSpeed", navMeshAgent.speed / originalSpeed);
+
+        // 공격 애니메이션 속도 조절
+        float attackSpeedMultiplier = 1f / attackCooldown; 
+        animator.SetFloat("AttackSpeed", attackSpeedMultiplier);
     }
 
     public void OnStun(float time)
