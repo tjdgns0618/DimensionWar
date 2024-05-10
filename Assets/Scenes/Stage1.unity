@@ -9633,7 +9633,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1 2
+          m_StringArgument: Stage1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1696206251}
@@ -16910,13 +16910,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387519098}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.39023814, y: -0.3479167, z: 0.16223621, w: 0.83686775}
   m_LocalPosition: {x: 0, y: 10.695, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -45.149, z: 0}
 --- !u!114 &387519101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17967,7 +17967,7 @@ PrefabInstance:
     - target: {fileID: 3366509632816171244, guid: d6ac4791363ef6d44b6337936d9d746d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21673,10 +21673,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers: []
   enemys: []
+  uiManager: {fileID: 1696206251}
+  soundManager: {fileID: 1672707833}
   RoundTime: 0
   CAMtempRotation: {x: 0, y: 0, z: 0, w: 0}
   SelectBlock: {fileID: 0}
-  uiManager: {fileID: 1696206251}
   enemySpawner: {fileID: 0}
   Killcount: 0
   blockClicked: 0
@@ -25242,13 +25243,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616512019}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22707626, y: 0, z: 0, w: 0.973877}
-  m_LocalPosition: {x: 11, y: 25, z: -3}
+  m_LocalRotation: {x: 0.42261833, y: 0, z: 0, w: -0.90630776}
+  m_LocalPosition: {x: 11, y: 6, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 26.25, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -50, y: 0, z: 0}
 --- !u!114 &616512023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25835,7 +25836,7 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
   delay: 2
-  duration: 4
+  duration: 5
   easeType: 7
   easeCurve:
     serializedVersion: 2
@@ -25872,13 +25873,13 @@ MonoBehaviour:
   isActive: 1
   isValid: 1
   target: {fileID: 616512022}
-  animationType: 1
+  animationType: 3
   targetType: 11
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 11, y: 3.8, z: -3}
+  endValueV3: {x: 20, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -53693,7 +53694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1422230640
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53710,6 +53711,7 @@ RectTransform:
   - {fileID: 207295201}
   - {fileID: 273118830}
   - {fileID: 173335523}
+  - {fileID: 1930798845}
   m_Father: {fileID: 345588600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -58441,7 +58443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.28773582, b: 0.28773582, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -66440,7 +66442,6 @@ RectTransform:
   - {fileID: 1084539288}
   - {fileID: 2095383107}
   - {fileID: 1550138454}
-  - {fileID: 1930798845}
   m_Father: {fileID: 345588600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -66461,15 +66462,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7b7ad48ef12be42419fa82d57e9b4cba, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -70848,7 +70849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1930798845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -70865,13 +70866,13 @@ RectTransform:
   - {fileID: 134148016}
   - {fileID: 141635401}
   - {fileID: 37777941}
-  m_Father: {fileID: 1779663041}
+  m_Father: {fileID: 1422230640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 97}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 100}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1930798846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70885,7 +70886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
