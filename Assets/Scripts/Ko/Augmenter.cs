@@ -113,7 +113,7 @@ public class Augmenter : MonoBehaviour
     {
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
-            GameManager.Instance.towers[i].GetComponent<Tower_Skill>().SkillDamage += augmenter_Datas[r].num[n];
+            GameManager.Instance.towers[i].GetComponent<Tower_Skill>().SkillDmg += augmenter_Datas[r].num[n];
         }
     }
     public void Pixel_HealthUP()

@@ -227,30 +227,29 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void OnStun(float time)
+    public IEnumerator OnStun(float time)
     {
-        Waittime += Time.deltaTime;
         isStun = true;
-        if(Waittime >= time)
+       yield return YieldCache.WaitForSeconds(time);
         isStun = false;
     }
     public IEnumerator OnStop(float time)
     {
         float temp = movementSpeed;
         movementSpeed = 0;
-        yield return new WaitForSeconds(time);
+        yield return YieldCache.WaitForSeconds(time);
         movementSpeed = temp;
     }
     public IEnumerator OnDamageDown(float DamageDown,float time)
     {
         attackDamage *= (1 - DamageDown);
-        yield return new WaitForSeconds(time);
+        yield return YieldCache.WaitForSeconds(time);
         attackDamage /= (1 - DamageDown);
     }
     public IEnumerator OnSpeedDown(float SpeedDown, float time)
     {
         movementSpeed *= (1 - SpeedDown);
-        yield return new WaitForSeconds(time);
+        yield return YieldCache.WaitForSeconds(time);
         movementSpeed /= (1 - SpeedDown);
     }
     public void OnDamage(float damage)

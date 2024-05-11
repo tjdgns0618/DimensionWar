@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4910233924995612}
+  - {fileID: 8312544464143537248}
   m_Father: {fileID: 4916339269872310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113375890255226
@@ -823,7 +824,6 @@ Transform:
   m_Children:
   - {fileID: 4916339269872310}
   - {fileID: 4228878716121266}
-  - {fileID: 8312544464143537248}
   - {fileID: 7997583111056906569}
   - {fileID: 2062830691055464974}
   m_Father: {fileID: 0}
@@ -883,7 +883,7 @@ MonoBehaviour:
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 1876427223123748339, guid: 548b0c69cdafdfe499dcac14735a02ec, type: 3}
+  bullet: []
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
@@ -908,16 +908,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  SkillDmg: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 8679931775562000089, guid: 056b41383afe6414d8e2a4fe020ac16d, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 8068511008029465628}
   skillPose: []
-  SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
   curTowwer_Skill_Level: 0
@@ -1428,12 +1426,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8068511008029465628}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.58, z: 0.66}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.5318881, y: -0.31219488, z: 0.5023884, w: -0.6059994}
+  m_LocalPosition: {x: -36.8, y: -5.1, z: 16.3}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4943899590745752}
+  m_Father: {fileID: 4733016529228328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2067288639259699050
 PrefabInstance:

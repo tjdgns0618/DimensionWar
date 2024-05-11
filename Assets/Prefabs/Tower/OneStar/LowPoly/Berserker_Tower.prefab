@@ -971,7 +971,7 @@ MonoBehaviour:
   AttackRange: 2
   AttackDel: 2
   SkillCost: 5
-  SkillCount: 4
+  SkillCount: 0
   Damage: 10
   BuffDamage: 0
   targetLayer:
@@ -979,7 +979,7 @@ MonoBehaviour:
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 7765830648760196099, guid: 78c2cd3752c18bf488ac319b7b9e4b3e, type: 3}
+  bullet: []
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
@@ -1004,6 +1004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  SkillDmg: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 1259282276752840499}
@@ -1011,9 +1012,9 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 1824695601163454}
   skillPose: []
-  SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
+  curTowwer_Skill_Level: 0
 --- !u!114 &-2135069216521787487
 MonoBehaviour:
   m_ObjectHideFlags: 0

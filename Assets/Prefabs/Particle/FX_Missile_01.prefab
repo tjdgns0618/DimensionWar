@@ -19422,8 +19422,6 @@ GameObject:
   - component: {fileID: 4095590311870060297}
   - component: {fileID: 1386775926997986503}
   - component: {fileID: 2645785043111120762}
-  - component: {fileID: 8715983988596449500}
-  - component: {fileID: 5269269014766584977}
   m_Layer: 0
   m_Name: FX_Missile_Explosion_01
   m_TagString: Untagged
@@ -24264,47 +24262,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!65 &8715983988596449500
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036673539079381713}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5269269014766584977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036673539079381713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 0
-  Speed: 0
-  id: 0
-  towerSkillLevel: 0
-  SpeedCtrl: 0
-  hitObject: []
-  ps: {fileID: 0}
-  parentTower: {fileID: 0}
 --- !u!1 &6221391343801843925
 GameObject:
   m_ObjectHideFlags: 0

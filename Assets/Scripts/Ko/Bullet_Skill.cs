@@ -34,7 +34,6 @@ public class Bullet_Skill : Bullet
             }
             else
             {
-
                 Destroy(gameObject);
             }
 
