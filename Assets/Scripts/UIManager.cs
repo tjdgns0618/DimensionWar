@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     // public Slider BgmSlider;        // 배경음악 볼륨 조절 슬라이더
     public Canvas uiCanvas;         // 게임ui용 캔버스
-    public Canvas UpgradeCanvas;      // 스킬업그레이드ui용 캔버스
+    public GameObject UpgradePanel;      // 스킬업그레이드 패널
     public GameObject BuyPaenl;     // 타워 구매 패널
     public GameObject ClearPanel;
     public GameObject FailedPanel;

@@ -88,7 +88,7 @@ public class BTManager : MonoBehaviour
 
     public void UpgradeBtnClick()
     {
-        GameManager.Instance.uiManager.UpgradeCanvas.gameObject.SetActive(true);
+        GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DOPlay();
 
         if(GameManager.Instance.tower.GetComponent<Tower>().tower_type == 
             global::Tower.Tower_Type.Meele)

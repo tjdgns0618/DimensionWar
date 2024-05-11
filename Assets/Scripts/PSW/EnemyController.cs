@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private Slider hpBar; // Inspector 창에서 할당될 Slider
     public float health = 100f; // 적의 체력
+    public float tempHealth;
 
     public int goldDropAmount = 10; // 적이 드랍하는 골드의 양
 
@@ -402,6 +403,7 @@ public class EnemyController : MonoBehaviour
         GetComponent<BoxCollider>().enabled = true;
         SetDestinationToNextPathPoint();
         isDead = false;
+        health = tempHealth;
     }
 
     private void OnDisable()

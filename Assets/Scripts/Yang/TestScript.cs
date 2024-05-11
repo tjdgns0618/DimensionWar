@@ -38,6 +38,8 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
         // 다른 타워가 클릭된 상태였다면
         else if (GameManager.Instance.tower)
         {
+            GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DORewind();
+
             GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
             TowerClick();
         }
