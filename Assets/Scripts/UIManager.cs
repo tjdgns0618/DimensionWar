@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     public Button meleeStat1Button;      // 2번 강화버튼
     public Button meleeStat2Button;      // 2번 강화버튼
     public Button UpgradeButton;    // 1,2 강화한 후 활성화되는 버튼
+    
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
     public void SetDimension(int dimension)
     {
         PlayerPrefs.SetInt("dimension", dimension); // 3,2차원 스테이지 구별용
+
     }
 
     public void SetStage(string name)
