@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public float DamageToPlayer = 20f; // ���� �÷��̾�� ���ϴ� ������
 
     public bool isBoss = false;
+    private bool isLinking;
 
     // �̵��� ���Ǵ� ������
     private GameObject player; // �÷��̾� ������Ʈ
@@ -82,6 +83,8 @@ public class EnemyController : MonoBehaviour
 
         // �ʱ� ������ ����
         SetDestinationToNextPathPoint();
+
+        isLinking = false;
     }
 
     void Update()
@@ -146,6 +149,27 @@ public class EnemyController : MonoBehaviour
             // ü�� Slider�� �� ����
             hpBar.value = health;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (navMeshAgent.isOnOffMeshLink && isLinking == false)
+        {
+            float tempspeed = navMeshAgent.speed;
+            StartCoroutine(nameof(MoveAcrossOffLink));
+            navMeshAgent.speed = tempspeed;
+            navMeshAgent.updateRotation = true;
+            isLinking = true;
+            navMeshAgent.CompleteOffMeshLink();
+        }
+    }
+
+    IEnumerator MoveAcrossOffLink()
+    {
+        OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.speed = 500f;
+        yield return null;
     }
 
     // Ÿ�� ����
@@ -418,6 +442,7 @@ public class EnemyController : MonoBehaviour
         SetDestinationToNextPathPoint();
         isDead = false;
         health = tempHealth;
+        isLinking = false;
     }
 
     private void OnDisable()
