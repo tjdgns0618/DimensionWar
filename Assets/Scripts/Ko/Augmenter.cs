@@ -12,6 +12,7 @@ public class Augmenter : MonoBehaviour
     public Image Image;
     public GameObject button;
     public Augmenter_Data[] augmenter_Datas;
+    public List<int> nonag;
     public int r;
     public int n;
     string[] splitString;
@@ -37,16 +38,19 @@ public class Augmenter : MonoBehaviour
     {
         button.SetActive(false);
         Time.timeScale = PlayerPrefs.GetInt("Timescale");
-        augmenter_Datas[r].count++;
-
-            
+        //if(augmenter_Datas[r].count<3)
+            augmenter_Datas[r].count++;
+        if (augmenter_Datas[r].count >= augmenter_Datas[r].num.Count)
+        {
+                GameManager.Instance.FullUpAugm.Add(number);
+        }
         switch (number)
         {
             case 0:
                 AttackUp();
                 break;
             case 1: 
-                    HealthUP();
+                HealthUP();
                 break;
             case 2:
                 SpeedUp();
@@ -173,11 +177,3 @@ public class Augmenter : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-    
-
-
