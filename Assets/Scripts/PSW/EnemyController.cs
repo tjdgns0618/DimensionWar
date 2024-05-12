@@ -167,6 +167,7 @@ public class EnemyController : MonoBehaviour
         if (health < 0f)
         {
             health = 0f;
+            hpBar.value = 0f;
         }
     }
 

@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
     IEnumerator _ClearGame()
     {
         Time.timeScale = 0.5f;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         uiManager.ClearPanel.SetActive(true);
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
