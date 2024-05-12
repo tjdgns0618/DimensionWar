@@ -11,7 +11,6 @@ public class Tower_3D : Tower
     public bool doubleSkillattack = false;
     public  GameObject[] bulletPose;
     public GameObject child;
-
     // Start is called before the first frame update
 
     private void Start()
@@ -58,16 +57,19 @@ public class Tower_3D : Tower
 
     public override void test()
     {
-        
+
         if (tower_type == Tower_Type.Range)
         {
-            
-                GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-                dir = nearestTarget.transform.position-bulletPos.transform.position;
-                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized,Tower_id);
-                Destroy(g, 10);
+            nearestTarget.GetComponent<EnemyController>().OnDamage(Damage);
+            if (bullet != null)
+            {
+                foreach (GameObject b in bullet)
+                {
+                    b.SetActive(true);
+                }
+            }
         }
-            else if (tower_type == Tower_Type.Meele)
+        else if (tower_type == Tower_Type.Meele)
         {
             nearestTarget.GetComponent<EnemyController>().OnDamage(Damage);
 
@@ -77,12 +79,15 @@ public class Tower_3D : Tower
     {
         if (tower_type == Tower_Type.Range)
         {
-                
-                GameObject g = Instantiate(bullet, bulletPose[i].transform.position,transform.rotation);
-                dir = nearestTarget.transform.position - bulletPose[i].transform.position;
-                g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized,Tower_id);
-                Destroy(g, 10);
-  
+            nearestTarget.GetComponent<EnemyController>().OnDamage(Damage);
+            if (bullet != null)
+            {
+                foreach (GameObject b in bullet)
+                {
+                    b.SetActive(true);
+                }
+            }
+
         }
             else if (tower_type == Tower_Type.Meele)
         {

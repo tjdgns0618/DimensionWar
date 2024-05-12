@@ -24,11 +24,9 @@ public class Skill : MonoBehaviour
     }
     void Start()
     {
-        Destroy(gameObject,5);
+        //Destroy(gameObject,5);
         if (id == 9)
             rigid = GetComponent<Rigidbody>();
-        
-           
 
     }
 
@@ -38,11 +36,6 @@ public class Skill : MonoBehaviour
         
     }
 
-    private IEnumerator particleDestroy()
-    {
-        yield return new WaitForSeconds(gameObject.GetComponent<ParticleSystem>().main.duration);
-        Destroy(gameObject);
-    }
 
 
     private void OnParticleCollision(GameObject other)
@@ -55,7 +48,7 @@ public class Skill : MonoBehaviour
             switch (id)
             {
                 case 4:
-                    StartCoroutine(id_4(enemy));
+                    enemy.OnDamage(Damage);
                     enemy.StartCoroutine(enemy.OnStop(3));
                     break;
                 case 7:
@@ -63,17 +56,20 @@ public class Skill : MonoBehaviour
                     Debug.Log("1");
                     break;
                 case 14:
-                    id_14(enemy);
+                    enemy.OnDamage(Damage);
                     break;
                 case 17:
-                    StartCoroutine(id_17(enemy));
+                    enemy.OnDamage(Damage);
+                    break;
+                case 19:
+                    enemy.OnDamage(Damage);
                     break;
                 case 20:
-                    StartCoroutine(id_20(enemy));
+                    enemy.OnDamage(Damage);
                     Debug.Log(enemy.health);
                     break;
                 case 22:
-                    StartCoroutine(id_22(enemy));
+                    enemy.OnDamage(Damage);
                     break;
             }
         
@@ -120,75 +116,71 @@ public class Skill : MonoBehaviour
             switch (id)
             {
                 case 1:
-                    enemyController.StartCoroutine(enemyController.OnDamageDown(0.3f, 3));
-                    StartCoroutine(id_1(enemyController));
+                    StartCoroutine(enemyController.OnDamageDown(0.3f, 3));
+                    StartCoroutine(DotDeal(enemyController,1));
                     break;
                 case 2:
-                    StartCoroutine(id_2(enemyController));
+                    StartCoroutine(DotDeal(enemyController,1f));
                     break;
                 case 3:
-                    enemyController.StartCoroutine(enemyController.OnSpeedDown(0.3f,3));
-                    StartCoroutine(id_3(enemyController));
+                    StartCoroutine(enemyController.OnSpeedDown(0.3f,3));
+                    enemyController.OnDamage(Damage);
                     break;
                 case 4:
-                    StartCoroutine(id_4(enemyController));
-                    enemyController.StartCoroutine(enemyController.OnStop(3));
-                    break;
-                case 5:
+                    enemyController.OnDamage(Damage);
+                    StartCoroutine(enemyController.OnStop(3));
                     break;
                 case 6:
-                    StartCoroutine(id_6(enemyController));
-
-                    break;
-                case 7:
+                    enemyController.OnDamage(Damage);
                     break;
                 case 8:
-                    StartCoroutine(id_8(enemyController));
+                    StartCoroutine(DotDeal(enemyController, 1));
                     break;
                 case 9:
                     id_9(enemyController);
                     break;
                 case 10:
-                    StartCoroutine(id_10(enemyController));
+                    StartCoroutine(DotDeal(enemyController, 1));
                     break;
                 case 11:
-                    StartCoroutine(id_1(enemyController));
+                    StartCoroutine(DotDeal(enemyController,1f));
                     break;
                 case 12:
-                    id_12(enemyController);
+                    enemyController.OnDamage(Damage);
                     break;
                 case 15:
-                    StartCoroutine(id_15(enemyController));
+                    StartCoroutine(DotDeal(enemyController, 1));
                     break;
                 case 16:
-                    StartCoroutine(id_16(enemyController));
+                    StartCoroutine(DotDeal(enemyController, 1));
                     break;
                 case 18:
-                    id_18(enemyController);
-                    Debug.Log("id_18");
+                    enemyController.OnDamage(Damage);
+                    StartCoroutine(enemyController.OnStun(3));
                     break;
                 case 21:
-                    StartCoroutine(id_21(enemyController));
+                    StartCoroutine(DotDeal(enemyController, 1));
                     break;
                 case 24:
-                    switch (towerSkillLevel)
-                    {
-                        case 0:
-                            StartCoroutine(id_24(enemyController));
-                            break;
-                        case 1:
-                            StartCoroutine(id_24(enemyController));
-                            enemyController.OnStun(3);
-                            break;
-                    }
+                    StartCoroutine(DotDeal(enemyController, 1));
                     break;
                 case 25:
-                    StartCoroutine(id_25(enemyController));
+                    enemyController.OnDamage(Damage);
                     break;
                 case 26:
-                    StartCoroutine(id_26(enemyController));
+                    enemyController.OnDamage(Damage);
                     break;
             }
+        }
+    }
+
+    IEnumerator DotDeal(EnemyController enemy,float time)
+    {
+        while (true)
+        {
+            enemy.OnDamage(Damage);
+            Debug.Log(enemy.name + enemy.health);
+            yield return YieldCache.WaitForSeconds(time);
         }
     }
     void AttackDamageDown(EnemyController enemy)
@@ -199,186 +191,25 @@ public class Skill : MonoBehaviour
     {
         enemy.attackDamage /= (1 - 0.3f);
     }
-    void SpeedDown(EnemyController enemy)//加档皑家
-    {
-        enemy.movementSpeed *= (1 - SpeedCtrl);
-    }void ResetSpeed(EnemyController enemy)//加档皑家
-    {
-        enemy.movementSpeed /= (1 - SpeedCtrl);
-    }
-    IEnumerator id_1(EnemyController enemy)
-    {
-        while (true) { 
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name+enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-    }
-    IEnumerator id_2(EnemyController enemy)
-    {
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
 
-    }
-    IEnumerator id_3(EnemyController enemy)
-    {
-        enemy.OnDamage(Damage);
-        yield return new WaitForSeconds(1f);
-    }
-    IEnumerator id_4(EnemyController enemy)
-    {
-        isDmg = false;
-        enemy.OnDamage(Damage);
-        Debug.Log(enemy.health);
-        yield return new WaitForSeconds(1);
-    }
-    IEnumerator id_6(EnemyController enemy)
-    {
-        enemy.OnDamage(Damage);
-        Debug.Log(enemy.health);
-        yield return  null;
-    }
+
     void id_7(EnemyController enemy)
     {
-       // enemy.OnDamage(Damage);
         Collider[] c = Physics.OverlapSphere(enemy.transform.position, 2);
-        
         foreach(Collider hit in c)
         {
             hit.gameObject.GetComponent<EnemyController>().OnDamage(Damage);    
         }
 
     }
-    IEnumerator id_8(EnemyController enemy)
-    {
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-    }
     void id_9(EnemyController enemy)
     {
         enemy.OnDamage(Damage);
-        
         parents = Instantiate(ps, enemy.transform.position, enemy.transform.rotation);
         parents.transform.parent = enemy.transform;
         Destroy(gameObject);
     }
-    IEnumerator id_10(EnemyController enemy)
-    {
 
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-    }
-
-    void id_12(EnemyController enemy)
-    {
-
-        enemy.OnDamage(Damage);
-    }
-    void id_14(EnemyController enemy)
-    { 
-        enemy.OnDamage(Damage);
-    }
-    IEnumerator id_15(EnemyController enemy)
-    {
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-
-    }
-
-    IEnumerator id_16(EnemyController enemy)
-    {
-        
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-    }
-    IEnumerator id_17(EnemyController enemy)
-    {
-        enemy.OnDamage(Damage);
-        yield return new WaitForSeconds(1);
-    }
-    void id_18(EnemyController enemy)
-    {
-        enemy.OnDamage(Damage);
-        //  StartCoroutine(enemy.OnStun(1.5f));
-    }
-    IEnumerator id_20(EnemyController enemy)
-    {
-        enemy.OnDamage(Damage);
-        yield return new WaitForSeconds(1);
-    }
-    IEnumerator id_21(EnemyController enemy)
-    {
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-    }
-    IEnumerator id_22(EnemyController enemy)
-    {
-        enemy.OnDamage(Damage); Debug.Log(enemy.name + enemy.health);
-        yield return new WaitForSeconds(1);
-    }
-    IEnumerator id_24(EnemyController enemy)
-    {
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-    }
-    IEnumerator id_25(EnemyController enemy)
-    {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-    }
-    IEnumerator id_26(EnemyController enemy)
-    {
-        while (true)
-        {
-            enemy.OnDamage(Damage);
-            Debug.Log(enemy.name + enemy.health);
-            yield return new WaitForSeconds(1);
-        }
-    }
-    public void OnDestroy()
-    {
-        if (id == 1)
-        {
-            foreach (var enemy in hitObject)
-            {
-                ResetAttackDamage(enemy.GetComponent<EnemyController>());
-            }
-        }
-        //if(id == 3 || id == 4)
-        //{
-        //    foreach (var enemy in hitObject)
-        //    {
-        //        ResetSpeed(enemy.GetComponent<EnemyController>());
-        //    }
-        //}
-    }
+    
+  
 }

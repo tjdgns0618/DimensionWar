@@ -2569,7 +2569,7 @@ MonoBehaviour:
   upgrade: 
   maxEnemiesPerTower: 5
   currentEnemyCount: 0
-  health: 3000
+  health: 1000
   tempHealth: 0
   Tower_id: 24
   tower_state: 0
@@ -2580,15 +2580,16 @@ MonoBehaviour:
   AttackRange: 3
   AttackDel: 3
   SkillCost: 5
-  SkillCount: 0
-  Damage: 1000
+  SkillCount: 4
+  Damage: 200
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 0}
+  bullet:
+  - {fileID: 0}
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
@@ -2622,6 +2623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  SkillDmg: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 3654670879950911874, guid: 54cd611b3a839044e9912d8a6d7873e4, type: 3}
@@ -2630,7 +2632,6 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 5115936024207910266}
   skillPose: []
-  SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
   curTowwer_Skill_Level: 0

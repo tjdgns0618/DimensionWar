@@ -35,15 +35,14 @@ public class Tower : MonoBehaviour
     public float SkillCost = 0;
     public float SkillCount = 0;
 
-    public float Damage = 10;
+    public float Damage;
     public float BuffDamage;
 
     public LayerMask targetLayer;
     public RaycastHit[] targets;
     public Transform nearestTarget;
     public float attTime;
-    GameObject tower;
-    public GameObject bullet;
+    public GameObject[] bullet;
     public GameObject buffbullet;
     public bool isBuff;
     public bool isSkill =false;
@@ -195,7 +194,7 @@ public class Tower : MonoBehaviour
                 GameObject g = Instantiate(buffbullet, nearestTarget.transform.position, buffbullet.transform.rotation);
                 
                 g.GetComponent<Bullet>().Init(Damage*BuffDamage, 10, dir.normalized, Tower_id);
-                Destroy(g, 10);
+                Destroy(g, 2);
             }
             else if (tower_type == Tower_Type.Meele)
             {
@@ -208,23 +207,27 @@ public class Tower : MonoBehaviour
             {
                 if(createbullet)
                 {
-                    GameObject g = Instantiate(bullet, nearestTarget.transform.position, bullet.transform.rotation);
+                    GameObject g = Instantiate(bullet[0], nearestTarget.transform.position, bullet[0].transform.rotation);
 
                     g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized, Tower_id);
                     Destroy(g, 10);
                 }
                 else
                 {
-                    GameObject g = Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
-                    g.GetComponent<Bullet>().Init(Damage, 10, dir.normalized, Tower_id);
-                    Destroy(g, 10);
-
+                    nearestTarget.GetComponent<EnemyController>().OnDamage(Damage);
+                    if(bullet != null)
+                    {
+                        foreach (GameObject b in bullet)
+                        {
+                            b.SetActive(true);
+                        }
+                    }
+                    
                 }
             }
             else if (tower_type == Tower_Type.Meele)
             {
                 nearestTarget.GetComponent<EnemyController>().OnDamage(Damage);
-
             }
         }
     }
@@ -236,10 +239,18 @@ public class Tower : MonoBehaviour
     {
         if(!isBuff)
         SkillCount++;
+        if(bullet != null&&tower_type != Tower_Type.Meele)
+        {
+            foreach (GameObject b in bullet)
+            {
+                b.SetActive(false);
+            }
+        }
     }
     public void skillEnd()
     {
         isSkill = false;
+        
         tower_state = Tower_State.Attack;
     }
     public virtual void  Skill()

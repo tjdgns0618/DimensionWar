@@ -149,7 +149,7 @@ MonoBehaviour:
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 2566443613767749222, guid: 3f79d248555f4dd4e96a71f9bcf4f003, type: 3}
+  bullet: []
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
@@ -174,16 +174,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  SkillDmg: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 2808651401978747545, guid: d975d826a73c4ef4790ce27e94abdb5f, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 6384168771592200977}
   skillPose: []
-  SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
   curTowwer_Skill_Level: 0

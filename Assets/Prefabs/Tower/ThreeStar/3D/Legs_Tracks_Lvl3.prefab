@@ -616,7 +616,7 @@ MonoBehaviour:
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 4414115576028475042, guid: 45002747062330546880eb609004b85d, type: 3}
+  bullet: []
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
@@ -654,17 +654,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  SkillDmg: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
-  - {fileID: 7729559464457596884, guid: 6ccc5629ecf44e34394284ffd3090adf, type: 3}
-  - {fileID: 5711988094466745346, guid: d89950dc31d2a544c939326a116d9885, type: 3}
+  - {fileID: 1352952055292810, guid: 96a7713ac5c69994793a573050b1382b, type: 3}
   tower_Level: 0
   colliders: []
   skillPos: {fileID: 5042204585135364214}
   skillPose:
   - {fileID: 1855172673942822316}
   - {fileID: 795483376070473676}
-  SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
   curTowwer_Skill_Level: 0
@@ -2415,7 +2414,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2438824730343460274, guid: b5aa1c859c4c8e740b1c3b116f82a432, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

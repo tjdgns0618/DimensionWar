@@ -41,14 +41,14 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4887618734002203956}
   serializedVersion: 8
-  lengthInSec: 3
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4888,7 +4888,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5254583522307390889}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 1
@@ -9875,6 +9875,7 @@ MonoBehaviour:
   Damage: 0
   Speed: 0
   id: 0
+  towerSkillLevel: 0
   SpeedCtrl: 0
   hitObject: []
   ps: {fileID: 0}

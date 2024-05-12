@@ -9656,7 +9656,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.1835e-41, y: NaN, z: 1.3545736e-38, w: NaN}
+  m_BoundingSphereOverride: {x: -1, y: 1, z: 7e-45, w: 1.489e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -19400,9 +19400,9 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2920292627676943812}
   serializedVersion: 8
-  lengthInSec: 6
+  lengthInSec: 4
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -19475,7 +19475,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.9
+      scalar: 0.0001
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -24301,6 +24301,7 @@ MonoBehaviour:
   Damage: 0
   Speed: 0
   id: 0
+  towerSkillLevel: 0
   SpeedCtrl: 0
   hitObject: []
   ps: {fileID: 0}
@@ -53262,7 +53263,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 2.1e-44, z: 8.629e-42, w: 1.0038149e+9}
+  m_BoundingSphereOverride: {x: -1, y: 1, z: 2, w: -2}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

@@ -1628,7 +1628,8 @@ MonoBehaviour:
     m_Bits: 64
   nearestTarget: {fileID: 0}
   attTime: 0
-  bullet: {fileID: 0}
+  bullet:
+  - {fileID: 0}
   buffbullet: {fileID: 0}
   isBuff: 0
   isSkill: 0
@@ -1653,6 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  SkillDmg: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 3550624965638275775, guid: 66865480d97dfce488e0b6af75a75817, type: 3}
@@ -1660,7 +1662,6 @@ MonoBehaviour:
   colliders: []
   skillPos: {fileID: 6340468973890119990}
   skillPose: []
-  SkillDamage: 0
   skillParent: {fileID: 0}
   posNum: 0
   curTowwer_Skill_Level: 0
