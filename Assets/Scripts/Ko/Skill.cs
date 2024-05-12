@@ -210,6 +210,4 @@ public class Skill : MonoBehaviour
         Destroy(gameObject);
     }
 
-    
-  
 }

@@ -8330,6 +8330,7 @@ MonoBehaviour:
   - {fileID: 1807003647}
   - {fileID: 314114903}
   r: 
+  FullUp: 
   count: 0
   max: 11
 --- !u!4 &248422957
@@ -10410,7 +10411,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
   - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
   - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
+  FullupAr: 
   r: 0
+  n: 0
 --- !u!114 &314114906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29640,7 +29643,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
   - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
   - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
+  FullupAr: 
   r: 0
+  n: 0
 --- !u!114 &913216333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30860,15 +30865,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
-    - {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843, type: 3}
-    numberOfEnemiesPerPrefab: 01000000
+    - enemyPrefab: {fileID: 0}
+      numberOfEnemies: 0
+      enemyHealth: 0
+      goldDropAmount: 0
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
   spawnPoints:
   - {fileID: 957065871}
   startWaveButton: {fileID: 1009900265}
-  poolParent: {fileID: 117126805}
+  count: 0
 --- !u!1 &957141017
 GameObject:
   m_ObjectHideFlags: 0
@@ -62409,7 +62419,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
   - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
   - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
+  FullupAr: 
   r: 0
+  n: 0
 --- !u!114 &1807003650
 MonoBehaviour:
   m_ObjectHideFlags: 0
