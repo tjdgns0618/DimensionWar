@@ -8331,8 +8331,8 @@ MonoBehaviour:
   - {fileID: 314114903}
   r: 
   FullUp: 
-  count: 0
   max: 11
+  Upgradecount: 0
 --- !u!4 &248422957
 Transform:
   m_ObjectHideFlags: 0
@@ -10411,7 +10411,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
   - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
   - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
-  FullupAr: 
+  nonag: 
   r: 0
   n: 0
 --- !u!114 &314114906
@@ -15570,6 +15570,7 @@ MonoBehaviour:
   towerSpeed: 0
   towerHp: 0
   BonusDamage: 0
+  FullUpAugm: 
 --- !u!1 &531566371
 GameObject:
   m_ObjectHideFlags: 0
@@ -29643,7 +29644,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
   - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
   - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
-  FullupAr: 
+  nonag: 
   r: 0
   n: 0
 --- !u!114 &913216333
@@ -62419,7 +62420,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
   - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
   - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
-  FullupAr: 
+  nonag: 
   r: 0
   n: 0
 --- !u!114 &1807003650
@@ -70270,6 +70271,18 @@ MonoBehaviour:
       - m_Target: {fileID: 248422956}
         m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
         m_MethodName: CreateUnDuplicateRandom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 248422956}
+        m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
+        m_MethodName: AugmenterBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

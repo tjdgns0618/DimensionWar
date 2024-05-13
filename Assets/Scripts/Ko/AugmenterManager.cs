@@ -101,4 +101,8 @@ public class AugmenterManager : MonoBehaviour
             bt[i].GetComponent<Augmenter>().AugmentUpdate();
         }
     }
+    public void AugmenterBuy()
+    {
+        GameManager.Instance.gold -= 100;
+    }
 }
