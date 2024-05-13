@@ -33,6 +33,7 @@ public class Tower_Skill : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+
     }
     void initSkill()
     {
@@ -148,7 +149,7 @@ public class Tower_Skill : MonoBehaviour
     {
         g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position, transform.rotation);
         g.GetComponent<Skill>().init(SkillDmg * 0.1f, id);
-        yield return YieldCache.WaitForSeconds(5f);
+        yield return YieldCache.WaitForSeconds(3f);
         Destroy(g);
     }
     IEnumerator skill_2()//�ʴ�10%������
@@ -332,8 +333,8 @@ public class Tower_Skill : MonoBehaviour
     }
     IEnumerator skill_14()
     {
-
-        g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position + transform.up * 5, SkillPrefabs[curTowwer_Skill_Level].transform.rotation);
+        UnityEngine.Vector3 skillpos = new UnityEngine.Vector3(EnemyTrans.position.x, transform.position.y, EnemyTrans.position.z);
+        g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], skillpos, transform.rotation);
         g.GetComponent<Skill>().init(SkillDmg * 1.3f, id);
         //g.transform.parent = skillParent.transform;
         yield return YieldCache.WaitForSeconds(3f);
@@ -484,9 +485,9 @@ public class Tower_Skill : MonoBehaviour
         switch (curTowwer_Skill_Level)
         {
             case 0:
-                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.transform.position, transform.rotation);
-                g.GetComponentInChildren<Skill>().init(SkillDmg * 1f, id);
-                g.GetComponentInChildren<Skill>().parentTower = gameObject;
+                UnityEngine.Vector3 skillpos = new UnityEngine.Vector3(EnemyTrans.position.x, transform.position.y, EnemyTrans.position.z);
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], skillpos, transform.rotation);
+                g.GetComponent<Skill>().init(SkillDmg * 5f, id);
                 g.SetActive(true);
                 break;
 
@@ -503,7 +504,7 @@ public class Tower_Skill : MonoBehaviour
         if (curTowwer_Skill_Level > tower_Level)
             curTowwer_Skill_Level = 0;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         Destroy(g);
     }
     IEnumerator skill_26()
@@ -511,7 +512,8 @@ public class Tower_Skill : MonoBehaviour
         switch (curTowwer_Skill_Level)
         {
             case 0:
-                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position, transform.rotation);
+                UnityEngine.Vector3 skillpos = new UnityEngine.Vector3(EnemyTrans.position.x, transform.position.y, EnemyTrans.position.z);
+                g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], skillpos, transform.rotation);
                 g.GetComponent<Skill>().init(SkillDmg * 5, id);
                 g.SetActive(true);
                 yield return new WaitForSeconds(2);

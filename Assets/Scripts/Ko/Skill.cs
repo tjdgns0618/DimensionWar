@@ -35,7 +35,10 @@ public class Skill : MonoBehaviour
     {
         
     }
-
+    public void TrackingEnemy(EnemyController enemy)
+    {
+        transform.LookAt(enemy.transform.position);
+    }
 
 
     private void OnParticleCollision(GameObject other)
@@ -55,9 +58,7 @@ public class Skill : MonoBehaviour
                     id_7(enemy);
                     Debug.Log("1");
                     break;
-                case 14:
-                    enemy.OnDamage(Damage);
-                    break;
+               
                 case 17:
                     enemy.OnDamage(Damage);
                     break;
@@ -134,13 +135,13 @@ public class Skill : MonoBehaviour
                     enemyController.OnDamage(Damage);
                     break;
                 case 8:
-                    StartCoroutine(DotDeal(enemyController, 1));
+                    StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 9:
                     id_9(enemyController);
                     break;
                 case 10:
-                    StartCoroutine(DotDeal(enemyController, 1));
+                    StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 11:
                     StartCoroutine(DotDeal(enemyController,1f));
@@ -148,21 +149,24 @@ public class Skill : MonoBehaviour
                 case 12:
                     enemyController.OnDamage(Damage);
                     break;
+                case 14:
+                    StartCoroutine(DotDeal(enemyController, 1f));
+                    break;
                 case 15:
-                    StartCoroutine(DotDeal(enemyController, 1));
+                    StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 16:
-                    StartCoroutine(DotDeal(enemyController, 1));
+                    StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 18:
                     enemyController.OnDamage(Damage);
                     StartCoroutine(enemyController.OnStun(3));
                     break;
                 case 21:
-                    StartCoroutine(DotDeal(enemyController, 1));
+                    StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 24:
-                    StartCoroutine(DotDeal(enemyController, 1));
+                    StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 25:
                     enemyController.OnDamage(Damage);
