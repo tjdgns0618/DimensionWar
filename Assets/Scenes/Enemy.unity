@@ -492,10 +492,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers: []
   enemys: []
+  uiManager: {fileID: 0}
+  soundManager: {fileID: 0}
   RoundTime: 0
   CAMtempRotation: {x: 0, y: 0, z: 0, w: 0}
   SelectBlock: {fileID: 0}
-  uiManager: {fileID: 0}
   enemySpawner: {fileID: 1192703093}
   Killcount: 0
   blockClicked: 0
@@ -1274,6 +1275,7 @@ MonoBehaviour:
   health: 200
   rocket: {fileID: 0}
   effect: {fileID: 0}
+  hpSlider: {fileID: 0}
 --- !u!54 &729931369
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1978,9 +1980,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
+    - enemyPrefab: {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843,
+        type: 3}
+      numberOfEnemies: 1
+      enemyHealth: 100
       goldDropAmount: 0
     spawnInterval: 5
     increaseSpeed: 0
@@ -1989,9 +1992,10 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 0}
-      numberOfEnemies: 0
-      enemyHealth: 0
+    - enemyPrefab: {fileID: 6749184236465760798, guid: 3cab7713b8fe0954088788c819a52dd1,
+        type: 3}
+      numberOfEnemies: 1
+      enemyHealth: 100
       goldDropAmount: 0
     spawnInterval: 5
     increaseSpeed: 0
@@ -2003,6 +2007,7 @@ MonoBehaviour:
   - {fileID: 1192703092}
   startWaveButton: {fileID: 1253878536}
   count: 0
+  lastSpawn: 0
 --- !u!1001 &1195184245
 PrefabInstance:
   m_ObjectHideFlags: 0
