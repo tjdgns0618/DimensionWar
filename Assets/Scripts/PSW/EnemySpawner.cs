@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
     public int count;
     private int currentWaveIndex = 0; // 현재 웨이브 인덱스
     private bool isWaveInProgress = false; // 현재 웨이브가 진행 중인지 여부
-
+    public bool lastSpawn;
 
     // 적이 모두 사망했음을 알리는 이벤트
     public event Action OnAllEnemiesDead;
@@ -77,6 +77,7 @@ public class EnemySpawner : MonoBehaviour
         if (!isWaveInProgress)
         {
             count = 0;
+            lastSpawn = false;
             isWaveInProgress = true;
             StartCoroutine(SpawnEnemies());
         }
@@ -108,6 +109,8 @@ public class EnemySpawner : MonoBehaviour
                     enemy.transform.position = spawnPoint.position;
                     enemy.SetActive(true);
                     count++;
+                    if (count == currentWave.enemyPool.Count)
+                        lastSpawn = true;
                     Debug.Log(count);
 
                     // 적의 속도 증가 체크 여부에 따라 속도 증가
@@ -210,8 +213,9 @@ public class EnemySpawner : MonoBehaviour
             EnemyWave currentWave = EnemyWaves[currentWaveIndex];
             if (currentWave.lastEnemySpawned && allDead && OnAllEnemiesDead != null)
             {
-                GameManager.Instance.meleeRespawn(); // GameManager.Instance가 null이 아닐 때만 호출
-                GameManager.Instance.diamond += 3;
+                Debug.Log("alldead");
+                //GameManager.Instance.meleeRespawn(); // GameManager.Instance가 null이 아닐 때만 호출
+                //GameManager.Instance.diamond += 3;
                 OnAllEnemiesDead.Invoke();
             }
 
