@@ -35,12 +35,9 @@ public class AugmenterManager : MonoBehaviour
 
     public void Augmeneter()
     {
-        GameManager.Instance.gold -= 50;
         r = new List<int>();
         Time.timeScale = 0;
         btt.SetActive(true);
-        
-
         GameManager.Instance.blockClicked = false;
         if (GameManager.Instance.SelectBlock)
         {
@@ -61,6 +58,11 @@ public class AugmenterManager : MonoBehaviour
 
     public void reroll(int num)
     {
+        if(GameManager.Instance.gold <=10)
+        {
+            //gameObject.SetActive(false);
+            return;
+        }
         GameManager.Instance.gold -= 10;
         int currentNumber = Random.Range(0, max);
         while (true)

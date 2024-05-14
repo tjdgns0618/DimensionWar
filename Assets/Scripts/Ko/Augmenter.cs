@@ -38,8 +38,9 @@ public class Augmenter : MonoBehaviour
     {
         button.SetActive(false);
         Time.timeScale = PlayerPrefs.GetInt("Timescale");
+        GameManager.Instance.gold -= 10*n;
         //if(augmenter_Datas[r].count<3)
-            augmenter_Datas[r].count++;
+        augmenter_Datas[r].count++;
         if (augmenter_Datas[r].count >= augmenter_Datas[r].num.Count)
         {
                 GameManager.Instance.FullUpAugm.Add(number);
