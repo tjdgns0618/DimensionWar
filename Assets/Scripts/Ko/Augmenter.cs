@@ -83,97 +83,110 @@ public class Augmenter : MonoBehaviour
     }
     public void HealthUP()
     {
-        GameManager.Instance.towerHp += augmenter_Datas[r].num[n];
+        GameManager.Instance.towerHp += augmenter_Datas[r].num[n] * 0.01f;
 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
-            GameManager.Instance.towers[i].GetComponent<Tower>().health += augmenter_Datas[r].num[n];
+            GameManager.Instance.towers[i].GetComponent<Tower>().health += GameManager.Instance.towers[i].GetComponent<Tower>().tempHealth * augmenter_Datas[r].num[n]*0.01f;
         }
     }
 
     public void AttackUp()
     {
-        GameManager.Instance.towerDamage += augmenter_Datas[r].num[n];
+        GameManager.Instance.towerDamage += augmenter_Datas[r].num[n] * 0.01f; 
 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
-            GameManager.Instance.towers[i].GetComponent<Tower>().Damage += augmenter_Datas[r].num[n];
+            GameManager.Instance.towers[i].GetComponent<Tower>().Damage += GameManager.Instance.towers[i].GetComponent<Tower>().TempDamage * augmenter_Datas[r].num[n] * 0.01f;
         }
     }
     public void SpeedUp()
     {
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
-            GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel /= 1.5f;
+            GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel -= GameManager.Instance.towers[i].GetComponent<Tower>().TempDamage * augmenter_Datas[r].num[n] * 0.01f;
 
         }
     }
 
     public void BonusDamage()
     {
-        GameManager.Instance.BonusDamage += augmenter_Datas[r].num[n];
+        GameManager.Instance.BonusDamage += augmenter_Datas[r].num[n] * 0.01f;
     }
     public void Skill_DamageUp()
     {
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
-            GameManager.Instance.towers[i].GetComponent<Tower_Skill>().SkillDmg += augmenter_Datas[r].num[n];
+            GameManager.Instance.towers[i].GetComponent<Tower_Skill>().SkillDmg += GameManager.Instance.towers[i].GetComponent<Tower>().TempDamage * augmenter_Datas[r].num[n] * 0.01f;
         }
     }
     public void Pixel_HealthUP()
     {
 
+        GameManager.Instance.Pixel_tower_Hp += augmenter_Datas[r].num[n] * 0.01f; 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.Pixel)
-                GameManager.Instance.towers[i].GetComponent<Tower>().health += augmenter_Datas[r].num[n];
+                GameManager.Instance.towers[i].GetComponent<Tower>().health += GameManager.Instance.towers[i].GetComponent<Tower>().tempHealth * augmenter_Datas[r].num[n] * 0.01f;
         }
     }
 
     public void Pixel_AttackUp()
     {
+        GameManager.Instance.Pixel_tower_damage += augmenter_Datas[r].num[n] * 0.01f; 
 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.Pixel)
-                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += augmenter_Datas[r].num[n];
+                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += GameManager.Instance.towers[i].GetComponent<Tower>().TempDamage * augmenter_Datas[r].num[n] * 0.01f;
         }
     }
     public void LowPoly_HealthUP()
     {
+        GameManager.Instance.LowPoly_tower_Hp+= augmenter_Datas[r].num[n] * 0.01f;
 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
-                GameManager.Instance.towers[i].GetComponent<Tower>().health += augmenter_Datas[r].num[n];
+                GameManager.Instance.towers[i].GetComponent<Tower>().health += GameManager.Instance.towers[i].GetComponent<Tower>().tempHealth * augmenter_Datas[r].num[n] * 0.01f;
         }
     }
 
     public void LowPoly_AttackUp()
     {
+        GameManager.Instance.LowPoly_tower_damage += augmenter_Datas[r].num[n] * 0.01f;
 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
-                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += augmenter_Datas[r].num[n];
+                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += GameManager.Instance.towers[i].GetComponent<Tower>().TempDamage * augmenter_Datas[r].num[n] * 0.01f;
         }
     }
     public void _3D_HealthUP()
     {
 
+        GameManager.Instance._3D_tower_damage += augmenter_Datas[r].num[n] * 0.01f; 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
-                GameManager.Instance.towers[i].GetComponent<Tower>().health += augmenter_Datas[r].num[n];
+                GameManager.Instance.towers[i].GetComponent<Tower>().health += GameManager.Instance.towers[i].GetComponent<Tower>().tempHealth * augmenter_Datas[r].num[n] * 0.01f;
         }
     }
     public void _3D_AttackUp()
     {
-
+        GameManager.Instance._3D_tower_damage += augmenter_Datas[r].num[n] * 0.01f; 
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             if (GameManager.Instance.towers[i].GetComponent<Tower>().tower_class == Tower.Tower_Class.RowPoly)
-                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += augmenter_Datas[r].num[n];
+                GameManager.Instance.towers[i].GetComponent<Tower>().Damage += GameManager.Instance.towers[i].GetComponent<Tower>().TempDamage * augmenter_Datas[r].num[n] * 0.01f;
+        }
+    }
+    public void RangeUp()
+    {
+
+        for (int i = 0; i < GameManager.Instance.towers.Count; i++)
+        {
+            GameManager.Instance.towers[i].GetComponent<Tower>().AttackRange += augmenter_Datas[r].num[n];
         }
     }
 }
