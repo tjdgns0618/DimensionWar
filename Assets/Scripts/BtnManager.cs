@@ -320,9 +320,25 @@ public class BTManager : MonoBehaviour
             GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
             GameManager.Instance.SelectBlock = null;
         }
+        GameManager.Instance.uiManager.SettingPanel.SetActive(true);
         GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
         GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DORewind();
         GameManager.Instance.uiManager.UpPanel.SetActive(false);
+        StopTime();
+    }
+
+    public void HowToBtn()
+    {
+        GameManager.Instance.uiManager.SettingPanel.SetActive(false);
+        GameManager.Instance.uiManager.HowtoPanel.SetActive(true);
+        GameManager.Instance.uiManager.HowtoPanel.GetComponent<DOTweenAnimation>().DORestart();
+        GameManager.Instance.uiManager.UpPanel.SetActive(false);
+    }
+
+    public void SoundSettingBtn()
+    {
+        GameManager.Instance.uiManager.SettingPanel.SetActive(false);
+        GameManager.Instance.uiManager.SoundPanel.SetActive(true);
     }
 
     // ��ų ĵ������ �����ϰ� ���Ӽӵ��� ������� �ϴ� �Լ�
