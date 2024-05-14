@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 4e154bf235e41704bbd6bbc6fd6c63f6, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3423956, g: 0.432766, b: 0.57318854, a: 1}
+  m_IndirectSpecularColor: {r: 0.011410747, g: 0.013451882, b: 0.019936804, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2959,8 +2959,8 @@ MonoBehaviour:
   - {fileID: 314114903}
   r: 
   FullUp: 
-  count: 0
   max: 6
+  Upgradecount: 0
 --- !u!4 &248422957
 Transform:
   m_ObjectHideFlags: 0
@@ -3495,6 +3495,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8987dfe83b119be41807df421cffc655, type: 2}
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
+  nonag: 
   r: 0
   n: 0
 --- !u!114 &314114906
@@ -5265,6 +5266,7 @@ MonoBehaviour:
   towerSpeed: 0
   towerHp: 0
   BonusDamage: 0
+  FullUpAugm: 
 --- !u!1 &535627777
 GameObject:
   m_ObjectHideFlags: 0
@@ -7090,6 +7092,7 @@ MonoBehaviour:
   - {fileID: 633506974}
   startWaveButton: {fileID: 1009900265}
   count: 0
+  lastSpawn: 0
 --- !u!1 &636009771
 GameObject:
   m_ObjectHideFlags: 0
@@ -9982,6 +9985,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8987dfe83b119be41807df421cffc655, type: 2}
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
+  nonag: 
   r: 0
   n: 0
 --- !u!114 &913216333
@@ -20207,6 +20211,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8987dfe83b119be41807df421cffc655, type: 2}
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
+  nonag: 
   r: 0
   n: 0
 --- !u!114 &1807003650
@@ -21138,6 +21143,52 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &1980057853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980057855}
+  - component: {fileID: 1980057854}
+  m_Layer: 0
+  m_Name: MoveScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1980057854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980057853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2159e6c4700fb4a8524f1ddb06f204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tunnel: {fileID: 0}
+  start: 0
+--- !u!4 &1980057855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980057853}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1991910265
 GameObject:
   m_ObjectHideFlags: 0
@@ -23524,3 +23575,4 @@ SceneRoots:
   - {fileID: 54406718}
   - {fileID: 885795391}
   - {fileID: 620752822}
+  - {fileID: 1980057855}
