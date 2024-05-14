@@ -63,13 +63,14 @@ public class GameManager : MonoBehaviour
     public List<int> FullUpAugm;
 
     [Header("# Tower UpgradeInfo")]
+    public float Tower_Range;
     public float Pixel_tower_damage;
     public float LowPoly_tower_damage;
     public float _3D_tower_damage;
     public float Pixel_tower_Hp;
     public float LowPoly_tower_Hp;
     public float _3D_tower_Hp;
-
+    
 
 
     private void Awake()
@@ -174,5 +175,6 @@ public class GameManager : MonoBehaviour
         Pixel_tower_Hp = 0;
         LowPoly_tower_Hp = 0;
         _3D_tower_Hp = 0;
+        Tower_Range = 0;
     }
 }
