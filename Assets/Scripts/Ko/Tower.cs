@@ -256,6 +256,7 @@ public class Tower : MonoBehaviour
     }
     public void Tower_Upgrade_Init()
     {
+        AttackDel -= AttackDel*GameManager.Instance.towerSpeed;
         Damage += TempDamage*GameManager.Instance.towerDamage;
         health += tempHealth*GameManager.Instance.towerHp;
         switch(tower_class)

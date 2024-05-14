@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     public float towerDamage;
     public float towerSpeed;
     public float towerHp;
+    public float SkillDamage;
     public float BonusDamage;
     public List<int> FullUpAugm;
 
