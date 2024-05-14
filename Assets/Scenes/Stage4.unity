@@ -8141,6 +8141,7 @@ MonoBehaviour:
   - {fileID: 154881339}
   startWaveButton: {fileID: 0}
   count: 0
+  lastSpawn: 0
 --- !u!1 &155087851
 GameObject:
   m_ObjectHideFlags: 0
@@ -14001,7 +14002,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 649056549192762477, guid: f8fac282266725440b1ae3f66290ee6c,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 400
+      enemyHealth: 500
       goldDropAmount: 5
     spawnInterval: 3
     increaseSpeed: 0
@@ -14013,7 +14014,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7150227203530337113, guid: 96f77dea8f9fb8a46900491019b6eb04,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 500
+      enemyHealth: 700
       goldDropAmount: 5
     spawnInterval: 3
     increaseSpeed: 0
@@ -14034,10 +14035,10 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 5897220188965300713, guid: 74c89fe1f0bd9bd41a45e702887aafd1,
+    - enemyPrefab: {fileID: 5351173196874500814, guid: 9d9bb585d7ddbe9468c5687b7a9ce3d0,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 5000
+      enemyHealth: 25000
       goldDropAmount: 500
     spawnInterval: 3
     increaseSpeed: 0
@@ -14050,6 +14051,7 @@ MonoBehaviour:
   - {fileID: 1123880101}
   startWaveButton: {fileID: 1009900265}
   count: 0
+  lastSpawn: 0
 --- !u!1001 &229484636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77508,6 +77510,7 @@ MonoBehaviour:
   - {fileID: 1224747858}
   startWaveButton: {fileID: 0}
   count: 0
+  lastSpawn: 0
 --- !u!1001 &1225356237
 PrefabInstance:
   m_ObjectHideFlags: 0

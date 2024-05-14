@@ -290,11 +290,12 @@ public class Tower_Skill : MonoBehaviour
         
         g.transform.LookAt(EnemyTrans.transform.position);
         g.GetComponent<Skill>().init(SkillDmg * 0.15f, id);
-        //g.transform.parent = skillParent.transform;
+            //g.transform.parent = skillParent.transform;
 
+
+        }
         yield return new WaitForSeconds(4f);
         Destroy(g);
-        }
     }
     IEnumerator skill_12()
     {

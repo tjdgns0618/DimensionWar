@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 341f505b7cf0e964896f14d839f9c200, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 72cae3082e2363d41b9a6bb783e73e29, type: 2}
 --- !u!1001 &571578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47112,7 +47112,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 6749184236465760798, guid: 3cab7713b8fe0954088788c819a52dd1,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 500
+      enemyHealth: 700
       goldDropAmount: 5
     spawnInterval: 3
     increaseSpeed: 0
@@ -47160,7 +47160,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5670783873597428038, guid: 7bbdd2641c4e8f24d97d43694a30e2e9,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 10000
+      enemyHealth: 15000
       goldDropAmount: 5000
     spawnInterval: 3
     increaseSpeed: 0
@@ -47172,6 +47172,7 @@ MonoBehaviour:
   - {fileID: 1308828283}
   startWaveButton: {fileID: 1009900265}
   count: 0
+  lastSpawn: 0
 --- !u!1 &1311438309
 GameObject:
   m_ObjectHideFlags: 0
