@@ -55,7 +55,9 @@ public class DropEffect : MonoBehaviour
             ishit = true;
                 if (m_gameObjectTail)
                     m_gameObjectTail.transform.parent = null;
-                MakeHitObject(other.transform);
+
+                if(m_hitObject!=null)
+                    MakeHitObject(other.transform);
                 
                 Destroy(gameObject);
                 Destroy(m_gameObjectTail, TailDestroyTime);

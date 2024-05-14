@@ -307,6 +307,24 @@ public class BTManager : MonoBehaviour
         GameManager.Instance.tower = null;
     }
 
+    public void SettingBtnClick()
+    {
+        if (GameManager.Instance.tower)
+        {
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
+            GameManager.Instance.tower = null;
+        }
+        if (GameManager.Instance.SelectBlock)
+        {
+            Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect);
+            GameManager.Instance.SelectBlock.GetComponent<Blocks>().isBuild = false;
+            GameManager.Instance.SelectBlock = null;
+        }
+        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
+        GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DORewind();
+        GameManager.Instance.uiManager.UpPanel.SetActive(false);
+    }
+
     // ��ų ĵ������ �����ϰ� ���Ӽӵ��� ������� �ϴ� �Լ�
     public void EndSkillUp()
     {
