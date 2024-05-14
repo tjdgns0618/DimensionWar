@@ -1978,21 +1978,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
-    - {fileID: 1520265563894574178, guid: 4c46ab06c09d5d44e82a01859e46c23b, type: 3}
-    numberOfEnemiesPerPrefab: 01000000
+    - enemyPrefab: {fileID: 0}
+      numberOfEnemies: 0
+      enemyHealth: 0
+      goldDropAmount: 0
     spawnInterval: 5
     increaseSpeed: 0
     speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
   - enemyPrefabs:
-    - {fileID: 1239901341023663014, guid: 7ca0bec5b9a01f94fb7ec98f20d75c83, type: 3}
-    numberOfEnemiesPerPrefab: 01000000
+    - enemyPrefab: {fileID: 0}
+      numberOfEnemies: 0
+      enemyHealth: 0
+      goldDropAmount: 0
     spawnInterval: 5
     increaseSpeed: 0
     speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
   spawnPoints:
   - {fileID: 1192703092}
   startWaveButton: {fileID: 1253878536}
-  poolParent: {fileID: 1192703087}
+  count: 0
 --- !u!1001 &1195184245
 PrefabInstance:
   m_ObjectHideFlags: 0

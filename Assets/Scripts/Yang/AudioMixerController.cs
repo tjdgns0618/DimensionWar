@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class AudioMixerController : MonoBehaviour
 {
-    [SerializeField] private AudioMixer m_AudioMixer;
+    public AudioMixer m_AudioMixer;
     [SerializeField] private Slider m_MusicBGMSlider;
     [SerializeField] private Slider m_MusicSFXSlider;
 

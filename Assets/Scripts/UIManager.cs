@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     // public Slider BgmSlider;        // 배경음악 볼륨 조절 슬라이더
     public Canvas uiCanvas;         // 게임ui용 캔버스
-    public Canvas UpgradeCanvas;      // 스킬업그레이드ui용 캔버스
+    public GameObject UpgradePanel;      // 스킬업그레이드 패널
     public GameObject BuyPaenl;     // 타워 구매 패널
     public GameObject ClearPanel;
     public GameObject FailedPanel;
@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     public Button meleeStat1Button;      // 2번 강화버튼
     public Button meleeStat2Button;      // 2번 강화버튼
     public Button UpgradeButton;    // 1,2 강화한 후 활성화되는 버튼
+    
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
     public void SetDimension(int dimension)
     {
         PlayerPrefs.SetInt("dimension", dimension); // 3,2차원 스테이지 구별용
+
     }
 
     public void SetStage(string name)

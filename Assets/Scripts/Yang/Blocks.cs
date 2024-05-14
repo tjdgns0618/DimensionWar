@@ -7,36 +7,37 @@ using UnityEngine.UI;
 
 public class Blocks : MonoBehaviour, IPointerClickHandler
 {
-    float speed = 2f;               // ÀÌµ¿ ¼Óµµ
+    float speed = 2f;               // ï¿½Ìµï¿½ ï¿½Óµï¿½
 
     public AudioSource[] audiosource;
-    public bool isBuild = false;    // Å¸¿ö°¡ ¼³Ä¡µÈ ºí·° ±¸º°¿ë
-    public GameObject BuyEffect;    // Å¬¸¯µÈ ºí·° ±¸º°¿ë ÀÌÆåÆ®
-    public int dimension;           // ÇöÀç ½ºÅ×ÀÌÁö¿¡ µû¶ó ºí·°¿òÁ÷ÀÓÀ» ÁÙÁö Á¤ÇÏ´Â º¯¼ö
+    public bool isBuild = false;    // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public GameObject BuyEffect;    // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+    public int dimension;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
     [HideInInspector]
-    public GameObject tempBuyEffect;     // BuyEffect¸¦ »ý¼ºÇØÁÙ GameObject º¯¼ö
+    public GameObject tempBuyEffect;     // BuyEffectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ GameObject ï¿½ï¿½ï¿½ï¿½
 
     private void Awake()
     {
-        dimension = PlayerPrefs.GetInt("dimension");    // ÇöÀç ½ºÅ×ÀÌÁöÀÇ DimensionÀ» ¹Þ¾Æ¿Â´Ù.
+        dimension = PlayerPrefs.GetInt("dimension");    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Dimensionï¿½ï¿½ ï¿½Þ¾Æ¿Â´ï¿½.
     }
 
     void FixedUpdate()
     {
-        if (gameObject.CompareTag("MeleeBuildable") || dimension == 2)    // ±ÙÁ¢Å¸¿öÀÌ°Å³ª ½ºÅ×ÀÌÁö°¡ 2D½ºÅ×ÀÌÁö¶ó¸é ºí·°ÀÌ ¿òÁ÷ÀÌÁö ¾ÊÀ½
+        if (gameObject.CompareTag("MeleeBuildable") || dimension == 2)    // ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2Dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             return;
 
         if (isBuild)
-            BlockUp();      // ºí·°ÀÌ ¼±ÅÃµÇ¾úÀ»¶§ ºí·°ÀÌ À§·Î ¿Ã¶ó¿À´Â ÇÔ¼ö
+            BlockUp();      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
         else
-            BlockDown();    // ºí·° ¼±ÅÃÀÌ ÇØÁ¦µÇ¾úÀ»¶§ ºí·°ÀÌ ³»·Á°¡´Â ÇÔ¼ö
+            BlockDown();    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        // ÀÌ¹Ì ¼±ÅÃµÈ ºí·°ÀÌ Á¸ÀçÇÏ´Â °æ¿ì ¹ÝÈ¯, Å¸¿ö°¡ ¼±ÅÃÁßÀÏ°æ¿ì
+        // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯, Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½
         if (GameManager.Instance.tower)
         {
+            GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DORewind();
             GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
             GameManager.Instance.tower = null;
             BlockClick();
@@ -65,39 +66,39 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
         GameManager.Instance.uiManager.argumentButton.GetComponent<Button>().enabled = false;
         audiosource[0].Play();
 
-        GameManager.Instance.blockClicked = true;               // ºí·°ÀÌ ¼±ÅÃµÊ
-        GameManager.Instance.SelectBlock = this.gameObject;     // °ÔÀÓ¸Å´ÏÀú¿¡ ÇöÀç ¼±ÅÃµÈ ºí·°¿¡ ÀÌ ºí·°À» ÀúÀå
+        GameManager.Instance.blockClicked = true;               // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½
+        GameManager.Instance.SelectBlock = this.gameObject;     // ï¿½ï¿½ï¿½Ó¸Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         isBuild = true;
-        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORestart();   // ±¸¸Å ÆÐ³ÎÀÌ ¿Ã¶ó¿À°ÔÇÏ´Â ÇÔ¼ö
-        tempBuyEffect = Instantiate(BuyEffect);      // ºí·°ÀÌ ¼±ÅÃµÇ¾ú´ÂÁö ¾Ë·ÁÁÖ´Â ÀÌÆåÆ® »ý¼º
-        tempBuyEffect.transform.parent = transform;  // ÀÌÆåÆ®¸¦ ÀÌ ºí·°ÀÇ ÀÚ½ÄÀ¸·Î »ý¼º
-        tempBuyEffect.transform.localPosition = new Vector3(0, 0.8f, 0); // ÀÌÆåÆ®ÀÇ À§Ä¡ º¯°æ
+        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORestart();   // ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+        tempBuyEffect = Instantiate(BuyEffect);      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+        tempBuyEffect.transform.parent = transform;  // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        tempBuyEffect.transform.localPosition = new Vector3(0, 0.8f, 0); // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
     }
 
     void BlockUp()
     {
-        Vector3 target = new Vector3(transform.position.x, 0.2f, transform.position.z); // ¸ñÇ¥ À§Ä¡
-        Vector3 direction = (target - transform.position).normalized;   // ¸ñÇ¥ À§Ä¡·ÎÀÇ ¹æÇâ º¤ÅÍ
-        float distance = Vector3.Distance(transform.position, target);  // ¸ñÇ¥ À§Ä¡·ÎÀÇ °Å¸®
+        Vector3 target = new Vector3(transform.position.x, 0.2f, transform.position.z); // ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡
+        Vector3 direction = (target - transform.position).normalized;   // ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        float distance = Vector3.Distance(transform.position, target);  // ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 
-        // °Å¸®°¡ ÀÏÁ¤ ÀÌ»ó ¸Ö ¶§¸¸ ÀÌµ¿
+        // ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         if (distance > 0.1f)
         {
-            // ºÎµå·¯¿î ÀÌµ¿À» À§ÇØ Lerp »ç¿ë
+            // ï¿½Îµå·¯ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Lerp ï¿½ï¿½ï¿½
             transform.localPosition += direction * speed * Time.fixedDeltaTime;
         }
     }
 
     void BlockDown()
     {
-        Vector3 target = new Vector3(transform.position.x, 0.4f - 1.25f, transform.position.z); // ¸ñÇ¥ À§Ä¡
-        Vector3 direction = (target - transform.position).normalized;   // ¸ñÇ¥ À§Ä¡·ÎÀÇ ¹æÇâ º¤ÅÍ
-        float distance = Vector3.Distance(transform.position, target);  // ¸ñÇ¥ À§Ä¡·ÎÀÇ °Å¸®
+        Vector3 target = new Vector3(transform.position.x, 0.4f - 1.25f, transform.position.z); // ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡
+        Vector3 direction = (target - transform.position).normalized;   // ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        float distance = Vector3.Distance(transform.position, target);  // ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 
-        // °Å¸®°¡ ÀÏÁ¤ ÀÌ»ó ¸Ö ¶§¸¸ ÀÌµ¿
+        // ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         if (distance > 0.1f)
         {
-            // ºÎµå·¯¿î ÀÌµ¿À» À§ÇØ Lerp »ç¿ë
+            // ï¿½Îµå·¯ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Lerp ï¿½ï¿½ï¿½
             transform.localPosition += direction * speed * Time.fixedDeltaTime;
         }
     }

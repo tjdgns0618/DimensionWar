@@ -7,16 +7,16 @@ using DG.Tweening;
 
 public class BTManager : MonoBehaviour
 {
-    [Header("Å¸¿ö")]
-    public GameObject[] Tower;      // Å¸¿öµé
-    [Header("°ÔÀÓ¼ÓµµÇ¥½ÃUI")]
-    public GameObject[] SpeedUI;    // °ÔÀÓ¼Óµµ Ç¥½Ã UI ÀÌ¹ÌÁö
+    [Header("Å¸ï¿½ï¿½")]
+    public GameObject[] Tower;      // Å¸ï¿½ï¿½ï¿½ï¿½
+    [Header("ï¿½ï¿½ï¿½Ó¼Óµï¿½Ç¥ï¿½ï¿½UI")]
+    public GameObject[] SpeedUI;    // ï¿½ï¿½ï¿½Ó¼Óµï¿½ Ç¥ï¿½ï¿½ UI ï¿½Ì¹ï¿½ï¿½ï¿½
 
-    int gameSpeed = 1;              // ÇöÀç °ÔÀÓ ¼Óµµ
+    int gameSpeed = 1;              // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
-    public void BuyTower()      // Å¸¿ö ±¸¸Å ÇÔ¼ö
+    public void BuyTower()      // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
-        if(GameManager.Instance.diamond >= 1) // 20°ñµå°¡ ÀÖ¾î¾ß¸¸ ±¸¸Å °¡´É Á¶°Ç
+        if(GameManager.Instance.diamond >= 1) // 20ï¿½ï¿½å°¡ ï¿½Ö¾ï¿½ß¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             StartCoroutine(_BuyTower());
     }
 
@@ -27,68 +27,73 @@ public class BTManager : MonoBehaviour
 
     public void UpgradeTower()
     {
-        if (GameManager.Instance.gold >= 50)    // 50°ñµå°¡ ÀÖ¾î¾ß ¾÷±×·¹ÀÌµå °¡´É
+        if (GameManager.Instance.tower.CompareTag("Level1") && GameManager.Instance.gold >= 50)
             StartCoroutine(_UpgradeTower());
+        else if (GameManager.Instance.tower.CompareTag("Level2") && GameManager.Instance.gold >= 100)
+            StartCoroutine(_UpgradeTower());
+        else if (GameManager.Instance.tower.CompareTag("Tower") && GameManager.Instance.gold >= 200)
+            StartCoroutine(_UpgradeTower());
+
         else
         {
-            StartTime();                        // timescaleÀ» ¿ø·¡´ë·Î µ¹·ÁÁÖ´Â ÇÔ¼ö
+            StartTime();                        // timescaleï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
         }
     }
 
-    public void MeleeTowerSpawn()               // ±ÙÁ¢ Å¸¿ö¸¦ »ý¼ºÇØÁÖ´Â ÇÔ¼ö
+    public void MeleeTowerSpawn()               // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
     {
-        if (GameManager.Instance.SelectBlock.transform.childCount >= 2) // Å¸¿ö°¡ Á¸ÀçÇÏÁö ¾Ê´Â ºí·°ÀÌ¶ó¸é
+        if (GameManager.Instance.SelectBlock.transform.childCount >= 2) // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
             return;
 
         int i = Random.Range(0, 3);
-        GameObject instance = Instantiate(Tower[i]);    // ±ÙÁ¢Å¸¿öÁß¿¡¼­ ·£´ýÀ¸·Î »ý¼º
-        GameManager.Instance.towers.Add(instance);      // »ý¼ºµÈ Å¸¿ö¸¦ °ÔÀÓ¸Å´ÏÀú¿¡ ÀúÀåÇØÁØ´Ù.
-        instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);   // Å¬¸¯ÇÑ ºí·° ÀÚ½ÄÀ¸·Î Å¸¿ù¸£ »ý¼ºÇÑ´Ù.
+        GameObject instance = Instantiate(Tower[i]);    // ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        GameManager.Instance.towers.Add(instance);      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¸Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
+        instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);   // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         if (i == 0) {
-            instance.transform.localPosition = new Vector3(0, 1.519f, 0);   // ÇÈ¼¿ ±ÙÁ¢ Å¸¿ö À§Ä¡ ÃÊ±âÈ­
+            instance.transform.localPosition = new Vector3(0, 1.519f, 0);   // ï¿½È¼ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
             instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 1)
         {
-            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // ·Î¿ìÆú¸® ±ÙÁ¢ Å¸¿ö À§Ä¡ ÃÊ±âÈ­
+            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 2)
         {
-            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ±ÙÁ¢ Å¸¿ö À§Ä¡ ÃÊ±âÈ­
+            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
     public void RangerTowerSpawn()
     {
-        if (GameManager.Instance.SelectBlock.transform.childCount >= 2) // Å¸¿ö°¡ Á¸ÀçÇÏÁö ¾Ê´Â ºí·°ÀÌ¶ó¸é
+        if (GameManager.Instance.SelectBlock.transform.childCount >= 2) // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
             return;
 
         int i = Random.Range(3, 9);
-        GameObject instance = Instantiate(Tower[i]);    // ¿ø°Å¸®Å¸¿öÁß¿¡¼­ ·£´ýÀ¸·Î »ý¼º
-        GameManager.Instance.towers.Add(instance);      // »ý¼ºµÈ Å¸¿ö¸¦ °ÔÀÓ¸Å´ÏÀú¿¡ ÀúÀåÇØÁØ´Ù.
-        instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);   // Å¬¸¯ÇÑ ºí·° ÀÚ½ÄÀ¸·Î Å¸¿ù¸£ »ý¼ºÇÑ´Ù.
+        GameObject instance = Instantiate(Tower[i]);    // ï¿½ï¿½ï¿½Å¸ï¿½Å¸ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        GameManager.Instance.towers.Add(instance);      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¸Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
+        instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);   // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         if (i == 3 || i == 4)
         {
-            instance.transform.localPosition = new Vector3(0, 1.418f, 0);   // ÇÈ¼¿ ¿ø°Å¸® Å¸¿ö À§Ä¡ ÃÊ±âÈ­
+            instance.transform.localPosition = new Vector3(0, 1.418f, 0);   // ï¿½È¼ï¿½ ï¿½ï¿½ï¿½Å¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
             instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 5 || i == 6)
         {
-            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // ·Î¿ìÆú¸® ¿ø°Å¸® Å¸¿ö À§Ä¡ ÃÊ±âÈ­
+            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 7 || i == 8)
         {
-            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ¿ø°Å¸® Å¸¿ö À§Ä¡ ÃÊ±âÈ­
+            instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ï¿½ï¿½ï¿½Å¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
     public void UpgradeBtnClick()
     {
-        GameManager.Instance.uiManager.UpgradeCanvas.gameObject.SetActive(true);
+        GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DOPlay();
 
         if(GameManager.Instance.tower.GetComponent<Tower>().tower_type == 
             global::Tower.Tower_Type.Meele)
@@ -135,9 +140,6 @@ public class BTManager : MonoBehaviour
             GameManager.Instance.uiManager.rangeStat2Button.enabled =
                 !GameManager.Instance.tower.GetComponent<Tower>().upgrade[1];
         }
-
-
-        GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
         GameManager.Instance.uiManager.UpgradeButton.enabled = 
             (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && 
             GameManager.Instance.tower.GetComponent<Tower>().upgrade[1]);
@@ -215,16 +217,16 @@ public class BTManager : MonoBehaviour
 
     IEnumerator _BuyTower()
     {
-        if (GameManager.Instance.SelectBlock.CompareTag("MeleeBuildable"))  // ±ÙÁ¢ ¼³Ä¡ °¡´É ºí·°ÀÌ¶ó¸é
+        if (GameManager.Instance.SelectBlock.CompareTag("MeleeBuildable"))  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
             MeleeTowerSpawn();
         else
             RangerTowerSpawn();
                 
-        GameManager.Instance.diamond--;            // 20°ñµå°¡ ¼Ò¸ðµÈ´Ù.
-        GameManager.Instance.blockClicked = false;  // ºí·° Å¬¸¯»óÅÂ¸¦ ÃÊ±âÈ­ÇØÁØ´Ù.
-        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // ±¸¸Å ÆÐ³ÎÀ» µ¹·Áº¸³½´Ù.
-        GameManager.Instance.SelectBlock.layer = 2; // ºí·°À» Å¬¸¯ ºÒ°¡´ÉÇÏ°Ô ¸¸µç´Ù.
-        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);   // ºí·° ¼±ÅÃ ÀÌÆåÆ®¸¦ Áö¿öÁØ´Ù.
+        GameManager.Instance.diamond--;            // 20ï¿½ï¿½å°¡ ï¿½Ò¸ï¿½È´ï¿½.
+        GameManager.Instance.blockClicked = false;  // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ï¿½Ø´ï¿½.
+        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+        GameManager.Instance.SelectBlock.layer = 2; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+        Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
         GameManager.Instance.SelectBlock = null;
 
         yield return null;
@@ -232,44 +234,57 @@ public class BTManager : MonoBehaviour
 
     IEnumerator _SellTower()
     {
-        GameManager.Instance.gold += 20;    // 20°ñµå¸¦ µ¹·Á¹Þ´Â´Ù.
-        Destroy(GameManager.Instance.tower.gameObject); // Å¸¿ö¸¦ Á¦°ÅÇÑ´Ù.
+        if(GameManager.Instance.tower.CompareTag("Level1"))
+            GameManager.Instance.gold += 20;
+        else if(GameManager.Instance.tower.CompareTag("Level2"))
+            GameManager.Instance.gold += 50;
+        else if(GameManager.Instance.tower.CompareTag("Tower"))
+            GameManager.Instance.gold += 100;
+
+        GameManager.Instance.gold += 20;    // 20ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Þ´Â´ï¿½.
+        Destroy(GameManager.Instance.tower.gameObject); // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         GameManager.Instance.tower.transform.parent.GetComponent<Blocks>().isBuild = false;
-        GameManager.Instance.blockClicked = false;  // ºí·° Å¬¸¯»óÅÂ¸¦ ÃÊ±âÈ­ÇØÁØ´Ù.
-        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // ±¸¸Å ÆÐ³ÎÀ» µ¹·Áº¸³½´Ù.
-        GameManager.Instance.tower.transform.parent.gameObject.layer = 0;   // ºí·°À» Å¬¸¯ °¡´ÉÇÏ°Ô ¸¸µç´Ù.
+        GameManager.Instance.blockClicked = false;  // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ï¿½Ø´ï¿½.
+        GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+        GameManager.Instance.tower.transform.parent.gameObject.layer = 0;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 
         yield return null;
     }
 
     IEnumerator _UpgradeTower()
     {
-        // ´ÙÀ½ Å¸¿ö°¡ Á¸ÀçÇÏÁö ¾Ê´Ù¸é ¿¹¿ÜÃ³¸®
+        // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
         if (GameManager.Instance.tower.GetComponent<TestScript>().nextTower == null)
         {
             Time.timeScale = gameSpeed;
-            //ÀÓ½Ã·Î 3¼º Å¸¿ö ½ºÅ³·¹º§ ¾÷ Ãß°¡
+            //ï¿½Ó½Ã·ï¿½ 3ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½
             if (GameManager.Instance.tower.GetComponent<Tower_Skill>().tower_Level + 1 <= GameManager.Instance.tower.GetComponent<Tower_Skill>().SkillPrefabs.Length)
                 GameManager.Instance.tower.GetComponent<Tower_Skill>().tower_Level++;
             yield return null;
         }
 
-        GameManager.Instance.gold -= 50;    // 50°ñµå¸¦ ¼ÒºñÇÑ´Ù.
-        // ÇöÀç ¼±ÅÃµÈ Å¸¿öÀÇ ´ÙÀ½ Å¸¿ö¸¦ »ý¼ºÇÑ´Ù.
+        if(GameManager.Instance.tower.CompareTag("Level1"))
+            GameManager.Instance.gold -= 50;
+        else if(GameManager.Instance.tower.CompareTag("Level2"))
+            GameManager.Instance.gold -= 100;
+        else if(GameManager.Instance.tower.CompareTag("Tower"))
+            GameManager.Instance.gold -= 200;
+            
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         GameObject instance = Instantiate(GameManager.Instance.tower.GetComponent<TestScript>().nextTower);
         instance.transform.SetParent(GameManager.Instance.tower.transform.parent.transform);
         instance.transform.position = GameManager.Instance.tower.transform.position;
         if(instance.GetComponent<Tower>().tower_class != global::Tower.Tower_Class.Pixel)
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2")
-            instance.transform.position += new Vector3(0, 0.4f, 0); // ÇÈ¼¿ 3¼º À§Ä¡°ª ¿¹¿ÜÃ³¸®
-        Destroy(GameManager.Instance.tower.gameObject); // ÇöÀç Å¸¿ö¸¦ Á¦°ÅÇÑ´Ù.
+            instance.transform.position += new Vector3(0, 0.4f, 0); // ï¿½È¼ï¿½ 3ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+        Destroy(GameManager.Instance.tower.gameObject); // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         Time.timeScale = gameSpeed;
 
         yield return null;
     }
 
-    // ºí·° ¼±ÅÃÀ» Ãë¼ÒÇÏ°í ±¸¸Å ÆÐ³ÎÀ» µ¹·Áº¸³»´Â ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void EndBuyTower()
     {
         if (GameManager.Instance.tower != null)
@@ -292,14 +307,14 @@ public class BTManager : MonoBehaviour
         GameManager.Instance.tower = null;
     }
 
-    // ½ºÅ³ Äµ¹ö½º¸¦ Á¾·áÇÏ°í °ÔÀÓ¼Óµµ¸¦ ¿ø·¡´ë·Î ÇÏ´Â ÇÔ¼ö
+    // ï¿½ï¿½Å³ Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ó¼Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     public void EndSkillUp()
     {
         Time.timeScale = gameSpeed;
         GameManager.Instance.towerClicked = false;
     }
 
-    // timescaleÀ» ¿ø·¡ ¼Óµµ·Î ¸¸µå´Â ÇÔ¼ö
+    // timescaleï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void StartTime()
     {
         Time.timeScale = gameSpeed;
@@ -310,13 +325,13 @@ public class BTManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    // timescaleÀ» 0À¸·Î ¸¸µå´Â ÇÔ¼ö
+    // timescaleï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void StopTime()
     {
         Time.timeScale = 0;
     }
 
-    // timescaleÀ» 1,2,3À¸·Î ¸¸µé¾îÁÖ°í gameSpeed ÃÊ±âÈ­ÇØÁÖ´Â ÇÔ¼ö
+    // timescaleï¿½ï¿½ 1,2,3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ gameSpeed ï¿½Ê±ï¿½È­ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
     public void SpeedUp()
     {
         if (Time.timeScale == 1)

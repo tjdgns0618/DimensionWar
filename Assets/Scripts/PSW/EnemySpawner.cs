@@ -62,6 +62,8 @@ public class EnemySpawner : MonoBehaviour
                 for (int i = 0; i < prefabData.numberOfEnemies; i++)
                 {
                     GameObject enemy = Instantiate(prefabData.enemyPrefab);
+                    enemy.GetComponent<EnemyController>().health = prefabData.enemyHealth;
+                    enemy.GetComponent<EnemyController>().tempHealth = prefabData.enemyHealth;
                     // enemy.SetActive(false);
                     enemy.transform.SetParent(wave.poolParent.transform);
                     wave.enemyPool.Add(enemy);

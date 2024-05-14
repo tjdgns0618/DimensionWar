@@ -3,64 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
-    public enum EnemyType // ÀûÀÇ Å¸ÀÔ
+    public enum EnemyType // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
     {
         Ground,
         Air
     }
 
-    public EnemyType enemyType; // ÀûÀÇ À¯Çü
-    public float DamageToPlayer = 20f; // ÀûÀÌ ÇÃ·¹ÀÌ¾î¿¡°Ô °¡ÇÏ´Â µ¥¹ÌÁö
+    public EnemyType enemyType; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public float DamageToPlayer = 20f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     public bool isBoss = false;
 
-    // ÀÌµ¿¿¡ »ç¿ëµÇ´Â º¯¼öµé
-    private GameObject player; // ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ®
-    private NavMeshAgent navMeshAgent; // NavMesh ¿¡ÀÌÀüÆ®
-    private Transform[] pathPoints; // °æ·Î¸¦ ÀÌ·ç´Â ÁöÁ¡µé
-    private int currentPathIndex = 0; // ÇöÀç °æ·Î ÀÎµ¦½º
-    public float movementSpeed; // ÀûÀÇ ÀÌµ¿¼Óµµ (NavMesh ¿¡ÀÌÀüÆ®ÀÇ ½ºÇÇµå »ç¿ëÇÔ)
+    // ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private GameObject player; // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    private NavMeshAgent navMeshAgent; // NavMesh ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    private Transform[] pathPoints; // ï¿½ï¿½Î¸ï¿½ ï¿½Ì·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private int currentPathIndex = 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+    public float movementSpeed; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ (NavMesh ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½)
     private float originalSpeed;
-    public float increasedSpeedMultiplier = 1.5f; // ¼Óµµ Áõ°¡ ¹è¼ö
+    public float increasedSpeedMultiplier = 1.5f; // ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-    // Å¸¿ö¿¡ ´ëÇÑ ÂüÁ¶
+    // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private Tower currentTower; // ÇöÀç Ãæµ¹ÇÑ Å¸¿ö
+    private Tower currentTower; // ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ Å¸ï¿½ï¿½
 
-    // °ø°Ý¿¡ »ç¿ëµÇ´Â º¯¼öµé
-    public float attackDamage = 10f; // ÀûÀÇ °ø°Ý·Â
-    public float attackCooldown = 1f; // ÀûÀÇ °ø°Ý Äð´Ù¿î ½Ã°£
-    private bool isAttacking = false; // ÇöÀç Å¸¿ö¸¦ °ø°Ý ÁßÀÎÁö ¿©ºÎ
+    // ï¿½ï¿½ï¿½Ý¿ï¿½ ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float attackDamage = 10f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½
+    public float attackCooldown = 1f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¿ï¿½ ï¿½Ã°ï¿½
+    private bool isAttacking = false; // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public float health = 100f; // ÀûÀÇ Ã¼·Â
+    [SerializeField] private Slider hpBar; // Inspector Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ Slider
+    public float health = 100f; // ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½
     public float tempHealth;
-    public int goldDropAmount = 10; // ÀûÀÌ µå¶øÇÏ´Â °ñµåÀÇ ¾ç
 
-    private Animator WeaponAnimator; // ¹«±â ¾Ö´Ï¸ÞÀÌÅÍ
+    public int goldDropAmount = 10; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-    private Animator animator; // »óÅÂ ¾Ö´Ï¸ÞÀÌÅÍ
-    public List<string> attackAnimationNames = new List<string> { "Attack01", "Attack02", "Attack03", "Attack04", "Attack05" }; // °ø°Ý ¾Ö´Ï¸ÞÀÌ¼Ç ¸®½ºÆ®
-    private bool isWalking = false; // °È±â »óÅÂ ¿©ºÎ
+    private Animator WeaponAnimator; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    private bool isDead = false; // »ç¸Á »óÅÂ ¿©ºÎ
+    private Animator animator; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½
+    public List<string> attackAnimationNames = new List<string> { "Attack01", "Attack02", "Attack03", "Attack04", "Attack05" }; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+    private bool isWalking = false; // ï¿½È±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+    private bool isDead = false; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public bool isStun = false;
     float Waittime;
     void Start()
     {
-        tempHealth = health;
-        // Animator ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // Ã¼ï¿½ï¿½ Sliderï¿½ï¿½ MaxValueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        if (hpBar != null)
+        {
+            hpBar.maxValue = health;
+            hpBar.value = health;
+        }
+
+        // Animator ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         animator = GetComponent<Animator>();
 
-        // ÇÃ·¹ÀÌ¾î °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ ÅÂ±×·Î Ã£À½
+        // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Â±×·ï¿½ Ã£ï¿½ï¿½
         player = GameObject.FindGameObjectWithTag("Player");
-        // NavMesh ¿¡ÀÌÀüÆ®¸¦ °¡Á®¿È
+        // NavMesh ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         navMeshAgent = GetComponent<NavMeshAgent>();
-        // NavMesh ¿¡ÀÌÀüÆ®ÀÇ ½ºÇÇµå »ç¿ë
+        // NavMesh ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½
         movementSpeed = navMeshAgent.speed;
-        // °æ·Î¸¦ ÀÌ·ç´Â ÁöÁ¡µéÀ» °¡Á®¿È
+        // ï¿½ï¿½Î¸ï¿½ ï¿½Ì·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         GameObject pathParent = GameObject.FindGameObjectWithTag("PathParent");
         pathPoints = new Transform[pathParent.transform.childCount];
         for (int i = 0; i < pathParent.transform.childCount; i++)
@@ -68,16 +77,16 @@ public class EnemyController : MonoBehaviour
             pathPoints[i] = pathParent.transform.GetChild(i);
         }
 
-        // ¿ø·¡ ¼Óµµ ±â·Ï
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½
         originalSpeed = navMeshAgent.speed;
 
-        // ÃÊ±â ¸ñÀûÁö ¼³Á¤
+        // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SetDestinationToNextPathPoint();
     }
 
     void Update()
     {
-        // »ç¸Á »óÅÂÀÎ °æ¿ì ¾Æ¹«°Íµµ ÇÏÁö ¾ÊÀ½
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if(isStun)
         {
             return;
@@ -88,46 +97,64 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            // Ã¼·ÂÀÌ 0 ÀÌÇÏÀÎ °æ¿ì Die()ÇÔ¼ö È£Ãâ
+            // Ã¼ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Die()ï¿½Ô¼ï¿½ È£ï¿½ï¿½
             if (health <= 0f)
             {
                 Die();
-                return; // »ç¸ÁÇÑ °æ¿ì ÀÌÈÄ ÄÚµå¸¦ ½ÇÇàÇÏÁö ¾ÊÀ½
+                return; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
 
-            // ¸ñÀûÁö¿¡ µµÂøÇß´ÂÁö È®ÀÎ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
             if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
             {
-                // °È±â ¾Ö´Ï¸ÞÀÌ¼Ç Á¾·á
+                // ï¿½È±ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
                 animator.SetBool("IsWalking", false);
-                SetDestinationToNextPathPoint(); // ´ÙÀ½ ¸ñÀûÁö·Î ¼³Á¤
+                SetDestinationToNextPathPoint(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
 
-            // Å¸¿ö¸¦ °ø°ÝÇÒ ¼ö ÀÖ´Â »óÅÂÀÌ¸é °ø°Ý
+            // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (isAttacking && currentTower != null && currentTower.gameObject != null)
             {
-                // Àû Å¸ÀÔÀÌ GroundÀÎ °æ¿ì¿¡¸¸ Å¸¿ö¸¦ °ø°Ý
+                // ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Groundï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if (enemyType == EnemyType.Ground)
                 {
                     AttackTower(currentTower);
                 }
             }
 
-            // °È±â »óÅÂ °»½Å
+            // ï¿½È±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             isWalking = navMeshAgent.velocity.magnitude > 0.1f;
 
-            // °È±â »óÅÂ¿¡ µû¶ó ¾Ö´Ï¸ÞÀÌ¼Ç ¼³Á¤
+            // ï¿½È±ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             animator.SetBool("IsWalking", isWalking);
+
+            // Ã¼ï¿½ï¿½ Sliderï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            UpdateHealthBar();
+
+            // ï¿½Ìµï¿½ ï¿½Óµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¿î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+            AdjustAnimationSpeed();
+        }
+
+        void UpdateHealthBar()
+        {
+            // Ã¼ï¿½ï¿½ Sliderï¿½ï¿½ ï¿½Ò´ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            if (hpBar == null)
+            {
+                return;
+            }
+
+            // Ã¼ï¿½ï¿½ Sliderï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            hpBar.value = health;
         }
     }
 
-    // Å¸¿ö ¼³Á¤
+    // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SetTower(Tower tower)
     {
         currentTower = tower;
     }
 
-    // Å¸¿ö Á¦°Å
+    // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void RemoveTower()
     {
         currentTower = null;
@@ -135,42 +162,48 @@ public class EnemyController : MonoBehaviour
 
     void TakeDamage(float damage)
     {
-        health -= damage; // ÀûÀÇ Ã¼·Â °¨¼Ò
+        health -= damage; // ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+        if (health < 0f)
+        {
+            health = 0f;
+            hpBar.value = 0f;
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if ((enemyType == EnemyType.Ground) && other.GetComponent<Tower>()) // Àû Å¸ÀÔÀÌ GroundÀÌ°í Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ "Tower" ÅÂ±×¸¦ °¡Áø Å¸¿öÀÎ °æ¿ì
+        if ((enemyType == EnemyType.Ground) && other.GetComponent<Tower>()) // ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Groundï¿½Ì°ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ "Tower" ï¿½Â±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         {
-            currentTower = other.GetComponent<Tower>(); // Ãæµ¹ÇÑ Å¸¿ö °¡Á®¿À±â
+            currentTower = other.GetComponent<Tower>(); // ï¿½æµ¹ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-            // Å¸¿öÀÇ Àû ¼ö°¡ ÃÖ´ëÄ¡º¸´Ù ÀÛÀº °æ¿ì¿¡¸¸ Àû Ãß°¡ ¹× ÀÌµ¿ ¸ØÃã
+            // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
             if (currentTower.currentEnemyCount < currentTower.maxEnemiesPerTower)
             {
-                currentTower.AddEnemy(); // Å¸¿öÀÇ Àû ¼ö Áõ°¡
-                currentTower.enemiesInRange.Add(this); // ÀûÀ» Å¸¿öÀÇ Àû ¸®½ºÆ®¿¡ Ãß°¡
-                navMeshAgent.isStopped = true; // ÀÌµ¿À» ¸ØÃã
-                isAttacking = true; // °ø°Ý »óÅÂ·Î º¯°æ
+                currentTower.AddEnemy(); // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                currentTower.enemiesInRange.Add(this); // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
+                navMeshAgent.isStopped = true; // ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                isAttacking = true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
-            else // ÃÖ´ë Àû ¼ö ÃÊ°ú½Ã ÇöÀç Å¸¿ö¸¦ ¹«½ÃÇÏ°í ´Ù½Ã ÀÌµ¿
+            else // ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ù½ï¿½ ï¿½Ìµï¿½
             {
-                currentTower = null; // ÇöÀç Å¸¿ö ÃÊ±âÈ­
+                currentTower = null; // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
             }
         }
-        else if (other.CompareTag("Player")) // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ "Player" ÅÂ±×¸¦ °¡Áø ÇÃ·¹ÀÌ¾îÀÎ °æ¿ì
+        else if (other.CompareTag("Player")) // ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ "Player" ï¿½Â±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         {
-            PlayerController playerController = other.GetComponent<PlayerController>(); // ÇÃ·¹ÀÌ¾î ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+            PlayerController playerController = other.GetComponent<PlayerController>(); // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (playerController != null)
             {
                 playerController.TakeDamage(1);
             }
-            gameObject.SetActive(false); // Àû ¿ÀºêÁ§Æ® ÆÄ±«
+            gameObject.SetActive(false); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ä±ï¿½
         }
     }
 
-    void OnTriggerExit(Collider other) // Å¸¿ö¸¦ Åë°úÇÒ ¶§
+    void OnTriggerExit(Collider other) // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
-        // Àû Å¸ÀÔÀÌ AirÀÏ °æ¿ì ¸®ÅÏ
+        // ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Airï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (enemyType == EnemyType.Air)
         {
             return;
@@ -180,38 +213,38 @@ public class EnemyController : MonoBehaviour
         {
             if (currentTower != null)
             {
-                currentTower.RemoveEnemy(); // Å¸¿öÀÇ Àû ¼ö °¨¼Ò
-                currentTower = null; // ÇöÀç Å¸¿ö ÃÊ±âÈ­
+                currentTower.RemoveEnemy(); // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                currentTower = null; // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
             }
         }
     }
         
-    // ÀûÀÇ ÀÌµ¿ ½ÃÀÛ
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
     public void StartMoving()
     {
-        // »ç¸Á »óÅÂÀÎ °æ¿ì ÀÌµ¿À» ½ÃÀÛÇÏÁö ¾ÊÀ½
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (isDead)
         {
             return;
         }
 
-        SetDestinationToNextPathPoint(); // ¿þÀÌÆ÷ÀÎÆ®·Î ÀÌµ¿
-        navMeshAgent.isStopped = false; // ÀÌµ¿ ½ÃÀÛ
+        SetDestinationToNextPathPoint(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ìµï¿½
+        navMeshAgent.isStopped = false; // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     void AttackTower(Tower tower)
     {
-        // °ø°Ý Äð´Ù¿î ½Ã°£ÀÌ Áö³¯ ¶§¸¶´Ù Å¸¿ö °ø°Ý
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¿ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         attackCooldown -= Time.deltaTime;
         if (attackCooldown <= 0f)
         {
-            // ¹«ÀÛÀ§·Î °ø°Ý ¾Ö´Ï¸ÞÀÌ¼Ç ¼±ÅÃ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             string randomAttackAnimation = GetRandomAttackAnimation();
 
-            // ¼±ÅÃµÈ °ø°Ý ¾Ö´Ï¸ÞÀÌ¼ÇÀÇ Æ®¸®°Å Àç»ý
+            // ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             animator.SetTrigger(randomAttackAnimation);
 
-            // ¸¸¾à Weapon ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®¸¦ °¡Áö°í ÀÖ´Ù¸é ÇØ´ç ¾Ö´Ï¸ÞÀÌÅÍ »ç¿ë
+            // ï¿½ï¿½ï¿½ï¿½ Weapon ï¿½Â±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½Ø´ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             GameObject[] weaponObjects = GameObject.FindGameObjectsWithTag("Weapon");
             foreach (GameObject weaponObject in weaponObjects)
             {
@@ -222,9 +255,20 @@ public class EnemyController : MonoBehaviour
                 }
             }
 
-            tower.TakeDamage(attackDamage); // Å¸¿ö Ã¼·Â °¨¼Ò 
-            attackCooldown = 1f; // Äð´Ù¿î ÃÊ±âÈ­
+            tower.TakeDamage(attackDamage); // Å¸ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+            attackCooldown = 1f; // ï¿½ï¿½Ù¿ï¿½ ï¿½Ê±ï¿½È­
         }
+    }
+
+    // ï¿½Ìµï¿½ ï¿½Óµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¿î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+    void AdjustAnimationSpeed()
+    {
+        // ï¿½Ìµï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+        animator.SetFloat("WalkSpeed", navMeshAgent.speed / originalSpeed);
+
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+        float attackSpeedMultiplier = 1f / attackCooldown; 
+        animator.SetFloat("AttackSpeed", attackSpeedMultiplier);
     }
 
     public IEnumerator OnStun(float time)
@@ -259,42 +303,42 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
-        if (isDead) // ÀÌ¹Ì »ç¸ÁÇÑ °æ¿ì¿¡´Â ´õ ÀÌ»ó ½ÇÇàÇÏÁö ¾ÊÀ½
+        if (isDead) // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             return;
         }
-        isDead = true; // »ç¸Á »óÅÂ·Î º¯°æ
+        isDead = true; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        GameManager.Instance.gold += 10; // »ç¸Á½Ã °ñµå Å‰µæ
-        GameManager.Instance.Killcount++; // »ç¸Á½Ã Å³Ä«¿îÆ® 1Áõ°¡
+        GameManager.Instance.gold += 10; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å‰ï¿½ï¿½
+        GameManager.Instance.Killcount++; // ï¿½ï¿½ï¿½ï¿½ï¿½ Å³Ä«ï¿½ï¿½Æ® 1ï¿½ï¿½ï¿½ï¿½
 
-        // Die ¾Ö´Ï¸ÞÀÌ¼ÇÀ» Àç»ý
+        // Die ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         animator.SetTrigger("Die");
 
         
 
-        // Àû Å¸¿öÀÇ Àû ¼ö °¨¼Ò
+        // ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if ((enemyType == EnemyType.Ground) && currentTower != null)
         {
             currentTower.RemoveEnemy();
         }
 
-        // ³×ºñ°ÔÀÌ¼Ç ¸Þ½¬ ¿¡ÀÌÀüÆ® ºñÈ°¼ºÈ­
+        // ï¿½×ºï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½Þ½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È°ï¿½ï¿½È­
         navMeshAgent.enabled = false;
 
-        // ÄÝ¶óÀÌ´õ ºñÈ°¼ºÈ­
+        // ï¿½Ý¶ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         Collider collider = GetComponent<Collider>();
         if (collider != null)
         {
             collider.enabled = false;
         }
 
-        // Air Å¸ÀÔÀÎ °æ¿ì Á¡ÁøÀûÀ¸·Î Ãß¶ôÇÏ´Â È¿°ú ºÎ¿©
+        // Air Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¶ï¿½ï¿½Ï´ï¿½ È¿ï¿½ï¿½ ï¿½Î¿ï¿½
         if (enemyType == EnemyType.Air)
         {
             StartCoroutine(FallDownCoroutine());
         }
-        else // Ground Å¸ÀÔÀÎ °æ¿ì´Â Áï½Ã ÆÄ±«
+        else // Ground Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½
         {
             StartCoroutine(DestroyAfterDelay(2f));
         }
@@ -303,67 +347,67 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator FallDownCoroutine()
     {
-        float totalTime = 2f; // Ãß¶ôÇÏ´Âµ¥ °É¸®´Â ÀüÃ¼ ½Ã°£
+        float totalTime = 2f; // ï¿½ß¶ï¿½ï¿½Ï´Âµï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ã°ï¿½
         float elapsedTime = 0f;
 
         Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition - Vector3.up * 2f; // Ãß¶ô °Å¸® Á¶Á¤
+        Vector3 endPosition = startPosition - Vector3.up * 2f; // ï¿½ß¶ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         while (elapsedTime < totalTime)
         {
-            // ÇöÀç ½Ã°£¿¡ µû¶ó Àû´çÇÑ ºñÀ²·Î À§Ä¡¸¦ º¸°£
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             float t = elapsedTime / totalTime;
             transform.position = Vector3.Lerp(startPosition, endPosition, t);
 
-            // ½Ã°£ ¾÷µ¥ÀÌÆ®
+            // ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
             elapsedTime += Time.deltaTime;
 
             yield return null;
         }
 
-        // ³¡±îÁö Ãß¶ôÇÑ ÈÄ ÆÄ±«
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¶ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ä±ï¿½
         gameObject.SetActive(false);
     }
 
     IEnumerator DestroyAfterDelay(float delay)
     {
-        // delay ½Ã°£ ´ë±â
+        // delay ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(delay);
 
-        // Àû ¿ÀºêÁ§Æ® ÆÄ±«
+        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ä±ï¿½
         // Destroy(gameObject);
         gameObject.SetActive(false);
     }
 
     string GetRandomAttackAnimation()
     {
-        // °ø°Ý ¾Ö´Ï¸ÞÀÌ¼Çµé Áß ÇÏ³ª¸¦ ¹«ÀÛÀ§·Î ¼±ÅÃÇÏ¿© ¹ÝÈ¯
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Çµï¿½ ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯
         int randomIndex = Random.Range(0, attackAnimationNames.Count);
         return attackAnimationNames[randomIndex];
     }
 
     void SetDestinationToNextPathPoint()
     {
-        if (currentPathIndex < pathPoints.Length - 1) // ´ÙÀ½ ÁöÁ¡À¸·Î ÀÌµ¿
+        if (currentPathIndex < pathPoints.Length - 1) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         {
             currentPathIndex++;
             Vector3 destination = pathPoints[currentPathIndex].position;
             navMeshAgent.SetDestination(destination);
-            // °È±â ¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý
+            // ï¿½È±ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
             animator.SetBool("IsWalking", true);
         }
-        else // °æ·ÎÀÇ ³¡¿¡ µµ´ÞÇÑ °æ¿ì ÇÃ·¹ÀÌ¾î ÂÊÀ¸·Î ÀÌµ¿
+        else // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         {
             navMeshAgent.SetDestination(player.transform.position);
-            // °È±â ¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý
+            // ï¿½È±ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
             animator.SetBool("IsWalking", true);
         }
     }
 
-    // ¿þÀÌºê°¡ º¯°æµÉ ¶§ È£ÃâµÇ´Â ÇÔ¼ö
+    // ï¿½ï¿½ï¿½Ìºê°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½
     public void IncreaseSpeedForWave(float multiplier)
     {
-        // ¼Óµµ¸¦ Áõ°¡µÈ ¼Óµµ·Î ¼³Á¤
+        // ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         navMeshAgent.speed = originalSpeed * multiplier;
     }
 
@@ -372,8 +416,8 @@ public class EnemyController : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
         SetDestinationToNextPathPoint();
-        health = tempHealth;
         isDead = false;
+        health = tempHealth;
     }
 
     private void OnDisable()
@@ -386,7 +430,7 @@ public class EnemyController : MonoBehaviour
         //    }
         //}        
 
-        //GameManager.Instance.diamond += 3;  // ¿þÀÌºê Á¾·áÈÄ ´ÙÀÌ¾Æ Å‰µæ
+        //GameManager.Instance.diamond += 3;  // ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ Å‰ï¿½ï¿½
         //GameManager.Instance.meleeRespawn();
         transform.SetAsLastSibling();
 
