@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public float DamageToPlayer = 20f; // 플레이어에게 가하는 데미지
 
     public bool isBoss = false;
+    private bool isLinking;
 
     // 이동에 사용되는 변수들
     private GameObject player; // 플레이어 오브젝트
@@ -83,6 +84,8 @@ public class EnemyController : MonoBehaviour
 
         // 초기 목적지 설정
         SetDestinationToNextPathPoint();
+
+        isLinking = false;
     }
 
     void Update()
@@ -146,6 +149,28 @@ public class EnemyController : MonoBehaviour
             // 체력바 값을 체력에 맞춤
             hpBar.value = health;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (navMeshAgent.isOnOffMeshLink && isLinking == false)
+        {
+            float tempspeed = navMeshAgent.speed;
+            StartCoroutine(nameof(MoveAcrossOffLink));
+            navMeshAgent.speed = tempspeed;
+            navMeshAgent.updateRotation = true;
+            isLinking = true;
+            navMeshAgent.CompleteOffMeshLink();
+            isLinking = false;
+        }
+    }
+
+    IEnumerator MoveAcrossOffLink()
+    {
+        OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.speed = 500f;
+        yield return null;
     }
 
     // 타워 설정 함수
