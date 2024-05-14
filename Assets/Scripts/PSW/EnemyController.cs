@@ -352,7 +352,7 @@ public class EnemyController : MonoBehaviour
         }
         else // 지상 유닛인 경우 일정 시간 뒤에 사라짐
         {
-            StartCoroutine(DestroyAfterDelay(2f));
+            StartCoroutine(DestroyAfterDelay(3f));
         }
     }
 
