@@ -42,7 +42,7 @@ public class Skill : MonoBehaviour
 
 
     private void OnParticleCollision(GameObject other)
-    {
+    {   
         Debug.Log(other.tag);
         if(other.CompareTag("Enemy"))
         {
@@ -51,7 +51,7 @@ public class Skill : MonoBehaviour
             switch (id)
             {
                 case 4:
-                    enemy.OnDamage(Damage);
+                    enemy.OnDamage(Damage+Damage * GameManager.Instance.SkillDamage);
                     enemy.StartCoroutine(enemy.OnStop(3));
                     break;
                 case 7:
@@ -60,17 +60,17 @@ public class Skill : MonoBehaviour
                     break;
                
                 case 17:
-                    enemy.OnDamage(Damage);
+                    enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
                 case 19:
-                    enemy.OnDamage(Damage);
+                    enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
                 case 20:
-                    enemy.OnDamage(Damage);
+                    enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     Debug.Log(enemy.health);
                     break;
                 case 22:
-                    enemy.OnDamage(Damage);
+                    enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
             }
         
@@ -125,14 +125,14 @@ public class Skill : MonoBehaviour
                     break;
                 case 3:
                     StartCoroutine(enemyController.OnSpeedDown(0.3f,3));
-                    enemyController.OnDamage(Damage);
+                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
                 case 4:
-                    enemyController.OnDamage(Damage);
+                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     StartCoroutine(enemyController.OnStop(3));
                     break;
                 case 6:
-                    enemyController.OnDamage(Damage);
+                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
                 case 8:
                     StartCoroutine(DotDeal(enemyController, 1f));
@@ -147,7 +147,7 @@ public class Skill : MonoBehaviour
                     StartCoroutine(DotDeal(enemyController,1f));
                     break;
                 case 12:
-                    enemyController.OnDamage(Damage);
+                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
                 case 14:
                     StartCoroutine(DotDeal(enemyController, 1f));
@@ -159,7 +159,7 @@ public class Skill : MonoBehaviour
                     StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 18:
-                    enemyController.OnDamage(Damage);
+                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     StartCoroutine(enemyController.OnStun(3));
                     break;
                 case 21:
@@ -169,10 +169,10 @@ public class Skill : MonoBehaviour
                     StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 25:
-                    enemyController.OnDamage(Damage);
+                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
                 case 26:
-                    enemyController.OnDamage(Damage);
+                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
             }
         }
@@ -182,7 +182,7 @@ public class Skill : MonoBehaviour
     {
         while (true)
         {
-            enemy.OnDamage(Damage);
+            enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
             Debug.Log(enemy.name + enemy.health);
             yield return YieldCache.WaitForSeconds(time);
         }
@@ -202,13 +202,13 @@ public class Skill : MonoBehaviour
         Collider[] c = Physics.OverlapSphere(enemy.transform.position, 2);
         foreach(Collider hit in c)
         {
-            hit.gameObject.GetComponent<EnemyController>().OnDamage(Damage);    
+            hit.gameObject.GetComponent<EnemyController>().OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);    
         }
 
     }
     void id_9(EnemyController enemy)
     {
-        enemy.OnDamage(Damage);
+        enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
         parents = Instantiate(ps, enemy.transform.position, enemy.transform.rotation);
         parents.transform.parent = enemy.transform;
         Destroy(gameObject);
