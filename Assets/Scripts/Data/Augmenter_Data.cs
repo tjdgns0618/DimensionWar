@@ -19,7 +19,7 @@ public class Augmenter_Data : ScriptableObject
     [Header("# Ctrl_Num")]
     //public int num;
     public int count;
-    public List<int> num;
+    public List<float> num;
 
     
 }
