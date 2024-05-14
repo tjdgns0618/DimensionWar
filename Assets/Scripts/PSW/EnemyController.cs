@@ -7,69 +7,70 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
-    public enum EnemyType // ���� Ÿ��
+    public enum EnemyType // 적의 타입을 정의하는 열거형
     {
         Ground,
         Air
     }
 
-    public EnemyType enemyType; // ���� ����
-    public float DamageToPlayer = 20f; // ���� �÷��̾�� ���ϴ� ������
+    public EnemyType enemyType; // 적의 유형
+    public float DamageToPlayer = 20f; // 플레이어에게 가하는 데미지
 
     public bool isBoss = false;
 
-    // �̵��� ���Ǵ� ������
-    private GameObject player; // �÷��̾� ������Ʈ
-    private NavMeshAgent navMeshAgent; // NavMesh ������Ʈ
-    private Transform[] pathPoints; // ��θ� �̷�� ������
-    private int currentPathIndex = 0; // ���� ��� �ε���
-    public float movementSpeed; // ���� �̵��ӵ� (NavMesh ������Ʈ�� ���ǵ� �����)
-    private float originalSpeed;
-    public float increasedSpeedMultiplier = 1.5f; // �ӵ� ���� ���
+    // 이동에 사용되는 변수들
+    private GameObject player; // 플레이어 오브젝트
+    private NavMeshAgent navMeshAgent; // NavMesh 에이전트
+    private Transform[] pathPoints; // 경로를 이루는 지점들
+    private int currentPathIndex = 0; // 현재 경로 인덱스
+    public float movementSpeed; // 적의 이동속도
+    private float originalSpeed; // 원래 이동속도
+    public float increasedSpeedMultiplier = 1.5f; // 속도 증가 배수
 
-    // Ÿ���� ���� ����
+    // 타워에 대한 참조
     [SerializeField]
-    private Tower currentTower; // ���� �浹�� Ÿ��
+    private Tower currentTower; // 현재 충돌한 타워
 
-    // ���ݿ� ���Ǵ� ������
-    public float attackDamage = 10f; // ���� ���ݷ�
-    public float attackCooldown = 1f; // ���� ���� ��ٿ� �ð�
-    private bool isAttacking = false; // ���� Ÿ���� ���� ������ ����
+    // 공격에 사용되는 변수들
+    public float attackDamage = 10f; // 공격력
+    public float attackCooldown = 1f; // 공격 쿨다운 시간
+    private bool isAttacking = false; // 현재 타워를 공격 중인지 여부
 
-    [SerializeField] private Slider hpBar; // Inspector â���� �Ҵ�� Slider
-    public float health = 100f; // ���� ü��
-    public float tempHealth;
+    [SerializeField] private Slider hpBar; // 체력바 슬라이더
+    public float health = 100f; // 적의 체력
+    public float tempHealth; // 체력 임시 저장 변수
 
-    public int goldDropAmount = 10; // ���� ����ϴ� ����� ��
+    public int goldDropAmount = 10; // 골드 드랍량
 
     private Animator WeaponAnimator; // ���� �ִϸ�����
 
-    private Animator animator; // ���� �ִϸ�����
-    public List<string> attackAnimationNames = new List<string> { "Attack01", "Attack02", "Attack03", "Attack04", "Attack05" }; // ���� �ִϸ��̼� ����Ʈ
-    private bool isWalking = false; // �ȱ� ���� ����
+    private Animator animator; // 상태 애니메이터
+    public List<string> attackAnimationNames = new List<string> { "Attack01", "Attack02", "Attack03", "Attack04", "Attack05" }; // 공격 애니메이션 리스트
+    private bool isWalking = false; // 걷기 상태 여부
 
-    private bool isDead = false; // ��� ���� ����
-    public bool isStun = false;
+    private bool isDead = false; // 사망 상태 여부
+    public bool isStun = false; // 기절 상태 여부
     float Waittime;
+
     void Start()
     {
-        // ü�� Slider�� MaxValue�� ����
+        // 체력바 슬라이더의 최댓값과 초기값 설정
         if (hpBar != null)
         {
             hpBar.maxValue = health;
             hpBar.value = health;
         }
 
-        // Animator ������Ʈ ��������
+        // Animator 컴포넌트를 가져옴
         animator = GetComponent<Animator>();
 
-        // �÷��̾� ���� ������Ʈ�� �±׷� ã��
+        // 플레이어 게임 오브젝트를 태그로 찾음
         player = GameObject.FindGameObjectWithTag("Player");
-        // NavMesh ������Ʈ�� ������
+        // NavMesh 에이전트를 가져옴
         navMeshAgent = GetComponent<NavMeshAgent>();
-        // NavMesh ������Ʈ�� ���ǵ� ���
+        // NavMesh 에이전트의 스피드 사용 
         movementSpeed = navMeshAgent.speed;
-        // ��θ� �̷�� �������� ������
+        // 경로를 이루는 지점들을 가져옴
         GameObject pathParent = GameObject.FindGameObjectWithTag("PathParent");
         pathPoints = new Transform[pathParent.transform.childCount];
         for (int i = 0; i < pathParent.transform.childCount; i++)
@@ -77,174 +78,181 @@ public class EnemyController : MonoBehaviour
             pathPoints[i] = pathParent.transform.GetChild(i);
         }
 
-        // ���� �ӵ� ���
+        // 원래 속도 기록
         originalSpeed = navMeshAgent.speed;
 
-        // �ʱ� ������ ����
+        // 초기 목적지 설정
         SetDestinationToNextPathPoint();
     }
 
     void Update()
     {
-        // ��� ������ ��� �ƹ��͵� ���� ����
-        if(isStun)
+        // 체력바 갱신
+        UpdateHealthBar();
+
+        // 기절 상태인 경우 아무것도 하지 않음
+        if (isStun)
         {
             return;
         }
+        // 사망 상태인 경우 아무것도 하지 않음
         if (isDead)
         {
             return;
         }
         else
         {
-            // ü���� 0 ������ ��� Die()�Լ� ȣ��
+            // 체력이 0 이하인 경우 Die()함수 호출
             if (health <= 0f)
             {
                 Die();
-                return; // ����� ��� ���� �ڵ带 �������� ����
+                return; // 사망한 경우 이후 코드를 실행하지 않음
             }
 
-            // �������� �����ߴ��� Ȯ��
+            // 목적지에 도착한 경우 다음 지점으로 이동
             if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
             {
-                // �ȱ� �ִϸ��̼� ����
                 animator.SetBool("IsWalking", false);
-                SetDestinationToNextPathPoint(); // ���� �������� ����
+                SetDestinationToNextPathPoint(); // 다음 지점으로 이동
             }
 
-            // Ÿ���� ������ �� �ִ� �����̸� ����
+            // 공격 중이며 현재 타워가 존재하는 경우 타워 공격
             if (isAttacking && currentTower != null && currentTower.gameObject != null)
             {
-                // �� Ÿ���� Ground�� ��쿡�� Ÿ���� ����
+                // 적의 유형이 지상 유닛인 경우에만 타워 공격
                 if (enemyType == EnemyType.Ground)
                 {
                     AttackTower(currentTower);
                 }
             }
 
-            // �ȱ� ���� ����
+            // 걷는 상태 여부 갱신
             isWalking = navMeshAgent.velocity.magnitude > 0.1f;
 
-            // �ȱ� ���¿� ���� �ִϸ��̼� ����
             animator.SetBool("IsWalking", isWalking);
 
-            // ü�� Slider�� �� ����
-            UpdateHealthBar();
-
-            // �̵� �ӵ� �� ���� ��ٿ ���� �ִϸ��̼� �ӵ� ����
+            // 애니메이션 속도 조절
             AdjustAnimationSpeed();
         }
 
         void UpdateHealthBar()
         {
-            // ü�� Slider�� �Ҵ�Ǿ� ���� ������ ����
+            // 체력바가 비어있는 경우 아무것도 하지 않음
             if (hpBar == null)
             {
                 return;
             }
 
-            // ü�� Slider�� �� ����
+            // 체력바 값을 체력에 맞춤
             hpBar.value = health;
         }
     }
 
-    // Ÿ�� ����
+    // 타워 설정 함수
     public void SetTower(Tower tower)
     {
         currentTower = tower;
     }
 
-    // Ÿ�� ����
+    // 타워 제거 함수
     public void RemoveTower()
     {
         currentTower = null;
     }
 
+    // 데미지를 받는 함수
     void TakeDamage(float damage)
     {
-        health -= damage; // ���� ü�� ����
-
-        if (health < 0f)
+        // 체력바 값을 먼저 갱신
+        if (hpBar != null)
         {
-            health = 0f;
-            hpBar.value = 0f;
+            hpBar.value -= damage;
+        }
+
+        // 적의 체력을 감소
+        health -= damage;
+
+        // 체력이 0 이하로 떨어졌을 때 처리
+        if (health <= 0f)
+        {
+            health = 0f; // 체력을 0으로 설정
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if ((enemyType == EnemyType.Ground) && other.GetComponent<Tower>()) // �� Ÿ���� Ground�̰� �浹�� ������Ʈ�� "Tower" �±׸� ���� Ÿ���� ���
+        if ((enemyType == EnemyType.Ground) && other.GetComponent<Tower>()) // 지상 유닛이고 타워와 충돌한 경우
         {
-            currentTower = other.GetComponent<Tower>(); // �浹�� Ÿ�� ��������
+            currentTower = other.GetComponent<Tower>(); // 현재 타워 설정
 
-            // Ÿ���� �� ���� �ִ�ġ���� ���� ��쿡�� �� �߰� �� �̵� ����
             if (currentTower.currentEnemyCount < currentTower.maxEnemiesPerTower)
             {
-                currentTower.AddEnemy(); // Ÿ���� �� �� ����
-                currentTower.enemiesInRange.Add(this); // ���� Ÿ���� �� ����Ʈ�� �߰�
-                navMeshAgent.isStopped = true; // �̵��� ����
-                isAttacking = true; // ���� ���·� ����
+                currentTower.AddEnemy(); // 타워에 적 추가
+                currentTower.enemiesInRange.Add(this); // 타워의 범위 내에 적 추가
+                navMeshAgent.isStopped = true; // 이동 중지
+                isAttacking = true; // 공격 상태 설정
             }
-            else // �ִ� �� �� �ʰ��� ���� Ÿ���� �����ϰ� �ٽ� �̵�
+            else // 최대 적 수에 도달한 경우 이동 중지
             {
-                currentTower = null; // ���� Ÿ�� �ʱ�ȭ
+                currentTower = null; // 타워 초기화
             }
         }
-        else if (other.CompareTag("Player")) // �浹�� ������Ʈ�� "Player" �±׸� ���� �÷��̾��� ���
+        else if (other.CompareTag("Player")) // 플레이어와 충돌한 경우
         {
-            PlayerController playerController = other.GetComponent<PlayerController>(); // �÷��̾� ������Ʈ ��������
+            PlayerController playerController = other.GetComponent<PlayerController>(); // 플레이어 컨트롤러 가져옴
             if (playerController != null)
             {
-                playerController.TakeDamage(1);
+                playerController.TakeDamage(1); // 플레이어 데미지 입힘
             }
-            gameObject.SetActive(false); // �� ������Ʈ �ı�
+            gameObject.SetActive(false); // 게임 오브젝트 비활성화
         }
     }
 
-    void OnTriggerExit(Collider other) // Ÿ���� ����� ��
+    void OnTriggerExit(Collider other) // 적이 타워의 범위를 벗어난 경우
     {
-        // �� Ÿ���� Air�� ��� ����
+        // 공중 유닛인 경우
         if (enemyType == EnemyType.Air)
         {
             return;
         }
 
-        if (other.CompareTag("Tower"))
+        // 타워와 충돌한 경우
+        if (other.CompareTag("Tower")) 
         {
             if (currentTower != null)
             {
-                currentTower.RemoveEnemy(); // Ÿ���� �� �� ����
-                currentTower = null; // ���� Ÿ�� �ʱ�ȭ
+                currentTower.RemoveEnemy(); // 타워에서 적 제거
+                currentTower = null; // 타워 초기화
             }
         }
     }
-        
-    // ���� �̵� ����
+
+    // 이동 시작 함수
     public void StartMoving()
     {
-        // ��� ������ ��� �̵��� �������� ����
+        // 사망 상태인 경우 이동하지 않음
         if (isDead)
         {
             return;
         }
 
-        SetDestinationToNextPathPoint(); // ��������Ʈ�� �̵�
-        navMeshAgent.isStopped = false; // �̵� ����
+        SetDestinationToNextPathPoint(); // 다음 지점으로 이동
+        navMeshAgent.isStopped = false; // 이동 시작
     }
 
     void AttackTower(Tower tower)
     {
-        // ���� ��ٿ� �ð��� ���� ������ Ÿ�� ����
+        // 공격 쿨다운 감소
         attackCooldown -= Time.deltaTime;
         if (attackCooldown <= 0f)
         {
-            // �������� ���� �ִϸ��̼� ����
+            // 랜덤한 공격 애니메이션 선택
             string randomAttackAnimation = GetRandomAttackAnimation();
 
-            // ���õ� ���� �ִϸ��̼��� Ʈ���� ���
+            // 해당 애니메이션을 트리거로 설정
             animator.SetTrigger(randomAttackAnimation);
 
-            // ���� Weapon �±׸� ���� ������Ʈ�� ������ �ִٸ� �ش� �ִϸ����� ���
+            // 공격 애니메이션을 가진 무기 오브젝트들에 대해 애니메이션을 트리거로 설정
             GameObject[] weaponObjects = GameObject.FindGameObjectsWithTag("Weapon");
             foreach (GameObject weaponObject in weaponObjects)
             {
@@ -255,28 +263,30 @@ public class EnemyController : MonoBehaviour
                 }
             }
 
-            tower.TakeDamage(attackDamage); // Ÿ�� ü�� ���� 
-            attackCooldown = 1f; // ��ٿ� �ʱ�ȭ
+            tower.TakeDamage(attackDamage); // 타워에 데미지 입힘
+            attackCooldown = 1f; // 쿨다운 초기화
         }
     }
 
-    // �̵� �ӵ� �� ���� ��ٿ ���� �ִϸ��̼� �ӵ� ����
+    // 애니메이션 속도 조절 함수
     void AdjustAnimationSpeed()
     {
-        // �̵� �ִϸ��̼� �ӵ� ����
+        // 걷는 애니메이션 속도 조절
         animator.SetFloat("WalkSpeed", navMeshAgent.speed / originalSpeed);
 
-        // ���� �ִϸ��̼� �ӵ� ����
+        // 공격 애니메이션 속도 조절
         float attackSpeedMultiplier = 1f / attackCooldown; 
         animator.SetFloat("AttackSpeed", attackSpeedMultiplier);
     }
 
+    // 기절 코루틴
     public IEnumerator OnStun(float time)
     {
         isStun = true;
        yield return YieldCache.WaitForSeconds(time);
         isStun = false;
     }
+    // 이동 정지 코루틴
     public IEnumerator OnStop(float time)
     {
         float temp = movementSpeed;
@@ -284,130 +294,135 @@ public class EnemyController : MonoBehaviour
         yield return YieldCache.WaitForSeconds(time);
         movementSpeed = temp;
     }
+    // 데미지 감소 코루틴
     public IEnumerator OnDamageDown(float DamageDown,float time)
     {
         attackDamage *= (1 - DamageDown);
         yield return YieldCache.WaitForSeconds(time);
         attackDamage /= (1 - DamageDown);
     }
+    // 이동 속도 감소 코루틴
     public IEnumerator OnSpeedDown(float SpeedDown, float time)
     {
         movementSpeed *= (1 - SpeedDown);
         yield return YieldCache.WaitForSeconds(time);
         movementSpeed /= (1 - SpeedDown);
     }
+    // 데미지를 입는 함수
     public void OnDamage(float damage)
     {
         health -= (damage+GameManager.Instance.BonusDamage);
     }
 
+    // 사망 함수
     void Die()
     {
-        if (isDead) // �̹� ����� ��쿡�� �� �̻� �������� ����
+        if (isDead) // 이미 사망한 경우 아무것도 하지 않음
         {
             return;
         }
-        isDead = true; // ��� ���·� ����
+        isDead = true; // 사망 상태로 변경
 
-        GameManager.Instance.gold += 10; // ����� ��� ŉ��
-        GameManager.Instance.Killcount++; // ����� ųī��Ʈ 1����
+        GameManager.Instance.gold += 10; // 골드 획득
+        GameManager.Instance.Killcount++; // 킬 카운트 증가
 
-        // Die �ִϸ��̼��� ���
+        // 죽는 애니메이션 실행
         animator.SetTrigger("Die");
 
-        
-
-        // �� Ÿ���� �� �� ����
+        // 적이 지상 유닛이고 현재 타워가 존재하는 경우
         if ((enemyType == EnemyType.Ground) && currentTower != null)
         {
-            currentTower.RemoveEnemy();
+            currentTower.RemoveEnemy(); // 타워에서 적 제거
         }
 
-        // �׺���̼� �޽� ������Ʈ ��Ȱ��ȭ
+        // NavMesh 에이전트 비활성화
         navMeshAgent.enabled = false;
 
-        // �ݶ��̴� ��Ȱ��ȭ
+        // 콜라이더 비활성화
         Collider collider = GetComponent<Collider>();
         if (collider != null)
         {
             collider.enabled = false;
         }
 
-        // Air Ÿ���� ��� ���������� �߶��ϴ� ȿ�� �ο�
+        // 공중 유닛인 경우 일정 시간 뒤에 사라짐
         if (enemyType == EnemyType.Air)
         {
             StartCoroutine(FallDownCoroutine());
         }
-        else // Ground Ÿ���� ���� ��� �ı�
+        else // 지상 유닛인 경우 일정 시간 뒤에 사라짐
         {
             StartCoroutine(DestroyAfterDelay(2f));
         }
-
     }
 
+    // 공중 유닛 사망시 추락 구현 코루틴
     IEnumerator FallDownCoroutine()
     {
-        float totalTime = 2f; // �߶��ϴµ� �ɸ��� ��ü �ð�
+        float totalTime = 2f; // 전체 시간
         float elapsedTime = 0f;
 
         Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition - Vector3.up * 2f; // �߶� �Ÿ� ����
+        Vector3 endPosition = startPosition - Vector3.up * 2f; // 목표 지점 설정
 
         while (elapsedTime < totalTime)
         {
-            // ���� �ð��� ���� ������ ������ ��ġ�� ����
+            // 시간에 따라 현재 위치 변경
             float t = elapsedTime / totalTime;
             transform.position = Vector3.Lerp(startPosition, endPosition, t);
 
-            // �ð� ������Ʈ
+            // 경과 시간 증가
             elapsedTime += Time.deltaTime;
 
             yield return null;
         }
 
-        // ������ �߶��� �� �ı�
+        // 최종 위치 설정
         gameObject.SetActive(false);
     }
 
+    // 지정된 지연 후에 제거되는 코루틴
     IEnumerator DestroyAfterDelay(float delay)
     {
-        // delay �ð� ���
+        // 지연
         yield return new WaitForSeconds(delay);
 
-        // �� ������Ʈ �ı�
+        // 오브젝트 비활성화
         // Destroy(gameObject);
         gameObject.SetActive(false);
     }
 
+    // 랜덤한 공격 애니메이션 반환 함수
     string GetRandomAttackAnimation()
     {
-        // ���� �ִϸ��̼ǵ� �� �ϳ��� �������� �����Ͽ� ��ȯ
+        // 랜덤한 인덱스 선택
         int randomIndex = Random.Range(0, attackAnimationNames.Count);
         return attackAnimationNames[randomIndex];
     }
 
+    // 다음 목적지 설정 함수
     void SetDestinationToNextPathPoint()
     {
-        if (currentPathIndex < pathPoints.Length - 1) // ���� �������� �̵�
+        if (currentPathIndex < pathPoints.Length - 1) // 아직 경로가 남아있는 경우
         {
             currentPathIndex++;
             Vector3 destination = pathPoints[currentPathIndex].position;
             navMeshAgent.SetDestination(destination);
-            // �ȱ� �ִϸ��̼� ���
+            // 걷기 애니메이션 설정
             animator.SetBool("IsWalking", true);
         }
-        else // ����� ���� ������ ��� �÷��̾� ������ �̵�
+        else // 경로가 없는 경우 플레이어 쪽으로 이동
         {
             navMeshAgent.SetDestination(player.transform.position);
-            // �ȱ� �ִϸ��̼� ���
+            // 걷기 애니메이션 설정
             animator.SetBool("IsWalking", true);
         }
     }
 
-    // ���̺갡 ����� �� ȣ��Ǵ� �Լ�
+    // 웨이브에 따른 속도 증가 함수
     public void IncreaseSpeedForWave(float multiplier)
     {
-        // �ӵ��� ������ �ӵ��� ����
+        // 이동 속도 증가
         navMeshAgent.speed = originalSpeed * multiplier;
     }
 
@@ -446,8 +461,10 @@ public class EnemyController : MonoBehaviour
                 return;
             }
         }
-        GameManager.Instance.diamond += 3;
-        GameManager.Instance.meleeRespawn();
-
+        if (GameManager.Instance.enemySpawner.lastSpawn)
+        {
+            GameManager.Instance.diamond += 3;
+            GameManager.Instance.meleeRespawn();
+        }
     }
 }
