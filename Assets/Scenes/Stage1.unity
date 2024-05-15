@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34241578, g: 0.4327854, b: 0.5731969, a: 1}
+  m_IndirectSpecularColor: {r: 0.34241387, g: 0.4327809, b: 0.57319295, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17645,7 +17645,7 @@ PrefabInstance:
     - target: {fileID: 3366509632816171244, guid: d6ac4791363ef6d44b6337936d9d746d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21546,8 +21546,16 @@ MonoBehaviour:
   towerDamage: 0
   towerSpeed: 0
   towerHp: 0
+  SkillDamage: 0
   BonusDamage: 0
   FullUpAugm: 
+  Tower_Range: 0
+  Pixel_tower_damage: 0
+  LowPoly_tower_damage: 0
+  _3D_tower_damage: 0
+  Pixel_tower_Hp: 0
+  LowPoly_tower_Hp: 0
+  _3D_tower_Hp: 0
 --- !u!1 &530529528
 GameObject:
   m_ObjectHideFlags: 0
