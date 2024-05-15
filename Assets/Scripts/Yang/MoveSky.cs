@@ -14,8 +14,8 @@ public class MoveSky : MonoBehaviour
     {
         degree = 0;
         boost = 3.9f;
-
-        //StartCoroutine(_start()); // ¿µ»óÁ¦ÀÛ¿ë
+        PlayerPrefs.SetInt("Dimension",2);
+        //StartCoroutine(_start()); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½
     }
 
     // Update is called once per frame
@@ -24,10 +24,10 @@ public class MoveSky : MonoBehaviour
         degree += Time.deltaTime;
         if (degree >= 360)
             degree = 0;
-        // Material¿¡ ÀÖ´Â º¯¼öÀÇ °ªÀ» º¯°æ½ÃÅ°´Â ÇÔ¼ö
+        // Materialï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô¼ï¿½
         RenderSettings.skybox.SetFloat("_Rotation", degree);
 
-        // °ÔÀÓÀÌ ½ÃÀÛµÇ¸é Material¿¡ ÀÖ´Â º¯¼ö °ªÀ» º¯°æ½ÃÅ°´Â ÇÔ¼ö
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÛµÇ¸ï¿½ Materialï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô¼ï¿½
         if (start)
         {
             boost += 0.1f * Time.deltaTime;
@@ -36,7 +36,7 @@ public class MoveSky : MonoBehaviour
         }
     }
 
-    // °ÔÀÓ ½ÃÀÛÀ» È®ÀÎÇÏ´Â ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     public void ClickStart()
     {
         start = true;

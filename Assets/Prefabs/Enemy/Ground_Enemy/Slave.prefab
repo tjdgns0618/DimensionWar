@@ -385,10 +385,11 @@ MonoBehaviour:
   movementSpeed: 0
   increasedSpeedMultiplier: 1.5
   currentTower: {fileID: 0}
-  attackDamage: 5
-  attackCooldown: 1
+  attackDamage: 1
+  attackCooldown: 0.5
   hpBar: {fileID: 6470736005658501526}
-  health: 300
+  health: 250
+  tempHealth: 0
   goldDropAmount: 10
   attackAnimationNames:
   - Attack01
@@ -403,7 +404,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.75
+  m_Speed: 1.75
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120

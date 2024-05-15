@@ -940,7 +940,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.8
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 90
@@ -971,9 +971,10 @@ MonoBehaviour:
   increasedSpeedMultiplier: 1.5
   currentTower: {fileID: 0}
   attackDamage: 10
-  attackCooldown: 0.5
+  attackCooldown: 0.8
   hpBar: {fileID: 7245438333524637598}
-  health: 800
+  health: 500
+  tempHealth: 0
   goldDropAmount: 10
   attackAnimationNames:
   - Attack01

@@ -1571,8 +1571,9 @@ MonoBehaviour:
   attackDamage: 25
   attackCooldown: 0.8
   hpBar: {fileID: 1612490085566824504}
-  health: 2500
-  goldDropAmount: 10
+  health: 25000
+  tempHealth: 0
+  goldDropAmount: 300
   attackAnimationNames:
   - Attack01
   - Attack02
@@ -1588,7 +1589,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.7
+  m_Speed: 0.55
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120
