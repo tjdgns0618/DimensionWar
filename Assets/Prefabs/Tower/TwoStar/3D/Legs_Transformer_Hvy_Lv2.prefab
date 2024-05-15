@@ -536,6 +536,7 @@ MonoBehaviour:
   SkillCost: 8
   SkillCount: 0
   Damage: 250
+  TempDamage: 0
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -579,7 +580,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillDmg: 0
+  SkillDamagePer: 0
+  SkillDmg: 1
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 4098773455528245824, guid: c014c8368fdd19e40ac514036decdf78, type: 3}
