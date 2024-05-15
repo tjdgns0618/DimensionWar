@@ -9,7 +9,7 @@ public class AugmenterManager : MonoBehaviour
     public GameObject btt;
     public GameObject[] bt;
     public List<int> r = new List<int>();
-    public List<int> FullUp = new List<int>();
+   
     
     //public int count=0;
     public int max;
@@ -58,7 +58,7 @@ public class AugmenterManager : MonoBehaviour
 
     public void reroll(int num)
     {
-        if(GameManager.Instance.gold <=10)
+        if (GameManager.Instance.gold <=10|| max - GameManager.Instance.FullUpAugm.Count <= 2)
         {
             //gameObject.SetActive(false);
             return;
@@ -84,6 +84,12 @@ public class AugmenterManager : MonoBehaviour
     }
     public void CreateUnDuplicateRandom()
     {
+        if(max- GameManager.Instance.FullUpAugm.Count<=2)
+        {
+            Debug.Log("");
+
+            return;
+        }
         int currentNumber = Random.Range(0, max);
         
         for (int i = 0; i < bt.Length;)
