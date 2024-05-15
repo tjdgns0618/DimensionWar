@@ -24,7 +24,7 @@ public class Skill : MonoBehaviour
     }
     void Start()
     {
-        //Destroy(gameObject,5);
+        Destroy(gameObject,5);
         if (id == 9)
             rigid = GetComponent<Rigidbody>();
 

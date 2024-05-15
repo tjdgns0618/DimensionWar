@@ -960,7 +960,7 @@ MonoBehaviour:
   upgrade: 
   maxEnemiesPerTower: 3
   currentEnemyCount: 0
-  health: 100
+  health: 500
   tempHealth: 0
   Tower_id: 0
   tower_state: 0
@@ -968,11 +968,12 @@ MonoBehaviour:
   tower_class: 1
   isMelea: 1
   isWall: 1
-  AttackRange: 2
-  AttackDel: 2
+  AttackRange: 3
+  AttackDel: 3
   SkillCost: 5
   SkillCount: 0
-  Damage: 10
+  Damage: 40
+  TempDamage: 0
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -1004,6 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  SkillDamagePer: 0
   SkillDmg: 0
   EnemyTrans: {fileID: 0}
   SkillPrefabs:

@@ -103,9 +103,11 @@ public class Augmenter : MonoBehaviour
     public void SpeedUp()
     {
         GameManager.Instance.towerSpeed += augmenter_Datas[r].num[n] * 0.01f;
+        
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel -= GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel * augmenter_Datas[r].num[n] * 0.01f;
+            GameManager.Instance.towers[i].GetComponent<Tower>().anim.speed += augmenter_Datas[r].num[n] * 0.01f;
         }
     }
 
