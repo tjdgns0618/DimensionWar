@@ -51,17 +51,19 @@ public class BTManager : MonoBehaviour
         instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);   // Ŭ���� ���� �ڽ����� Ÿ���� �����Ѵ�.
         if (i == 0) {
             instance.transform.localPosition = new Vector3(0, 1.519f, 0);   // �ȼ� ���� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if(PlayerPrefs.GetInt("Dimension") == 2)
+                instance.transform.localPosition = new Vector3(0,2.42f,0);
+            instance.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 1)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // �ο����� ���� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 2)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ���� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -77,17 +79,19 @@ public class BTManager : MonoBehaviour
         if (i == 3 || i == 4)
         {
             instance.transform.localPosition = new Vector3(0, 1.418f, 0);   // �ȼ� ���Ÿ� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if(PlayerPrefs.GetInt("Dimension") == 2)
+                instance.transform.localPosition = new Vector3(0,2.42f,0);
+            instance.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 5 || i == 6)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // �ο����� ���Ÿ� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 7 || i == 8)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ���Ÿ� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
