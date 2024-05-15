@@ -138,14 +138,17 @@ public class Tower_Skill : MonoBehaviour
     }
     IEnumerator skill_0() // ���ݼӵ�����
     {
-        float temp = gameObject.GetComponent<Tower>().AttackDel;
-        SkillPrefabs[tower_Level].SetActive(true);
-        gameObject.GetComponent<Tower>().AttackDel -= temp / 2;
-        gameObject.GetComponent<Tower>().anim.speed *= 2;
-        yield return YieldCache.WaitForSeconds(5f);
-        gameObject.GetComponent<Tower>().AttackDel += temp / 2;
-        gameObject.GetComponent<Tower>().anim.speed /= 2;
-        SkillPrefabs[tower_Level].SetActive(false);
+        if(SkillPrefabs[tower_Level].activeSelf ==false)
+        {
+            float temp = gameObject.GetComponent<Tower>().AttackDel;
+            SkillPrefabs[tower_Level].SetActive(true);
+            gameObject.GetComponent<Tower>().AttackDel -= temp / 2;
+            gameObject.GetComponent<Tower>().anim.speed *= 2;
+            yield return YieldCache.WaitForSeconds(5f);
+            gameObject.GetComponent<Tower>().AttackDel += temp / 2;
+            gameObject.GetComponent<Tower>().anim.speed /= 2;
+            SkillPrefabs[tower_Level].SetActive(false);
+        }
     }
     IEnumerator skill_1() //10%��������  �� 30% ���ݷ´ٿ�
     {
