@@ -114,6 +114,14 @@ public class AugmenterManager : MonoBehaviour
     }
     public void AugmenterBuy()
     {
+        if(GameManager.Instance.gold <100)
+        {
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
+            return;
+        }
         GameManager.Instance.gold -= 100;
+        CreateUnDuplicateRandom();
+        Augmeneter();
+
     }
 }
