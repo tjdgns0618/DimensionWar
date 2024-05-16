@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.027977768, g: 0.03327505, b: 0.050547954, a: 1}
+  m_IndirectSpecularColor: {r: 0.010634413, g: 0.011909916, b: 0.01465565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9007,11 +9007,11 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 649056549192762477, guid: f8fac282266725440b1ae3f66290ee6c,
+    - enemyPrefab: {fileID: 1520265563894574178, guid: 4c46ab06c09d5d44e82a01859e46c23b,
         type: 3}
-      numberOfEnemies: 10
-      enemyHealth: 400
-      goldDropAmount: 10
+      numberOfEnemies: 20
+      enemyHealth: 250
+      goldDropAmount: 5
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -9019,10 +9019,10 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 7162350847740585720, guid: e1b3b352c35b90e428463c785d3dd81c,
+    - enemyPrefab: {fileID: 1239901341023663014, guid: 7ca0bec5b9a01f94fb7ec98f20d75c83,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 600
+      enemyHealth: 300
       goldDropAmount: 15
     spawnInterval: 3
     increaseSpeed: 0
@@ -9031,10 +9031,10 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 8891175828826502979, guid: 4291e13e47863d247bfb5d3064ba55d9,
+    - enemyPrefab: {fileID: 4537104983974661893, guid: dc113e5b5431bb544b26f4c055094c08,
         type: 3}
-      numberOfEnemies: 10
-      enemyHealth: 800
+      numberOfEnemies: 5
+      enemyHealth: 1500
       goldDropAmount: 20
     spawnInterval: 3
     increaseSpeed: 0
@@ -9043,10 +9043,10 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 9082778515294869830, guid: c9680cf1435b44641929701ee3d7a0c6,
+    - enemyPrefab: {fileID: 8886420802757506741, guid: b42f5401693c7c24188d8ef73d19ff85,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 6000
+      enemyHealth: 5000
       goldDropAmount: 200
     spawnInterval: 2
     increaseSpeed: 0
@@ -16590,8 +16590,8 @@ MonoBehaviour:
   level: 0
   Health: 0
   maxHealth: 100
-  gold: 5000
-  diamond: 10
+  gold: 0
+  diamond: 5
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
