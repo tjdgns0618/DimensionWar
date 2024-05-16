@@ -315,6 +315,7 @@ public class Tower : MonoBehaviour
     // 타워가 파괴될 때 호출되는 메서드
     void OnDisable()
     {
+        currentEnemyCount = 0;
         // 타워에 할당된 적이 있는지 확인하고, 있다면 이동을 재개하도록 함
         //Debug.Log("OnDestroy");
         if (enemiesInRange != null)
@@ -324,12 +325,12 @@ public class Tower : MonoBehaviour
                 if (enemy != null)
                 {
                     anim.speed = 1;
-                    currentEnemyCount = 0;
                     enemy.RemoveTower();
                     enemy.StartMoving();
                     Debug.Log("enemy.StartMoving");
                 }
             }
-        }
+        }        
+        
     }
 }
