@@ -14,7 +14,6 @@ public class MoveSky : MonoBehaviour
     {
         degree = 0;
         boost = 3.9f;
-        PlayerPrefs.SetInt("Dimension",2);
         //StartCoroutine(_start()); // �������ۿ�
     }
 
