@@ -486,8 +486,9 @@ public class EnemyController : MonoBehaviour
                 return;
             }
         }
-        if (GameManager.Instance.enemySpawner.lastSpawn)
+        if (GameManager.Instance.enemySpawner.lastSpawn && !GameManager.Instance.enemySpawner.rewardGiven)
         {
+            GameManager.Instance.enemySpawner.rewardGiven = true;
             GameManager.Instance.diamond += 3;
             GameManager.Instance.meleeRespawn();
         }

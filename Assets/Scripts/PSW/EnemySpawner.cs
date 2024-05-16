@@ -39,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
     private int currentWaveIndex = 0; // 현재 웨이브 인덱스
     private bool isWaveInProgress = false; // 현재 웨이브가 진행 중인지 여부
     public bool lastSpawn;
+    public bool rewardGiven;
 
     // 적이 모두 사망했음을 알리는 이벤트
     public event Action OnAllEnemiesDead;
@@ -78,6 +79,7 @@ public class EnemySpawner : MonoBehaviour
         {
             count = 0;
             lastSpawn = false;
+            rewardGiven = false;
             isWaveInProgress = true;
             StartCoroutine(SpawnEnemies());
         }
