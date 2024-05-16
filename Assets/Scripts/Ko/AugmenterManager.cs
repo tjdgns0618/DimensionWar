@@ -10,7 +10,7 @@ public class AugmenterManager : MonoBehaviour
     public GameObject btt;
     public GameObject[] bt;
     public List<int> r = new List<int>();
-    public List<int> FullUp = new List<int>();
+   
     
     //public int count=0;
     public int max;
@@ -62,7 +62,7 @@ public class AugmenterManager : MonoBehaviour
 
     public void reroll(int num)
     {
-        if(GameManager.Instance.gold <=10)
+        if (GameManager.Instance.gold <=10|| max - GameManager.Instance.FullUpAugm.Count <= 2)
         {
             //gameObject.SetActive(false);
             return;
@@ -82,18 +82,25 @@ public class AugmenterManager : MonoBehaviour
                 break;
             }
         }
-        Debug.Log("reroll");
         bt[num].GetComponent<Augmenter>().r = r[num];
         bt[num].GetComponent<Augmenter>().AugmentUpdate();
     }
     public void CreateUnDuplicateRandom()
     {
+        if(max- GameManager.Instance.FullUpAugm.Count<=2)
+        {
+
+
+            return;
+        }
         int currentNumber = Random.Range(0, max);
         
         for (int i = 0; i < bt.Length;)
         {
+            
             while(r.Contains(currentNumber)|| GameManager.Instance.FullUpAugm.Contains(currentNumber))
             {
+              // if()
                 currentNumber = Random.Range(0, max);
             }
                 r.Add(currentNumber);
@@ -107,6 +114,14 @@ public class AugmenterManager : MonoBehaviour
     }
     public void AugmenterBuy()
     {
+        if(GameManager.Instance.gold <100)
+        {
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
+            return;
+        }
         GameManager.Instance.gold -= 100;
+        CreateUnDuplicateRandom();
+        Augmeneter();
+
     }
 }

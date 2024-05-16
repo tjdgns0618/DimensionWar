@@ -383,9 +383,9 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 8
-  SkillCount: 7
-  Damage: 250
+  SkillCost: 5
+  SkillCount: 0
+  Damage: 150
   TempDamage: 0
   BuffDamage: 0
   targetLayer:
@@ -1802,6 +1802,14 @@ PrefabInstance:
     - target: {fileID: 1451260570644718, guid: 12768efda0985234f9a9aecde506af49, type: 3}
       propertyPath: m_Name
       value: ClickEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742768964670820, guid: 12768efda0985234f9a9aecde506af49, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742768964670820, guid: 12768efda0985234f9a9aecde506af49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4742768964670820, guid: 12768efda0985234f9a9aecde506af49, type: 3}
       propertyPath: m_LocalPosition.x

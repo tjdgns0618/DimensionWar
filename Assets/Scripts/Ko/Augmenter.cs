@@ -34,11 +34,18 @@ public class Augmenter : MonoBehaviour
         number = augmenter_Datas[r].number;
         
     }
+    public void fullAugment()
+    {
+        Name.text ="더이상 강화할 증강이 없습니다.";
+        n = 0;
+        Effet.text = "더이상 강화할 증강이 없습니다.";
+        Image.sprite = null;
+        //number = augmenter_Datas[r].number;
+    }
     public void Button()
     {
         button.SetActive(false);
         Time.timeScale = PlayerPrefs.GetInt("Timescale");
-        GameManager.Instance.gold -= 10*n;
         augmenter_Datas[r].count++;
         if (augmenter_Datas[r].count >= augmenter_Datas[r].num.Count)
         {
@@ -103,9 +110,11 @@ public class Augmenter : MonoBehaviour
     public void SpeedUp()
     {
         GameManager.Instance.towerSpeed += augmenter_Datas[r].num[n] * 0.01f;
+        
         for (int i = 0; i < GameManager.Instance.towers.Count; i++)
         {
             GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel -= GameManager.Instance.towers[i].GetComponent<Tower>().AttackDel * augmenter_Datas[r].num[n] * 0.01f;
+            GameManager.Instance.towers[i].GetComponent<Tower>().anim.speed += augmenter_Datas[r].num[n] * 0.01f;
         }
     }
 

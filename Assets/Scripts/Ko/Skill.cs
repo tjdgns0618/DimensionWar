@@ -24,7 +24,7 @@ public class Skill : MonoBehaviour
     }
     void Start()
     {
-        //Destroy(gameObject,5);
+        Destroy(gameObject,5);
         if (id == 9)
             rigid = GetComponent<Rigidbody>();
 
@@ -101,11 +101,20 @@ public class Skill : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
+            Debug.Log(enemy.name);
             if (!hitObject.Contains(enemy))
             {
                 hitObject.Add(enemy);
                 ApplyDamage(enemy);
             }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            GameObject enemy = other.gameObject;
+         
         }
     }
     public void ApplyDamage(GameObject enemy)
@@ -177,7 +186,7 @@ public class Skill : MonoBehaviour
             }
         }
     }
-
+    
     IEnumerator DotDeal(EnemyController enemy,float time)
     {
         while (true)

@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
                 towers[i].GetComponent<Tower>().tower_type == Tower.Tower_Type.Meele)
             {
                 towers[i].GetComponent<Tower>().health = towers[i].GetComponent<Tower>().tempHealth;
+                towers[i].GetComponent<Tower>().currentEnemyCount = 0;
             }
         }
     }

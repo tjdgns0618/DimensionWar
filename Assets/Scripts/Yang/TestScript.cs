@@ -24,6 +24,8 @@ public class TestScript : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         tower = GetComponent<Tower>();
+        if(PlayerPrefs.GetInt("Dimension") == 2 && this.GetComponent<Tower>().tower_class == Tower.Tower_Class.Pixel)
+            ClickEffect.transform.localPosition = new Vector3(0,-1,0);
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)

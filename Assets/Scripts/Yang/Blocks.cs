@@ -18,7 +18,7 @@ public class Blocks : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
-        dimension = PlayerPrefs.GetInt("dimension");    // ���� ���������� Dimension�� �޾ƿ´�.
+        dimension = PlayerPrefs.GetInt("Dimension");    // ���� ���������� Dimension�� �޾ƿ´�.
     }
 
     void FixedUpdate()

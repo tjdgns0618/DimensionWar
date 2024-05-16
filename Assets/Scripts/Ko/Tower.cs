@@ -151,13 +151,21 @@ public class Tower : MonoBehaviour
         {
             if (dir.normalized.x >= 0)
             {
-                transform.localScale = new Vector3(scale.x/2, scale.y, scale.z);
+                if(PlayerPrefs.GetInt("Dimension") == 2)
+                    transform.localScale = new Vector3(scale.x/2, scale.y * 2, scale.z);
+                else
+                    transform.localScale = new Vector3(scale.x/2, scale.y, scale.z);
+
                 GetComponent<TestScript>().ClickEffect.transform.localScale = new Vector3(scale.x, scale.y/2, scale.z);
                 //Debug.Log("오른쪽");
             }
             else if (dir.normalized.x < 0)
             {
-                transform.localScale = new Vector3(-scale.x/2, scale.y, scale.z);
+                if(PlayerPrefs.GetInt("Dimension") == 2)
+                    transform.localScale = new Vector3(-scale.x/2, scale.y * 2, scale.z);
+                else
+                    transform.localScale = new Vector3(-scale.x/2, scale.y, scale.z);
+
                 GetComponent<TestScript>().ClickEffect.transform.localScale = new Vector3(scale.x, scale.y/2, scale.z);
                 //Debug.Log("왼쪽");
             }
@@ -307,6 +315,7 @@ public class Tower : MonoBehaviour
     // 타워가 파괴될 때 호출되는 메서드
     void OnDisable()
     {
+        currentEnemyCount = 0;
         // 타워에 할당된 적이 있는지 확인하고, 있다면 이동을 재개하도록 함
         //Debug.Log("OnDestroy");
         if (enemiesInRange != null)
@@ -316,12 +325,12 @@ public class Tower : MonoBehaviour
                 if (enemy != null)
                 {
                     anim.speed = 1;
-                    currentEnemyCount = 0;
                     enemy.RemoveTower();
                     enemy.StartMoving();
                     Debug.Log("enemy.StartMoving");
                 }
             }
-        }
+        }        
+        
     }
 }

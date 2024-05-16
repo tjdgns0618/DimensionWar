@@ -51,17 +51,19 @@ public class BTManager : MonoBehaviour
         instance.transform.SetParent(GameManager.Instance.SelectBlock.transform);   // Ŭ���� ���� �ڽ����� Ÿ���� �����Ѵ�.
         if (i == 0) {
             instance.transform.localPosition = new Vector3(0, 1.519f, 0);   // �ȼ� ���� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if(PlayerPrefs.GetInt("Dimension") == 2)
+                instance.transform.localPosition = new Vector3(0,2.42f,0);
+            instance.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 1)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // �ο����� ���� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 2)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ���� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -69,7 +71,7 @@ public class BTManager : MonoBehaviour
     {
         if (GameManager.Instance.SelectBlock.transform.childCount >= 2) // Ÿ���� �������� �ʴ� �����̶��
             return;
-
+        Debug.Log(PlayerPrefs.GetInt("Dimension"));
         int i = Random.Range(3, 9);
         GameObject instance = Instantiate(Tower[i]);    // ���Ÿ�Ÿ���߿��� �������� ����
         GameManager.Instance.towers.Add(instance);      // ������ Ÿ���� ���ӸŴ����� �������ش�.
@@ -77,24 +79,24 @@ public class BTManager : MonoBehaviour
         if (i == 3 || i == 4)
         {
             instance.transform.localPosition = new Vector3(0, 1.418f, 0);   // �ȼ� ���Ÿ� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if(PlayerPrefs.GetInt("Dimension") == 2)
+                instance.transform.localPosition = new Vector3(0, 2.42f,0);
+            instance.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 5 || i == 6)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // �ο����� ���Ÿ� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (i == 7 || i == 8)
         {
             instance.transform.localPosition = new Vector3(0, 0.5f, 0);     // 3D ���Ÿ� Ÿ�� ��ġ �ʱ�ȭ
-            instance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            instance.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
     public void UpgradeBtnClick()
     {
-        GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DOPlay();
-
         if(GameManager.Instance.tower.GetComponent<Tower>().tower_type == 
             global::Tower.Tower_Type.Meele)
         {
@@ -102,7 +104,7 @@ public class BTManager : MonoBehaviour
             GameManager.Instance.uiManager.rangeStat2Button.gameObject.SetActive(false);
             GameManager.Instance.uiManager.meleeStat1Button.gameObject.SetActive(true);
             GameManager.Instance.uiManager.meleeStat2Button.gameObject.SetActive(true);
-
+            
             if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[0])
                 GameManager.Instance.uiManager.meleeStat1Button.image.color = Color.white;
             else
@@ -147,6 +149,10 @@ public class BTManager : MonoBehaviour
 
     public void Stat1Upgrade()
     {
+        if(GameManager.Instance.gold < 50)
+        return;
+
+        GameManager.Instance.gold -= 50;
         if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
             global::Tower.Tower_Type.Meele)
         {
@@ -170,6 +176,10 @@ public class BTManager : MonoBehaviour
 
     public void Stat2Upgrade()
     {
+        if(GameManager.Instance.gold < 50)
+        return;
+        
+        GameManager.Instance.gold -= 50;
         if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
             global::Tower.Tower_Type.Meele)
         {
@@ -192,25 +202,16 @@ public class BTManager : MonoBehaviour
 
     public void DamageUpgrade()
     {
-        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().Damage *= 1.2f;
     }
 
     public void SpeedUpgrade()
     {
-        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().AttackDel *= 0.9f;
-    }
-
-    public void SkillCoolUpgrade()
-    {
-        GameManager.Instance.gold -= 50;
-        GameManager.Instance.tower.GetComponent<Tower>().SkillCost--;
     }
 
     public void HealthUpgrade()
     {
-        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().health *= 2f;
         GameManager.Instance.tower.GetComponent<Tower>().tempHealth *= 2f;
     }
@@ -276,8 +277,12 @@ public class BTManager : MonoBehaviour
         instance.transform.position = GameManager.Instance.tower.transform.position;
         if(instance.GetComponent<Tower>().tower_class != global::Tower.Tower_Class.Pixel)
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
-        if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2")
-            instance.transform.position += new Vector3(0, 0.4f, 0); // �ȼ� 3�� ��ġ�� ����ó��
+        if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2"){
+            if(PlayerPrefs.GetInt("Dimension") == 3)
+                instance.transform.position += new Vector3(0, 0.4f, 0);
+            else if(PlayerPrefs.GetInt("Dimension") == 2)
+                instance.transform.localPosition = new Vector3(0, 3.3f, 0);
+        }            
         Destroy(GameManager.Instance.tower.gameObject); // ���� Ÿ���� �����Ѵ�.
         Time.timeScale = gameSpeed;
 

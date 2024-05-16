@@ -2670,8 +2670,8 @@ MonoBehaviour:
   isMelea: 0
   isWall: 0
   AttackRange: 5
-  AttackDel: 3
-  SkillCost: 3
+  AttackDel: 4
+  SkillCost: 5
   SkillCount: 0
   Damage: 80
   TempDamage: 0
@@ -3984,6 +3984,14 @@ PrefabInstance:
     - target: {fileID: 1451260570644718, guid: 12768efda0985234f9a9aecde506af49, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742768964670820, guid: 12768efda0985234f9a9aecde506af49, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742768964670820, guid: 12768efda0985234f9a9aecde506af49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4742768964670820, guid: 12768efda0985234f9a9aecde506af49, type: 3}
       propertyPath: m_LocalPosition.x
