@@ -93,11 +93,6 @@ public class EnemyController : MonoBehaviour
         // 체력바 갱신
         UpdateHealthBar();
 
-        // 기절 상태인 경우 아무것도 하지 않음
-        if (isStun)
-        {
-            return;
-        }
         // 사망 상태인 경우 아무것도 하지 않음
         if (isDead)
         {
@@ -112,6 +107,11 @@ public class EnemyController : MonoBehaviour
                 return; // 사망한 경우 이후 코드를 실행하지 않음
             }
 
+            // 기절 상태인 경우 아무것도 하지 않음
+            if (isStun)
+            {
+                return;
+            }
             // 목적지에 도착한 경우 다음 지점으로 이동
             if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
             {
