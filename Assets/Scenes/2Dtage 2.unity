@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.011212209, g: 0.011645, b: 0.010444862, a: 1}
+  m_IndirectSpecularColor: {r: 0.01131436, g: 0.01325679, b: 0.019464161, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9648,9 +9648,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843,
+    - enemyPrefab: {fileID: 9078554842436105427, guid: 7b122526a59960743b53d0035f09128e,
         type: 3}
-      numberOfEnemies: 10
+      numberOfEnemies: 20
       enemyHealth: 300
       goldDropAmount: 10
     spawnInterval: 3
@@ -9660,22 +9660,10 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 649056549192762477, guid: f8fac282266725440b1ae3f66290ee6c,
+    - enemyPrefab: {fileID: 5276253056415564214, guid: b055b971a28ac8b488c2f91ea40a1e4e,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 400
-      goldDropAmount: 10
-    spawnInterval: 3
-    increaseSpeed: 0
-    speedMultiplier: 0
-    lastEnemySpawned: 0
-    poolParent: {fileID: 0}
-    enemyPool: []
-  - enemyPrefabs:
-    - enemyPrefab: {fileID: 7162350847740585720, guid: e1b3b352c35b90e428463c785d3dd81c,
-        type: 3}
-      numberOfEnemies: 10
-      enemyHealth: 600
+      enemyHealth: 900
       goldDropAmount: 15
     spawnInterval: 3
     increaseSpeed: 0
@@ -9684,10 +9672,10 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 8891175828826502979, guid: 4291e13e47863d247bfb5d3064ba55d9,
+    - enemyPrefab: {fileID: 5857496512287823640, guid: c4ed2357ae2b40f44a5ee51db4182f0b,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 800
+      enemyHealth: 850
       goldDropAmount: 20
     spawnInterval: 3
     increaseSpeed: 0
@@ -9696,11 +9684,23 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 9082778515294869830, guid: c9680cf1435b44641929701ee3d7a0c6,
+    - enemyPrefab: {fileID: 6749184236465760798, guid: 3cab7713b8fe0954088788c819a52dd1,
+        type: 3}
+      numberOfEnemies: 10
+      enemyHealth: 950
+      goldDropAmount: 20
+    spawnInterval: 3
+    increaseSpeed: 0
+    speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
+  - enemyPrefabs:
+    - enemyPrefab: {fileID: 5897220188965300713, guid: 74c89fe1f0bd9bd41a45e702887aafd1,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 6000
-      goldDropAmount: 200
+      enemyHealth: 7000
+      goldDropAmount: 300
     spawnInterval: 2
     increaseSpeed: 0
     speedMultiplier: 0
@@ -9712,6 +9712,7 @@ MonoBehaviour:
   startWaveButton: {fileID: 76787001}
   count: 0
   lastSpawn: 0
+  rewardGiven: 0
 --- !u!1 &664355193
 GameObject:
   m_ObjectHideFlags: 0
@@ -17567,7 +17568,6 @@ MonoBehaviour:
   - {fileID: 911172575}
   - {fileID: 2128673605}
   r: 
-  FullUp: 
   max: 6
   Upgradecount: 0
 --- !u!4 &1411845687
