@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using Unity.VisualScripting;
+using DG.Tweening;
 public class AugmenterManager : MonoBehaviour
 {
     public GameObject btt;
@@ -46,12 +47,15 @@ public class AugmenterManager : MonoBehaviour
             //GameManager.Instance.SelectBlock.GetComponent<Blocks>().audio[1];
             //GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource.Play();
             GameManager.Instance.SelectBlock.GetComponent<Blocks>().audiosource[1].Play();
+            GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
             Destroy(GameManager.Instance.SelectBlock.GetComponent<Blocks>().tempBuyEffect.gameObject);
             GameManager.Instance.SelectBlock = null;
         }
         if (GameManager.Instance.tower)
         {
             GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
+            GameManager.Instance.uiManager.BuyPaenl.GetComponent<DOTweenAnimation>().DORewind();
+            GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DORewind();
             GameManager.Instance.tower = null;
         }
     }

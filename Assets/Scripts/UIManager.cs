@@ -10,8 +10,12 @@ public class UIManager : MonoBehaviour
     public Canvas uiCanvas;         // 게임ui용 캔버스
     public GameObject UpgradePanel;      // 스킬업그레이드 패널
     public GameObject BuyPaenl;     // 타워 구매 패널
+    public GameObject UpPanel;
     public GameObject ClearPanel;
     public GameObject FailedPanel;
+    public GameObject SettingPanel;
+    public GameObject HowtoPanel;
+    public GameObject SoundPanel;
     public Text RoundTime;          // 라운드 시작까지 남은 시간
     public Text GoldText;           // 현재 소유중인 골드
     public Text DiaText;
