@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet_Skill : Bullet
 {
-    Rigidbody rigid;
     public GameObject g;
     GameObject ps;
     public bool isEnemyTrans;

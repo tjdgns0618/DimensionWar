@@ -36,6 +36,7 @@ public class Tower : MonoBehaviour
     public float SkillCount = 0;
 
     public float Damage;
+    public float TempDamage;
     public float BuffDamage;
 
     public LayerMask targetLayer;
@@ -66,10 +67,11 @@ public class Tower : MonoBehaviour
         upgrade.Add(false);
         AudioSetting();
         tempHealth = health;
+        TempDamage = Damage;
         tower_state = Tower_State.Idle;
         scale = gameObject.transform.localScale;
         attTime = 0f;
-        Init();
+        Tower_Upgrade_Init();
     }
 
     public void AudioSetting()
@@ -115,12 +117,6 @@ public class Tower : MonoBehaviour
         {
             Skill();
         }
-    }
-    void Init()
-    {
-        Damage += GameManager.Instance.towerDamage;
-        health += GameManager.Instance.towerHp;
-        //AttackDel = GameManager.Instance.towerDamage;
     }
     void OnDrawGizmos()
     {
@@ -231,10 +227,6 @@ public class Tower : MonoBehaviour
             }
         }
     }
-    void BuffAttack()
-    {
-        
-    }
     public void SkillCountUp()
     {
         if(!isBuff)
@@ -262,7 +254,30 @@ public class Tower : MonoBehaviour
             isSkill = true;
         }
     }
+    public void Tower_Upgrade_Init()
+    {
+        AttackDel -= AttackDel*GameManager.Instance.towerSpeed;
+        Damage += TempDamage*GameManager.Instance.towerDamage;
+        health += tempHealth*GameManager.Instance.towerHp;
+        switch(tower_class)
+        {
+            case Tower_Class.Pixel:
+                Damage += TempDamage*GameManager.Instance.Pixel_tower_damage;
+                health += tempHealth*GameManager.Instance.Pixel_tower_Hp;
+                break;
 
+            case Tower_Class.RowPoly:
+                Damage += TempDamage*GameManager.Instance.LowPoly_tower_damage;
+                health += tempHealth*GameManager.Instance.LowPoly_tower_Hp;
+                break;
+
+            case Tower_Class._3D:
+                Damage += TempDamage*GameManager.Instance._3D_tower_damage;
+                health += tempHealth*GameManager.Instance._3D_tower_Hp;
+                break;
+
+        }
+    }
     public void AddEnemy()
     {
         currentEnemyCount++;

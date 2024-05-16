@@ -45,6 +45,7 @@ public class MultipleObjectsMake : _ObjectsMakeBase
                 for (int i = 0; i < m_makeObjs.Length; i++)
                 {
                     GameObject m_obj = Instantiate(m_makeObjs[i], m_pos, m_rot);
+
                     Vector3 m_scale = (m_makeObjs[i].transform.localScale + GetRandomVector2(m_randomScale));
                     if(isObjectAttachToParent)
                         m_obj.transform.parent = this.transform;

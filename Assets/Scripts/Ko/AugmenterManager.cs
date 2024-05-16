@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using Unity.VisualScripting;
 public class AugmenterManager : MonoBehaviour
 {
     public GameObject btt;
@@ -10,8 +11,11 @@ public class AugmenterManager : MonoBehaviour
     public List<int> r = new List<int>();
     public List<int> FullUp = new List<int>();
     
-    public int count=0;
+    //public int count=0;
     public int max;
+
+    [SerializeField]
+    int Upgradecount;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +35,9 @@ public class AugmenterManager : MonoBehaviour
 
     public void Augmeneter()
     {
-        GameManager.Instance.gold -= 50;
         r = new List<int>();
         Time.timeScale = 0;
         btt.SetActive(true);
-        
-
         GameManager.Instance.blockClicked = false;
         if (GameManager.Instance.SelectBlock)
         {
@@ -57,12 +58,17 @@ public class AugmenterManager : MonoBehaviour
 
     public void reroll(int num)
     {
+        if(GameManager.Instance.gold <=10)
+        {
+            //gameObject.SetActive(false);
+            return;
+        }
         GameManager.Instance.gold -= 10;
         int currentNumber = Random.Range(0, max);
-        while(true)
+        while (true)
         {
-            if (r.Contains(currentNumber))
-            {
+            if (r.Contains(currentNumber)|| GameManager.Instance.FullUpAugm.Contains(currentNumber))
+            { 
                 currentNumber = Random.Range(0, max);
             }
             else
@@ -74,10 +80,6 @@ public class AugmenterManager : MonoBehaviour
         }
         Debug.Log("reroll");
         bt[num].GetComponent<Augmenter>().r = r[num];
-        count = bt[num].GetComponent<Augmenter>().augmenter_Datas[currentNumber].count;
-        if (count >= bt[num].GetComponent<Augmenter>().augmenter_Datas[currentNumber].num.Count)
-            reroll(num);
-
         bt[num].GetComponent<Augmenter>().AugmentUpdate();
     }
     public void CreateUnDuplicateRandom()
@@ -86,21 +88,21 @@ public class AugmenterManager : MonoBehaviour
         
         for (int i = 0; i < bt.Length;)
         {
-            if (r.Contains(currentNumber))
+            while(r.Contains(currentNumber)|| GameManager.Instance.FullUpAugm.Contains(currentNumber))
             {
                 currentNumber = Random.Range(0, max);
             }
-            else
-            {
                 r.Add(currentNumber);
                 i++;
-            }
         }
         for (int i = 0; i < bt.Length; i++)
         {
             bt[i].GetComponent<Augmenter>().r = r[i];
             bt[i].GetComponent<Augmenter>().AugmentUpdate();
         }
-        
+    }
+    public void AugmenterBuy()
+    {
+        GameManager.Instance.gold -= 100;
     }
 }

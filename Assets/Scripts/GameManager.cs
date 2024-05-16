@@ -59,8 +59,21 @@ public class GameManager : MonoBehaviour
     public float towerDamage;
     public float towerSpeed;
     public float towerHp;
+    public float SkillDamage;
     public float BonusDamage;
+    public List<int> FullUpAugm;
+
+    [Header("# Tower UpgradeInfo")]
+    public float Tower_Range;
+    public float Pixel_tower_damage;
+    public float LowPoly_tower_damage;
+    public float _3D_tower_damage;
+    public float Pixel_tower_Hp;
+    public float LowPoly_tower_Hp;
+    public float _3D_tower_Hp;
     
+
+
     private void Awake()
     {
         if (_instance == null)
@@ -77,7 +90,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();        
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        AugmentInit();
     }
     
     void Update()
@@ -147,5 +161,21 @@ public class GameManager : MonoBehaviour
         uiManager.ClearPanel.SetActive(true);
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
+    }
+    public void AugmentInit()
+    {
+        towerDamage = 0;
+        towerSpeed = 0;
+        towerHp = 0;
+        BonusDamage = 0;
+        FullUpAugm.Clear();
+
+        Pixel_tower_damage = 0;
+        LowPoly_tower_damage = 0;
+        _3D_tower_damage = 0;
+        Pixel_tower_Hp = 0;
+        LowPoly_tower_Hp = 0;
+        _3D_tower_Hp = 0;
+        Tower_Range = 0;
     }
 }

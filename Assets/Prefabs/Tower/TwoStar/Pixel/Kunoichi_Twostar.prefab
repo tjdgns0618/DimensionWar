@@ -140,9 +140,10 @@ MonoBehaviour:
   isWall: 0
   AttackRange: 5
   AttackDel: 3
-  SkillCost: 10
+  SkillCost: 7
   SkillCount: 0
   Damage: 300
+  TempDamage: 0
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -174,7 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillDmg: 0
+  SkillDamagePer: 0
+  SkillDmg: 0.15
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 6842958088515641888}

@@ -138,10 +138,11 @@ MonoBehaviour:
   isMelea: 0
   isWall: 0
   AttackRange: 5
-  AttackDel: 3
-  SkillCost: 3
+  AttackDel: 2
+  SkillCost: 5
   SkillCount: 0
-  Damage: 300
+  Damage: 120
+  TempDamage: 0
   BuffDamage: 0
   targetLayer:
     serializedVersion: 2
@@ -173,7 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  SkillDmg: 0
+  SkillDamagePer: 0
+  SkillDmg: 1.3
   EnemyTrans: {fileID: 0}
   SkillPrefabs:
   - {fileID: 7161264681831330241, guid: b49ce0f5723a0c94eaa037688926f964, type: 3}
