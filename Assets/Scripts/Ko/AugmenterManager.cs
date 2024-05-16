@@ -82,7 +82,6 @@ public class AugmenterManager : MonoBehaviour
                 break;
             }
         }
-        Debug.Log("reroll");
         bt[num].GetComponent<Augmenter>().r = r[num];
         bt[num].GetComponent<Augmenter>().AugmentUpdate();
     }
@@ -90,7 +89,7 @@ public class AugmenterManager : MonoBehaviour
     {
         if(max- GameManager.Instance.FullUpAugm.Count<=2)
         {
-            Debug.Log("");
+
 
             return;
         }
@@ -98,8 +97,10 @@ public class AugmenterManager : MonoBehaviour
         
         for (int i = 0; i < bt.Length;)
         {
+            
             while(r.Contains(currentNumber)|| GameManager.Instance.FullUpAugm.Contains(currentNumber))
             {
+              // if()
                 currentNumber = Random.Range(0, max);
             }
                 r.Add(currentNumber);

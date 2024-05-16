@@ -97,8 +97,6 @@ public class BTManager : MonoBehaviour
 
     public void UpgradeBtnClick()
     {
-        GameManager.Instance.uiManager.UpgradePanel.GetComponent<DOTweenAnimation>().DOPlay();
-
         if(GameManager.Instance.tower.GetComponent<Tower>().tower_type == 
             global::Tower.Tower_Type.Meele)
         {
@@ -106,7 +104,7 @@ public class BTManager : MonoBehaviour
             GameManager.Instance.uiManager.rangeStat2Button.gameObject.SetActive(false);
             GameManager.Instance.uiManager.meleeStat1Button.gameObject.SetActive(true);
             GameManager.Instance.uiManager.meleeStat2Button.gameObject.SetActive(true);
-
+            
             if (!GameManager.Instance.tower.GetComponent<Tower>().upgrade[0])
                 GameManager.Instance.uiManager.meleeStat1Button.image.color = Color.white;
             else
