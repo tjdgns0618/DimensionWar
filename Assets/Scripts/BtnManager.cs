@@ -149,6 +149,9 @@ public class BTManager : MonoBehaviour
 
     public void Stat1Upgrade()
     {
+        if(GameManager.Instance.gold >= 50)
+        return;
+
         if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
             global::Tower.Tower_Type.Meele)
         {
@@ -172,6 +175,9 @@ public class BTManager : MonoBehaviour
 
     public void Stat2Upgrade()
     {
+        if(GameManager.Instance.gold >= 50)
+        return;
+        
         if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
             global::Tower.Tower_Type.Meele)
         {
@@ -194,25 +200,16 @@ public class BTManager : MonoBehaviour
 
     public void DamageUpgrade()
     {
-        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().Damage *= 1.2f;
     }
 
     public void SpeedUpgrade()
     {
-        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().AttackDel *= 0.9f;
-    }
-
-    public void SkillCoolUpgrade()
-    {
-        GameManager.Instance.gold -= 50;
-        GameManager.Instance.tower.GetComponent<Tower>().SkillCost--;
     }
 
     public void HealthUpgrade()
     {
-        GameManager.Instance.gold -= 50;
         GameManager.Instance.tower.GetComponent<Tower>().health *= 2f;
         GameManager.Instance.tower.GetComponent<Tower>().tempHealth *= 2f;
     }
