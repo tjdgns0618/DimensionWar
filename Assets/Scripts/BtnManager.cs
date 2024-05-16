@@ -149,9 +149,10 @@ public class BTManager : MonoBehaviour
 
     public void Stat1Upgrade()
     {
-        if(GameManager.Instance.gold >= 50)
+        if(GameManager.Instance.gold < 50)
         return;
 
+        GameManager.Instance.gold -= 50;
         if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
             global::Tower.Tower_Type.Meele)
         {
@@ -175,9 +176,10 @@ public class BTManager : MonoBehaviour
 
     public void Stat2Upgrade()
     {
-        if(GameManager.Instance.gold >= 50)
+        if(GameManager.Instance.gold < 50)
         return;
         
+        GameManager.Instance.gold -= 50;
         if (GameManager.Instance.tower.GetComponent<Tower>().tower_type ==
             global::Tower.Tower_Type.Meele)
         {
