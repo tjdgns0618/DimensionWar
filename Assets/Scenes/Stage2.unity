@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3424163, g: 0.43278423, b: 0.57319695, a: 1}
+  m_IndirectSpecularColor: {r: 0.3424227, g: 0.43279013, b: 0.5732034, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -56004,9 +56004,9 @@ MonoBehaviour:
   - enemyPrefabs:
     - enemyPrefab: {fileID: 6749184236465760798, guid: 3cab7713b8fe0954088788c819a52dd1,
         type: 3}
-      numberOfEnemies: 15
-      enemyHealth: 650
-      goldDropAmount: 5
+      numberOfEnemies: 10
+      enemyHealth: 700
+      goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -56017,18 +56017,18 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 3680090095260274964, guid: 7337bbe9aae5e9a49808bc5a2b068dbf,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 500
+      enemyHealth: 800
       goldDropAmount: 10
     spawnInterval: 3
-    increaseSpeed: 0
-    speedMultiplier: 0
+    increaseSpeed: 1
+    speedMultiplier: 1.2
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
     - enemyPrefab: {fileID: 4343050227916122152, guid: 8ec8425fbf1b72342a323a3ae541acb4,
         type: 3}
-      numberOfEnemies: 20
+      numberOfEnemies: 10
       enemyHealth: 750
       goldDropAmount: 10
     spawnInterval: 3
@@ -56041,7 +56041,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7208832572220091809, guid: 9d547b88245be8243ba0ce6e825057e6,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 850
+      enemyHealth: 1000
       goldDropAmount: 20
     spawnInterval: 3
     increaseSpeed: 0
@@ -56050,11 +56050,11 @@ MonoBehaviour:
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 5670783873597428038, guid: 7bbdd2641c4e8f24d97d43694a30e2e9,
+    - enemyPrefab: {fileID: 8807628300396290840, guid: be3a1020cce38eb4bb4f58cdc5c78dc5,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 20000
-      goldDropAmount: 200
+      enemyHealth: 25000
+      goldDropAmount: 500
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
