@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34241387, g: 0.4327809, b: 0.57319295, a: 1}
+  m_IndirectSpecularColor: {r: 0.34242103, g: 0.43278944, b: 0.5732008, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21539,8 +21539,8 @@ MonoBehaviour:
   level: 0
   Health: 0
   maxHealth: 100
-  gold: 5000
-  diamond: 10
+  gold: 0
+  diamond: 5
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
@@ -26088,7 +26088,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4351837483081898095, guid: d7de04974af070441a7d1a9a23998843,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 250
+      enemyHealth: 300
       goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
@@ -26100,7 +26100,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 649056549192762477, guid: f8fac282266725440b1ae3f66290ee6c,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 300
+      enemyHealth: 400
       goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
@@ -26112,7 +26112,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7162350847740585720, guid: e1b3b352c35b90e428463c785d3dd81c,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 600
+      enemyHealth: 500
       goldDropAmount: 15
     spawnInterval: 3
     increaseSpeed: 0
@@ -26124,8 +26124,8 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 8891175828826502979, guid: 4291e13e47863d247bfb5d3064ba55d9,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 800
-      goldDropAmount: 20
+      enemyHealth: 600
+      goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -26136,7 +26136,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 9082778515294869830, guid: c9680cf1435b44641929701ee3d7a0c6,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 7500
+      enemyHealth: 7000
       goldDropAmount: 200
     spawnInterval: 2
     increaseSpeed: 0

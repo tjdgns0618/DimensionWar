@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34242606, g: 0.43279356, b: 0.57320446, a: 1}
+  m_IndirectSpecularColor: {r: 0.34241736, g: 0.43278497, b: 0.5731974, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6355,8 +6355,8 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 649056549192762477, guid: f8fac282266725440b1ae3f66290ee6c,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 500
-      goldDropAmount: 5
+      enemyHealth: 550
+      goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6367,20 +6367,32 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7150227203530337113, guid: 96f77dea8f9fb8a46900491019b6eb04,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 700
-      goldDropAmount: 5
+      enemyHealth: 750
+      goldDropAmount: 10
     spawnInterval: 3
-    increaseSpeed: 0
-    speedMultiplier: 0
+    increaseSpeed: 1
+    speedMultiplier: 1.5
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
-    - enemyPrefab: {fileID: 8891175828826502979, guid: 4291e13e47863d247bfb5d3064ba55d9,
+    - enemyPrefab: {fileID: 5462868926357078116, guid: 273f4752fe2ac6348bdd3e0e0288648f,
         type: 3}
-      numberOfEnemies: 20
-      enemyHealth: 600
-      goldDropAmount: 10
+      numberOfEnemies: 10
+      enemyHealth: 500
+      goldDropAmount: 20
+    spawnInterval: 3
+    increaseSpeed: 1
+    speedMultiplier: 1.2
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
+  - enemyPrefabs:
+    - enemyPrefab: {fileID: 5801124634690077906, guid: 7b94f1b75e2ab67408ba8aacd157c037,
+        type: 3}
+      numberOfEnemies: 10
+      enemyHealth: 900
+      goldDropAmount: 25
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -18333,8 +18345,8 @@ MonoBehaviour:
   level: 0
   Health: 0
   maxHealth: 100
-  gold: 5000
-  diamond: 10
+  gold: 150
+  diamond: 7
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
