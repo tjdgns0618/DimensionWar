@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34242183, g: 0.43279094, b: 0.5732028, a: 1}
+  m_IndirectSpecularColor: {r: 0.3424351, g: 0.43280134, b: 0.5732131, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: a3c176dee74b071459118abf1b927154, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d8868b149d1ba1f4bacb87336b3b2a8f, type: 2}
 --- !u!1 &2330197
 GameObject:
   m_ObjectHideFlags: 0
@@ -18706,8 +18706,8 @@ MonoBehaviour:
   level: 0
   Health: 0
   maxHealth: 100
-  gold: 0
-  diamond: 7
+  gold: 5000
+  diamond: 10
   tower: {fileID: 0}
   EnemyCleaner: {fileID: 0}
   towerDamage: 0
@@ -19136,7 +19136,7 @@ MonoBehaviour:
         type: 3}
       numberOfEnemies: 20
       enemyHealth: 450
-      goldDropAmount: 10
+      goldDropAmount: 5
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -19147,8 +19147,8 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7150227203530337113, guid: 96f77dea8f9fb8a46900491019b6eb04,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 800
-      goldDropAmount: 10
+      enemyHealth: 750
+      goldDropAmount: 5
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -19160,18 +19160,18 @@ MonoBehaviour:
         type: 3}
       numberOfEnemies: 20
       enemyHealth: 800
-      goldDropAmount: 15
+      goldDropAmount: 10
     spawnInterval: 3
-    increaseSpeed: 1
-    speedMultiplier: 1.5
+    increaseSpeed: 0
+    speedMultiplier: 0
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
     enemyPool: []
   - enemyPrefabs:
     - enemyPrefab: {fileID: 5897220188965300713, guid: 74c89fe1f0bd9bd41a45e702887aafd1,
         type: 3}
-      numberOfEnemies: 1
-      enemyHealth: 10000
+      numberOfEnemies: 2
+      enemyHealth: 8500
       goldDropAmount: 500
     spawnInterval: 15
     increaseSpeed: 0

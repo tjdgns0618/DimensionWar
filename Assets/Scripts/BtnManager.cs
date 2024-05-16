@@ -71,7 +71,7 @@ public class BTManager : MonoBehaviour
     {
         if (GameManager.Instance.SelectBlock.transform.childCount >= 2) // Ÿ���� �������� �ʴ� �����̶��
             return;
-
+        Debug.Log(PlayerPrefs.GetInt("Dimension"));
         int i = Random.Range(3, 9);
         GameObject instance = Instantiate(Tower[i]);    // ���Ÿ�Ÿ���߿��� �������� ����
         GameManager.Instance.towers.Add(instance);      // ������ Ÿ���� ���ӸŴ����� �������ش�.
@@ -80,7 +80,7 @@ public class BTManager : MonoBehaviour
         {
             instance.transform.localPosition = new Vector3(0, 1.418f, 0);   // �ȼ� ���Ÿ� Ÿ�� ��ġ �ʱ�ȭ
             if(PlayerPrefs.GetInt("Dimension") == 2)
-                instance.transform.localPosition = new Vector3(0,2.42f,0);
+                instance.transform.localPosition = new Vector3(0, 2.42f,0);
             instance.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else if (i == 5 || i == 6)
@@ -280,8 +280,12 @@ public class BTManager : MonoBehaviour
         instance.transform.position = GameManager.Instance.tower.transform.position;
         if(instance.GetComponent<Tower>().tower_class != global::Tower.Tower_Class.Pixel)
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
-        if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2")
-            instance.transform.position += new Vector3(0, 0.4f, 0); // �ȼ� 3�� ��ġ�� ����ó��
+        if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2"){
+            if(PlayerPrefs.GetInt("Dimension") == 3)
+                instance.transform.position += new Vector3(0, 0.4f, 0);
+            else if(PlayerPrefs.GetInt("Dimension") == 2)
+                instance.transform.localPosition = new Vector3(0, 3.3f, 0);
+        }            
         Destroy(GameManager.Instance.tower.gameObject); // ���� Ÿ���� �����Ѵ�.
         Time.timeScale = gameSpeed;
 

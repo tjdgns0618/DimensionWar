@@ -6,63 +6,63 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    // public Slider BgmSlider;        // ¹è°æÀ½¾Ç º¼·ý Á¶Àý ½½¶óÀÌ´õ
-    public Canvas uiCanvas;         // °ÔÀÓui¿ë Äµ¹ö½º
-    public GameObject UpgradePanel;      // ½ºÅ³¾÷±×·¹ÀÌµå ÆÐ³Î
-    public GameObject BuyPaenl;     // Å¸¿ö ±¸¸Å ÆÐ³Î
+    // public Slider BgmSlider;        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
+    public Canvas uiCanvas;         // ï¿½ï¿½ï¿½ï¿½uiï¿½ï¿½ Äµï¿½ï¿½ï¿½ï¿½
+    public GameObject UpgradePanel;      // ï¿½ï¿½Å³ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ð³ï¿½
+    public GameObject BuyPaenl;     // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½
     public GameObject UpPanel;
     public GameObject ClearPanel;
     public GameObject FailedPanel;
     public GameObject SettingPanel;
     public GameObject HowtoPanel;
     public GameObject SoundPanel;
-    public Text RoundTime;          // ¶ó¿îµå ½ÃÀÛ±îÁö ³²Àº ½Ã°£
-    public Text GoldText;           // ÇöÀç ¼ÒÀ¯ÁßÀÎ °ñµå
+    public Text RoundTime;          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    public Text GoldText;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     public Text DiaText;
     public Button BuyButton;
     public Button SellButton;
     public Button towerUpgradeButton;
     public Button argumentButton;
-    public Button rangeStat1Button;      // 1¹ø °­È­¹öÆ°
-    public Button rangeStat2Button;      // 2¹ø °­È­¹öÆ°
-    public Button meleeStat1Button;      // 2¹ø °­È­¹öÆ°
-    public Button meleeStat2Button;      // 2¹ø °­È­¹öÆ°
-    public Button UpgradeButton;    // 1,2 °­È­ÇÑ ÈÄ È°¼ºÈ­µÇ´Â ¹öÆ°
+    public Button rangeStat1Button;      // 1ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½Æ°
+    public Button rangeStat2Button;      // 2ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½Æ°
+    public Button meleeStat1Button;      // 2ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½Æ°
+    public Button meleeStat2Button;      // 2ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½Æ°
+    public Button UpgradeButton;    // 1,2 ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½Ç´ï¿½ ï¿½ï¿½Æ°
     
 
     // Start is called before the first frame update
     void Start()
     {
         //if(BgmSlider != null)
-        //    BgmSlider.value = PlayerPrefs.GetFloat("BgmValue"); // PlayerPref¿¡ ÀúÀåÇÑ º¼·ý ºÒ·¯¿À±â
-        //StartGame();  // ¿µ»óÁ¦ÀÛ¿ë
+        //    BgmSlider.value = PlayerPrefs.GetFloat("BgmValue"); // PlayerPrefï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
+        //StartGame();  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½
         Screen.SetResolution(1920, 1080, true);
     }
 
     public void SetDimension(int dimension)
     {
-        PlayerPrefs.SetInt("dimension", dimension); // 3,2Â÷¿ø ½ºÅ×ÀÌÁö ±¸º°¿ë
+        PlayerPrefs.SetInt("Dimension", dimension); // 3,2ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     }
 
     public void SetStage(string name)
     {
-        PlayerPrefs.SetString("StageName", name);   // ºÒ·¯¿Ã ¾À ÀÌ¸§ ÀúÀå¿ë
+        PlayerPrefs.SetString("StageName", name);   // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("LoadingScene");     // ·Îµù¾À ½ÇÇàÈÄ SetStage·Î ÀúÀåÇÑ ¾À ºÒ·¯¿È
+        SceneManager.LoadScene("LoadingScene");     // ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SetStageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½
     }
 
     /*public void SetBgmValue(Slider slider)
     {   
-        PlayerPrefs.SetFloat("BgmValue", slider.value); // ½½¶óÀÌ´õ·Î Á¶ÀýÇÑ º¼·ýÀ» PlayerPrefs¿¡ ÀúÀå
+        PlayerPrefs.SetFloat("BgmValue", slider.value); // ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PlayerPrefsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }*/
 
     /*public void SetSoundImage(Image image)
     {
-        if (PlayerPrefs.GetFloat("BgmValue") == 0)  // º¼·ýÀÌ 0ÀÌ¸é ÀÌ¹ÌÁö º¯°æ
+        if (PlayerPrefs.GetFloat("BgmValue") == 0)  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¸ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             image.sprite = soundImage[0];
         else
             image.sprite = soundImage[1];
@@ -84,14 +84,14 @@ public class UIManager : MonoBehaviour
         StartCoroutine(_QuitGame());
     }
 
-    IEnumerator _StartGame()                    // °ÔÀÓÀ» ½ÃÀÛÇÏ´Â ÇÔ¼ö
+    IEnumerator _StartGame()                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
         yield return new WaitForSeconds(3f);
-        //yield return new WaitForSeconds(10f);   // ¿µ»óÂï±â¿ë
+        //yield return new WaitForSeconds(10f);   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         SceneManager.LoadScene("StageSelect");    
     }
 
-    IEnumerator _QuitGame()                     // °ÔÀÓÀ» Á¾·áÇÏ´Â ÇÔ¼ö
+    IEnumerator _QuitGame()                     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
         Application.Quit();
         yield return null;
