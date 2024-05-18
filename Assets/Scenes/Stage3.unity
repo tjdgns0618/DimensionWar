@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.342413, g: 0.43278122, b: 0.5731936, a: 1}
+  m_IndirectSpecularColor: {r: 0.34242514, g: 0.43279272, b: 0.57320297, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19206,6 +19206,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyWaves:
   - enemyPrefabs:
+    - enemyPrefab: {fileID: 1520265563894574178, guid: 4c46ab06c09d5d44e82a01859e46c23b,
+        type: 3}
+      numberOfEnemies: 30
+      enemyHealth: 375
+      goldDropAmount: 5
+    spawnInterval: 3
+    increaseSpeed: 0
+    speedMultiplier: 0
+    lastEnemySpawned: 0
+    poolParent: {fileID: 0}
+    enemyPool: []
+  - enemyPrefabs:
     - enemyPrefab: {fileID: 4082073986118022568, guid: f75b1eee86e91da42bc943d540301a66,
         type: 3}
       numberOfEnemies: 25
@@ -19235,18 +19247,6 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 1750
       goldDropAmount: 20
-    spawnInterval: 3
-    increaseSpeed: 0
-    speedMultiplier: 0
-    lastEnemySpawned: 0
-    poolParent: {fileID: 0}
-    enemyPool: []
-  - enemyPrefabs:
-    - enemyPrefab: {fileID: 1520265563894574178, guid: 4c46ab06c09d5d44e82a01859e46c23b,
-        type: 3}
-      numberOfEnemies: 30
-      enemyHealth: 375
-      goldDropAmount: 5
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
