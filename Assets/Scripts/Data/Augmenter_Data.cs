@@ -20,6 +20,4 @@ public class Augmenter_Data : ScriptableObject
     //public int num;
     public int count;
     public List<float> num;
-
-    
 }

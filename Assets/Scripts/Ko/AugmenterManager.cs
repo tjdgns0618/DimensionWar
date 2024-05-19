@@ -72,8 +72,9 @@ public class AugmenterManager : MonoBehaviour
         while (true)
         {
             if (r.Contains(currentNumber)|| GameManager.Instance.FullUpAugm.Contains(currentNumber))
-            { 
+            {
                 currentNumber = Random.Range(0, max);
+               
             }
             else
             {
@@ -116,8 +117,8 @@ public class AugmenterManager : MonoBehaviour
             return;
         }
         GameManager.Instance.gold -= 100;
-        CreateUnDuplicateRandom();
+       
         Augmeneter();
-
+        CreateUnDuplicateRandom();
     }
 }
