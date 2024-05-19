@@ -225,6 +225,8 @@ public class EnemyController : MonoBehaviour
         else if (other.CompareTag("Player")) // 플레이어와 충돌한 경우
         {
             PlayerController playerController = other.GetComponent<PlayerController>(); // 플레이어 컨트롤러 가져옴
+            if(this.isBoss == true && playerController != null)
+                playerController.TakeDamage(20);
             if (playerController != null)
             {
                 playerController.TakeDamage(1); // 플레이어 데미지 입힘

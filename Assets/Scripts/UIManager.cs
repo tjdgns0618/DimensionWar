@@ -73,6 +73,10 @@ public class UIManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Stage1Clear", 0);
         PlayerPrefs.SetInt("Stage2Clear", 0);
+        PlayerPrefs.SetInt("Stage3Clear", 0);
+        PlayerPrefs.SetInt("2DStage1Clear", 0);
+        PlayerPrefs.SetInt("2DStage2Clear", 0);
+
     }
 
     public void StartGame()
