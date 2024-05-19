@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.011548735, g: 0.013663563, b: 0.020633135, a: 1}
+  m_IndirectSpecularColor: {r: 0.011139291, g: 0.011582921, b: 0.010539066, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8904,7 +8904,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1Clear
+          m_StringArgument: 2DStage3Clear
           m_BoolArgument: 0
         m_CallState: 2
   onUpdate:
@@ -12595,7 +12595,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StageSelect
+          m_StringArgument: StageSelect2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1202064864}
@@ -14590,6 +14590,7 @@ MonoBehaviour:
   RoundTime: {fileID: 2078361804}
   GoldText: {fileID: 1254443690}
   DiaText: {fileID: 1818425786}
+  upgradeGoldText: {fileID: 323460734}
   BuyButton: {fileID: 1774185274}
   SellButton: {fileID: 908557667}
   towerUpgradeButton: {fileID: 676756335}
@@ -16796,7 +16797,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StageSelect
+          m_StringArgument: StageSelect2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1202064864}
@@ -23983,30 +23984,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2147400595}
         m_TargetAssemblyTypeName: DG.Tweening.DOTweenAnimation, Assembly-CSharp-firstpass
         m_MethodName: DORewind
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1672140645}
-        m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: Augmeneter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1672140645}
-        m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: CreateUnDuplicateRandom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

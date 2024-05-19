@@ -131,7 +131,7 @@ public class Tower : MonoBehaviour
 
         foreach (RaycastHit target in targets)
         {
-            if(target.transform.CompareTag("Enemy"))
+            if(target.transform.CompareTag("Enemy") && target.transform.GetComponent<EnemyController>().health != 0)
             {
                 Vector3 myPos = transform.position;
                 Vector3 targetPos = target.transform.position;

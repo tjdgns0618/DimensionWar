@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34243232, g: 0.43279973, b: 0.5732105, a: 1}
+  m_IndirectSpecularColor: {r: 0.34243512, g: 0.43280163, b: 0.5732131, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5631,8 +5631,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1023535512, guid: 250ff1bef2a3c4447a2fc6a04efb2cdc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6431,7 +6431,7 @@ MonoBehaviour:
         type: 3}
       numberOfEnemies: 20
       enemyHealth: 250
-      goldDropAmount: 5
+      goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6442,8 +6442,8 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5311974460344436497, guid: e975f2f6c2ee8f440b4e823199605f3e,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 1850
-      goldDropAmount: 50
+      enemyHealth: 400
+      goldDropAmount: 20
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6466,7 +6466,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5857496512287823640, guid: c4ed2357ae2b40f44a5ee51db4182f0b,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 1000
+      enemyHealth: 800
       goldDropAmount: 25
     spawnInterval: 3
     increaseSpeed: 0
@@ -6478,7 +6478,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 3680090095260274964, guid: 7337bbe9aae5e9a49808bc5a2b068dbf,
         type: 3}
       numberOfEnemies: 5
-      enemyHealth: 650
+      enemyHealth: 1000
       goldDropAmount: 25
     spawnInterval: 3
     increaseSpeed: 0
@@ -9482,7 +9482,7 @@ MonoBehaviour:
   - {fileID: 1807003647}
   - {fileID: 314114903}
   r: 
-  max: 6
+  max: 12
   Upgradecount: 0
 --- !u!4 &248422957
 Transform:
@@ -11226,6 +11226,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8987dfe83b119be41807df421cffc655, type: 2}
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
+  - {fileID: 11400000, guid: f75b2b5982f632d4d9f71df3324f387a, type: 2}
+  - {fileID: 11400000, guid: 94f9dca956df59d4daf4b558cb1b9fa5, type: 2}
+  - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
+  - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
+  - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
+  - {fileID: 11400000, guid: dc97b46e5d875f94385e69f2014a0baf, type: 2}
   nonag: 
   r: 0
   n: 0
@@ -11329,8 +11335,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -231809557, guid: a5b74217d91297847af6184298509276, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -15280,7 +15286,7 @@ PrefabInstance:
     - target: {fileID: 3366509632816171244, guid: d6ac4791363ef6d44b6337936d9d746d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33692,6 +33698,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8987dfe83b119be41807df421cffc655, type: 2}
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
+  - {fileID: 11400000, guid: f75b2b5982f632d4d9f71df3324f387a, type: 2}
+  - {fileID: 11400000, guid: 94f9dca956df59d4daf4b558cb1b9fa5, type: 2}
+  - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
+  - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
+  - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
+  - {fileID: 11400000, guid: dc97b46e5d875f94385e69f2014a0baf, type: 2}
   nonag: 
   r: 0
   n: 0
@@ -33795,8 +33807,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -231809557, guid: a5b74217d91297847af6184298509276, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -55426,8 +55438,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1023535512, guid: 250ff1bef2a3c4447a2fc6a04efb2cdc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -63383,6 +63395,7 @@ MonoBehaviour:
   RoundTime: {fileID: 213534951}
   GoldText: {fileID: 37777942}
   DiaText: {fileID: 134148017}
+  upgradeGoldText: {fileID: 1136309611}
   BuyButton: {fileID: 1127398359}
   SellButton: {fileID: 1066168303}
   towerUpgradeButton: {fileID: 1084539289}
@@ -65882,8 +65895,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1023535512, guid: 250ff1bef2a3c4447a2fc6a04efb2cdc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -67198,6 +67211,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8987dfe83b119be41807df421cffc655, type: 2}
   - {fileID: 11400000, guid: 075c97534d3161549b3613259e6e6917, type: 2}
   - {fileID: 11400000, guid: 8e4a83fdaa8e0c8428f8f0cb1d98f4aa, type: 2}
+  - {fileID: 11400000, guid: f75b2b5982f632d4d9f71df3324f387a, type: 2}
+  - {fileID: 11400000, guid: 94f9dca956df59d4daf4b558cb1b9fa5, type: 2}
+  - {fileID: 11400000, guid: 35ed17bfe418d54498b91c3e5f7b8f7b, type: 2}
+  - {fileID: 11400000, guid: e4d504ad53c6cf044a5b8c85b6dc4901, type: 2}
+  - {fileID: 11400000, guid: ed2d65593d8a1c445b881e455c161d9f, type: 2}
+  - {fileID: 11400000, guid: dc97b46e5d875f94385e69f2014a0baf, type: 2}
   nonag: 
   r: 0
   n: 0
@@ -67301,8 +67320,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -231809557, guid: a5b74217d91297847af6184298509276, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -76359,19 +76378,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 248422956}
         m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: Augmeneter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 248422956}
-        m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: CreateUnDuplicateRandom
+        m_MethodName: AugmenterBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

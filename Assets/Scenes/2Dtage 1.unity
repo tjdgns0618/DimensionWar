@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.011411189, g: 0.0134054255, b: 0.019817926, a: 1}
+  m_IndirectSpecularColor: {r: 0.011548735, g: 0.013663563, b: 0.020633135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -938,7 +938,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StageSelect
+          m_StringArgument: StageSelect2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1149448112}
@@ -1438,19 +1438,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 965635027}
         m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: Augmeneter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 965635027}
-        m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: CreateUnDuplicateRandom
+        m_MethodName: AugmenterBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7057,7 +7045,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StageSelect
+          m_StringArgument: StageSelect2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1149448112}
@@ -9153,7 +9141,7 @@ MonoBehaviour:
         type: 3}
       numberOfEnemies: 10
       enemyHealth: 300
-      goldDropAmount: 10
+      goldDropAmount: 15
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -9165,7 +9153,7 @@ MonoBehaviour:
         type: 3}
       numberOfEnemies: 20
       enemyHealth: 250
-      goldDropAmount: 5
+      goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -15310,6 +15298,7 @@ MonoBehaviour:
   RoundTime: {fileID: 506395179}
   GoldText: {fileID: 2061974214}
   DiaText: {fileID: 770173479}
+  upgradeGoldText: {fileID: 953501892}
   BuyButton: {fileID: 1109587231}
   SellButton: {fileID: 1182469338}
   towerUpgradeButton: {fileID: 796455951}
@@ -16389,7 +16378,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1Clear
+          m_StringArgument: 2DStage1Clear
           m_BoolArgument: 0
         m_CallState: 2
   onUpdate:
