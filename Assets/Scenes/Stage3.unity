@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34242514, g: 0.43279272, b: 0.57320297, a: 1}
+  m_IndirectSpecularColor: {r: 0.34242764, g: 0.43279627, b: 0.57320565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -61699,6 +61699,7 @@ MonoBehaviour:
   RoundTime: {fileID: 213534951}
   GoldText: {fileID: 37777942}
   DiaText: {fileID: 134148017}
+  upgradeGoldText: {fileID: 1053940502}
   BuyButton: {fileID: 1127398359}
   SellButton: {fileID: 1066168303}
   towerUpgradeButton: {fileID: 1084539289}
@@ -74755,19 +74756,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 248422956}
         m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: Augmeneter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 248422956}
-        m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: CreateUnDuplicateRandom
+        m_MethodName: AugmenterBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

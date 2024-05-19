@@ -33,9 +33,9 @@ public class BTManager : MonoBehaviour
             StartCoroutine(_UpgradeTower());
         else if (GameManager.Instance.tower.CompareTag("Tower") && GameManager.Instance.gold >= 200)
             StartCoroutine(_UpgradeTower());
-
         else
         {
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
             StartTime();                        // timescale�� ������� �����ִ� �Լ�
         }
     }
@@ -142,6 +142,12 @@ public class BTManager : MonoBehaviour
             GameManager.Instance.uiManager.rangeStat2Button.enabled =
                 !GameManager.Instance.tower.GetComponent<Tower>().upgrade[1];
         }
+        if(GameManager.Instance.tower.CompareTag("Level1"))
+            GameManager.Instance.uiManager.upgradeGoldText.text = "X 50";
+        else if(GameManager.Instance.tower.CompareTag("Level2"))
+            GameManager.Instance.uiManager.upgradeGoldText.text = "X 100";
+        else if(GameManager.Instance.tower.CompareTag("Tower"))
+            GameManager.Instance.uiManager.upgradeGoldText.text = "X 200";
         GameManager.Instance.uiManager.UpgradeButton.enabled = 
             (GameManager.Instance.tower.GetComponent<Tower>().upgrade[0] && 
             GameManager.Instance.tower.GetComponent<Tower>().upgrade[1]);
@@ -257,10 +263,10 @@ public class BTManager : MonoBehaviour
         // ���� Ÿ���� �������� �ʴٸ� ����ó��
         if (GameManager.Instance.tower.GetComponent<TestScript>().nextTower == null)
         {
-            Time.timeScale = gameSpeed;
             //�ӽ÷� 3�� Ÿ�� ��ų���� �� �߰�
             if (GameManager.Instance.tower.GetComponent<Tower_Skill>().tower_Level + 1 <= GameManager.Instance.tower.GetComponent<Tower_Skill>().SkillPrefabs.Length)
                 GameManager.Instance.tower.GetComponent<Tower_Skill>().tower_Level++;
+            GameManager.Instance.tower.GetComponent<TestScript>().ClickEffect.SetActive(false);
             yield return null;
         }
 

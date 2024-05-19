@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     public Text RoundTime;          // ���� ���۱��� ���� �ð�
     public Text GoldText;           // ���� �������� ���
     public Text DiaText;
+    public Text upgradeGoldText;
     public Button BuyButton;
     public Button SellButton;
     public Button towerUpgradeButton;

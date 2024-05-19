@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.011548735, g: 0.013663563, b: 0.020633135, a: 1}
+  m_IndirectSpecularColor: {r: 0.011139291, g: 0.011582921, b: 0.010539066, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3973,7 +3973,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StageSelect
+          m_StringArgument: StageSelect2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1054719276}
@@ -12128,7 +12128,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StageSelect
+          m_StringArgument: StageSelect2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1054719276}
@@ -14486,6 +14486,7 @@ MonoBehaviour:
   RoundTime: {fileID: 669557191}
   GoldText: {fileID: 546389161}
   DiaText: {fileID: 2100468967}
+  upgradeGoldText: {fileID: 1331809306}
   BuyButton: {fileID: 1928836504}
   SellButton: {fileID: 484739763}
   towerUpgradeButton: {fileID: 170067907}
@@ -18641,7 +18642,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1Clear
+          m_StringArgument: 2DStage2Clear
           m_BoolArgument: 0
         m_CallState: 2
   onUpdate:
@@ -22866,19 +22867,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1411845686}
         m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: Augmeneter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1411845686}
-        m_TargetAssemblyTypeName: AugmenterManager, Assembly-CSharp
-        m_MethodName: CreateUnDuplicateRandom
+        m_MethodName: AugmenterBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

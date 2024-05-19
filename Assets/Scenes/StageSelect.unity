@@ -22297,6 +22297,7 @@ MonoBehaviour:
   RoundTime: {fileID: 0}
   GoldText: {fileID: 0}
   DiaText: {fileID: 0}
+  upgradeGoldText: {fileID: 0}
   BuyButton: {fileID: 0}
   SellButton: {fileID: 0}
   towerUpgradeButton: {fileID: 0}
@@ -41698,18 +41699,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 790472563}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SetDimension
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1452413387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58349,6 +58338,7 @@ MonoBehaviour:
   startWaveButton: {fileID: 0}
   count: 0
   lastSpawn: 0
+  rewardGiven: 0
 --- !u!1001 &2054507214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60842,6 +60832,7 @@ MonoBehaviour:
   startWaveButton: {fileID: 0}
   count: 0
   lastSpawn: 0
+  rewardGiven: 0
 --- !u!1 &2113891533
 GameObject:
   m_ObjectHideFlags: 0
