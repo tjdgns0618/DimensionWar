@@ -29,7 +29,15 @@ public class Augmenter : MonoBehaviour
         Name.text = augmenter_Datas[r].Augmenter_Name;
         splitString = augmenter_Datas[r].Augmenter_Desc.Split("0");
         n = augmenter_Datas[r].count;
-        Effet.text = string.Format(splitString[0]+ augmenter_Datas[r].num[n] + splitString[1]);
+        if (splitString != null)
+        {
+            Effet.text = string.Format(splitString[0] + augmenter_Datas[r].num[n] + splitString[1]);
+        }
+        else
+        {
+            Effet.text = augmenter_Datas[r].Augmenter_Desc;
+        }
+
         Image.sprite = augmenter_Datas[r].image;
         number = augmenter_Datas[r].number;
         
@@ -85,6 +93,9 @@ public class Augmenter : MonoBehaviour
                 break;
             case 10:
                 _3D_AttackUp();
+                break;
+            case 11:
+                RangeUp();
                 break;
         }
     }

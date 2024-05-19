@@ -89,18 +89,14 @@ public class AugmenterManager : MonoBehaviour
     {
         if(max- GameManager.Instance.FullUpAugm.Count<=2)
         {
-
-
             return;
         }
         int currentNumber = Random.Range(0, max);
         
         for (int i = 0; i < bt.Length;)
         {
-            
             while(r.Contains(currentNumber)|| GameManager.Instance.FullUpAugm.Contains(currentNumber))
             {
-              // if()
                 currentNumber = Random.Range(0, max);
             }
                 r.Add(currentNumber);
