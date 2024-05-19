@@ -281,6 +281,7 @@ public class BTManager : MonoBehaviour
         GameObject instance = Instantiate(GameManager.Instance.tower.GetComponent<TestScript>().nextTower);
         instance.transform.SetParent(GameManager.Instance.tower.transform.parent.transform);
         instance.transform.position = GameManager.Instance.tower.transform.position;
+        GameManager.Instance.towers.Add(instance);
         if(instance.GetComponent<Tower>().tower_class != global::Tower.Tower_Class.Pixel)
             instance.transform.rotation = Quaternion.Euler(0, 180, 0);
         if (GameManager.Instance.tower.tower_class == global::Tower.Tower_Class.Pixel && GameManager.Instance.tower.tag == "Level2"){
