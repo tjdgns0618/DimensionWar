@@ -128,10 +128,6 @@ public class Skill : MonoBehaviour
                     StartCoroutine(enemyController.OnSpeedDown(0.3f,3));
                     enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
-                case 4:
-                    enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
-                    StartCoroutine(enemyController.OnStop(3));
-                    break;
                 case 6:
                     enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
