@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.011300636, g: 0.013223098, b: 0.019378258, a: 1}
+  m_IndirectSpecularColor: {r: 0.010950855, g: 0.0128995, b: 0.01839821, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3612,7 +3612,7 @@ OffMeshLink:
   m_Start: {fileID: 391695643}
   m_End: {fileID: 617497008}
   m_CostOverride: -1
-  m_BiDirectional: 1
+  m_BiDirectional: 0
   m_Activated: 1
   m_AutoUpdatePositions: 0
 --- !u!1001 &403090645
@@ -7619,7 +7619,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4082073986118022568, guid: f75b1eee86e91da42bc943d540301a66,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 400
+      enemyHealth: 600
       goldDropAmount: 10
     spawnInterval: 3
     increaseSpeed: 0
@@ -7631,7 +7631,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7162350847740585720, guid: e1b3b352c35b90e428463c785d3dd81c,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 600
+      enemyHealth: 1000
       goldDropAmount: 15
     spawnInterval: 3
     increaseSpeed: 0
@@ -7643,7 +7643,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5801124634690077906, guid: 7b94f1b75e2ab67408ba8aacd157c037,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 1150
+      enemyHealth: 1300
       goldDropAmount: 20
     spawnInterval: 3
     increaseSpeed: 0
@@ -7655,7 +7655,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5276253056415564214, guid: b055b971a28ac8b488c2f91ea40a1e4e,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 1200
+      enemyHealth: 2000
       goldDropAmount: 30
     spawnInterval: 2
     increaseSpeed: 0
@@ -7667,7 +7667,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4537104983974661893, guid: dc113e5b5431bb544b26f4c055094c08,
         type: 3}
       numberOfEnemies: 15
-      enemyHealth: 1750
+      enemyHealth: 2500
       goldDropAmount: 200
     spawnInterval: 2
     increaseSpeed: 0
@@ -7679,7 +7679,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5670783873597428038, guid: 7bbdd2641c4e8f24d97d43694a30e2e9,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 15000
+      enemyHealth: 45000
       goldDropAmount: 200
     spawnInterval: 2
     increaseSpeed: 0
@@ -22714,7 +22714,7 @@ OffMeshLink:
   m_Start: {fileID: 1857176923}
   m_End: {fileID: 1358670877}
   m_CostOverride: -1
-  m_BiDirectional: 1
+  m_BiDirectional: 0
   m_Activated: 1
   m_AutoUpdatePositions: 0
 --- !u!1 &1857638503
