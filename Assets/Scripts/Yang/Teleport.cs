@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Teleport : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Teleport : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.transform.position = end.position;
+            other.GetComponent<NavMeshAgent>().Warp(end.position);
         }
     }
 
