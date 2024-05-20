@@ -10,9 +10,8 @@ public class AugmenterManager : MonoBehaviour
     public GameObject btt;
     public GameObject[] bt;
     public List<int> r = new List<int>();
-   
+    public GameObject[] reRollBt;
     
-    //public int count=0;
     public int max;
 
     [SerializeField]
@@ -26,7 +25,7 @@ public class AugmenterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.Killcount >= 10)
+        if (GameManager.Instance.Killcount >= 10&& max - GameManager.Instance.FullUpAugm.Count!=0)
         {
             GameManager.Instance.Killcount = 0;            
             Augmeneter();
@@ -88,12 +87,27 @@ public class AugmenterManager : MonoBehaviour
     }
     public void CreateUnDuplicateRandom()
     {
-        if(max- GameManager.Instance.FullUpAugm.Count<=2)
+        
+        int currentNumber = Random.Range(0, max);
+        if (max - GameManager.Instance.FullUpAugm.Count <= 2)
         {
+            for (int i = 0; i < max - GameManager.Instance.FullUpAugm.Count;)
+            {
+                while (r.Contains(currentNumber) || GameManager.Instance.FullUpAugm.Contains(currentNumber))
+                {
+                    currentNumber = Random.Range(0, max);
+                }
+                r.Add(currentNumber);
+                i++;
+            }
+            for (int i = 0; i < max - GameManager.Instance.FullUpAugm.Count; i++)
+            {
+                bt[i].GetComponent<Augmenter>().r = r[i];
+                bt[i].GetComponent<Augmenter>().AugmentUpdate();
+                bt[i].SetActive(true);
+            }
             return;
         }
-        int currentNumber = Random.Range(0, max);
-        
         for (int i = 0; i < bt.Length;)
         {
             while(r.Contains(currentNumber)|| GameManager.Instance.FullUpAugm.Contains(currentNumber))
@@ -107,6 +121,7 @@ public class AugmenterManager : MonoBehaviour
         {
             bt[i].GetComponent<Augmenter>().r = r[i];
             bt[i].GetComponent<Augmenter>().AugmentUpdate();
+            bt[i].SetActive(true);
         }
     }
     public void AugmenterBuy()
