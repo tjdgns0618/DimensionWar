@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3424224, g: 0.43279144, b: 0.5732018, a: 1}
+  m_IndirectSpecularColor: {r: 0.34242553, g: 0.43279302, b: 0.573204, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6432,6 +6432,7 @@ MonoBehaviour:
       numberOfEnemies: 20
       enemyHealth: 250
       goldDropAmount: 10
+      damage: 50
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6441,9 +6442,10 @@ MonoBehaviour:
   - enemyPrefabs:
     - enemyPrefab: {fileID: 5311974460344436497, guid: e975f2f6c2ee8f440b4e823199605f3e,
         type: 3}
-      numberOfEnemies: 10
+      numberOfEnemies: 20
       enemyHealth: 400
-      goldDropAmount: 20
+      goldDropAmount: 10
+      damage: 75
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6454,10 +6456,11 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 286326890981999861, guid: 876489d556c632d4aaad3fda94b61de8,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 500
+      enemyHealth: 1000
       goldDropAmount: 20
+      damage: 100
     spawnInterval: 3
-    increaseSpeed: 1
+    increaseSpeed: 0
     speedMultiplier: 1.2
     lastEnemySpawned: 0
     poolParent: {fileID: 0}
@@ -6466,8 +6469,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5857496512287823640, guid: c4ed2357ae2b40f44a5ee51db4182f0b,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 800
+      enemyHealth: 1500
       goldDropAmount: 25
+      damage: 125
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6478,8 +6482,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 3680090095260274964, guid: 7337bbe9aae5e9a49808bc5a2b068dbf,
         type: 3}
       numberOfEnemies: 5
-      enemyHealth: 1000
+      enemyHealth: 3000
       goldDropAmount: 25
+      damage: 200
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6490,8 +6495,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5801124634690077906, guid: 7b94f1b75e2ab67408ba8aacd157c037,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 950
+      enemyHealth: 2000
       goldDropAmount: 30
+      damage: 200
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -6502,8 +6508,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5351173196874500814, guid: 9d9bb585d7ddbe9468c5687b7a9ce3d0,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 25000
+      enemyHealth: 35000
       goldDropAmount: 500
+      damage: 300
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0

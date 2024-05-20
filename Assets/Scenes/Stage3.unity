@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34243655, g: 0.43280303, b: 0.5732076, a: 1}
+  m_IndirectSpecularColor: {r: 0.34242553, g: 0.43279302, b: 0.573204, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19220,6 +19220,7 @@ MonoBehaviour:
       numberOfEnemies: 30
       enemyHealth: 375
       goldDropAmount: 10
+      damage: 50
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -19230,9 +19231,10 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4082073986118022568, guid: f75b1eee86e91da42bc943d540301a66,
         type: 3}
       numberOfEnemies: 25
-      enemyHealth: 375
+      enemyHealth: 600
       goldDropAmount: 15
-    spawnInterval: 3
+      damage: 80
+    spawnInterval: 2.5
     increaseSpeed: 0
     speedMultiplier: 0
     lastEnemySpawned: 0
@@ -19242,8 +19244,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 286326890981999861, guid: 876489d556c632d4aaad3fda94b61de8,
         type: 3}
       numberOfEnemies: 20
-      enemyHealth: 425
+      enemyHealth: 1000
       goldDropAmount: 20
+      damage: 120
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -19254,8 +19257,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4537104983974661893, guid: dc113e5b5431bb544b26f4c055094c08,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 1750
+      enemyHealth: 2500
       goldDropAmount: 25
+      damage: 150
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -19266,8 +19270,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 6226901395303425249, guid: fef24297b221e1944a6148db358bf02d,
         type: 3}
       numberOfEnemies: 10
-      enemyHealth: 900
+      enemyHealth: 3500
       goldDropAmount: 30
+      damage: 175
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -19278,8 +19283,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5670783873597428038, guid: 7bbdd2641c4e8f24d97d43694a30e2e9,
         type: 3}
       numberOfEnemies: 1
-      enemyHealth: 15000
+      enemyHealth: 30000
       goldDropAmount: 500
+      damage: 200
     spawnInterval: 15
     increaseSpeed: 0
     speedMultiplier: 0

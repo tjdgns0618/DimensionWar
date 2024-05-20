@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34243655, g: 0.43280303, b: 0.5732076, a: 1}
+  m_IndirectSpecularColor: {r: 0.3424245, g: 0.43279183, b: 0.5732047, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26489,6 +26489,7 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 300
       goldDropAmount: 10
+      damage: 50
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -26501,6 +26502,7 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 400
       goldDropAmount: 20
+      damage: 75
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -26513,6 +26515,7 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 500
       goldDropAmount: 20
+      damage: 100
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -26525,6 +26528,7 @@ MonoBehaviour:
       numberOfEnemies: 10
       enemyHealth: 800
       goldDropAmount: 30
+      damage: 125
     spawnInterval: 3
     increaseSpeed: 0
     speedMultiplier: 0
@@ -26537,6 +26541,7 @@ MonoBehaviour:
       numberOfEnemies: 1
       enemyHealth: 7500
       goldDropAmount: 200
+      damage: 250
     spawnInterval: 2
     increaseSpeed: 0
     speedMultiplier: 0

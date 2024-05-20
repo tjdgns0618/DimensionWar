@@ -17,6 +17,7 @@ public class EnemySpawner : MonoBehaviour
             public int numberOfEnemies; // 해당 프리팹의 적의 수
             public float enemyHealth; // 적의 체력
             public int goldDropAmount; // 적이 드랍하는 골드의 양
+            public int damage;
         }
 
         public List<EnemyPrefabData> enemyPrefabs; // 적 프리팹 데이터 리스트
@@ -65,6 +66,7 @@ public class EnemySpawner : MonoBehaviour
                     GameObject enemy = Instantiate(prefabData.enemyPrefab);
                     enemy.GetComponent<EnemyController>().health = prefabData.enemyHealth;
                     enemy.GetComponent<EnemyController>().tempHealth = prefabData.enemyHealth;
+                    enemy.GetComponent<EnemyController>().attackDamage = prefabData.damage;
                     // enemy.SetActive(false);
                     enemy.transform.SetParent(wave.poolParent.transform);
                     wave.enemyPool.Add(enemy);
