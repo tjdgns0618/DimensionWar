@@ -179,6 +179,7 @@ public class Tower_Skill : MonoBehaviour
     IEnumerator skill_4()//���ݷ� 100% �������� �ָ鼭 3�ʰ� ���� ���� �д�
     {
         g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
+        g.transform.LookAt(EnemyTrans.transform.position);
         g.GetComponent<Skill>().init(SkillDmg* SkillDamagePer, id);
         //g.transform.parent = skillParent.transform;
         g.transform.parent = transform;
