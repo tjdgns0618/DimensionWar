@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5674825047276767550}
   - component: {fileID: 5507752531107415206}
   - component: {fileID: 2402640285399710641}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_Mark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4920,7 +4920,7 @@ GameObject:
   - component: {fileID: 1734675931015997448}
   - component: {fileID: 7976150746047682308}
   - component: {fileID: 1966865187401170622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_Mark_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9829,7 +9829,7 @@ GameObject:
   - component: {fileID: 305743074395472881}
   - component: {fileID: 1833311023411036674}
   - component: {fileID: 7840491000274070565}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_Mark_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14738,7 +14738,7 @@ GameObject:
   - component: {fileID: 8269907497211694580}
   - component: {fileID: 4924639562474710758}
   - component: {fileID: 5645609694048211720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_Mark_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19646,7 +19646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4728025538715359398}
   - component: {fileID: 989940394614419375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_PreciseShot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19704,7 +19704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5569061991786934884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_Marks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19741,7 +19741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1849981296889702464}
   - component: {fileID: 5687610432085461252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_BulletColider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19797,7 +19797,7 @@ GameObject:
   - component: {fileID: 1382970229245522849}
   - component: {fileID: 8505065520524335907}
   - component: {fileID: 2766917053955568584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_BulletEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24967,7 +24967,7 @@ GameObject:
   - component: {fileID: 3934862547535637952}
   - component: {fileID: 2733936569673003216}
   - component: {fileID: 6069798015175442888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_47_Mark_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29878,6 +29878,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Effect_47_TrailParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 951736132214390184, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2716654249242860899, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -30053,10 +30058,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2162726403280894476, guid: 0b8638be49ac6784f94eb307679937c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2663269868819418990, guid: 0b8638be49ac6784f94eb307679937c4,
         type: 3}
       propertyPath: m_Name
       value: Effect_47_HitEffects
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663269868819418990, guid: 0b8638be49ac6784f94eb307679937c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3962096864491551470, guid: 0b8638be49ac6784f94eb307679937c4,
         type: 3}
@@ -30087,6 +30102,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585914737185283877, guid: 0b8638be49ac6784f94eb307679937c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881716270503814488, guid: 0b8638be49ac6784f94eb307679937c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9075792758533557298, guid: 0b8638be49ac6784f94eb307679937c4,
         type: 3}
