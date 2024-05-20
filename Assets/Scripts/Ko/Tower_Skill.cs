@@ -349,9 +349,9 @@ public class Tower_Skill : MonoBehaviour
         yield return null;
     }
     IEnumerator skill_14()
-    {
+    {   
         //UnityEngine.Vector3 skillpos = new UnityEngine.Vector3(EnemyTrans.position.x, transform.position.y, EnemyTrans.position.z);
-        g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position, transform.rotation);
+        g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], EnemyTrans.position+ UnityEngine.Vector3.up*3, SkillPrefabs[curTowwer_Skill_Level].transform.rotation);
         g.GetComponent<Skill>().init(SkillDmg * SkillDamagePer, id);
         g.transform.parent = transform;
         yield return YieldCache.WaitForSeconds(3f);

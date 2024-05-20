@@ -55,6 +55,9 @@ public class Skill : MonoBehaviour
                 case 7:
                     id_7(enemy);
                     break;
+                case 14:
+                    enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
+                    break;
                 case 17:
                     enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
@@ -145,9 +148,6 @@ public class Skill : MonoBehaviour
                     break;
                 case 12:
                     enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
-                    break;
-                case 14:
-                    StartCoroutine(DotDeal(enemyController, 1f));
                     break;
                 case 15:
                     StartCoroutine(DotDeal(enemyController, 1f));
