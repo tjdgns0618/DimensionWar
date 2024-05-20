@@ -750,11 +750,8 @@ RectTransform:
   m_Children:
   - {fileID: 118686184}
   - {fileID: 72513674}
-  - {fileID: 1371395993}
   - {fileID: 911172580}
-  - {fileID: 178328294}
   - {fileID: 2128673610}
-  - {fileID: 1293030031}
   m_Father: {fileID: 886196570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -799,6 +796,10 @@ MonoBehaviour:
   Effet: {fileID: 789348870}
   Image: {fileID: 1847052296}
   button: {fileID: 69249350}
+  allBt:
+  - {fileID: 72513669}
+  - {fileID: 911172575}
+  - {fileID: 2128673605}
   augmenter_Datas:
   - {fileID: 11400000, guid: 378cb774fd7066040990b89a5ab68a3a, type: 2}
   - {fileID: 11400000, guid: d5f903228dcbb2c48844ad5c83cdcd0e, type: 2}
@@ -948,6 +949,7 @@ RectTransform:
   - {fileID: 329346538}
   - {fileID: 789348872}
   - {fileID: 1847052298}
+  - {fileID: 1371395993}
   m_Father: {fileID: 69249352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3052,13 +3054,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178328293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 140235901}
-  m_Father: {fileID: 69249352}
+  m_Father: {fileID: 911172580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12921,6 +12923,10 @@ MonoBehaviour:
   Effet: {fileID: 1651795406}
   Image: {fileID: 2006169480}
   button: {fileID: 69249350}
+  allBt:
+  - {fileID: 72513669}
+  - {fileID: 911172575}
+  - {fileID: 2128673605}
   augmenter_Datas:
   - {fileID: 11400000, guid: 378cb774fd7066040990b89a5ab68a3a, type: 2}
   - {fileID: 11400000, guid: d5f903228dcbb2c48844ad5c83cdcd0e, type: 2}
@@ -13070,6 +13076,7 @@ RectTransform:
   - {fileID: 1229892587}
   - {fileID: 2006169482}
   - {fileID: 1651795408}
+  - {fileID: 178328294}
   m_Father: {fileID: 69249352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -16975,17 +16982,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293030030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 595896490}
-  m_Father: {fileID: 69249352}
+  m_Father: {fileID: 2128673610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: -250}
+  m_AnchoredPosition: {x: 0, y: -250}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293030032
@@ -17826,17 +17833,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371395992}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 208020217}
-  m_Father: {fileID: 69249352}
+  m_Father: {fileID: 72513674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: -250}
+  m_AnchoredPosition: {x: 0, y: -250}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371395994
@@ -18294,6 +18301,7 @@ MonoBehaviour:
   - {fileID: 911172575}
   - {fileID: 2128673605}
   r: 
+  reRollBt: []
   max: 12
   Upgradecount: 0
 --- !u!4 &1411845687
@@ -24516,6 +24524,10 @@ MonoBehaviour:
   Effet: {fileID: 629542535}
   Image: {fileID: 2028420959}
   button: {fileID: 69249350}
+  allBt:
+  - {fileID: 72513669}
+  - {fileID: 911172575}
+  - {fileID: 2128673605}
   augmenter_Datas:
   - {fileID: 11400000, guid: 378cb774fd7066040990b89a5ab68a3a, type: 2}
   - {fileID: 11400000, guid: d5f903228dcbb2c48844ad5c83cdcd0e, type: 2}
@@ -24665,6 +24677,7 @@ RectTransform:
   - {fileID: 1326220203}
   - {fileID: 2028420961}
   - {fileID: 629542537}
+  - {fileID: 1293030031}
   m_Father: {fileID: 69249352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
