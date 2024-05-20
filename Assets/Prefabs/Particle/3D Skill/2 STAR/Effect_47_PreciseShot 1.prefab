@@ -19796,7 +19796,6 @@ GameObject:
   - component: {fileID: 6969020204027722542}
   - component: {fileID: 1382970229245522849}
   - component: {fileID: 8505065520524335907}
-  - component: {fileID: 2766917053955568584}
   m_Layer: 8
   m_Name: Effect_47_BulletEffects
   m_TagString: Untagged
@@ -23698,7 +23697,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -23885,7 +23884,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 2
     inside: 1
     outside: 0
@@ -24936,26 +24935,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2766917053955568584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8235826343000447167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 0
-  Speed: 0
-  id: 0
-  towerSkillLevel: 0
-  SpeedCtrl: 0
-  hitObject: []
-  ps: {fileID: 0}
-  parentTower: {fileID: 0}
 --- !u!1 &8768420893400339422
 GameObject:
   m_ObjectHideFlags: 0
@@ -29950,7 +29929,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7966346198127114377, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
         type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966346198127114377, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
+        type: 3}
       propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966346198127114377, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7966346198127114377, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
@@ -29963,11 +29952,46 @@ PrefabInstance:
       propertyPath: CollisionModule.collidesWith.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 7966346198127114377, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
+        type: 3}
+      propertyPath: TriggerModule.primitives.Array.data[0]
+      value: 
+      objectReference: {fileID: 4924723332533821349}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 951736132214390184, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4970930133747976916}
   m_SourcePrefab: {fileID: 100100000, guid: 77ed292e37dcf0249b7b4d124e9b7adf, type: 3}
+--- !u!1 &1668234582477040625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 951736132214390184, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1879123078413948505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4970930133747976916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668234582477040625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4cc09c71a8a24fa3529e309863cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Speed: 0
+  id: 0
+  towerSkillLevel: 0
+  SpeedCtrl: 0
+  hitObject: []
+  ps: {fileID: 0}
+  parentTower: {fileID: 0}
 --- !u!4 &4924723332533821349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6794768264738867708, guid: 77ed292e37dcf0249b7b4d124e9b7adf,
