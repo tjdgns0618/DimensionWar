@@ -182,7 +182,7 @@ public class Tower_Skill : MonoBehaviour
         g.transform.LookAt(EnemyTrans.transform.position);
         g.GetComponent<Skill>().init(SkillDmg* SkillDamagePer, id);
         //g.transform.parent = skillParent.transform;
-        g.transform.parent = transform;
+
 
         yield return YieldCache.WaitForSeconds(3f);
 
