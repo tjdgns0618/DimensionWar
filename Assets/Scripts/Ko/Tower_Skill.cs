@@ -236,7 +236,7 @@ public class Tower_Skill : MonoBehaviour
             case 0:
                 g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
                 g.GetComponent<Skill>().init(SkillDmg * SkillDamagePer, id);
-
+                g.transform.LookAt(EnemyTrans.position);
                 g.transform.parent = transform;
                 break;
                 
@@ -262,7 +262,7 @@ public class Tower_Skill : MonoBehaviour
             case 0:
                 g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], skillPos.transform.position, transform.rotation);
                 g.GetComponent<Skill>().init(SkillDmg * SkillDamagePer, id);
-
+                g.transform.LookAt(EnemyTrans.position);
                 g.transform.parent = transform;
                 break;
             case 1:
