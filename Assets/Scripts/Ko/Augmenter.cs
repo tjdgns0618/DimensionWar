@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System.Linq;
 
 public class Augmenter : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Augmenter : MonoBehaviour
     public Text Effet;
     public Image Image;
     public GameObject button;
+    public GameObject[] allBt;
     public Augmenter_Data[] augmenter_Datas;
     public List<int> nonag;
     public int r;
@@ -52,6 +54,10 @@ public class Augmenter : MonoBehaviour
     }
     public void Button()
     {
+        foreach(GameObject AllBt in allBt)
+        {
+            AllBt.gameObject.SetActive(false);
+        }
         button.SetActive(false);
         Time.timeScale = PlayerPrefs.GetInt("Timescale");
         augmenter_Datas[r].count++;

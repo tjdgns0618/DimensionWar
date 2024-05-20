@@ -43,11 +43,9 @@ public class Skill : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {   
-        Debug.Log(other.tag);
         if(other.CompareTag("Enemy"))
         {
             EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
-            Debug.Log(other.tag);
             switch (id)
             {
                 case 4:
@@ -56,9 +54,7 @@ public class Skill : MonoBehaviour
                     break;
                 case 7:
                     id_7(enemy);
-                    Debug.Log("1");
                     break;
-               
                 case 17:
                     enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
@@ -67,7 +63,6 @@ public class Skill : MonoBehaviour
                     break;
                 case 20:
                     enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
-                    Debug.Log(enemy.health);
                     break;
                 case 22:
                     enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
@@ -101,7 +96,7 @@ public class Skill : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            Debug.Log(enemy.name);
+            //Debug.Log(enemy.name);
             if (!hitObject.Contains(enemy))
             {
                 hitObject.Add(enemy);
@@ -119,7 +114,6 @@ public class Skill : MonoBehaviour
     }
     public void ApplyDamage(GameObject enemy)
     {
-        Debug.Log("1");
         EnemyController enemyController = enemy.GetComponent<EnemyController>();
         if(enemyController != null)
         {
@@ -192,7 +186,7 @@ public class Skill : MonoBehaviour
         while (true)
         {
             enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
-            Debug.Log(enemy.name + enemy.health);
+            //Debug.Log(enemy.name + enemy.health);
             yield return YieldCache.WaitForSeconds(time);
         }
     }
