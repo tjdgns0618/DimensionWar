@@ -61,7 +61,7 @@ public class AugmenterManager : MonoBehaviour
 
     public void reroll(int num)
     {
-        if (GameManager.Instance.gold <=10|| max - GameManager.Instance.FullUpAugm.Count <= 2)
+        if (GameManager.Instance.gold <10|| max - GameManager.Instance.FullUpAugm.Count <= 2)
         {
             //gameObject.SetActive(false);
             return;

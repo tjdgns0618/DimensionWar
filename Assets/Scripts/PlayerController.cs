@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float health = 20f; // ÇÃ·¹ÀÌ¾îÀÇ Ã¼·Â
+    public float health = 20f; // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½
     public GameObject rocket;
     public GameObject effect;
     public Slider hpSlider;
@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage; // ÇÃ·¹ÀÌ¾îÀÇ Ã¼·Â¿¡¼­ µ¥¹ÌÁö¸¸Å­ °¨¼Ò
+        health -= damage; // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ Ã¼ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½
         hpSlider.value -= damage;
-        // Ã¼·ÂÀÌ 0 ÀÌÇÏ·Î ¶³¾îÁ³À» ¶§ Ã³¸®
+        // Ã¼ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½
         if (health <= 0)
         {
             StartCoroutine(GameOver());
@@ -30,11 +30,11 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GameOver()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0.5f;
         hpSlider.gameObject.SetActive(false);
         effect.SetActive(true);
-        rocket.SetActive(false); // ÇÃ·¹ÀÌ¾î ºñÈ°¼ºÈ­
-        yield return new WaitForSeconds(2f);
+        rocket.SetActive(false); // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
+        yield return new WaitForSeconds(0.4f);
         GameManager.Instance.uiManager.FailedPanel.SetActive(true);
     }
 
