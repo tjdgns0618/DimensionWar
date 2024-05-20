@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 599381284525815621}
   - component: {fileID: 6040191331125607868}
   - component: {fileID: 7892401556591671087}
-  - component: {fileID: 3878035167501030934}
-  m_Layer: 0
+  - component: {fileID: 1815222906899138040}
+  m_Layer: 8
   m_Name: Effect_15_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   hitObject: []
   ps: {fileID: 0}
   parentTower: {fileID: 0}
---- !u!65 &3878035167501030934
+--- !u!65 &1815222906899138040
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.74}
+  m_Size: {x: 0.07, y: 0.07, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9163396348520894969
 GameObject:
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1253376047615907283}
   - component: {fileID: 1931313644899449280}
   - component: {fileID: 3858747758790937552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect_15_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -460,7 +460,8 @@ public class Tower_Skill : MonoBehaviour
     }
     IEnumerator skill_22()
     {
-        g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, transform.rotation);
+        g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], skillPos.transform.position, transform.rotation);
+        g.transform.LookAt(EnemyTrans.transform.position);
         g.GetComponentInChildren<Skill>().init(SkillDmg * SkillDamagePer, id);
         g.transform.parent = transform;
         yield return new WaitForSeconds(5f);
