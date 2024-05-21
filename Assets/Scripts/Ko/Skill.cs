@@ -141,7 +141,7 @@ public class Skill : MonoBehaviour
                     id_9(enemyController);
                     break;
                 case 10:
-                    StartCoroutine(DotDeal(enemyController, 1f));
+                    StartCoroutine(DotDeal(enemyController,1f));
                     break;
                 case 11:
                     StartCoroutine(DotDeal(enemyController,1f));
