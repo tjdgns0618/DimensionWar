@@ -327,7 +327,6 @@ public class Tower : MonoBehaviour
                     anim.speed = 1;
                     enemy.RemoveTower();
                     enemy.StartMoving();
-                    Debug.Log("enemy.StartMoving");
                 }
             }
         }        

@@ -71,7 +71,6 @@ public class BTManager : MonoBehaviour
     {
         if (GameManager.Instance.SelectBlock.transform.childCount >= 2) // Ÿ���� �������� �ʴ� �����̶��
             return;
-        Debug.Log(PlayerPrefs.GetInt("Dimension"));
         int i = Random.Range(3, 9);
         GameObject instance = Instantiate(Tower[i]);    // ���Ÿ�Ÿ���߿��� �������� ����
         GameManager.Instance.towers.Add(instance);      // ������ Ÿ���� ���ӸŴ����� �������ش�.

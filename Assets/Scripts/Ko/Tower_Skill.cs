@@ -39,7 +39,6 @@ public class Tower_Skill : MonoBehaviour
     void initSkill()
     {
         SkillDmg = gameObject.GetComponent<Tower>().Damage;
-        Debug.Log("!");
         id = gameObject.GetComponent<Tower>().Tower_id;
     }
 
@@ -281,7 +280,6 @@ public class Tower_Skill : MonoBehaviour
     IEnumerator skill_9()
     {
         g = Instantiate(SkillPrefabs[tower_Level], skillPos.transform.position, transform.rotation);
-        Debug.Log(g.name);
         g.GetComponent<Skill>().ShotInit(SkillDmg * SkillDamagePer, 1, EnemyTrans.transform.position - transform.position, id);
         g.SetActive(true);
         g.transform.parent = transform;
@@ -336,7 +334,6 @@ public class Tower_Skill : MonoBehaviour
                 if (ray.transform.CompareTag("Tower"))
                 {
                     ray.transform.gameObject.GetComponent<Tower>().health += SkillDmg * SkillDamagePer;
-                    Debug.Log(name);
                 }
             }
             //g.transform.parent = skillParent.transform;
@@ -389,11 +386,9 @@ public class Tower_Skill : MonoBehaviour
         switch(curTowwer_Skill_Level)
         {
             case 0:
-                Debug.Log("skill17_1");
                 gameObject.GetComponent<Tower>().isBuff = true;
                 g = Instantiate(SkillPrefabs[curTowwer_Skill_Level], transform.position, SkillPrefabs[curTowwer_Skill_Level].transform.rotation);
                 g.transform.parent = transform;
-                Debug.Log("skill17");
                 yield return new WaitForSeconds(15);
                 gameObject.GetComponent<Tower>().isBuff = false;
                 Destroy(g);

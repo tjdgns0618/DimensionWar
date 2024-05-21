@@ -69,13 +69,12 @@ public class FollowMouse : MonoBehaviour
                     Destroy(this.gameObject);
                     // 블럭 클릭 불가능하게 변경
                     hit.transform.gameObject.layer = 2; 
-                    Debug.Log(this.gameObject.name + "설치 완료");
+                    
                 }
                 // 이미 타워가 설치되있으면 설치 불가능
                 else if (Input.GetMouseButtonDown(0) && hit.transform.childCount == 1)
                 {
                     Destroy(this.gameObject);
-                    Debug.Log("이미 타워가 설치되었습니다.");
                 }
             }
             // 근접타워 설치 블럭일 경우
@@ -114,13 +113,11 @@ public class FollowMouse : MonoBehaviour
                     Destroy(this.gameObject);
                     // 블럭 클릭 불가능하게 변경
                     hit.transform.gameObject.layer = 2;
-                    Debug.Log(this.gameObject.name + "설치 완료");
                 }
                 // 이미 타워가 설치되있으면 설치 불가능
                 else if (Input.GetMouseButtonDown(0) && hit.transform.childCount == 1)
                 {
                     Destroy(this.gameObject);
-                    Debug.Log("이미 타워가 설치되었습니다.");
                 }
             }
             // 타워 설치 불가능 구역에 마우스가 있을경우
@@ -130,7 +127,6 @@ public class FollowMouse : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     Destroy(this.gameObject);
-                    Debug.Log("설치 불가능한 블록입니다.");
                 }
                 
                 Vector3 targetPosition;

@@ -66,7 +66,6 @@ public class Skill : MonoBehaviour
                     break;
                 case 22:
                     enemy.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
-                    Debug.Log(enemy.health);
                     break;
             }
         
