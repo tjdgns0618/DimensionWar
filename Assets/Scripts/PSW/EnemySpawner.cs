@@ -115,7 +115,6 @@ public class EnemySpawner : MonoBehaviour
                     count++;
                     if (count == currentWave.enemyPool.Count)
                         lastSpawn = true;
-                    Debug.Log(count);
 
                     // 적의 속도 증가 체크 여부에 따라 속도 증가
                     if (currentWave.increaseSpeed)
@@ -217,7 +216,6 @@ public class EnemySpawner : MonoBehaviour
             EnemyWave currentWave = EnemyWaves[currentWaveIndex];
             if (currentWave.lastEnemySpawned && allDead && OnAllEnemiesDead != null)
             {
-                Debug.Log("alldead");
                 //GameManager.Instance.meleeRespawn(); // GameManager.Instance가 null이 아닐 때만 호출
                 //GameManager.Instance.diamond += 3;
                 OnAllEnemiesDead.Invoke();
