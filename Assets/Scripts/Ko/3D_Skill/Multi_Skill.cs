@@ -21,4 +21,8 @@ public class Multi_Skill : MonoBehaviour
             child.GetComponent<MultipleObjectsMake>().parent_skillDmg = Damage;
         }
     }
+    public void OnDisable()
+    {
+        Destroy(gameObject);
+    }
 }

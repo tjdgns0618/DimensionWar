@@ -33,7 +33,6 @@ public class Skill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     public void TrackingEnemy(EnemyController enemy)
     {
