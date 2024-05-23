@@ -50,7 +50,7 @@ public class Skill : MonoBehaviour
             {
                 case 4:
                     enemy.OnDamage(Damage+Damage * GameManager.Instance.SkillDamage);
-                    enemy.StartCoroutine(enemy.OnStop(3));
+                    //enemy.StartCoroutine(enemy.OnStop(3));
                     break;
                 case 7:
                     id_7(enemy);
@@ -121,14 +121,14 @@ public class Skill : MonoBehaviour
             switch (id)
             {
                 case 1:
-                    StartCoroutine(enemyController.OnDamageDown(0.3f, 3));
+                   // StartCoroutine(enemyController.OnDamageDown(0.3f, 3));
                     StartCoroutine(DotDeal(enemyController,1));
                     break;
                 case 2:
                     StartCoroutine(DotDeal(enemyController,1f));
                     break;
                 case 3:
-                    StartCoroutine(enemyController.OnSpeedDown(0.3f,3));
+                   // StartCoroutine(enemyController.OnSpeedDown(0.3f,3));
                     enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
                     break;
                 case 6:
@@ -157,7 +157,7 @@ public class Skill : MonoBehaviour
                     break;
                 case 18:
                     enemyController.OnDamage(Damage + Damage * GameManager.Instance.SkillDamage);
-                    StartCoroutine(enemyController.OnStun(3));
+                    //StartCoroutine(enemyController.OnStun(3));
                     break;
                 case 20:
                     enemyController.OnDamage(Damage + Damage*GameManager.Instance.SkillDamage);
